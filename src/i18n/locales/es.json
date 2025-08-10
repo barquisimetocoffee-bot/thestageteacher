@@ -15,6 +15,8 @@
     "bookDemo": "Reservar Demo",
     "available": "Disponible",
     "comingSoon": "Próximamente",
+    "pricingPlan": "Elige Tu Plan",
+    "joinWaitlist": "Unirse a la Lista de Espera",
     "byCategory": "Por Categoría",
     "byDepartment": "Por Departamento",
     "primarySchools": "Escuelas Primarias",
@@ -40,7 +42,7 @@
     "subtitle3": "Suite de Enseñanza Inteligente",
     "subtitle4": "Solución para Escuelas del Futuro",
     "subtitle5": "Red de Educación Global",
-    "description": "Vivicerta es la fuerza motriz detrás del futuro de la educación, proporcionando un conjunto completo de soluciones impulsadas por IA que transforman cómo enseñamos, aprendemos y gestionamos instituciones educativas.",
+    "description": "Vicerta es la fuerza motriz detrás del futuro de la educación, proporcionando un conjunto completo de soluciones impulsadas por IA que transforman cómo enseñamos, aprendemos y gestionamos instituciones educativas.",
     "getStarted": "Comenzar Gratis",
     "watchDemo": "Ver Demo",
     "transformingEducation": "Transformando la Educación con IA",
@@ -56,7 +58,7 @@
     "userRating": "Calificación de Usuario 4.9/5"
   },
   "videoShowcase": {
-    "title": "Ve Vivicerta en Acción",
+    "title": "Ve Vicerta en Acción",
     "description": "Mira cómo nuestro ecosistema educativo impulsado por IA transforma las experiencias de enseñanza y aprendizaje.",
     "fullDemo": "Demo Completa Disponible",
     "duration": "Duración: 3:42",
@@ -64,14 +66,14 @@
   },
   "ecertaShowcase": {
     "title": "Experimenta el Futuro de la Educación",
-    "description": "Descubre cómo Vivicerta transforma los métodos de enseñanza tradicionales con tecnología de vanguardia.",
+    "description": "Descubre cómo Vicerta transforma los métodos de enseñanza tradicionales con tecnología de vanguardia.",
     "aiPowered": "Impulsado por IA",
     "aiDescription": "Generación de Contenido Inteligente",
     "seamlessIntegration": "Integración Perfecta",
     "integrationDescription": "Todas las Herramientas Conectadas",
     "timeSaving": "Ahorro de Tiempo",
     "timeDescription": "15+ Horas Semanales",
-    "tryNow": "Probar Vivicerta Ahora"
+    "tryNow": "Probar Vicerta Ahora"
   },
   "products": {
     "title": "Nuestra Suite de Productos",
@@ -147,6 +149,51 @@
   "grades": {
     "selectGrade": "Seleccionar Nivel de Grado",
     "selectSystem": "Seleccionar Sistema Educativo"
+  },
+  "pages": {
+    "contactUs": {
+      "title": "Contáctanos",
+      "subtitle": "Nos encantaría saber de ti. Ponte en contacto con nuestro equipo para soporte, asociaciones o cualquier pregunta sobre Vicerta.",
+      "getInTouch": "Ponte en Contacto",
+      "emailUs": "Envíanos un Email",
+      "emailAddress": "support@vicerta.com",
+      "emailDescription": "Ponte en contacto para consultas generales",
+      "callUs": "Llámanos",
+      "phoneNumber": "+1 (555) 123-4567",
+      "phoneDescription": "Habla con nuestro equipo de soporte",
+      "visitUs": "Visítanos",
+      "address": "123 Education Street, Tech City, TC 12345",
+      "addressDescription": "La ubicación de nuestra sede",
+      "supportHours": "Horarios de Soporte",
+      "hours": "Lun-Vie: 9AM-6PM EST",
+      "hoursDescription": "Cuando estamos disponibles para ayudar",
+      "sendMessage": "Envíanos un Mensaje",
+      "sendMessageDescription": "Completa el formulario a continuación y te responderemos lo antes posible.",
+      "name": "Nombre",
+      "email": "Email",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "sendButton": "Enviar Mensaje",
+      "backToHome": "Volver al Inicio"
+    },
+    "blog": {
+      "title": "Blog Educativo",
+      "subtitle": "Perspectivas, consejos y tendencias del mundo de la tecnología educativa y la enseñanza moderna.",
+      "backToHome": "Volver al Inicio"
+    },
+    "caseStudies": {
+      "title": "Casos de Estudio",
+      "subtitle": "Descubre cómo las escuelas de todo el mundo están transformando la educación con las soluciones innovadoras de Vicerta.",
+      "readFullStudy": "Leer Estudio Completo",
+      "backToHome": "Volver al Inicio"
+    },
+    "partnersIntegrations": {
+      "title": "Socios e Integraciones",
+      "subtitle": "Conéctate perfectamente con las herramientas que ya usas y en las que confías. Nuestra extensa red de socios te asegura la mejor experiencia educativa.",
+      "platformIntegrations": "Integraciones de Plataforma",
+      "strategicPartners": "Socios Estratégicos",
+      "backToHome": "Volver al Inicio"
+    }
   },
   "easyteach": {
     "title": "EasyTeach",
@@ -243,7 +290,7 @@
   "showcase": {
     "drivingForce": "La Fuerza Motriz",
     "behindEducation": "Detrás de la Innovación Educativa",
-    "platformDescription": "Vivicerta no es solo una plataforma - es la base de la nueva era educativa, conectando sin problemas la enseñanza, el aprendizaje y la administración a través de IA inteligente.",
+    "platformDescription": "Vicerta no es solo una plataforma - es la base de la nueva era educativa, conectando sin problemas la enseñanza, el aprendizaje y la administración a través de IA inteligente.",
     "consolidatedAI": "Inteligencia IA Consolidada",
     "consolidatedAIDesc": "Nuestros tres productos comparten un cerebro IA común que aprende de cada interacción en la plataforma, creando soluciones más inteligentes para todos.",
     "seamlessIntegration": "Integración Perfecta",
@@ -253,7 +300,7 @@
     "whyEcerta": "Por Qué Vicerta es el Futuro de la Educación",
     "whyEcertaDesc": "No solo estamos construyendo productos - estamos creando la base para la próxima generación de tecnología educativa.",
     "completeEcosystem": "Enfoque de Ecosistema Completo",
-    "completeEcosystemDesc": "A diferencia de las soluciones fragmentadas, Vivicerta proporciona una plataforma unificada que sirve a todos los actores en el proceso educativo - desde maestros individuales hasta instituciones enteras.",
+    "completeEcosystemDesc": "A diferencia de las soluciones fragmentadas, Vicerta proporciona una plataforma unificada que sirve a todos los actores en el proceso educativo - desde maestros individuales hasta instituciones enteras.",
     "exponentialGrowth": "Impacto de Crecimiento Exponencial",
     "exponentialGrowthDesc": "Nuestro enfoque integrado crea beneficios exponenciales. A medida que un producto mejora, mejora todo el ecosistema, multiplicando el valor para todos los usuarios.",
     "globalTransformation": "Transformación Educativa Global",
@@ -270,6 +317,641 @@
     "delete": "Eliminar",
     "edit": "Editar",
     "view": "Ver",
-    "language": "Idioma"
+    "language": "Idioma",
+    "chooseYourPlan": "Elige Tu Plan",
+    "choosePlan": "Elige Tu Plan",
+    "planDescription": "Comienza gratis y actualiza cuando estés listo para poder de IA ilimitado",
+    "whatsIncluded": "Qué está incluido:",
+    "featuresMore": "+{{count}} características más",
+    "mostPopular": "Más Popular",
+    "easyTeachFree": "EasyTeach Gratis",
+    "easyTeachPro": "EasyTeach Pro",
+    "schoolAdministration": "Administración Escolar",
+    "advancedLMS": "LMS Avanzado",
+    "freeForever": "Gratis/Para siempre",
+    "perYear": "por año",
+    "available": "disponible",
+    "comingSoon": "Próximamente",
+    "getStartedFree": "Comenzar Gratis",
+    "upgradeToPro": "Actualizar a Pro",
+    "requestDemo": "Solicitar Demo",
+    "enterLMSBeta": "Entrar a Beta LMS",
+    "joinWaitlist": "Unirse a Lista de Espera",
+    "basicLessonPlanning": "Planificación de Lecciones Básica",
+    "parentCommunicationTemplates": "Plantillas de Comunicación con Padres",
+    "limitedAIGenerations": "Generaciones de IA Limitadas (50/mes)",
+    "basicBehaviorManagement": "Herramientas Básicas de Gestión del Comportamiento",
+    "communitySupportText": "Soporte de la Comunidad",
+    "everythingInFree": "Todo en Gratis, más...",
+    "unlimitedAIGenerations": "Generaciones de IA ilimitadas",
+    "continueThreads": "Continuar conversaciones con Kribi Chatbot",
+    "unlimitedAISlides": "Generación de Slides de IA ilimitada",
+    "exportToGoogleSlides": "Exportar a Google Slides",
+    "easyTeachForStudents": "EasyTeach para estudiantes",
+    "lifetimeOutputHistory": "Historial de salida de por vida",
+    "exclusiveEarlyAccess": "Acceso anticipado exclusivo a nuevas características",
+    "schoolWideManagement": "Panel de Gestión Escolar",
+    "aiPoweredAdministrative": "Asistencia Administrativa Potenciada por IA",
+    "studentPerformanceAnalytics": "Análisis de Rendimiento Estudiantil",
+    "staffManagementScheduling": "Gestión de Personal y Programación",
+    "parentSchoolCommunication": "Centro de Comunicación Padre-Escuela",
+    "institutionalReporting": "Informes e Insights Institucionales",
+    "aiPersonalizationAdaptive": "Personalización de IA y Aprendizaje Adaptativo",
+    "aiGeneratedContentMultilingual": "Contenido Generado por IA y Soporte Multilingüe",
+    "smartProctoringGrading": "Supervisión Inteligente y Calificación Automática",
+    "gamificationVRARIntegration": "Gamificación e Integración VR/AR",
+    "predictiveAnalyticsAssistant": "Análisis Predictivo y Asistente IA",
+    "blockchainCertificates": "Certificados Blockchain y Características Corporativas",
+    "teachersCount": "100,000+ Maestros"
+  },
+  "tools": {
+    "lessonPlanGenerator": {
+      "name": "Generador de Plan de Lección",
+      "description": "Crea planes de lección integrales con objetivos, actividades y evaluaciones adaptadas a tu nivel de grado y materia."
+    },
+    "lessonHookIdeas": {
+      "name": "Ideas de Gancho de Lección",
+      "description": "Genera actividades de apertura creativas y atractivas para capturar la atención de los estudiantes al inicio de tu lección."
+    },
+    "iepGenerator": {
+      "name": "Generador de PEI",
+      "description": "Crea objetivos y acomodaciones de programa educativo individualizado adaptados a las necesidades específicas de los estudiantes."
+    },
+    "learningObjectiveWriter": {
+      "name": "Redactor de Objetivos de Aprendizaje",
+      "description": "Escribe objetivos de aprendizaje claros y medibles que se alineen con los estándares y guíen la instrucción."
+    },
+    "presentationGenerator": {
+      "name": "Generador de Presentaciones",
+      "description": "Crea presentaciones de diapositivas atractivas con contenido, actividades y sugerencias visuales para tus lecciones."
+    },
+    "academicContentGenerator": {
+      "name": "Generador de Contenido Académico",
+      "description": "Genera contenido alineado con el currículo, explicaciones y ejemplos para cualquier tema o área de materia."
+    },
+    "mathSpiralReview": {
+      "name": "Revisión Espiral de Matemáticas",
+      "description": "Crea problemas de práctica de matemáticas que revisen conceptos previamente enseñados junto con material nuevo."
+    },
+    "textValidation": {
+      "name": "Validación de Texto",
+      "description": "Verifica el nivel de lectura, complejidad y adecuación de textos para tu nivel objetivo."
+    },
+    "multipleExplanationsGenerator": {
+      "name": "Generador de Explicaciones Múltiples",
+      "description": "Genera diferentes formas de explicar el mismo concepto para ayudar a diversos aprendices a entender."
+    },
+    "generalAssessment": {
+      "name": "Evaluación General",
+      "description": "Crea evaluaciones integrales incluyendo cuestionarios, exámenes y tareas de rendimiento para cualquier materia."
+    },
+    "questionStemGenerator": {
+      "name": "Generador de Bases de Preguntas",
+      "description": "Genera bases de preguntas estimulantes para profundizar el pensamiento y la discusión de los estudiantes."
+    },
+    "worksheetGenerator": {
+      "name": "Generador de Hojas de Trabajo",
+      "description": "Crea hojas de trabajo de práctica con problemas, ejercicios y actividades para cualquier área de materia."
+    },
+    "multiStepAssignmentCreator": {
+      "name": "Creador de Tareas de Múltiples Pasos",
+      "description": "Diseña tareas complejas que se descomponen en pasos manejables con instrucciones claras."
+    },
+    "dokQuestionsGenerator": {
+      "name": "Generador de Preguntas DOK",
+      "description": "Crea preguntas en diferentes niveles de Profundidad de Conocimiento para evaluar varias habilidades de pensamiento."
+    },
+    "quizCreator": {
+      "name": "Creador de Cuestionarios",
+      "description": "Genera cuestionarios de evaluación formativa rápidos para verificar la comprensión de los estudiantes."
+    },
+    "mathProblemGenerator": {
+      "name": "Generador de Problemas de Matemáticas",
+      "description": "Crea problemas de matemáticas personalizados y problemas de palabras para práctica o evaluación."
+    },
+    "aiTextDetector": {
+      "name": "Detector de Texto IA",
+      "description": "Analiza las submisiones de texto de los estudiantes para identificar contenido potencialmente generado por IA y mantener la integridad académica."
+    },
+    "parentEmailComposer": {
+      "name": "Compositor de Email para Padres",
+      "description": "Redacta emails profesionales y cálidos a los padres sobre el progreso, preocupaciones o celebraciones de los estudiantes."
+    },
+    "behaviorPlan": {
+      "name": "Generador de Plan de Comportamiento",
+      "description": "Crea planes de intervención conductual completos con estrategias y apoyos para estudiantes individuales."
+    },
+    "studentGrouping": {
+      "name": "Herramienta de Agrupación de Estudiantes",
+      "description": "Genera agrupaciones estratégicas de estudiantes para trabajo colaborativo, instrucción diferenciada y gestión del aula."
+    },
+    "behaviorManagementPlan": {
+      "name": "Plan de Manejo del Comportamiento",
+      "description": "Crea planes de apoyo conductual positivo con estrategias e intervenciones para estudiantes individuales."
+    },
+    "socialStoriesCreator": {
+      "name": "Creador de Historias Sociales",
+      "description": "Genera historias sociales personalizadas para ayudar a los estudiantes a entender situaciones sociales y expectativas."
+    },
+    "differentiatedLearningActivity": {
+      "name": "Actividad de Aprendizaje Diferenciada",
+      "description": "Crea múltiples versiones de actividades adaptadas para diferentes niveles y estilos de aprendizaje."
+    },
+    "accommodationsGuide": {
+      "name": "Guía de Acomodaciones",
+      "description": "Obtén recomendaciones específicas de acomodaciones para estudiantes con diversas necesidades de aprendizaje."
+    },
+    "readingLevelAdapter": {
+      "name": "Adaptador de Nivel de Lectura",
+      "description": "Adapta textos a diferentes niveles de lectura mientras mantienes el contenido esencial y el significado."
+    },
+    "studentReflectionPrompts": {
+      "name": "Indicaciones de Reflexión para Estudiantes",
+      "description": "Genera indicaciones reflexivas para ayudar a los estudiantes a reflexionar sobre su aprendizaje y crecimiento."
+    },
+    "peopleBingo": {
+      "name": "Bingo de Personas",
+      "description": "Crea juegos de bingo interactivos para ayudar a los estudiantes a conocerse entre sí y construir comunidad."
+    },
+    "icebreakerActivities": {
+      "name": "Actividades Rompehielos",
+      "description": "Genera actividades divertidas y atractivas para ayudar a los estudiantes a conectar y sentirse cómodos en clase."
+    },
+    "rubricGenerator": {
+      "name": "Generador de Rúbricas",
+      "description": "Crea rúbricas de puntuación detalladas para tareas, proyectos y evaluaciones."
+    },
+    "syllabusGenerator": {
+      "name": "Generador de Programa de Estudios",
+      "description": "Genera programas de curso integrales con políticas, horarios y expectativas."
+    },
+    "certificateDesigner": {
+      "name": "Diseñador de Certificados",
+      "description": "Crea certificados y premios personalizados para reconocer los logros de los estudiantes."
+    },
+    "conferencePrepHelper": {
+      "name": "Asistente de Preparación de Conferencias",
+      "description": "Prepara puntos de conversación y estrategias para conferencias productivas entre padres y maestros."
+    },
+    "studentGoalSetter": {
+      "name": "Establecedor de Objetivos para Estudiantes",
+      "description": "Ayuda a los estudiantes a crear objetivos SMART para el crecimiento académico y personal."
+    },
+    "classSurveyCreator": {
+      "name": "Creador de Encuestas de Clase",
+      "description": "Diseña encuestas para recopilar comentarios de estudiantes y entender el clima del aula."
+    },
+    "substituteTeacherPlan": {
+      "name": "Plan para Maestro Sustituto",
+      "description": "Crea planes de lección detallados e instrucciones para maestros sustitutos."
+    },
+    "bulletinBoardIdeas": {
+      "name": "Ideas de Tablero de Anuncios",
+      "description": "Genera diseños creativos y educativos de tableros de anuncios para tu aula."
+    },
+    "newsLetterGenerator": {
+      "name": "Generador de Boletín",
+      "description": "Crea boletines de clase atractivos para mantener a los padres informados e involucrados."
+    },
+    "fieldTripPlanner": {
+      "name": "Planificador de Excursiones",
+      "description": "Planifica excursiones educativas con objetivos de aprendizaje y actividades de seguimiento."
+    },
+    "scienceLabSafetyGuide": {
+      "name": "Guía de Seguridad de Laboratorio de Ciencias",
+      "description": "Genera protocolos y procedimientos de seguridad integrales para experimentos científicos."
+    },
+    "choiceBoard": {
+      "name": "Tablero de Opciones",
+      "description": "Crea tableros de opciones estructurados que permiten a los estudiantes seleccionar entre varias actividades de aprendizaje."
+    }
+  },
+  "categories": {
+    "lessonPlanning": "Planificación de Lecciones",
+    "contentHub": "Centro de Contenido",
+    "assessment": "Evaluación",
+    "communication": "Comunicación",
+    "behaviourSupport": "Apoyo Conductual",
+    "differentiation": "Diferenciación"
+  },
+  "fields": {
+    "subject": {
+      "label": "Materia",
+      "placeholder": "ej., Matemáticas, Ciencias, Literatura en Inglés, Historia"
+    },
+    "grade": {
+      "label": "Nivel de Grado"
+    },
+    "topic": {
+      "label": "Tema u Objetivos",
+      "placeholder": "ej., Entender la fotosíntesis, Sumar fracciones, Análisis de personajes en literatura"
+    },
+    "duration": {
+      "label": "Duración de la Lección"
+    },
+    "learningStyle": {
+      "label": "Estilo de Aprendizaje Enfocado"
+    },
+    "additionalContext": {
+      "label": "Contexto Adicional",
+      "placeholder": "Incluye cualquier requisito específico, necesidades de estudiantes, recursos disponibles, o restricciones de enseñanza que deberían considerarse..."
+    },
+    "standardAlignment": {
+      "label": "Alineación con Estándares",
+      "placeholder": "Estándar español"
+    },
+    "resources": {
+      "label": "Recursos Disponibles"
+    },
+    "studentAge": {
+      "label": "Edad/Grado del Estudiante"
+    },
+    "disability": {
+      "label": "Discapacidad Principal"
+    },
+    "currentLevel": {
+      "label": "Nivel de Rendimiento Actual",
+      "placeholder": "Describe las habilidades y desafíos actuales del estudiante..."
+    },
+    "goalArea": {
+      "label": "Área de Objetivo",
+      "placeholder": "¿Qué habilidad o comportamiento específico necesita mejora?"
+    },
+    "bloomsLevel": {
+      "label": "Nivel de Pensamiento"
+    },
+    "standard": {
+      "label": "Estándar Relacionado (opcional)",
+      "placeholder": "Estándar nacional, estándar estatal..."
+    },
+    "slideCount": {
+      "label": "Número de Diapositivas"
+    },
+    "includeActivities": {
+      "label": "Incluir Elementos Interactivos"
+    },
+    "contentType": {
+      "label": "Tipo de Contenido"
+    },
+    "length": {
+      "label": "Longitud del Contenido"
+    },
+    "currentTopic": {
+      "label": "Tema Actual",
+      "placeholder": "¿Qué estás enseñando actualmente?"
+    },
+    "reviewTopics": {
+      "label": "Temas a Revisar",
+      "placeholder": "Lista los temas anteriores a incluir en la revisión..."
+    },
+    "problemCount": {
+      "label": "Número de Problemas"
+    },
+    "difficulty": {
+      "label": "Nivel de Dificultad"
+    },
+    "text": {
+      "label": "Texto a Analizar",
+      "placeholder": "Pega el texto que quieres validar..."
+    },
+    "targetGrade": {
+      "label": "Nivel de Grado Objetivo"
+    },
+    "purpose": {
+      "label": "Propósito del Texto"
+    },
+    "proofreading": {
+      "label": "Corrección"
+    },
+    "rewriteTo": {
+      "label": "Reescribir para hacerlo"
+    },
+    "textSummariser": {
+      "label": "Resumidor de Texto"
+    },
+    "concept": {
+      "label": "Concepto a Explicar",
+      "placeholder": "¿Qué concepto necesita múltiples explicaciones?"
+    },
+    "explanationTypes": {
+      "label": "Tipos de Explicaciones"
+    },
+    "assessmentType": {
+      "label": "Tipo de Evaluación"
+    },
+    "questionCount": {
+      "label": "Número de Preguntas"
+    },
+    "questionTypes": {
+      "label": "Tipos de Preguntas"
+    },
+    "includeAnswerKey": {
+      "label": "Incluir Clave de Respuestas"
+    },
+    "assignmentType": {
+      "label": "Tipo de Tarea"
+    },
+    "learningGoals": {
+      "label": "Objetivos de Aprendizaje",
+      "placeholder": "¿Qué deberían aprender los estudiantes de esta tarea?"
+    },
+    "dokLevel": {
+      "label": "Nivel DOK"
+    },
+    "questionType": {
+      "label": "Tipo de Pregunta"
+    },
+    "mathTopic": {
+      "label": "Tema de Matemáticas"
+    },
+    "includeWordProblems": {
+      "label": "Incluir Problemas de Palabras"
+    },
+    "studentText": {
+      "label": "Texto del Estudiante",
+      "placeholder": "Pega la submisión de texto del estudiante aquí para análisis..."
+    },
+    "analysisDepth": {
+      "label": "Profundidad de Análisis"
+    },
+    "studentName": {
+      "label": "Nombre del Estudiante",
+      "placeholder": "Primer nombre del estudiante"
+    },
+    "situation": {
+      "label": "Situación",
+      "placeholder": "Describe la situación que necesitas abordar..."
+    },
+    "emailType": {
+      "label": "Tipo de Email"
+    },
+    "behaviorConcern": {
+      "label": "Preocupación de Comportamiento",
+      "placeholder": "Describe el comportamiento específico que necesita apoyo..."
+    },
+    "strengths": {
+      "label": "Fortalezas del Estudiante",
+      "placeholder": "¿Cuáles son las fortalezas e intereses del estudiante?"
+    },
+    "triggerSituation": {
+      "label": "Situación Desencadenante",
+      "placeholder": "Describe la situación social..."
+    },
+    "desiredBehavior": {
+      "label": "Comportamiento Deseado",
+      "placeholder": "¿Qué comportamiento te gustaría ver en su lugar?"
+    },
+    "learningLevel": {
+      "label": "Nivel de Aprendizaje"
+    },
+    "activityType": {
+      "label": "Tipo de Actividad"
+    },
+    "specificNeeds": {
+      "label": "Necesidades Específicas",
+      "placeholder": "Describe las necesidades específicas de aprendizaje del estudiante..."
+    },
+    "accommodationType": {
+      "label": "Tipo de Acomodación"
+    },
+    "currentReadingLevel": {
+      "label": "Nivel de Lectura Actual"
+    },
+    "targetReadingLevel": {
+      "label": "Nivel de Lectura Objetivo"
+    },
+    "reflectionType": {
+      "label": "Tipo de Reflexión"
+    },
+    "classSize": {
+      "label": "Tamaño de Clase"
+    },
+    "ageGroup": {
+      "label": "Grupo de Edad"
+    },
+    "projectType": {
+      "label": "Tipo de Proyecto"
+    },
+    "courseName": {
+      "label": "Nombre del Curso",
+      "placeholder": "Nombre de tu curso"
+    },
+    "courseDescription": {
+      "label": "Descripción del Curso",
+      "placeholder": "Breve descripción del curso..."
+    },
+    "achievementType": {
+      "label": "Tipo de Logro"
+    },
+    "studentNames": {
+      "label": "Nombres de Estudiantes",
+      "placeholder": "Ingresa nombres de estudiantes separados por comas"
+    },
+    "conferenceType": {
+      "label": "Tipo de Conferencia"
+    },
+    "concerns": {
+      "label": "Preocupaciones o Temas",
+      "placeholder": "¿De qué te gustaría hablar?"
+    },
+    "goalType": {
+      "label": "Tipo de Objetivo"
+    },
+    "timeframe": {
+      "label": "Marco de Tiempo"
+    },
+    "surveyTopic": {
+      "label": "Tema de Encuesta",
+      "placeholder": "¿Qué te gustaría aprender sobre tus estudiantes?"
+    },
+    "responseType": {
+      "label": "Tipo de Respuesta"
+    },
+    "subjectArea": {
+      "label": "Área de Materia"
+    },
+    "classPeriod": {
+      "label": "Período de Clase",
+      "placeholder": "ej., 3er período, Bloque matutino"
+    },
+    "specialInstructions": {
+      "label": "Instrucciones Especiales",
+      "placeholder": "Cualquier instrucción específica para el sustituto..."
+    },
+    "theme": {
+      "label": "Tema",
+      "placeholder": "¿En qué tema o tópico debería enfocarse el tablero?"
+    },
+    "boardSize": {
+      "label": "Tamaño del Tablero"
+    },
+    "newsletterType": {
+      "label": "Tipo de Boletín"
+    },
+    "monthPeriod": {
+      "label": "Mes/Período",
+      "placeholder": "ej., Octubre, Primer Trimestre"
+    },
+    "destination": {
+      "label": "Destino",
+      "placeholder": "¿A dónde planeas ir?"
+    },
+    "tripPurpose": {
+      "label": "Propósito del Viaje",
+      "placeholder": "¿Cuál es el propósito educativo de este viaje?"
+    },
+    "experimentType": {
+      "label": "Tipo de Experimento",
+      "placeholder": "¿Qué tipo de experimento o actividad de laboratorio?"
+    },
+    "safetyLevel": {
+      "label": "Nivel de Seguridad"
+    },
+    "choices": {
+      "label": "Número de Opciones"
+    },
+    "boardType": {
+      "label": "Tipo de Tablero"
+    }
+  },
+  "fieldOptions": {
+    "grades": ["P", "1°", "2°", "3°", "4°", "5°", "6°", "7°", "8°", "9°", "10°", "11°", "12°"],
+    "durations": ["1 hora", "1.5 horas", "2 horas", "2.5 horas", "3 horas"],
+    "learningStyles": ["Visual", "Auditivo", "Kinestésico", "Mixto"],
+    "resources": ["Solo suministros básicos", "Tecnología disponible", "Manipulativos", "Sin recursos especiales"],
+    "ageGroups": ["P-2°", "3°-5°", "6°-8°", "9°-12°"],
+    "disabilities": ["Dificultad de Aprendizaje", "TDAH", "Espectro Autista", "Discapacidad Intelectual", "Otro"],
+    "subjects": ["Lectura", "Matemáticas", "Escritura", "Habilidades Sociales", "Comportamiento", "Comunicación"],
+    "bloomsLevels": ["Recordar", "Entender", "Aplicar", "Analizar", "Evaluar", "Crear"],
+    "slideCounts": ["5-8 diapositivas", "10-12 diapositivas", "15-20 diapositivas"],
+    "yesNo": ["Sí", "No"],
+    "contentTypes": ["Explicación", "Ejemplos", "Problemas de práctica", "Vocabulario", "Resumen"],
+    "contentLengths": ["Breve", "Moderado", "Detallado"],
+    "mathGrades": ["P", "1°", "2°", "3°", "4°", "5°", "6°", "7°", "8°", "Álgebra", "Geometría"],
+    "problemCounts": ["10", "15", "20", "25", "30"],
+    "difficulties": ["Fácil", "Medio", "Difícil", "Mixto"],
+    "textPurposes": ["Lectura Independiente", "Lectura Guiada", "Texto Instructivo", "Evaluación"],
+    "rewriteOptions": ["Más simple", "Más complejo", "Más atractivo", "Más formal", "Más informal"],
+    "summaryOptions": ["Resumen breve", "Resumen detallado", "Solo puntos clave", "Sin resumen"],
+    "explanationTypes": ["Visual y verbal", "Simple y complejo", "Analogía y directo", "Todos los tipos"],
+    "assessmentTypes": ["Cuestionario", "Examen", "Tarea de rendimiento", "Rúbrica de proyecto"],
+    "questionTypes": ["Opción múltiple", "Respuesta corta", "Ensayo", "Mixto", "Verdadero/Falso", "Completar"],
+    "questionCounts": ["5", "8", "10", "12", "15", "20"],
+    "assignmentTypes": ["Proyecto de investigación", "Reporte de laboratorio", "Ensayo", "Proyecto creativo", "Resolución de problemas"],
+    "durations": ["1 semana", "2 semanas", "1 mes", "Trimestre"],
+    "dokLevels": ["Nivel 1 (Recordar)", "Nivel 2 (Aplicación)", "Nivel 3 (Análisis)", "Nivel 4 (Pensamiento extendido)", "Niveles mixtos"],
+    "mathTopics": ["Suma", "Resta", "Multiplicación", "División", "Fracciones", "Decimales", "Geometría", "Álgebra", "Problemas de palabras"],
+    "wordProblemOptions": ["Sí", "No", "Solo problemas de palabras"],
+    "assignmentTypes": ["Ensayo", "Trabajo de investigación", "Escritura creativa", "Respuesta corta", "Reporte de laboratorio", "Otro"],
+    "studentGrades": ["3°", "4°", "5°", "6°", "7°", "8°", "9°", "10°", "11°", "12°"],
+    "analysisDepths": ["Verificación rápida", "Análisis estándar", "Revisión detallada"],
+    "emailTypes": ["Actualización de progreso", "Preocupación/Problema", "Celebración", "Solicitud de conferencia", "Actualización de comportamiento"],
+    "learningLevels": ["Por debajo del nivel de grado", "En el nivel de grado", "Por encima del nivel de grado", "Múltiples niveles"],
+    "activityTypes": ["Lectura", "Matemáticas", "Ciencias", "Escritura", "Arte", "Materia mixta"],
+    "accommodationTypes": ["Dificultades de aprendizaje", "Discapacidades físicas", "Apoyo conductual", "Estudiantes de inglés", "Estudiantes dotados"],
+    "readingLevels": ["P", "1°", "2°", "3°", "4°", "5°", "6°", "7°", "8°", "9°", "10°", "11°", "12°"],
+    "reflectionTypes": ["Aprendizaje diario", "Progreso semanal", "Reflexión de proyecto", "Establecimiento de objetivos", "Autoevaluación"],
+    "classSizes": ["Pequeña (10-15)", "Mediana (16-25)", "Grande (26-35)", "Extra grande (35+)"],
+    "projectTypes": ["Proyecto de investigación", "Proyecto de arte", "Feria de ciencias", "Aprendizaje de servicio", "Escritura creativa"],
+    "achievementTypes": ["Logro académico", "Mejora de comportamiento", "Participación", "Liderazgo", "Esfuerzo"],
+    "conferenceTypes": ["Seguimiento regular", "Preocupaciones académicas", "Problemas de comportamiento", "Fortalezas del estudiante", "Establecimiento de objetivos"],
+    "goalTypes": ["Académico", "Conductual", "Social", "Crecimiento personal"],
+    "timeframes": ["Corto plazo (1 mes)", "Mediano plazo (Trimestre)", "Largo plazo (Semestre)", "Anual"],
+    "responseTypes": ["Opción múltiple", "Escala de calificación", "Respuesta abierta", "Sí/No", "Mixto"],
+    "boardSizes": ["Pequeño", "Mediano", "Grande", "Múltiples tableros"],
+    "newsletterTypes": ["Actualización semanal", "Boletín mensual", "Evento especial", "Enfoque académico"],
+    "safetyLevels": ["Básico", "Intermedio", "Avanzado"],
+    "choiceCounts": ["6", "9", "12", "15"],
+    "boardTypes": ["Actividades de aprendizaje", "Opciones de evaluación", "Opciones de proyectos", "Opciones de lectura"]
+  },
+  "feedback": {
+    "satisfactionSurvey": {
+      "title": "¿Cómo fue tu experiencia con {{toolName}}?",
+      "toolAppreciation": "¿Cuánto apreciaste esta herramienta?",
+      "responseQuality": "¿Cómo calificarías la calidad de la respuesta?",
+      "wouldRecommend": "¿Recomendarías esta herramienta a un colega?",
+      "missingFields": "¿Había algún campo u opción que sentiste que faltaba?",
+      "additionalFeedback": "¿Algún comentario o sugerencia adicional?",
+      "submit": "Enviar Comentarios",
+      "thankYou": "¡Gracias por tus comentarios!"
+    }
+  },
+  "forms": {
+    "generateContent": "Generar Contenido",
+    "generating": "Generando...",
+    "regenerating": "Regenerando...",
+    "updating": "Actualizando...",
+    "needModifications": "¿Necesitas modificaciones?",
+    "modifyPlaceholder": "Dime cómo te gustaría modificar este contenido...",
+    "update": "Actualizar",
+    "copy": "Copiar",
+    "download": "Descargar",
+    "save": "Guardar",
+    "saving": "Guardando...",
+    "saved": "¡Guardado!",
+    "exportSlides": "Exportar Diapositivas",
+    "exporting": "Exportando...",
+    "copied": "¡Copiado al portapapeles!",
+    "generatedContent": "Contenido Generado",
+    "noContentGenerated": "Aún no se ha generado contenido. Completa el formulario arriba y haz clic en 'Generar Contenido' para comenzar."
+  },
+  "errors": {
+    "failedToGenerate": "Falló al generar contenido. Por favor intenta de nuevo.",
+    "failedToSave": "Falló al guardar contenido. Por favor intenta de nuevo.",
+    "failedToCopy": "Falló al copiar al portapapeles.",
+    "failedToExport": "Falló al exportar diapositivas. Por favor intenta de nuevo.",
+    "networkError": "Error de red. Por favor verifica tu conexión.",
+    "unexpectedError": "Ocurrió un error inesperado."
+  },
+  "schoolAdmin": {
+    "sections": {
+      "complete": "Solución Administrativa",
+      "solution": "Completa",
+      "integratedModules": "Módulos Integrados"
+    },
+    "features": {
+      "sis": {
+        "title": "Sistema de Información Estudiantil",
+        "description": "Registros estudiantiles completos, inscripción y seguimiento académico"
+      },
+      "financial": {
+        "title": "Gestión Financiera",
+        "description": "Seguimiento de matrícula, facturación, presupuestación e informes financieros"
+      },
+      "scheduling": {
+        "title": "Programación y Horarios",
+        "description": "Programación automática de clases, asignación de aulas y gestión de recursos"
+      },
+      "communication": {
+        "title": "Centro de Comunicación",
+        "description": "Mensajería unificada para padres, maestros y administradores"
+      },
+      "analytics": {
+        "title": "Panel de Análisis",
+        "description": "Información en tiempo real sobre el rendimiento y operaciones escolares"
+      },
+      "security": {
+        "title": "Seguridad y Cumplimiento",
+        "description": "Protección de datos, cumplimiento GDPR y controles de acceso seguros"
+      }
+    },
+    "modules": {
+      "admissions": "Admisiones e Inscripción",
+      "records": "Gestión de Registros Académicos",
+      "staff": "Gestión de Personal y RRHH",
+      "financial": "Operaciones Financieras",
+      "portal": "Portal de Padres y Estudiantes",
+      "reporting": "Informes y Análisis"
+  },
+  "advancedLMS": {
+    "sections": {
+      "revolutionary": "Revolucionario Impulsado por IA",
+      "features": "Características",
+      "transform": "Transforma Tu Institución"
+    }
+  },
+    "buttons": {
+      "requestDemo": "Solicitar Demo"
+    }
   }
 }

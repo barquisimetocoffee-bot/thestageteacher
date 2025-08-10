@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   Card,
   CardContent,
@@ -28,6 +29,7 @@ const SchoolAdministration = () => {
   const [onShowLogin, setOnShowLogin] = useState(false);
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setIsVisible(true);
@@ -36,57 +38,51 @@ const SchoolAdministration = () => {
   const features = [
     {
       icon: Users,
-      title: "Student Information System",
-      description:
-        "Comprehensive student records, enrollment, and academic tracking",
+      title: t('schoolAdmin.features.sis.title'),
+      description: t('schoolAdmin.features.sis.description'),
     },
     {
       icon: DollarSign,
-      title: "Financial Management",
-      description:
-        "Tuition tracking, billing, budgeting, and financial reporting",
+      title: t('schoolAdmin.features.financial.title'),
+      description: t('schoolAdmin.features.financial.description'),
     },
     {
       icon: Calendar,
-      title: "Scheduling & Timetables",
-      description:
-        "Automated class scheduling, room allocation, and resource management",
+      title: t('schoolAdmin.features.scheduling.title'),
+      description: t('schoolAdmin.features.scheduling.description'),
     },
     {
       icon: MessageSquare,
-      title: "Communication Hub",
-      description:
-        "Unified messaging for parents, teachers, and administrators",
+      title: t('schoolAdmin.features.communication.title'),
+      description: t('schoolAdmin.features.communication.description'),
     },
     {
       icon: BarChart3,
-      title: "Analytics Dashboard",
-      description: "Real-time insights into school performance and operations",
+      title: t('schoolAdmin.features.analytics.title'),
+      description: t('schoolAdmin.features.analytics.description'),
     },
     {
       icon: Shield,
-      title: "Security & Compliance",
-      description:
-        "Data protection, GDPR compliance, and secure access controls",
+      title: t('schoolAdmin.features.security.title'),
+      description: t('schoolAdmin.features.security.description'),
     },
   ];
 
   const modules = [
-    "Admissions & Enrollment",
-    "Academic Records Management",
-    "Staff & HR Management",
-    "Financial Operations",
-    "Parent & Student Portal",
-    "Reporting & Analytics",
+    t('schoolAdmin.modules.admissions'),
+    t('schoolAdmin.modules.records'),
+    t('schoolAdmin.modules.staff'),
+    t('schoolAdmin.modules.financial'),
+    t('schoolAdmin.modules.portal'),
+    t('schoolAdmin.modules.reporting'),
   ];
 
   return (
     <>
       <Navigation onShowLogin={() => setOnShowLogin(true)} />
       <div
-        className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        className={`min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 via-purple-50 to-pink-50 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
       >
         {/* Hero Section */}
         <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
@@ -95,20 +91,22 @@ const SchoolAdministration = () => {
               <div className="p-4 rounded-3xl icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
                 <Building2 className="size-8 md:size-10 text-white" />
               </div>
+
               <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
                 School
                 <span className=" bg-gradient-to-r from-[#2903b1] to-blue-600 bg-clip-text text-transparent">
+
                   {" "}
-                  Administration
+
                 </span>
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                Streamline your entire school operations with our comprehensive
-                administration platform designed for modern educational
-                institutions.
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+                {t('products.schoolAdminDesc')}
               </p>
+
               <Button className="w-full md:w-72 my-btn group text-white p-6 rounded-xl">
                 Join the Waitlist
+
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
@@ -118,6 +116,7 @@ const SchoolAdministration = () => {
         {/* Features Grid */}
         <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
+
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
               Complete Administrative{" "}
               <span className="bg-gradient-to-r from-[#2903b1] to-blue-600 bg-clip-text text-transparent">
@@ -137,6 +136,7 @@ const SchoolAdministration = () => {
                       </div>
                       <h2 className="text-lg/6 font-bold">{feature.title}</h2>
                     </div>
+
                   </div>
 
                   <p className="text-gray-600 text-base/6 pt-2">
@@ -151,6 +151,7 @@ const SchoolAdministration = () => {
         {/* Modules Section */}
         <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-blue-50">
           <div className="max-w-4xl mx-auto text-center">
+
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
               Integrated Modules
             </h2>
@@ -158,7 +159,9 @@ const SchoolAdministration = () => {
               {modules.map((module, index) => (
                 <div
                   key={index}
+
                   className="flex items-center text-lg text-gray-700"
+
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <CheckCircle className="size-5 md:size-6 text-green-500 mr-3 flex-shrink-0" />
@@ -166,6 +169,7 @@ const SchoolAdministration = () => {
                 </div>
               ))}
             </div>
+
             <Button className="w-full md:w-72 my-btn text-white p-6 rounded-xl">
               Request Demo
             </Button>

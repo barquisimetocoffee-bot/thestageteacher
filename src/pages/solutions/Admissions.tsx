@@ -1,20 +1,17 @@
 import { Button } from "@/components/ui/button";
-import {
-  UserCheck,
-  FileText,
-  CheckCircle,
-  Clock,
-  BarChart,
-  Bot,
-  MessageSquare,
-  Monitor,
-} from "lucide-react";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { UserCheck, FileText, Users, CheckCircle, Clock, BarChart, Bot, MessageSquare, Monitor, ArrowRight, Zap, Target } from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
-import Footer from "@/components/home/Footer";
+import admissionsHero from "@/assets/solutions/admissions-hero.jpg";
 
+
+import Footer from "@/components/home/Footer";
 const Admissions = () => {
+  const { t } = useTranslation();
   const [showLogin, setShowLogin] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 

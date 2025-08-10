@@ -17,17 +17,17 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Vivicerta brand colors - vibrant purple-blue theme */
-    --primary: 258 70% 52%; /* Vivicerta purple */
+    /* Vicerta brand colors - purple-blue theme based on provided reference */
+    --primary: 240 85% 55%; /* Updated purple-blue tone */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 245 58% 48%; /* Complementary blue */
+    --secondary: 250 75% 60%; /* Complementary purple-blue */
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 250 20% 95%; 
-    --muted-foreground: 258 25% 35%;
+    --muted: 240 20% 95%; 
+    --muted-foreground: 240 25% 35%;
 
-    --accent: 258 85% 65%; /* Bright Vivicerta purple */
+    --accent: 240 90% 70%; /* Bright purple-blue accent */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,18 +35,18 @@
 
     --border: 250 20% 85%;
     --input: 250 20% 85%;
-    --ring: 258 70% 52%;
+    --ring: 240 85% 55%;
 
     --radius: 1rem; /* More rounded corners to match brand */
 
     --sidebar-background: 250 30% 97%;
     --sidebar-foreground: 258 25% 20%;
-    --sidebar-primary: 258 70% 52%;
+    --sidebar-primary: 240 85% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 250 20% 88%;
     --sidebar-accent-foreground: 258 25% 20%;
     --sidebar-border: 250 20% 82%;
-    --sidebar-ring: 258 70% 52%;
+    --sidebar-ring: 240 85% 55%;
   }
 
   .dark {
@@ -59,16 +59,16 @@
     --popover: 212 25% 8%;
     --popover-foreground: 210 30% 95%;
 
-    --primary: 258 70% 60%; /* Brighter Vivicerta purple in dark mode */
+    --primary: 240 85% 65%; /* Brighter purple-blue in dark mode */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 258 25% 18%; 
-    --secondary-foreground: 250 30% 95%;
+    --secondary: 240 25% 18%; 
+    --secondary-foreground: 240 30% 95%;
 
-    --muted: 258 25% 18%;
-    --muted-foreground: 250 20% 70%;
+    --muted: 240 25% 18%;
+    --muted-foreground: 240 20% 70%;
 
-    --accent: 258 85% 75%; /* Brighter in dark mode */
+    --accent: 240 90% 80%; /* Brighter purple-blue in dark mode */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
@@ -76,16 +76,16 @@
 
     --border: 258 25% 25%;
     --input: 258 25% 25%;
-    --ring: 258 70% 60%;
+    --ring: 240 85% 65%;
 
     --sidebar-background: 258 25% 6%;
     --sidebar-foreground: 250 30% 85%;
-    --sidebar-primary: 258 70% 60%;
+    --sidebar-primary: 240 85% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 258 25% 15%;
-    --sidebar-accent-foreground: 250 30% 85%;
-    --sidebar-border: 258 25% 20%;
-    --sidebar-ring: 258 70% 60%;
+    --sidebar-accent: 240 25% 15%;
+    --sidebar-accent-foreground: 240 30% 85%;
+    --sidebar-border: 240 25% 20%;
+    --sidebar-ring: 240 85% 65%;
   }
 }
 

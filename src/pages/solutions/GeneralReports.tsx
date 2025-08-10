@@ -1,17 +1,18 @@
 import { Button } from "@/components/ui/button";
-import {
-  BarChart3,
-  FileSpreadsheet,
-  Download,
-  Brain,
-  TrendingUp,
-} from "lucide-react";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { BarChart3, FileSpreadsheet, Download, Brain, TrendingUp, ArrowRight, Target, Zap, Shield, Clock } from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
+import reportsHero from "@/assets/solutions/reports-hero.jpg";
+
+
 import Footer from "@/components/home/Footer";
 
 const GeneralReports = () => {
+  const { t } = useTranslation();
   const [showLogin, setShowLogin] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -22,6 +23,7 @@ const GeneralReports = () => {
   const features = [
     {
       icon: BarChart3,
+
       title: "Dynamic Dashboards",
       description:
         "Real-time academic, behavioral, and operational data visualization",

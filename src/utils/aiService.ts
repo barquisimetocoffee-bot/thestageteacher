@@ -1,14 +1,15 @@
 import { supabase } from '@/integrations/supabase/client';
 
-export const generateEducationalContent = async (prompt: string, toolContext?: string) => {
+export const generateEducationalContent = async (prompt: string, toolContext?: string, language?: string) => {
   try {
-    console.log('Generating educational content:', { prompt: prompt.substring(0, 100), toolContext });
+    console.log('Generating educational content:', { prompt: prompt.substring(0, 100), toolContext, language });
 
     const { data, error } = await supabase.functions.invoke('generate-ai-content', {
       body: {
         prompt,
         toolType: 'general',
-        context: toolContext || 'General teaching assistance'
+        context: toolContext || 'General teaching assistance',
+        language: language || 'en'
       }
     });
 
@@ -46,7 +47,7 @@ export const generateEducationalContent = async (prompt: string, toolContext?: s
   }
 };
 
-export const generateLessonPlan = async (subject: string, topic: string, grade: string) => {
+export const generateLessonPlan = async (subject: string, topic: string, grade: string, language?: string) => {
   const prompt = `Create a comprehensive lesson plan for ${grade} students learning about "${topic}" in ${subject}. 
 
 Please include:
@@ -69,7 +70,8 @@ Grade Level: ${grade}`;
       body: {
         prompt,
         toolType: 'lessonPlan',
-        context: 'Lesson Planning'
+        context: 'Lesson Planning',
+        language: language || 'en'
       }
     });
 
@@ -107,7 +109,7 @@ Grade Level: ${grade}`;
   }
 };
 
-export const generateParentEmail = async (studentName: string, situation: string, emailType: string) => {
+export const generateParentEmail = async (studentName: string, situation: string, emailType: string, language?: string) => {
   const prompt = `Draft a professional ${emailType.toLowerCase()} email to parents about ${studentName}. 
 
 Email Type: ${emailType}
@@ -129,7 +131,8 @@ Please include:
       body: {
         prompt,
         toolType: 'parentEmail',
-        context: 'Parent Communication'
+        context: 'Parent Communication',
+        language: language || 'en'
       }
     });
 
@@ -167,7 +170,7 @@ Please include:
   }
 };
 
-export const generateBehaviorPlan = async (behaviorConcern: string, studentAge: string, strengths: string) => {
+export const generateBehaviorPlan = async (behaviorConcern: string, studentAge: string, strengths: string, language?: string) => {
   const prompt = `Create a positive behavior support plan for a ${studentAge}-year-old student.
 
 Behavior Concern: ${behaviorConcern}
@@ -191,7 +194,8 @@ Please include:
       body: {
         prompt,
         toolType: 'behaviorPlan',
-        context: 'Behavior Support'
+        context: 'Behavior Support',
+        language: language || 'en'
       }
     });
 
@@ -234,7 +238,8 @@ export const generateAITextAnalysis = async (
   assignmentType: string, 
   studentGrade: string, 
   analysisDepth: string, 
-  additionalContext: string
+  additionalContext: string,
+  language?: string
 ) => {
   const prompt = `Analyze the following student text submission for potential AI-generated content. Provide a detailed analysis including:
 
@@ -261,7 +266,8 @@ Please provide a comprehensive analysis that helps maintain academic integrity w
       body: {
         prompt,
         toolType: 'aiTextDetector',
-        context: 'AI Text Detection and Academic Integrity'
+        context: 'AI Text Detection and Academic Integrity',
+        language: language || 'en'
       }
     });
 

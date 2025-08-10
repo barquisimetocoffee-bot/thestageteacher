@@ -15,6 +15,8 @@
     "bookDemo": "Réserver une Démo",
     "available": "Disponible",
     "comingSoon": "Bientôt Disponible",
+    "pricingPlan": "Choisissez Votre Plan",
+    "joinWaitlist": "Rejoindre la Liste d'Attente",
     "byCategory": "Par Catégorie",
     "byDepartment": "Par Département",
     "primarySchools": "Écoles Primaires",
@@ -40,7 +42,7 @@
     "subtitle3": "Suite d'Enseignement Intelligent",
     "subtitle4": "Solution pour les Écoles du Futur",
     "subtitle5": "Réseau d'Éducation Globale",
-    "description": "Vivicerta est la force motrice derrière l'avenir de l'éducation, fournissant une suite complète de solutions alimentées par l'IA qui transforment la façon dont nous enseignons, apprenons et gérons les institutions éducatives.",
+    "description": "Vicerta est la force motrice derrière l'avenir de l'éducation, fournissant une suite complète de solutions alimentées par l'IA qui transforment la façon dont nous enseignons, apprenons et gérons les institutions éducatives.",
     "getStarted": "Commencer Gratuitement",
     "watchDemo": "Voir la Démo",
     "transformingEducation": "Transformer l'Éducation avec l'IA",
@@ -56,7 +58,7 @@
     "userRating": "Note Utilisateur 4.9/5"
   },
   "videoShowcase": {
-    "title": "Voir Vivicerta en Action",
+    "title": "Voir Vicerta en Action",
     "description": "Découvrez comment notre écosystème éducatif alimenté par l'IA transforme les expériences d'enseignement et d'apprentissage.",
     "fullDemo": "Démo Complète Disponible",
     "duration": "Durée : 3:42",
@@ -64,14 +66,14 @@
   },
   "ecertaShowcase": {
     "title": "Découvrez l'Avenir de l'Éducation",
-    "description": "Découvrez comment Vivicerta transforme les méthodes d'enseignement traditionnelles avec une technologie de pointe.",
+    "description": "Découvrez comment Vicerta transforme les méthodes d'enseignement traditionnelles avec une technologie de pointe.",
     "aiPowered": "Alimenté par l'IA",
     "aiDescription": "Génération de Contenu Intelligent",
     "seamlessIntegration": "Intégration Transparente",
     "integrationDescription": "Tous les Outils Connectés",
     "timeSaving": "Gain de Temps",
     "timeDescription": "15+ Heures par Semaine",
-    "tryNow": "Essayer Vivicerta Maintenant"
+    "tryNow": "Essayer Vicerta Maintenant"
   },
   "products": {
     "title": "Notre Suite de Produits",
@@ -147,6 +149,51 @@
   "grades": {
     "selectGrade": "Sélectionner le Niveau",
     "selectSystem": "Sélectionner le Système Éducatif"
+  },
+  "pages": {
+    "contactUs": {
+      "title": "Nous Contacter",
+      "subtitle": "Nous aimerions avoir de vos nouvelles. Contactez notre équipe pour du support, des partenariats ou toute question sur Vicerta.",
+      "getInTouch": "Entrer en Contact",
+      "emailUs": "Nous Envoyer un Email",
+      "emailAddress": "support@vicerta.com",
+      "emailDescription": "Contactez-nous pour des demandes générales",
+      "callUs": "Nous Appeler",
+      "phoneNumber": "+1 (555) 123-4567",
+      "phoneDescription": "Parlez avec notre équipe de support",
+      "visitUs": "Nous Rendre Visite",
+      "address": "123 Education Street, Tech City, TC 12345",
+      "addressDescription": "L'emplacement de notre siège social",
+      "supportHours": "Heures de Support",
+      "hours": "Lun-Ven : 9h-18h EST",
+      "hoursDescription": "Quand nous sommes disponibles pour aider",
+      "sendMessage": "Nous Envoyer un Message",
+      "sendMessageDescription": "Remplissez le formulaire ci-dessous et nous vous répondrons dès que possible.",
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "sendButton": "Envoyer le Message",
+      "backToHome": "Retour à l'Accueil"
+    },
+    "blog": {
+      "title": "Blog Éducatif",
+      "subtitle": "Insights, conseils et tendances du monde de la technologie éducative et de l'enseignement moderne.",
+      "backToHome": "Retour à l'Accueil"
+    },
+    "caseStudies": {
+      "title": "Études de Cas",
+      "subtitle": "Découvrez comment les écoles du monde entier transforment l'éducation avec les solutions innovantes de Vicerta.",
+      "readFullStudy": "Lire l'Étude Complète",
+      "backToHome": "Retour à l'Accueil"
+    },
+    "partnersIntegrations": {
+      "title": "Partenaires & Intégrations",
+      "subtitle": "Connectez-vous facilement avec les outils que vous utilisez déjà et en qui vous avez confiance. Notre vaste réseau de partenaires vous assure la meilleure expérience éducative.",
+      "platformIntegrations": "Intégrations de Plateforme",
+      "strategicPartners": "Partenaires Stratégiques",
+      "backToHome": "Retour à l'Accueil"
+    }
   },
   "easyteach": {
     "title": "EasyTeach",
@@ -243,7 +290,7 @@
   "showcase": {
     "drivingForce": "La Force Motrice",
     "behindEducation": "Derrière l'Innovation Éducative",
-    "platformDescription": "Vivicerta n'est pas seulement une plateforme - c'est la fondation de la nouvelle ère éducative, connectant de manière transparente l'enseignement, l'apprentissage et l'administration grâce à l'IA intelligente.",
+    "platformDescription": "Vicerta n'est pas seulement une plateforme - c'est la fondation de la nouvelle ère éducative, connectant de manière transparente l'enseignement, l'apprentissage et l'administration grâce à l'IA intelligente.",
     "consolidatedAI": "Intelligence IA Consolidée",
     "consolidatedAIDesc": "Nos trois produits partagent un cerveau IA commun qui apprend de chaque interaction sur la plateforme, créant des solutions plus intelligentes pour tous.",
     "seamlessIntegration": "Intégration Transparente",
@@ -253,7 +300,7 @@
     "whyEcerta": "Pourquoi Vicerta est l'Avenir de l'Éducation",
     "whyEcertaDesc": "Nous ne construisons pas seulement des produits - nous créons la fondation pour la prochaine génération de technologie éducative.",
     "completeEcosystem": "Approche Écosystème Complet",
-    "completeEcosystemDesc": "Contrairement aux solutions fragmentées, Vivicerta fournit une plateforme unifiée qui sert tous les acteurs du processus éducatif - des enseignants individuels aux institutions entières.",
+    "completeEcosystemDesc": "Contrairement aux solutions fragmentées, Vicerta fournit une plateforme unifiée qui sert tous les acteurs du processus éducatif - des enseignants individuels aux institutions entières.",
     "exponentialGrowth": "Impact de Croissance Exponentielle",
     "exponentialGrowthDesc": "Notre approche intégrée crée des avantages exponentiels. À mesure qu'un produit s'améliore, il améliore tout l'écosystème, multipliant la valeur pour tous les utilisateurs.",
     "globalTransformation": "Transformation Éducative Globale",
@@ -270,6 +317,960 @@
     "delete": "Supprimer",
     "edit": "Éditer",
     "view": "Voir",
-    "language": "Langue"
+    "language": "Langue",
+    "chooseYourPlan": "Choisissez Votre Plan",
+    "choosePlan": "Choisissez Votre Plan",
+    "planDescription": "Commencez gratuitement et passez à la version supérieure quand vous êtes prêt pour une puissance IA illimitée",
+    "whatsIncluded": "Ce qui est inclus :",
+    "featuresMore": "+{{count}} fonctionnalités de plus",
+    "mostPopular": "Le Plus Populaire",
+    "easyTeachFree": "EasyTeach Gratuit",
+    "easyTeachPro": "EasyTeach Pro",
+    "schoolAdministration": "Administration Scolaire",
+    "advancedLMS": "LMS Avancé",
+    "freeForever": "Gratuit/Pour toujours",
+    "perYear": "par an",
+    "available": "disponible",
+    "comingSoon": "Bientôt Disponible",
+    "getStartedFree": "Commencer Gratuitement",
+    "upgradeToPro": "Passer à Pro",
+    "requestDemo": "Demander une Démo",
+    "enterLMSBeta": "Entrer en Bêta LMS",
+    "joinWaitlist": "Rejoindre la Liste d'Attente",
+    "basicLessonPlanning": "Planification de Cours de Base",
+    "parentCommunicationTemplates": "Modèles de Communication Parents",
+    "limitedAIGenerations": "Générations IA Limitées (50/mois)",
+    "basicBehaviorManagement": "Outils de Gestion du Comportement de Base",
+    "communitySupportText": "Support Communautaire",
+    "everythingInFree": "Tout ce qui est dans Gratuit, plus...",
+    "unlimitedAIGenerations": "Générations IA illimitées",
+    "continueThreads": "Continuer les conversations avec Kribi Chatbot",
+    "unlimitedAISlides": "Génération de Slides IA illimitée",
+    "exportToGoogleSlides": "Exporter vers Google Slides",
+    "easyTeachForStudents": "EasyTeach pour les étudiants",
+    "lifetimeOutputHistory": "Historique de sortie à vie",
+    "exclusiveEarlyAccess": "Accès anticipé exclusif aux nouvelles fonctionnalités",
+    "schoolWideManagement": "Tableau de Bord de Gestion Scolaire",
+    "aiPoweredAdministrative": "Assistance Administrative Alimentée par IA",
+    "studentPerformanceAnalytics": "Analyses de Performance des Étudiants",
+    "staffManagementScheduling": "Gestion du Personnel et Planification",
+    "parentSchoolCommunication": "Hub de Communication Parent-École",
+    "institutionalReporting": "Rapports et Insights Institutionnels",
+    "aiPersonalizationAdaptive": "Personnalisation IA et Apprentissage Adaptatif",
+    "aiGeneratedContentMultilingual": "Contenu Généré par IA et Support Multilingue",
+    "smartProctoringGrading": "Surveillance Intelligente et Notation Automatique",
+    "gamificationVRARIntegration": "Gamification et Intégration VR/AR",
+    "predictiveAnalyticsAssistant": "Analyses Prédictives et Assistant IA",
+    "blockchainCertificates": "Certificats Blockchain et Fonctionnalités Entreprise",
+    "teachersCount": "100 000+ Enseignants",
+    "free": "Gratuit"
+  },
+  "tools": {
+    "lessonPlanGenerator": {
+      "name": "Générateur de Plan de Cours",
+      "description": "Créez des plans de cours complets avec objectifs, activités et évaluations adaptés à votre niveau scolaire et matière."
+    },
+    "lessonHookIdeas": {
+      "name": "Idées d'Amorces de Cours",
+      "description": "Générez des activités d'ouverture créatives et engageantes pour captiver l'attention des élèves au début de votre cours."
+    },
+    "iepGenerator": {
+      "name": "Générateur de PEI",
+      "description": "Créez des objectifs et accommodations de programme éducatif individualisé adaptés aux besoins spécifiques des élèves."
+    },
+    "learningObjectiveWriter": {
+      "name": "Rédacteur d'Objectifs d'Apprentissage",
+      "description": "Rédigez des objectifs d'apprentissage clairs et mesurables qui s'alignent sur les standards et guident l'instruction."
+    },
+    "presentationGenerator": {
+      "name": "Générateur de Présentations",
+      "description": "Créez des présentations diapositives engageantes avec contenu, activités et suggestions visuelles pour vos cours."
+    },
+    "academicContentGenerator": {
+      "name": "Générateur de Contenu Académique",
+      "description": "Générez du contenu aligné sur le curriculum, des explications et des exemples pour tout sujet ou domaine."
+    },
+    "mathSpiralReview": {
+      "name": "Révision Spiralée de Mathématiques",
+      "description": "Créez des problèmes de mathématiques qui révisent les concepts précédemment enseignés avec la nouvelle matière."
+    },
+    "textValidation": {
+      "name": "Validation de Texte",
+      "description": "Vérifiez le niveau de lecture, la complexité et l'adéquation des textes pour votre niveau cible."
+    },
+    "multipleExplanationsGenerator": {
+      "name": "Générateur d'Explications Multiples",
+      "description": "Générez différentes façons d'expliquer le même concept pour aider divers apprenants à comprendre."
+    },
+    "generalAssessment": {
+      "name": "Évaluation Générale",
+      "description": "Créez des évaluations complètes incluant quiz, tests et tâches de performance pour toute matière."
+    },
+    "questionStemGenerator": {
+      "name": "Générateur d'Amorces de Questions",
+      "description": "Générez des amorces de questions stimulantes pour approfondir la réflexion et la discussion des élèves."
+    },
+    "worksheetGenerator": {
+      "name": "Générateur de Feuilles de Travail",
+      "description": "Créez des feuilles de travail pratiques avec problèmes, exercices et activités pour tout domaine."
+    },
+    "multiStepAssignmentCreator": {
+      "name": "Créateur de Devoirs Multi-Étapes",
+      "description": "Concevez des devoirs complexes qui se décomposent en étapes gérables avec instructions claires."
+    },
+    "dokQuestionsGenerator": {
+      "name": "Générateur de Questions DOK",
+      "description": "Créez des questions à différents niveaux de Profondeur de Connaissance pour évaluer diverses compétences de réflexion."
+    },
+    "quizCreator": {
+      "name": "Créateur de Quiz",
+      "description": "Générez des quiz d'évaluation formative rapides pour vérifier la compréhension des élèves."
+    },
+    "mathProblemGenerator": {
+      "name": "Générateur de Problèmes de Mathématiques",
+      "description": "Créez des problèmes de mathématiques personnalisés et des problèmes de mots pour la pratique ou l'évaluation."
+    },
+    "aiTextDetector": {
+      "name": "Détecteur de Texte IA",
+      "description": "Analysez les soumissions de texte des élèves pour identifier le contenu potentiellement généré par IA et maintenir l'intégrité académique."
+    },
+    "parentEmailComposer": {
+      "name": "Compositeur d'Email Parent",
+      "description": "Rédigez des emails professionnels et chaleureux aux parents concernant les progrès, préoccupations ou célébrations des élèves."
+    },
+    "behaviorPlan": {
+      "name": "Générateur de Plan de Comportement",
+      "description": "Créez des plans d'intervention comportementale complets avec des stratégies et des supports pour des étudiants individuels."
+    },
+    "studentGrouping": {
+      "name": "Outil de Regroupement d'Étudiants",
+      "description": "Générez des regroupements stratégiques d'étudiants pour le travail collaboratif, l'instruction différenciée et la gestion de classe."
+    },
+    "behaviorManagementPlan": {
+      "name": "Plan de Gestion du Comportement",
+      "description": "Créez des plans de soutien comportemental positif avec stratégies et interventions pour les élèves individuels."
+    },
+    "socialStoriesCreator": {
+      "name": "Créateur d'Histoires Sociales",
+      "description": "Générez des histoires sociales personnalisées pour aider les élèves à comprendre les situations sociales et les attentes."
+    },
+    "differentiatedLearningActivity": {
+      "name": "Activité d'Apprentissage Différenciée",
+      "description": "Créez plusieurs versions d'activités adaptées à différents niveaux et styles d'apprentissage."
+    },
+    "accommodationsGuide": {
+      "name": "Guide d'Accommodations",
+      "description": "Obtenez des recommandations d'accommodations spécifiques pour les élèves avec divers besoins d'apprentissage."
+    },
+    "lessonHookIdeas": {
+      "name": "Idées d'Amorces de Cours",
+      "description": "Générez des activités d'ouverture créatives et engageantes pour captiver l'attention des élèves au début de votre cours."
+    },
+    "iepGenerator": {
+      "name": "Générateur de PEI",
+      "description": "Créez des objectifs et accommodations de programme éducatif individualisé adaptés aux besoins spécifiques des élèves."
+    },
+    "learningObjectiveWriter": {
+      "name": "Rédacteur d'Objectifs d'Apprentissage",
+      "description": "Rédigez des objectifs d'apprentissage clairs et mesurables qui s'alignent sur les standards et guident l'instruction."
+    },
+    "presentationGenerator": {
+      "name": "Générateur de Présentations",
+      "description": "Créez des présentations diapositives engageantes avec contenu, activités et suggestions visuelles pour vos cours."
+    },
+    "academicContentGenerator": {
+      "name": "Générateur de Contenu Académique",
+      "description": "Générez du contenu aligné sur le curriculum, des explications et des exemples pour tout sujet ou domaine."
+    },
+    "mathSpiralReview": {
+      "name": "Révision Spiralée de Mathématiques",
+      "description": "Créez des problèmes de mathématiques qui révisent les concepts précédemment enseignés avec la nouvelle matière."
+    },
+    "textValidation": {
+      "name": "Validation de Texte",
+      "description": "Vérifiez le niveau de lecture, la complexité et l'adéquation des textes pour votre niveau cible."
+    },
+    "multipleExplanationsGenerator": {
+      "name": "Générateur d'Explications Multiples",
+      "description": "Générez différentes façons d'expliquer le même concept pour aider divers apprenants à comprendre."
+    },
+    "generalAssessment": {
+      "name": "Évaluation Générale",
+      "description": "Créez des évaluations complètes incluant quiz, tests et tâches de performance pour toute matière."
+    },
+    "questionStemGenerator": {
+      "name": "Générateur d'Amorces de Questions",
+      "description": "Générez des amorces de questions stimulantes pour approfondir la réflexion et la discussion des élèves."
+    },
+    "worksheetGenerator": {
+      "name": "Générateur de Feuilles de Travail",
+      "description": "Créez des feuilles de travail pratiques avec problèmes, exercices et activités pour tout domaine."
+    },
+    "multiStepAssignmentCreator": {
+      "name": "Créateur de Devoirs Multi-Étapes",
+      "description": "Concevez des devoirs complexes qui se décomposent en étapes gérables avec instructions claires."
+    },
+    "dokQuestionsGenerator": {
+      "name": "Générateur de Questions DOK",
+      "description": "Créez des questions à différents niveaux de Profondeur de Connaissance pour évaluer diverses compétences de réflexion."
+    },
+    "quizCreator": {
+      "name": "Créateur de Quiz",
+      "description": "Générez des quiz d'évaluation formative rapides pour vérifier la compréhension des élèves."
+    },
+    "mathProblemGenerator": {
+      "name": "Générateur de Problèmes de Mathématiques",
+      "description": "Créez des problèmes de mathématiques personnalisés et des problèmes de mots pour la pratique ou l'évaluation."
+    },
+    "readingLevelAdapter": {
+      "name": "Adaptateur de Niveau de Lecture",
+      "description": "Adaptez les textes à différents niveaux de lecture tout en maintenant le contenu essentiel et le sens."
+    },
+    "studentReflectionPrompts": {
+      "name": "Invites de Réflexion pour Élèves",
+      "description": "Générez des invites réfléchies pour aider les élèves à réfléchir sur leur apprentissage et croissance."
+    },
+    "peopleBingo": {
+      "name": "Bingo des Personnes",
+      "description": "Créez des jeux de bingo interactifs pour aider les élèves à apprendre à se connaître et construire une communauté."
+    },
+    "icebreakerActivities": {
+      "name": "Activités Brise-Glace",
+      "description": "Générez des activités amusantes et engageantes pour aider les élèves à se connecter et se sentir à l'aise en classe."
+    },
+    "rubricGenerator": {
+      "name": "Générateur de Grilles d'Évaluation",
+      "description": "Créez des grilles d'évaluation détaillées pour les devoirs, projets et évaluations."
+    },
+    "syllabusGenerator": {
+      "name": "Générateur de Syllabus",
+      "description": "Générez des syllabus de cours complets avec politiques, horaires et attentes."
+    },
+    "certificateDesigner": {
+      "name": "Concepteur de Certificats",
+      "description": "Créez des certificats et récompenses personnalisés pour reconnaître les réussites des élèves."
+    },
+    "conferencePrepHelper": {
+      "name": "Assistant de Préparation de Conférence",
+      "description": "Préparez des points de discussion et stratégies pour des conférences parent-enseignant productives."
+    },
+    "studentGoalSetter": {
+      "name": "Fixateur d'Objectifs pour Élèves",
+      "description": "Aidez les élèves à créer des objectifs SMART pour la croissance académique et personnelle."
+    },
+    "classSurveyCreator": {
+      "name": "Créateur de Sondage de Classe",
+      "description": "Concevez des sondages pour recueillir les commentaires des élèves et comprendre le climat de classe."
+    },
+    "substituteTeacherPlan": {
+      "name": "Plan pour Enseignant Suppléant",
+      "description": "Créez des plans de cours détaillés et des instructions pour les enseignants suppléants."
+    },
+    "bulletinBoardIdeas": {
+      "name": "Idées de Tableau d'Affichage",
+      "description": "Générez des conceptions créatives et éducatives de tableaux d'affichage pour votre classe."
+    },
+    "newsLetterGenerator": {
+      "name": "Générateur de Newsletter",
+      "description": "Créez des newsletters de classe engageantes pour tenir les parents informés et impliqués."
+    },
+    "fieldTripPlanner": {
+      "name": "Planificateur de Sortie Scolaire",
+      "description": "Planifiez des sorties scolaires éducatives avec objectifs d'apprentissage et activités de suivi."
+    },
+    "scienceLabSafetyGuide": {
+      "name": "Guide de Sécurité de Laboratoire de Sciences",
+      "description": "Générez des protocoles et procédures de sécurité complets pour les expériences scientifiques."
+    },
+    "choiceBoard": {
+      "name": "Tableau de Choix",
+      "description": "Créez des tableaux de choix structurés qui permettent aux élèves de sélectionner parmi diverses activités d'apprentissage."
+    }
+  },
+  "categories": {
+    "lessonPlanning": "Planification de Cours",
+    "contentHub": "Centre de Contenu",
+    "assessment": "Évaluation",
+    "communication": "Communication",
+    "classroomManagement": "Gestion de Classe",
+    "languageArts": "Arts du Langage",
+    "math": "Mathématiques",
+    "science": "Sciences",
+    "socialStudies": "Sciences Sociales"
+  },
+  "fields": {
+    "subject": {
+      "label": "Matière",
+      "placeholder": "ex., Mathématiques, Sciences, Littérature anglaise, Histoire"
+    },
+    "grade": {
+      "label": "Niveau Scolaire"
+    },
+    "topic": {
+      "label": "Sujet ou Objectifs",
+      "placeholder": "ex., Comprendre la photosynthèse, Additionner les fractions, Analyse de personnage en littérature"
+    },
+    "duration": {
+      "label": "Durée du Cours"
+    },
+    "learningStyle": {
+      "label": "Style d'Apprentissage Ciblé"
+    },
+    "additionalContext": {
+      "label": "Contexte Supplémentaire",
+      "placeholder": "Incluez toute exigence spécifique, besoins des élèves, ressources disponibles, ou contraintes d'enseignement à considérer..."
+    },
+    "standardAlignment": {
+      "label": "Alignement sur les Standards",
+      "placeholder": "Standard français"
+    },
+    "resources": {
+      "label": "Ressources Disponibles"
+    },
+    "studentAge": {
+      "label": "Âge/Niveau de l'Élève"
+    },
+    "disability": {
+      "label": "Handicap Principal"
+    },
+    "currentLevel": {
+      "label": "Niveau de Performance Actuel",
+      "placeholder": "Décrivez les capacités et défis actuels de l'élève..."
+    },
+    "goalArea": {
+      "label": "Zone d'Objectif",
+      "placeholder": "Quelle compétence ou comportement spécifique nécessite une amélioration ?"
+    },
+    "bloomsLevel": {
+      "label": "Niveau de Réflexion"
+    },
+    "standard": {
+      "label": "Standard Associé (optionnel)",
+      "placeholder": "Standard national, standard d'état..."
+    },
+    "slideCount": {
+      "label": "Nombre de Diapositives"
+    },
+    "includeActivities": {
+      "label": "Inclure des Éléments Interactifs"
+    },
+    "contentType": {
+      "label": "Type de Contenu"
+    },
+    "length": {
+      "label": "Longueur du Contenu"
+    },
+    "currentTopic": {
+      "label": "Sujet Actuel",
+      "placeholder": "Qu'enseignez-vous actuellement ?"
+    },
+    "reviewTopics": {
+      "label": "Sujets à Réviser",
+      "placeholder": "Listez les sujets précédents à inclure dans la révision..."
+    },
+    "problemCount": {
+      "label": "Nombre de Problèmes"
+    },
+    "difficulty": {
+      "label": "Niveau de Difficulté"
+    },
+    "text": {
+      "label": "Texte à Analyser",
+      "placeholder": "Collez le texte que vous voulez valider..."
+    },
+    "targetGrade": {
+      "label": "Niveau Scolaire Cible"
+    },
+    "purpose": {
+      "label": "Objectif du Texte"
+    },
+    "proofreading": {
+      "label": "Correction"
+    },
+    "rewriteTo": {
+      "label": "Réécrire pour le rendre"
+    },
+    "textSummariser": {
+      "label": "Résumeur de Texte"
+    },
+    "concept": {
+      "label": "Concept à Expliquer",
+      "placeholder": "Quel concept nécessite plusieurs explications ?"
+    },
+    "explanationTypes": {
+      "label": "Types d'Explications"
+    },
+    "assessmentType": {
+      "label": "Type d'Évaluation"
+    },
+    "questionCount": {
+      "label": "Nombre de Questions"
+    },
+    "questionTypes": {
+      "label": "Types de Questions"
+    },
+    "includeAnswerKey": {
+      "label": "Inclure le Corrigé"
+    },
+    "assignmentType": {
+      "label": "Type de Devoir"
+    },
+    "learningGoals": {
+      "label": "Objectifs d'Apprentissage",
+      "placeholder": "Qu'est-ce que les élèves devraient apprendre de ce devoir ?"
+    },
+    "dokLevel": {
+      "label": "Niveau DOK"
+    },
+    "questionType": {
+      "label": "Type de Question"
+    },
+    "mathTopic": {
+      "label": "Sujet de Mathématiques"
+    },
+    "includeWordProblems": {
+      "label": "Inclure des Problèmes de Mots"
+    },
+    "studentText": {
+      "label": "Texte de l'Élève",
+      "placeholder": "Collez la soumission de texte de l'élève ici pour analyse..."
+    },
+    "analysisDepth": {
+      "label": "Profondeur d'Analyse"
+    },
+    "studentName": {
+      "label": "Nom de l'Élève",
+      "placeholder": "Prénom de l'élève"
+    },
+    "situation": {
+      "label": "Situation",
+      "placeholder": "Décrivez la situation que vous devez aborder..."
+    },
+    "emailType": {
+      "label": "Type d'Email"
+    },
+    "behaviorConcern": {
+      "label": "Préoccupation Comportementale",
+      "placeholder": "Décrivez le comportement spécifique qui nécessite un soutien..."
+    },
+    "strengths": {
+      "label": "Forces de l'Élève",
+      "placeholder": "Quelles sont les forces et intérêts de l'élève ?"
+    },
+    "triggerSituation": {
+      "label": "Situation Déclenchante",
+      "placeholder": "Décrivez la situation sociale..."
+    },
+    "desiredBehavior": {
+      "label": "Comportement Désiré",
+      "placeholder": "Quel comportement aimeriez-vous voir à la place ?"
+    },
+    "learningLevel": {
+      "label": "Niveau d'Apprentissage"
+    },
+    "activityType": {
+      "label": "Type d'Activité"
+    },
+    "specificNeeds": {
+      "label": "Besoins Spécifiques",
+      "placeholder": "Décrivez les besoins d'apprentissage spécifiques de l'élève..."
+    },
+    "accommodationType": {
+      "label": "Type d'Accommodation"
+    },
+    "currentReadingLevel": {
+      "label": "Niveau de Lecture Actuel"
+    },
+    "targetReadingLevel": {
+      "label": "Niveau de Lecture Cible"
+    },
+    "reflectionType": {
+      "label": "Type de Réflexion"
+    },
+    "classSize": {
+      "label": "Taille de Classe"
+    },
+    "ageGroup": {
+      "label": "Groupe d'Âge"
+    },
+    "projectType": {
+      "label": "Type de Projet"
+    },
+    "courseName": {
+      "label": "Nom du Cours",
+      "placeholder": "Nom de votre cours"
+    },
+    "courseDescription": {
+      "label": "Description du Cours",
+      "placeholder": "Brève description du cours..."
+    },
+    "achievementType": {
+      "label": "Type de Réussite"
+    },
+    "studentNames": {
+      "label": "Noms des Élèves",
+      "placeholder": "Entrez les noms des élèves séparés par des virgules"
+    },
+    "conferenceType": {
+      "label": "Type de Conférence"
+    },
+    "concerns": {
+      "label": "Préoccupations ou Sujets",
+      "placeholder": "De quoi aimeriez-vous discuter ?"
+    },
+    "goalType": {
+      "label": "Type d'Objectif"
+    },
+    "timeframe": {
+      "label": "Délai"
+    },
+    "surveyTopic": {
+      "label": "Sujet du Sondage",
+      "placeholder": "Qu'aimeriez-vous apprendre sur vos élèves ?"
+    },
+    "responseType": {
+      "label": "Type de Réponse"
+    },
+    "subjectArea": {
+      "label": "Domaine de Matière"
+    },
+    "classPeriod": {
+      "label": "Période de Classe",
+      "placeholder": "ex., 3e période, Bloc matinal"
+    },
+    "specialInstructions": {
+      "label": "Instructions Spéciales",
+      "placeholder": "Toute instruction spécifique pour le suppléant..."
+    },
+    "theme": {
+      "label": "Thème",
+      "placeholder": "Sur quel thème ou sujet le tableau devrait-il se concentrer ?"
+    },
+    "boardSize": {
+      "label": "Taille du Tableau"
+    },
+    "newsletterType": {
+      "label": "Type de Newsletter"
+    },
+    "monthPeriod": {
+      "label": "Mois/Période",
+      "placeholder": "ex., Octobre, Premier Trimestre"
+    },
+    "destination": {
+      "label": "Destination",
+      "placeholder": "Où prévoyez-vous aller ?"
+    },
+    "tripPurpose": {
+      "label": "Objectif de la Sortie",
+      "placeholder": "Quel est l'objectif éducatif de cette sortie ?"
+    },
+    "experimentType": {
+      "label": "Type d'Expérience",
+      "placeholder": "Quel type d'expérience ou d'activité de laboratoire ?"
+    },
+    "safetyLevel": {
+      "label": "Niveau de Sécurité"
+    },
+    "choices": {
+      "label": "Nombre de Choix"
+    },
+    "boardType": {
+      "label": "Type de Tableau"
+    }
+  },
+  "fieldOptions": {
+    "grades": ["CP", "CE1", "CE2", "CM1", "CM2", "6e", "5e", "4e", "3e", "2de", "1ère", "Terminale"],
+    "durations": ["1 heure", "1,5 heure", "2 heures", "2,5 heures", "3 heures"],
+    "learningStyles": ["Visuel", "Auditif", "Kinesthésique", "Mixte"],
+    "resources": ["Fournitures de base seulement", "Technologie disponible", "Matériel de manipulation", "Aucune ressource spéciale"],
+    "ageGroups": ["CP-CE2", "CM1-6e", "5e-3e", "Lycée"],
+    "disabilities": ["Difficultés d'apprentissage", "TDAH", "Trouble du spectre autistique", "Déficience intellectuelle", "Autre"],
+    "subjects": ["Lecture", "Mathématiques", "Écriture", "Compétences sociales", "Comportement", "Communication"],
+    "bloomsLevels": ["Mémoriser", "Comprendre", "Appliquer", "Analyser", "Évaluer", "Créer"],
+    "slideCounts": ["5-8 diapositives", "10-12 diapositives", "15-20 diapositives"],
+    "yesNo": ["Oui", "Non"],
+    "contentTypes": ["Explication", "Exemples", "Problèmes pratiques", "Vocabulaire", "Résumé"],
+    "contentLengths": ["Bref", "Modéré", "Détaillé"],
+    "mathGrades": ["CP", "CE1", "CE2", "CM1", "CM2", "6e", "5e", "4e", "3e", "Algèbre", "Géométrie"],
+    "problemCounts": ["10", "15", "20", "25", "30"],
+    "difficulties": ["Facile", "Moyen", "Difficile", "Mixte"],
+    "textPurposes": ["Lecture autonome", "Lecture guidée", "Texte d'instruction", "Évaluation"],
+    "rewriteOptions": ["Plus simple", "Plus complexe", "Plus engageant", "Plus formel", "Plus informel"],
+    "summaryOptions": ["Résumé bref", "Résumé détaillé", "Points clés seulement", "Pas de résumé"],
+    "explanationTypes": ["Visuel et verbal", "Simple et complexe", "Analogie et direct", "Tous types"],
+    "assessmentTypes": ["Quiz", "Test", "Tâche de performance", "Grille de projet"],
+    "questionTypes": ["Choix multiples", "Réponse courte", "Dissertation", "Mixte", "Vrai/Faux", "Compléter"],
+    "questionCounts": ["5", "8", "10", "12", "15", "20"],
+    "assignmentTypes": ["Projet de recherche", "Rapport de laboratoire", "Dissertation", "Projet créatif", "Résolution de problèmes"],
+    "durations": ["1 semaine", "2 semaines", "1 mois", "Trimestre"],
+    "dokLevels": ["Niveau 1 (Rappel)", "Niveau 2 (Application)", "Niveau 3 (Analyse)", "Niveau 4 (Pensée étendue)", "Niveaux mixtes"],
+    "mathTopics": ["Addition", "Soustraction", "Multiplication", "Division", "Fractions", "Décimales", "Géométrie", "Algèbre", "Problèmes de mots"],
+    "wordProblemOptions": ["Oui", "Non", "Seulement problèmes de mots"],
+    "assignmentTypes": ["Dissertation", "Travail de recherche", "Écriture créative", "Réponse courte", "Rapport de laboratoire", "Autre"],
+    "studentGrades": ["CE2", "CM1", "CM2", "6e", "5e", "4e", "3e", "2de", "1ère", "Terminale"],
+    "analysisDepths": ["Vérification rapide", "Analyse standard", "Examen détaillé"],
+    "emailTypes": ["Mise à jour des progrès", "Préoccupation/Problème", "Célébration", "Demande de conférence", "Mise à jour comportementale"],
+    "learningLevels": ["Sous le niveau scolaire", "Au niveau scolaire", "Au-dessus du niveau scolaire", "Niveaux multiples"],
+    "activityTypes": ["Lecture", "Mathématiques", "Sciences", "Écriture", "Art", "Matière mixte"],
+    "accommodationTypes": ["Difficultés d'apprentissage", "Handicaps physiques", "Soutien comportemental", "Apprenants de français langue étrangère", "Élèves doués"],
+    "readingLevels": ["CP", "CE1", "CE2", "CM1", "CM2", "6e", "5e", "4e", "3e", "2de", "1ère", "Terminale"],
+    "reflectionTypes": ["Apprentissage quotidien", "Progrès hebdomadaire", "Réflexion de projet", "Fixation d'objectifs", "Auto-évaluation"],
+    "classSizes": ["Petite (10-15)", "Moyenne (16-25)", "Grande (26-35)", "Très grande (35+)"],
+    "projectTypes": ["Projet de recherche", "Projet d'art", "Foire scientifique", "Apprentissage service", "Écriture créative"],
+    "achievementTypes": ["Réussite académique", "Amélioration comportementale", "Participation", "Leadership", "Effort"],
+    "conferenceTypes": ["Suivi régulier", "Préoccupations académiques", "Problèmes comportementaux", "Forces de l'élève", "Fixation d'objectifs"],
+    "goalTypes": ["Académique", "Comportemental", "Social", "Croissance personnelle"],
+    "timeframes": ["Court terme (1 mois)", "Moyen terme (Trimestre)", "Long terme (Semestre)", "Annuel"],
+    "responseTypes": ["Choix multiples", "Échelle d'évaluation", "Réponse ouverte", "Oui/Non", "Mixte"],
+    "boardSizes": ["Petit", "Moyen", "Grand", "Tableaux multiples"],
+    "newsletterTypes": ["Mise à jour hebdomadaire", "Newsletter mensuelle", "Événement spécial", "Focus académique"],
+    "safetyLevels": ["Basique", "Intermédiaire", "Avancé"],
+    "choiceCounts": ["6", "9", "12", "15"],
+    "boardTypes": ["Activités d'apprentissage", "Options d'évaluation", "Choix de projets", "Options de lecture"]
+  },
+  "feedback": {
+    "satisfactionSurvey": {
+      "title": "Comment était votre expérience avec {{toolName}} ?",
+      "toolAppreciation": "À quel point avez-vous apprécié cet outil ?",
+      "responseQuality": "Comment évalueriez-vous la qualité de la réponse ?",
+      "wouldRecommend": "Recommanderiez-vous cet outil à un collègue ?",
+      "missingFields": "Y avait-il des champs ou options que vous sentiez manquer ?",
+      "additionalFeedback": "Commentaires ou suggestions supplémentaires ?",
+      "submit": "Soumettre les Commentaires",
+      "thankYou": "Merci pour vos commentaires !"
+    }
+  },
+  "forms": {
+    "generateContent": "Générer le Contenu",
+    "generating": "Génération...",
+    "regenerating": "Régénération...",
+    "updating": "Mise à jour...",
+    "needModifications": "Besoin de modifications ?",
+    "modifyPlaceholder": "Dites-moi comment vous aimeriez modifier ce contenu...",
+    "update": "Mettre à jour",
+    "copy": "Copier",
+    "download": "Télécharger",
+    "save": "Enregistrer",
+    "saving": "Enregistrement...",
+    "saved": "Enregistré !",
+    "exportSlides": "Exporter les Diapositives",
+    "exporting": "Exportation...",
+    "copied": "Copié dans le presse-papiers !",
+    "generatedContent": "Contenu Généré",
+    "noContentGenerated": "Aucun contenu n'a été généré pour l'instant. Remplissez le formulaire ci-dessus et cliquez sur 'Générer le Contenu' pour commencer."
+  },
+  "errors": {
+    "failedToGenerate": "Échec de la génération du contenu. Veuillez réessayer.",
+    "failedToSave": "Échec de l'enregistrement du contenu. Veuillez réessayer.",
+    "failedToCopy": "Échec de la copie dans le presse-papiers.",
+    "failedToExport": "Échec de l'exportation des diapositives. Veuillez réessayer.",
+    "networkError": "Erreur réseau. Veuillez vérifier votre connexion.",
+    "unexpectedError": "Une erreur inattendue s'est produite."
+  },
+  "schoolAdmin": {
+    "sections": {
+      "complete": "Solution Administrative",
+      "solution": "Complète",
+      "integratedModules": "Modules Intégrés"
+    },
+    "features": {
+      "sis": {
+        "title": "Système d'Information Étudiante",
+        "description": "Dossiers étudiants complets, inscription et suivi académique"
+      },
+      "financial": {
+        "title": "Gestion Financière",
+        "description": "Suivi des frais de scolarité, facturation, budgétisation et rapports financiers"
+      },
+      "scheduling": {
+        "title": "Planification et Horaires",
+        "description": "Planification automatisée des cours, allocation des salles et gestion des ressources"
+      },
+      "communication": {
+        "title": "Hub de Communication",
+        "description": "Messagerie unifiée pour les parents, enseignants et administrateurs"
+      },
+      "analytics": {
+        "title": "Tableau de Bord Analytique",
+        "description": "Aperçus en temps réel des performances et opérations scolaires"
+      },
+      "security": {
+        "title": "Sécurité et Conformité",
+        "description": "Protection des données, conformité RGPD et contrôles d'accès sécurisés"
+      }
+    },
+    "modules": {
+      "admissions": "Admissions et Inscription",
+      "records": "Gestion des Dossiers Académiques",
+      "staff": "Gestion du Personnel et RH",
+      "financial": "Opérations Financières",
+      "portal": "Portail Parents et Étudiants",
+      "reporting": "Rapports et Analyses"
+  },
+  "advancedLMS": {
+    "sections": {
+      "revolutionary": "Révolutionnaire Alimenté par l'IA",
+      "features": "Fonctionnalités",
+      "transform": "Transformez Votre Institution"
+    }
+  },
+    "buttons": {
+      "requestDemo": "Demander une Démo"
+    }
+  },
+  "solutions": {
+    "admissions": {
+      "title": "Gestion des Admissions",
+      "subtitle": "Simplifiez l'inscription des étudiants avec notre logiciel intelligent d'admissions scolaires alimenté par l'IA. Facilitez l'intégration pour les familles et l'efficacité pour votre équipe.",
+      "features": {
+        "title": "Fonctionnalités Puissantes",
+        "subtitle": "Tout ce dont vous avez besoin pour rationaliser votre processus d'admission",
+        "onlineForms": {
+          "title": "Formulaires de Candidature en Ligne",
+          "description": "Champs personnalisables qui s'adaptent aux exigences spécifiques de votre école"
+        },
+        "verification": {
+          "title": "Vérification Automatique des Documents",
+          "description": "Vérification automatisée et système complet de suivi des candidats"
+        },
+        "aiProfiling": {
+          "title": "Profilage Étudiant basé sur l'IA",
+          "description": "Évaluations plus rapides grâce aux algorithmes intelligents de profilage étudiant"
+        },
+        "communication": {
+          "title": "Communication Fluide",
+          "description": "Canaux de communication directs avec les parents et les candidats"
+        },
+        "dashboard": {
+          "title": "Tableau de Bord Centralisé",
+          "description": "Surveillez chaque étape de l'inscription depuis une interface unique"
+        }
+      },
+      "whyMatters": {
+        "title": "Pourquoi C'est Important",
+        "description": "Réduisez le temps administratif et diminuez les erreurs en automatisant les tâches répétitives. Offrez aux familles potentielles un parcours d'admission fluide et réactif qui reflète le professionnalisme de votre école et établit la confiance dès la première interaction."
+      },
+      "benefits": {
+        "title": "Transformez Votre Processus",
+        "faster": "Plus Rapide",
+        "fasterDesc": "Réduction du Temps de Traitement de 75%",
+        "accuracy": "Précision",
+        "accuracyDesc": "Vérification des Documents à 99%",
+        "realtime": "Temps Réel",
+        "realtimeDesc": "Analyses et Rapports"
+      },
+      "cta": {
+        "title": "Prêt à Moderniser Vos Admissions ?",
+        "description": "Rejoignez des milliers d'institutions dans le monde entier pour rationaliser leur processus d'admission avec notre plateforme éprouvée.",
+        "button": "Optimiser les Admissions Aujourd'hui"
+      },
+      "startTrial": "Commencer l'Essai Gratuit"
+    },
+    "reports": {
+      "title": "Rapports Généraux et Analyses",
+      "subtitle": "Transformez les données brutes en perspectives exploitables avec des outils de rapport complets conçus pour l'excellence éducative.",
+      "features": {
+        "title": "Suite d'Analyses Complète",
+        "subtitle": "Tout ce dont vous avez besoin pour prendre des décisions basées sur les données pour votre institution",
+        "dashboards": {
+          "title": "Tableaux de Bord Dynamiques",
+          "description": "Visualisation de données académiques, comportementales et opérationnelles en temps réel avec graphiques interactifs"
+        },
+        "builder": {
+          "title": "Générateur de Rapports Personnalisés",
+          "description": "Interface glisser-déposer pour créer des rapports sur mesure pour n'importe quel département ou métrique"
+        },
+        "export": {
+          "title": "Flexibilité d'Exportation",
+          "description": "Exportations en un clic vers Excel, PDF, ou livraison automatisée aux parties prenantes"
+        },
+        "aiInsights": {
+          "title": "Insights Assistés par l'IA",
+          "description": "Les algorithmes d'apprentissage automatique identifient les tendances et fournissent des analyses prédictives"
+        },
+        "security": {
+          "title": "Sécurité des Données et Conformité",
+          "description": "Sécurité de niveau entreprise avec accès basé sur les rôles et pistes d'audit"
+        },
+        "scheduling": {
+          "title": "Planification Automatisée",
+          "description": "Planifiez la génération et la distribution automatiques des rapports"
+        }
+      },
+      "whyMatters": {
+        "title": "Excellence Basée sur les Données",
+        "description": "Transformez les données institutionnelles brutes en insights stratégiques qui favorisent l'amélioration. Notre plateforme d'analyses avancées permet aux équipes de direction d'identifier les tendances, d'optimiser les ressources et de prendre des décisions basées sur des preuves qui améliorent les résultats éducatifs dans tous les départements.",
+        "stats": {
+          "reduction": "Réduction du temps de génération de rapports de 95%",
+          "templates": "Plus de 50 modèles de rapports pré-construits"
+        }
+      },
+      "benefits": {
+        "title": "Capacités d'Analyses Puissantes",
+        "realtime": "Temps Réel",
+        "realtimeDesc": "Mises à Jour du Tableau de Bord en Direct",
+        "aiPowered": "Alimenté par l'IA",
+        "aiDesc": "Intelligence Prédictive",
+        "custom": "Personnalisé",
+        "customDesc": "Solutions Sur Mesure"
+      },
+      "cta": {
+        "title": "Prêt à Débloquer le Potentiel de Vos Données ?",
+        "description": "Rejoignez les institutions éducatives leaders dans la transformation des données en avantages stratégiques avec notre plateforme d'analyses avancées.",
+        "button": "Commencer le Parcours Analytique"
+      }
+    },
+    "hrPayroll": {
+      "title": "Solutions RH et Paie",
+      "subtitle": "Renforcez votre institution avec une gestion complète des ressources humaines qui priorise à la fois l'efficacité et la satisfaction des employés.",
+      "features": {
+        "title": "Suite Complète de Gestion RH",
+        "subtitle": "De l'embauche à la retraite, gérez chaque aspect de votre main-d'œuvre efficacement",
+        "onboarding": {
+          "title": "Intégration Numérique du Personnel",
+          "description": "Intégration numérique rationalisée avec paperasserie automatisée et configuration d'accès basée sur les rôles"
+        },
+        "payroll": {
+          "title": "Automatisation de la Paie",
+          "description": "Traitement entièrement automatisé de la paie avec calculs fiscaux, déductions et intégration des avantages"
+        },
+        "attendance": {
+          "title": "Gestion de la Présence et des Congés",
+          "description": "Suivi complet avec intégration biométrique et calculs automatisés des congés"
+        },
+        "performance": {
+          "title": "Évaluation de Performance",
+          "description": "Évaluations de performance à 360 degrés avec suivi des objectifs et évaluations de compétences"
+        },
+        "compliance": {
+          "title": "Conformité et Dossiers",
+          "description": "Surveillance automatisée de la conformité avec gestion sécurisée des documents dans le cloud"
+        },
+        "scheduling": {
+          "title": "Planification et Organisation",
+          "description": "Planification avancée du personnel avec gestion des équipes et optimisation des ressources"
+        }
+      },
+      "whyMatters": {
+        "title": "Solutions RH Axées sur les Personnes",
+        "description": "Transformez votre département RH d'un fardeau administratif en partenaire stratégique. Notre plateforme complète automatise les tâches routinières tout en maintenant la conformité, permettant à votre équipe de se concentrer sur ce qui compte le plus : développer et soutenir vos professionnels de l'éducation.",
+        "stats": {
+          "time": "Réduction de 80% du temps administratif",
+          "accuracy": "Précision de la paie garantie à 99,9%",
+          "compliance": "Couverture de conformité à 100%"
+        }
+      },
+      "benefits": {
+        "title": "Capacités RH Avancées",
+        "automated": "Automatisé",
+        "automatedDesc": "Paie et Avantages",
+        "compliant": "Conforme",
+        "compliantDesc": "Normes Réglementaires",
+        "digital": "Numérique",
+        "digitalDesc": "Gestion Documentaire"
+      },
+      "cta": {
+        "title": "Prêt à Transformer Vos Opérations RH ?",
+        "description": "Rejoignez les institutions éducatives progressistes dans la révolution de la gestion des ressources humaines avec notre plateforme complète.",
+        "button": "Transformer RH et Paie"
+      },
+      "streamlineOps": "Rationaliser les Opérations RH"
+    },
+    "finance": {
+      "title": "Suite de Gestion Financière",
+      "subtitle": "Atteignez la transparence et le contrôle financiers avec des outils complets conçus pour l'excellence des institutions éducatives.",
+      "features": {
+        "title": "Contrôle Financier Complet",
+        "subtitle": "Tout ce dont vous avez besoin pour gérer les finances de votre institution avec confiance",
+        "feeManagement": {
+          "title": "Gestion des Frais et Facturation Automatisée",
+          "description": "Gestion complète du cycle de vie des frais avec facturation automatisée, rappels de paiement et suivi des recouvrements"
+        },
+        "reports": {
+          "title": "Rapports Financiers Avancés",
+          "description": "Tableaux de bord financiers en temps réel avec rapports complets et pistes d'audit détaillées pour la transparence"
+        },
+        "budgeting": {
+          "title": "Planification Budgétaire et Prévisions",
+          "description": "Planification budgétaire intelligente avec analyses prédictives et surveillance des dépenses en temps réel"
+        },
+        "payments": {
+          "title": "Traitement de Paiements Multi-Canaux",
+          "description": "Intégration sécurisée avec banques, passerelles de paiement et portefeuilles numériques pour des transactions fluides"
+        },
+        "tax": {
+          "title": "Gestion Fiscale et Conformité",
+          "description": "Calculs fiscaux automatisés, surveillance de la conformité et capacités de rapport réglementaire"
+        },
+        "optimization": {
+          "title": "Analyses d'Optimisation des Coûts",
+          "description": "Insights alimentés par l'IA pour identifier les opportunités d'économies et optimiser l'allocation des ressources"
+        }
+      },
+      "whyMatters": {
+        "title": "Excellence Financière par la Technologie",
+        "description": "Transformez vos opérations financières du complexe au rationalisé. Notre plateforme complète fournit une visibilité en temps réel sur tous les aspects des finances de votre institution, de la gestion des frais de scolarité aux prévisions budgétaires, assurant transparence, conformité et planification financière stratégique.",
+        "stats": {
+          "processing": "Traitement des paiements 90% plus rapide",
+          "accuracy": "Taux de précision financière de 99,8%",
+          "costs": "Réduction de 60% des coûts administratifs"
+        }
+      },
+      "benefits": {
+        "title": "Capacités Financières Avancées",
+        "automated": "Automatisé",
+        "automatedDesc": "Traitement des Paiements",
+        "transparent": "Transparent",
+        "transparentDesc": "Insights Financiers",
+        "smart": "Intelligent",
+        "smartDesc": "Planification Budgétaire"
+      },
+      "cta": {
+        "title": "Prêt à Transformer Vos Opérations Financières ?",
+        "description": "Rejoignez les institutions éducatives leaders dans l'atteinte de l'excellence financière avec notre plateforme de gestion complète.",
+        "button": "Optimiser la Santé Financière"
+      }
+    },
+    "communication": {
+      "title": "Excellence en Communication",
+      "subtitle": "Unissez toute votre communauté éducative avec une communication intelligente multi-canaux qui construit des connexions plus fortes.",
+      "features": {
+        "title": "Plateforme de Communication Complète",
+        "subtitle": "Connectez, engagez et informez toute votre communauté éducative de manière fluide",
+        "broadcasting": {
+          "title": "Diffusion Multi-Canaux",
+          "description": "Annonces instantanées par email, SMS, notifications push et plateformes de médias sociaux"
+        },
+        "alerts": {
+          "title": "Système d'Alertes Intelligent",
+          "description": "Alertes intelligentes alimentées par l'IA pour la présence, les progrès académiques, les événements et les notifications d'urgence"
+        },
+        "hub": {
+          "title": "Hub de Communication Interactif",
+          "description": "Portails de messagerie sécurisés bidirectionnels connectant enseignants, parents, étudiants et administrateurs"
+        },
+        "multilingual": {
+          "title": "Multilingue et Accessibilité",
+          "description": "Traduction en temps réel dans plus de 50 langues avec fonctionnalités de conformité d'accessibilité complètes"
+        },
+        "video": {
+          "title": "Intégration de Réunions Virtuelles",
+          "description": "Visioconférence fluide pour les réunions parents-enseignants et les sessions de classe virtuelle"
+        },
+        "workflows": {
+          "title": "Flux de Travail Automatisés",
+          "description": "Flux de travail de communication intelligents qui se déclenchent en fonction d'événements et de planification"
+        }
+      },
+      "whyMatters": {
+        "title": "Construire des Communautés Plus Fortes",
+        "description": "Transformez la façon dont votre communauté éducative se connecte et collabore. Notre plateforme garantit que chaque voix est entendue, chaque message atteint sa destination, et chaque partie prenante se sent engagée et informée."
+      },
+      "cta": {
+        "title": "Prêt à Unir Votre Communauté ?",
+        "description": "Rejoignez les institutions éducatives progressistes dans la révolution de la communication et de l'engagement.",
+        "button": "Connecter Votre Communauté"
+      }
+    }
   }
 }

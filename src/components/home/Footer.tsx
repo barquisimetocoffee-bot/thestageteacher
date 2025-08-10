@@ -1,7 +1,15 @@
+
+
+import { useTranslation } from "react-i18next";
+import { Sparkles } from "lucide-react";
+
 import { Facebook, Twitter, Youtube } from "lucide-react";
 
+
 const Footer = () => {
+  const { t } = useTranslation();
   return (
+
     <footer className="bg-[#2901b3] text-white grid grid-cols-1 md:grid-cols-3 gap-8 py-12 px-4 sm:px-6 lg:px-8">
       {/* Footer Content */}
       <div>

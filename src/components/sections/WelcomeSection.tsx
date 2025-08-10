@@ -75,6 +75,7 @@ const WelcomeSection = ({
   };
 
   return (
+
     <div className="mb-6">
       {/* Compact Welcome Message */}
       <div className="text-center mb-4">

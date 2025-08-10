@@ -1,10 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Users, Brain, Target, Lightbulb } from "lucide-react";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { TrendingUp, Users, BookOpen, Brain, Target, Lightbulb, GraduationCap, LineChart, Users2, Calendar, MessageCircle, Trophy, Zap, Star } from "lucide-react";
+
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
 import secondarySchoolsHero from "@/assets/secondary-schools-hero.jpg";
+
 import Footer from "@/components/home/Footer";
+
 
 const SecondarySchools = () => {
   const [showLogin, setShowLogin] = useState(false);

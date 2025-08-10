@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Card,
   CardContent,
@@ -35,6 +36,7 @@ import LoginModal from "@/components/auth/LoginModal";
 
 const EasyTeachPage = () => {
   const [showLogin, setShowLogin] = useState(false);
+  const { t } = useTranslation();
 
   // Custom Dashboard Mockup Components
   const LessonPlanDashboard = () => (

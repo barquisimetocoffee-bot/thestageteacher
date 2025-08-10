@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { Heart, Users2, BookOpen, Shield } from "lucide-react";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Heart, Users2, BookOpen, Shield, Star, Play, Gamepad2, Palette, Calendar, MessageCircle, Trophy, Zap } from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
+import primarySchoolsHero from "@/assets/primary-schools-hero.jpg";
+
 import Footer from "@/components/home/Footer";
 
 const PrimarySchools = () => {

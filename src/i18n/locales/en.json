@@ -15,6 +15,8 @@
     "bookDemo": "Book Demo",
     "available": "Available",
     "comingSoon": "Coming Soon",
+    "pricingPlan": "Choose Your Plan",
+    "joinWaitlist": "Join the Waitlist",
     "byCategory": "By Category",
     "byDepartment": "By Department",
     "primarySchools": "Primary Schools",
@@ -71,7 +73,7 @@
     "integrationDescription": "All Tools Connected",
     "timeSaving": "Time Saving",
     "timeDescription": "15+ Hours Weekly",
-    "tryNow": "Try Vivicerta Now"
+    "tryNow": "Try Vicerta Now"
   },
   "products": {
     "title": "Our Product Suite",
@@ -85,16 +87,68 @@
     "aiChatbotDesc": "Intelligent virtual assistant for students and teachers.",
     "learnMore": "Learn More",
     "comingSoon": "Coming Soon",
-    "joinWaitlist": "Join Waitlist"
+    "joinWaitlist": "Join Waitlist",
+    "choosePlan": "Choose Your Plan",
+    "planDescription": "Start free and upgrade when you're ready for unlimited AI power",
+    "whatsIncluded": "What's included:",
+    "featuresMore": "+{{count}} features more",
+    "mostPopular": "Most Popular",
+    "easyTeachFree": "EasyTeach Free",
+    "easyTeachPro": "EasyTeach Pro",
+    "schoolAdministration": "School Administration",
+    "advancedLMS": "Advanced LMS",
+    "freeForever": "Free/Forever",
+    "perYear": "per year",
+    "available": "available",
+    "comingSoon": "Coming Soon",
+    "getStartedFree": "Get Started Free",
+    "upgradeToPro": "Upgrade to Pro",
+    "requestDemo": "Request Demo",
+    "enterLMSBeta": "Enter LMS Beta",
+    "joinWaitlist": "Join the Waitlist",
+    "basicLessonPlanning": "Basic Lesson Planning",
+    "parentCommunicationTemplates": "Parent Communication Templates",
+    "limitedAIGenerations": "Limited AI Generations (50/month)",
+    "basicBehaviorManagement": "Basic Behavior Management Tools",
+    "communitySupportText": "Community Support",
+    "everythingInFree": "Everything in Free, plus...",
+    "unlimitedAIGenerations": "Unlimited AI generations",
+    "continueThreads": "Continue threads with Kribi Chatbot",
+    "unlimitedAISlides": "Unlimited AI Slides generation",
+    "exportToGoogleSlides": "Export to Google Slides",
+    "easyTeachForStudents": "EasyTeach for students",
+    "lifetimeOutputHistory": "Lifetime output history",
+    "exclusiveEarlyAccess": "Exclusive early access to new features",
+    "schoolWideManagement": "School-wide Management Dashboard",
+    "aiPoweredAdministrative": "AI-Powered Administrative Assistance",
+    "studentPerformanceAnalytics": "Student Performance Analytics",
+    "staffManagementScheduling": "Staff Management & Scheduling",
+    "parentSchoolCommunication": "Parent-School Communication Hub",
+    "institutionalReporting": "Institutional Reporting & Insights",
+    "aiPersonalizationAdaptive": "AI-Powered Personalization & Adaptive Learning",
+    "aiGeneratedContentMultilingual": "AI-Generated Content & Multilingual Support",
+    "smartProctoringGrading": "Smart Proctoring & Auto-Grading",
+    "gamificationVRARIntegration": "Gamification & VR/AR Integration",
+    "predictiveAnalyticsAssistant": "Predictive Analytics & AI Assistant",
+    "blockchainCertificates": "Blockchain Certificates & Corporate Features",
+    "teachersCount": "100,000+ Teachers"
   },
   "cta": {
     "title": "Ready to Transform Your Teaching?",
     "description": "Join thousands of educators who are already using our platform to enhance their teaching experience.",
     "getStarted": "Get Started Today",
-    "joinWaitlist": "Join Our Waitlist"
+    "joinWaitlist": "Join Our Waitlist",
+    "teachersCount": "100,000+ Teachers",
+    "rating": "4.9/5 Rating",
+    "lovedByEducators": "Loved by Educators",
+    "getStartedFree": "Get Started for Free",
+    "joinWaitlistButton": "Join Waitlist",
+    "noCreditCard": "No credit card required",
+    "freePlan": "Free forever plan available",
+    "setupTime": "Setup in under 5 minutes"
   },
   "footer": {
-    "tagline": "Empowering educators with AI-driven tools for modern teaching",
+    "tagline": "Empowering education worldwide with comprehensive AI-powered solutions.",
     "products": "Products",
     "company": "Company",
     "support": "Support",
@@ -109,7 +163,8 @@
     "terms": "Terms of Service",
     "cookies": "Cookie Policy",
     "dataProtection": "Data Protection",
-    "allRights": "All rights reserved."
+    "allRights": "All rights reserved.",
+    "contact": "Contact"
   },
   "auth": {
     "loginTitle": "Welcome Back",
@@ -244,7 +299,7 @@
   "showcase": {
     "drivingForce": "The Driving Force",
     "behindEducation": "Behind Educational Innovation",
-    "platformDescription": "Vivicerta isn't just a platform - it's the foundation of the new educational era, seamlessly connecting teaching, learning, and administration through intelligent AI.",
+    "platformDescription": "Vicerta isn't just a platform - it's the foundation of the new educational era, seamlessly connecting teaching, learning, and administration through intelligent AI.",
     "consolidatedAI": "Consolidated AI Intelligence",
     "consolidatedAIDesc": "Our three products share a common AI brain that learns from every interaction across the platform, creating smarter solutions for everyone.",
     "seamlessIntegration": "Seamless Integration",
@@ -254,7 +309,7 @@
     "whyEcerta": "Why Vicerta is the Future of Education",
     "whyEcertaDesc": "We're not just building products - we're creating the foundation for the next generation of education technology.",
     "completeEcosystem": "Complete Ecosystem Approach",
-    "completeEcosystemDesc": "Unlike fragmented solutions, Vivicerta provides a unified platform that serves every stakeholder in the education process - from individual teachers to entire institutions.",
+    "completeEcosystemDesc": "Unlike fragmented solutions, Vicerta provides a unified platform that serves every stakeholder in the education process - from individual teachers to entire institutions.",
     "exponentialGrowth": "Exponential Growth Impact",
     "exponentialGrowthDesc": "Our integrated approach creates exponential benefits. As one product improves, it enhances the entire ecosystem, multiplying value for all users.",
     "globalTransformation": "Global Education Transformation",
@@ -283,7 +338,21 @@
     "newPassword": "New Password",
     "confirmPassword": "Confirm Password", 
     "updatePassword": "Update Password",
-    "passwordUpdated": "Password Updated Successfully!"
+
+    "passwordUpdated": "Password Updated Successfully!",
+    "emailAddress": "Email Address",
+    "enterEmailPlaceholder": "Enter your email",
+    "sendingResetLink": "Sending Reset Link...",
+    "backToLogin": "Back to Login",
+    "resetDescription": "Enter your email address and we'll send you a link to reset your password",
+    "emailSentMessage": "If an account with that email exists, you'll receive a password reset link shortly.",
+    "emailRequired": "Email Required",
+    "enterEmailError": "Please enter your email address",
+    "resetFailed": "Reset Failed",
+    "errorOccurred": "An unexpected error occurred",
+    "resetEmailSent": "Reset Email Sent",
+    "checkEmailMessage": "Check your email for password reset instructions"
+
   },
   "solutions": {
     "startFreeTrial": "Start Free Trial",
@@ -294,5 +363,392 @@
     "howToUse": "How to Use:",
     "optimizeFinances": "Optimize School Finances",
     "seeInsights": "See Insights in Action"
+  },
+  "feedback": {
+    "title": "How was your experience with {{toolName}}?",
+    "description": "Your feedback helps us improve our AI teaching tools. Please take a moment to share your experience! 📚✨",
+    "toolAppreciation": "How much did you appreciate this tool overall?",
+    "responseQuality": "How would you rate the quality of the generated content?",
+    "missingFields": "Were there any fields missing that could have made your request more detailed and accurate?",
+    "missingFieldsPlaceholder": "e.g., 'Would love a field for student reading level', 'Missing options for special needs accommodations', etc.",
+    "additionalFeedback": "Any additional feedback or suggestions?",
+    "additionalFeedbackPlaceholder": "Share any other thoughts about your experience...",
+    "wouldRecommend": "Would you recommend this tool to other educators?",
+    "yesRecommend": "Yes, I'd recommend it",
+    "noRecommend": "No, needs improvement",
+    "skipForNow": "Skip for now",
+    "submitFeedback": "Submit Feedback",
+    "submitting": "Submitting...",
+    "clickToRate": "Click to rate",
+    "starsRating": "{{rating}}/5 stars",
+    "completeRatings": "Please complete the ratings",
+    "ratingsRequired": "Both star ratings are required to submit your feedback.",
+    "thankYou": "Thank you for your feedback! 🙏",
+    "thanksDescription": "Your input helps us improve the teaching tools experience.",
+    "errorSubmitting": "Error submitting feedback",
+    "errorMessage": "There was an issue saving your feedback. Please try again."
+  },
+  "tools": {
+    "lessonPlanGenerator": {
+      "name": "Lesson Plan Generator",
+      "description": "Create comprehensive lesson plans with objectives, activities, and assessments tailored to your grade level and subject."
+    },
+    "lessonHookIdeas": {
+      "name": "Lesson Hook Ideas",
+      "description": "Generate creative and engaging opening activities to capture student attention at the start of your lesson."
+    },
+    "iepGenerator": {
+      "name": "IEP Generator",
+      "description": "Create individualized education program goals and accommodations tailored to specific student needs."
+    },
+    "learningObjectiveWriter": {
+      "name": "Learning Objective Writer",
+      "description": "Write clear, measurable learning objectives that align with standards and guide instruction."
+    },
+    "presentationGenerator": {
+      "name": "Presentation Generator",
+      "description": "Create engaging slide presentations with content, activities, and visual suggestions for your lessons."
+    },
+    "academicContentGenerator": {
+      "name": "Academic Content Generator",
+      "description": "Generate curriculum-aligned content, explanations, and examples for any topic or subject area."
+    },
+    "mathSpiralReview": {
+      "name": "Math Spiral Review",
+      "description": "Create math practice problems that review previously taught concepts alongside new material."
+    },
+    "textValidation": {
+      "name": "Text Validation",
+      "description": "Check reading level, complexity, and appropriateness of texts for your target grade level."
+    },
+    "multipleExplanationsGenerator": {
+      "name": "Multiple Explanations Generator",
+      "description": "Generate different ways to explain the same concept to help diverse learners understand."
+    },
+    "generalAssessment": {
+      "name": "General Assessment",
+      "description": "Create comprehensive assessments including quizzes, tests, and performance tasks for any subject."
+    },
+    "questionStemGenerator": {
+      "name": "Question Stem Generator",
+      "description": "Generate thought-provoking question stems to deepen student thinking and discussion."
+    },
+    "worksheetGenerator": {
+      "name": "Worksheet Generator",
+      "description": "Create practice worksheets with problems, exercises, and activities for any subject area."
+    },
+    "multiStepAssignmentCreator": {
+      "name": "Multi-Step Assignment Creator",
+      "description": "Design complex assignments that break down into manageable steps with clear instructions."
+    },
+    "dokQuestionsGenerator": {
+      "name": "DOK Questions Generator",
+      "description": "Create questions at different Depth of Knowledge levels to assess various thinking skills."
+    },
+    "quizCreator": {
+      "name": "Quiz Creator",
+      "description": "Generate quick formative assessment quizzes to check student understanding."
+    },
+    "mathProblemGenerator": {
+      "name": "Math Problem Generator",
+      "description": "Create custom math problems and word problems for practice or assessment."
+    },
+    "aiTextDetector": {
+      "name": "AI Text Detector",
+      "description": "Analyze student text submissions to identify potential AI-generated content and maintain academic integrity."
+    },
+    "parentEmailComposer": {
+      "name": "Parent Email Composer",
+      "description": "Draft professional, warm emails to parents about student progress, concerns, or celebrations."
+    },
+    "behaviorPlan": {
+      "name": "Behavior Plan Generator",
+      "description": "Create comprehensive behavior intervention plans with strategies and supports for individual students."
+    },
+    "studentGrouping": {
+      "name": "Student Grouping Tool",
+      "description": "Generate strategic student groupings for collaborative work, differentiated instruction, and classroom management."
+    }
+  },
+  "categories": {
+    "all": "All Tools",
+    "lessonPlanning": "Lesson Planning",
+    "contentHub": "Content Hub",
+    "assessment": "Assessment",
+    "communication": "Communication",
+    "classroomManagement": "Classroom Management",
+    "languageArts": "Language Arts",
+    "math": "Mathematics",
+    "science": "Science",
+    "socialStudies": "Social Studies"
+  },
+  "fields": {
+    "subject": {
+      "label": "Subject",
+      "placeholder": "e.g., Mathematics, Science, History"
+    },
+    "grade": {
+      "label": "Grade Level",
+      "placeholder": "Select grade level"
+    },
+    "topic": {
+      "label": "Topic",
+      "placeholder": "What topic are you teaching?"
+    },
+    "duration": {
+      "label": "Duration",
+      "placeholder": "Lesson duration"
+    },
+    "learningStyle": {
+      "label": "Learning Style",
+      "placeholder": "How do students learn best?"
+    },
+    "additionalContext": {
+      "label": "Additional Context",
+      "placeholder": "Add specific details, student needs, or requirements..."
+    },
+    "standardAlignment": {
+      "label": "Standards Alignment",
+      "placeholder": "Specific standards or competencies to address"
+    },
+    "resources": {
+      "label": "Available Resources"
+    },
+    "studentAge": {
+      "label": "Student Age/Grade"
+    },
+    "disability": {
+      "label": "Primary Disability"
+    },
+    "currentLevel": {
+      "label": "Current Performance Level",
+      "placeholder": "Describe the student's current abilities and challenges..."
+    },
+    "goalArea": {
+      "label": "Goal Area",
+      "placeholder": "What specific skill or behavior needs improvement?"
+    },
+    "bloomsLevel": {
+      "label": "Thinking Level"
+    },
+    "standard": {
+      "label": "Related Standard (optional)",
+      "placeholder": "Common Core, state standard..."
+    },
+    "slideCount": {
+      "label": "Number of Slides"
+    },
+    "includeActivities": {
+      "label": "Include Interactive Elements"
+    },
+    "contentType": {
+      "label": "Content Type"
+    },
+    "length": {
+      "label": "Content Length"
+    },
+    "currentTopic": {
+      "label": "Current Topic",
+      "placeholder": "What are you currently teaching?"
+    },
+    "reviewTopics": {
+      "label": "Topics to Review",
+      "placeholder": "List previous topics to include in the review..."
+    },
+    "problemCount": {
+      "label": "Number of Problems"
+    },
+    "difficulty": {
+      "label": "Difficulty Level"
+    },
+    "text": {
+      "label": "Text to Analyze",
+      "placeholder": "Paste the text you want to validate..."
+    },
+    "targetGrade": {
+      "label": "Target Grade Level"
+    },
+    "purpose": {
+      "label": "Text Purpose"
+    },
+    "proofreading": {
+      "label": "Proofreading"
+    },
+    "rewriteTo": {
+      "label": "Re-write to make it"
+    },
+    "textSummariser": {
+      "label": "Text Summariser"
+    },
+    "concept": {
+      "label": "Concept to Explain",
+      "placeholder": "What concept needs multiple explanations?"
+    },
+    "explanationTypes": {
+      "label": "Types of Explanations"
+    },
+    "assessmentType": {
+      "label": "Assessment Type"
+    },
+    "questionCount": {
+      "label": "Number of Questions"
+    },
+    "questionTypes": {
+      "label": "Question Types"
+    },
+    "includeAnswerKey": {
+      "label": "Include Answer Key"
+    },
+    "assignmentType": {
+      "label": "Assignment Type"
+    },
+    "learningGoals": {
+      "label": "Learning Goals",
+      "placeholder": "What should students learn from this assignment?"
+    },
+    "dokLevel": {
+      "label": "DOK Level"
+    },
+    "questionType": {
+      "label": "Question Type"
+    },
+    "mathTopic": {
+      "label": "Math Topic"
+    },
+    "includeWordProblems": {
+      "label": "Include Word Problems"
+    },
+    "studentText": {
+      "label": "Student Text",
+      "placeholder": "Paste the student's text submission here for analysis..."
+    },
+    "analysisDepth": {
+      "label": "Analysis Depth"
+    },
+    "studentName": {
+      "label": "Student Name",
+      "placeholder": "Student's first name"
+    },
+    "situation": {
+      "label": "Situation",
+      "placeholder": "Describe the situation you need to address..."
+    },
+    "emailType": {
+      "label": "Email Type"
+    },
+    "subjectArea": {
+      "label": "Subject Area"
+    },
+    "studentAge": {
+      "label": "Student Age Group"
+    },
+    "behaviorConcern": {
+      "label": "Behavior Concern",
+      "placeholder": "Describe the specific behavior that needs to be addressed..."
+    },
+    "interventionLevel": {
+      "label": "Intervention Level"
+    },
+    "classSize": {
+      "label": "Class Size"
+    },
+    "groupingPurpose": {
+      "label": "Grouping Purpose"
+    },
+    "groupSize": {
+      "label": "Group Size"
+    }
+  },
+  "fieldOptions": {
+    "grades": ["K", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+    "durations": ["1 hour", "1.5 hours", "2 hours", "2.5 hours", "3 hours"],
+    "learningStyles": ["Visual", "Auditory", "Kinesthetic", "Mixed"],
+    "resources": ["Basic supplies only", "Technology available", "Manipulatives", "No special resources"],
+    "ageGroups": ["K-2", "3-5", "6-8", "9-12"],
+    "disabilities": ["Learning Disability", "ADHD", "Autism Spectrum", "Intellectual Disability", "Other"],
+    "subjects": ["Reading", "Math", "Writing", "Social Skills", "Behavior", "Communication"],
+    "bloomsLevels": ["Remember", "Understand", "Apply", "Analyze", "Evaluate", "Create"],
+    "slideCounts": ["5-8 slides", "10-12 slides", "15-20 slides"],
+    "yesNo": ["Yes", "No"],
+    "contentTypes": ["Explanation", "Examples", "Practice Problems", "Vocabulary", "Summary"],
+    "contentLengths": ["Brief", "Moderate", "Detailed"],
+    "mathGrades": ["K", "1", "2", "3", "4", "5", "6", "7", "8", "Algebra", "Geometry"],
+    "problemCounts": ["10", "15", "20", "25", "30"],
+    "difficulties": ["Easy", "Medium", "Hard", "Mixed"],
+    "textPurposes": ["Independent Reading", "Guided Reading", "Instructional Text", "Assessment"],
+    "rewriteOptions": ["Simpler", "More Complex", "More Engaging", "More Formal", "More Informal"],
+    "summaryOptions": ["Brief Summary", "Detailed Summary", "Key Points Only", "No Summary"],
+    "explanationTypes": ["Visual & Verbal", "Simple & Complex", "Analogy & Direct", "All Types"],
+    "assessmentTypes": ["Quiz", "Test", "Performance Task", "Project Rubric"],
+    "questionTypes": ["Multiple Choice", "Short Answer", "Essay", "Mixed", "True/False", "Fill in the Blank"],
+    "questionCounts": ["5", "8", "10", "12", "15", "20"],
+    "assignmentTypes": ["Research Project", "Lab Report", "Essay", "Creative Project", "Problem Solving"],
+    "durations": ["1 week", "2 weeks", "1 month", "Quarter-long"],
+    "dokLevels": ["Level 1 (Recall)", "Level 2 (Application)", "Level 3 (Analysis)", "Level 4 (Extended Thinking)", "Mixed Levels"],
+    "mathTopics": ["Addition", "Subtraction", "Multiplication", "Division", "Fractions", "Decimals", "Geometry", "Algebra", "Word Problems"],
+    "wordProblemOptions": ["Yes", "No", "Only Word Problems"],
+    "studentGrades": ["3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+    "analysisDepths": ["Quick Check", "Standard Analysis", "Detailed Review"],
+    "emailTypes": ["Progress Update", "Concern/Issue", "Celebration", "Conference Request", "Behavior Update"],
+    "interventionLevels": ["Tier 1 - Universal", "Tier 2 - Targeted", "Tier 3 - Intensive"],
+    "classSizes": ["15-20 students", "20-25 students", "25-30 students", "30+ students"],
+    "groupingPurposes": ["Academic Level", "Learning Style", "Interest", "Social Skills", "Random"],
+    "groupSizes": ["2 students", "3-4 students", "5-6 students", "Larger groups"]
+  },
+  "schoolAdmin": {
+    "sections": {
+      "complete": "Complete Administrative",
+      "solution": "Solution",
+      "integratedModules": "Integrated Modules"
+    },
+    "features": {
+      "sis": {
+        "title": "Student Information System",
+        "description": "Comprehensive student records, enrollment, and academic tracking"
+      },
+      "financial": {
+        "title": "Financial Management",
+        "description": "Tuition tracking, billing, budgeting, and financial reporting"
+      },
+      "scheduling": {
+        "title": "Scheduling & Timetables",
+        "description": "Automated class scheduling, room allocation, and resource management"
+      },
+      "communication": {
+        "title": "Communication Hub",
+        "description": "Unified messaging for parents, teachers, and administrators"
+      },
+      "analytics": {
+        "title": "Analytics Dashboard",
+        "description": "Real-time insights into school performance and operations"
+      },
+      "security": {
+        "title": "Security & Compliance",
+        "description": "Data protection, GDPR compliance, and secure access controls"
+      }
+    },
+    "modules": {
+      "admissions": "Admissions & Enrollment",
+      "records": "Academic Records Management",
+      "staff": "Staff & HR Management",
+      "financial": "Financial Operations",
+      "portal": "Parent & Student Portal",
+      "reporting": "Reporting & Analytics"
+    }
+  },
+  "advancedLMS": {
+    "sections": {
+      "revolutionary": "Revolutionary AI-Powered",
+      "features": "Features",
+      "transform": "Transform Your Institution"
+    }
+  },
+  "ui": {
+    "buttons": {
+      "generateContent": "Generate Content",
+      "generating": "Generating...",
+      "requestDemo": "Request Demo"
+    }
+
   }
 }

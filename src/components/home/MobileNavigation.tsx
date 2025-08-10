@@ -29,6 +29,7 @@ interface MobileNavigationProps {
   onShowLogin: () => void;
 }
 
+
 const MobileNavigation = ({
   isOpen,
   onClose,
@@ -69,6 +70,7 @@ const MobileNavigation = ({
   ];
 
   const solutionsByCategory = [
+
     {
       title: "Primary Schools",
       icon: Heart,
@@ -89,6 +91,7 @@ const MobileNavigation = ({
 
   const solutionsByDepartment = [
     { title: "Admissions", icon: UserCheck, path: "/solutions/admissions" },
+
     {
       title: "General Report",
       icon: FileBarChart,
@@ -110,6 +113,7 @@ const MobileNavigation = ({
   ];
 
   const about = [
+
     {
       title: "Partners & Integrations",
       icon: Zap,
@@ -122,12 +126,14 @@ const MobileNavigation = ({
   if (!isOpen) return null;
 
   return (
+
     <div className="fixed left-0 top-0 w-full lg:hidden">
       {/* Backdrop */}
       {/* <div className="fixed inset-0 bg-black/50" onClick={onClose} /> */}
 
       {/* Menu Panel */}
       <div className="w-full h-screen bg-background shadow-xl animate-slide-in-right">
+
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-border">
@@ -146,10 +152,10 @@ const MobileNavigation = ({
                 className="flex items-center justify-between w-full p-3 text-left font-medium text-foreground hover:bg-accent/10 rounded-lg"
               >
                 {t("navigation.products")}
+
                 <ChevronRight
-                  className={`h-4 w-4 transition-transform ${
-                    expandedSection === "products" ? "rotate-90" : ""
-                  }`}
+                  className={`h-4 w-4 transition-transform ${expandedSection === "products" ? "rotate-90" : ""
+                    }`}
                 />
               </button>
               {expandedSection === "products" && (
@@ -158,7 +164,9 @@ const MobileNavigation = ({
                     <button
                       key={product.id}
                       onClick={() => handleNavigate(product.path)}
+
                       className="py-3 flex items-center space-x-3 w-full px-4 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-blue-100 rounded-lg"
+
                     >
                       <product.icon className="h-4 w-4" />
                       <span>{product.name}</span>
@@ -175,10 +183,10 @@ const MobileNavigation = ({
                 className="flex items-center justify-between w-full p-3 text-left font-medium text-foreground hover:bg-accent/10 rounded-lg"
               >
                 {t("navigation.solutions")}
+
                 <ChevronRight
-                  className={`h-4 w-4 transition-transform ${
-                    expandedSection === "solutions" ? "rotate-90" : ""
-                  }`}
+                  className={`h-4 w-4 transition-transform ${expandedSection === "solutions" ? "rotate-90" : ""
+                    }`}
                 />
               </button>
               {expandedSection === "solutions" && (
@@ -192,7 +200,9 @@ const MobileNavigation = ({
                         <button
                           key={index}
                           onClick={() => handleNavigate(solution.path)}
+
                           className="flex items-center space-x-3 w-full px-4 py-3 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg"
+
                         >
                           <solution.icon className="h-4 w-4" />
                           <span>{solution.title}</span>
@@ -200,7 +210,6 @@ const MobileNavigation = ({
                       ))}
                     </div>
                   </div>
-
                   <div>
                     <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
                       {t("navigation.byDepartment")}
@@ -210,6 +219,7 @@ const MobileNavigation = ({
                         <button
                           key={index}
                           onClick={() => handleNavigate(solution.path)}
+
                           className="flex items-center space-x-3 w-full px-4 py-3 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg"
                         >
                           <solution.icon className="h-4 w-4" />
@@ -229,10 +239,10 @@ const MobileNavigation = ({
                 className="flex items-center justify-between w-full p-3 text-left font-medium text-foreground hover:bg-accent/10 rounded-lg"
               >
                 {t("navigation.resources")}
+
                 <ChevronRight
-                  className={`h-4 w-4 transition-transform ${
-                    expandedSection === "resources" ? "rotate-90" : ""
-                  }`}
+                  className={`h-4 w-4 transition-transform ${expandedSection === "resources" ? "rotate-90" : ""
+                    }`}
                 />
               </button>
               {expandedSection === "resources" && (
@@ -241,6 +251,7 @@ const MobileNavigation = ({
                     <button
                       key={index}
                       onClick={() => handleNavigate(item.path)}
+
                       className="flex items-center space-x-3 w-full px-4 py-3 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg"
                     >
                       <item.icon className="h-4 w-4" />
@@ -258,10 +269,10 @@ const MobileNavigation = ({
                 className="flex items-center justify-between w-full p-3 text-left font-medium text-foreground hover:bg-accent/10 rounded-lg"
               >
                 {t("navigation.aboutUs")}
+
                 <ChevronRight
-                  className={`h-4 w-4 transition-transform ${
-                    expandedSection === "about" ? "rotate-90" : ""
-                  }`}
+                  className={`h-4 w-4 transition-transform ${expandedSection === "about" ? "rotate-90" : ""
+                    }`}
                 />
               </button>
               {expandedSection === "about" && (
@@ -270,6 +281,7 @@ const MobileNavigation = ({
                     <button
                       key={index}
                       onClick={() => handleNavigate(item.path)}
+
                       className="flex items-center space-x-3 w-full px-4 py-3 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg"
                     >
                       <item.icon className="h-4 w-4" />
@@ -286,6 +298,7 @@ const MobileNavigation = ({
             <Button
               onClick={() => handleNavigate("/contact-us")}
               variant="outline"
+
               className="w-full p-6"
             >
               {t("navigation.contact")}
@@ -295,6 +308,7 @@ const MobileNavigation = ({
                 onShowLogin();
                 onClose();
               }}
+
               className="w-full my-btn p-6"
             >
               {t("navigation.login")}
@@ -305,5 +319,6 @@ const MobileNavigation = ({
     </div>
   );
 };
+
 
 export default MobileNavigation;

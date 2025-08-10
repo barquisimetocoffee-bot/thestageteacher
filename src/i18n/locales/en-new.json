@@ -39,5 +39,1073 @@
     "guideDescription": "Comprehensive guides for each tool in your EasyTeach toolkit",
     "keyFeatures": "Key Features:",
     "howToUse": "How to Use:"
+  },
+  "tools": {
+    "lessonPlanGenerator": {
+      "name": "Lesson Plan Generator",
+      "description": "Create comprehensive lesson plans with objectives, activities, and assessments tailored to your grade level and subject."
+    },
+    "lessonHookIdeas": {
+      "name": "Lesson Hook Ideas",
+      "description": "Generate creative and engaging opening activities to capture student attention at the start of your lesson."
+    },
+    "iepGenerator": {
+      "name": "IEP Generator",
+      "description": "Create individualized education program goals and accommodations tailored to specific student needs."
+    },
+    "learningObjectiveWriter": {
+      "name": "Learning Objective Writer",
+      "description": "Write clear, measurable learning objectives that align with standards and guide instruction."
+    },
+    "presentationGenerator": {
+      "name": "Presentation Generator",
+      "description": "Create engaging slide presentations with content, activities, and visual suggestions for your lessons."
+    },
+    "academicContentGenerator": {
+      "name": "Academic Content Generator",
+      "description": "Generate curriculum-aligned content, explanations, and examples for any topic or subject area."
+    },
+    "mathSpiralReview": {
+      "name": "Math Spiral Review",
+      "description": "Create math practice problems that review previously taught concepts alongside new material."
+    },
+    "textValidation": {
+      "name": "Text Validation",
+      "description": "Check reading level, complexity, and appropriateness of texts for your target grade level."
+    },
+    "multipleExplanationsGenerator": {
+      "name": "Multiple Explanations Generator",
+      "description": "Generate different ways to explain the same concept to help diverse learners understand."
+    },
+    "generalAssessment": {
+      "name": "General Assessment",
+      "description": "Create comprehensive assessments including quizzes, tests, and performance tasks for any subject."
+    },
+    "questionStemGenerator": {
+      "name": "Question Stem Generator",
+      "description": "Generate thought-provoking question stems to deepen student thinking and discussion."
+    },
+    "worksheetGenerator": {
+      "name": "Worksheet Generator",
+      "description": "Create practice worksheets with problems, exercises, and activities for any subject area."
+    },
+    "multiStepAssignmentCreator": {
+      "name": "Multi-Step Assignment Creator",
+      "description": "Design complex assignments that break down into manageable steps with clear instructions."
+    },
+    "dokQuestionsGenerator": {
+      "name": "DOK Questions Generator",
+      "description": "Create questions at different Depth of Knowledge levels to assess various thinking skills."
+    },
+    "quizCreator": {
+      "name": "Quiz Creator",
+      "description": "Generate quick formative assessment quizzes to check student understanding."
+    },
+    "mathProblemGenerator": {
+      "name": "Math Problem Generator",
+      "description": "Create custom math problems and word problems for practice or assessment."
+    },
+    "aiTextDetector": {
+      "name": "AI Text Detector",
+      "description": "Analyze student text submissions to identify potential AI-generated content and maintain academic integrity."
+    },
+    "parentEmailComposer": {
+      "name": "Parent Email Composer",
+      "description": "Draft professional, warm emails to parents about student progress, concerns, or celebrations."
+    },
+    "behaviorPlan": {
+      "name": "Behavior Plan",
+      "description": "Create structured behavior intervention plans with clear strategies and measurable goals."
+    },
+    "newsletterCreator": {
+      "name": "Newsletter Creator",
+      "description": "Design engaging classroom or school newsletters to keep families informed and connected."
+    },
+    "meetingAgenda": {
+      "name": "Meeting Agenda",
+      "description": "Create organized agendas for parent conferences, team meetings, or IEP meetings."
+    },
+    "progressReportComments": {
+      "name": "Progress Report Comments",
+      "description": "Generate personalized, constructive comments for report cards and progress reports."
+    },
+    "studentRecommendationLetter": {
+      "name": "Student Recommendation Letter",
+      "description": "Write compelling recommendation letters highlighting student strengths and achievements."
+    },
+    "bulletinBoardIdeas": {
+      "name": "Bulletin Board Ideas",
+      "description": "Get creative ideas for seasonal, subject-specific, or motivational classroom bulletin boards."
+    },
+    "classroomManagementPlan": {
+      "name": "Classroom Management Plan",
+      "description": "Develop comprehensive classroom management strategies and procedures for smooth operations."
+    },
+    "backToSchoolLetter": {
+      "name": "Back to School Letter",
+      "description": "Create welcoming introduction letters to students and families at the start of the year."
+    },
+    "groupingTool": {
+      "name": "Grouping Tool",
+      "description": "Strategically group students for collaborative learning based on various criteria and goals."
+    },
+    "absenteeWorkPlanner": {
+      "name": "Absentee Work Planner",
+      "description": "Organize and plan make-up work and assignments for students who miss class time."
+    },
+    "exitTicketGenerator": {
+      "name": "Exit Ticket Generator",
+      "description": "Create quick formative assessment exit tickets to gauge student understanding before leaving."
+    },
+    "readingComprehensionQuestions": {
+      "name": "Reading Comprehension Questions",
+      "description": "Generate thoughtful questions to assess and improve student reading comprehension skills."
+    },
+    "vocabListGenerator": {
+      "name": "Vocab List Generator",
+      "description": "Create targeted vocabulary lists with definitions, examples, and learning activities."
+    },
+    "englishWritingPrompts": {
+      "name": "English Writing Prompts",
+      "description": "Generate creative and analytical writing prompts to inspire student expression and critical thinking."
+    },
+    "rhymingWordsGenerator": {
+      "name": "Rhyming Words Generator",
+      "description": "Find rhyming words and create phonics activities to support early literacy development."
+    },
+    "synonymAntonymGenerator": {
+      "name": "Synonym & Antonym Generator",
+      "description": "Generate synonym and antonym pairs with engaging activities to expand student vocabulary."
+    },
+    "mathWordProblems": {
+      "name": "Math Word Problems",
+      "description": "Create real-world math word problems that connect mathematical concepts to everyday situations."
+    },
+    "scienceLabDesigner": {
+      "name": "Science Lab Designer",
+      "description": "Design hands-on science experiments and lab activities with safety considerations and clear procedures."
+    },
+    "primarySourceAnalyzer": {
+      "name": "Primary Source Analyzer",
+      "description": "Create analysis activities and questions for historical documents and primary sources."
+    },
+    "currentEventsDiscussion": {
+      "name": "Current Events Discussion",
+      "description": "Generate age-appropriate discussion questions and activities based on current news and events."
+    },
+    "culturalCelebrationPlanner": {
+      "name": "Cultural Celebration Planner",
+      "description": "Plan inclusive cultural celebrations and learning activities that honor diversity in your classroom."
+    }
+  },
+  "categories": {
+    "all": "All Tools",
+    "lessonPlanning": "Lesson Planning",
+    "contentHub": "Content Hub",
+    "assessment": "Assessment",
+    "communication": "Communication",
+    "classroomManagement": "Classroom Management",
+    "languageArts": "Language Arts",
+    "math": "Math",
+    "science": "Science",
+    "socialStudies": "Social Studies"
+  },
+  "fields": {
+    "subject": {
+      "label": "Subject",
+      "placeholder": "e.g., Mathematics, Science, English Literature, History"
+    },
+    "grade": {
+      "label": "Grade Level",
+      "placeholder": "Select grade level"
+    },
+    "topic": {
+      "label": "Topic or Objectives",
+      "placeholder": "e.g., Understanding photosynthesis, Adding fractions, Character analysis in literature"
+    },
+    "duration": {
+      "label": "Lesson Duration",
+      "placeholder": "Select duration"
+    },
+    "learningStyle": {
+      "label": "Focus Learning Style",
+      "placeholder": "Select learning style"
+    },
+    "additionalContext": {
+      "label": "Additional Context",
+      "placeholder": "Include any specific requirements, student needs, available resources, or teaching constraints that should be considered..."
+    },
+    "standardAlignment": {
+      "label": "Standard Alignment",
+      "placeholder": "e.g., UK standard"
+    },
+    "resources": {
+      "label": "Available Resources",
+      "placeholder": "Select available resources"
+    },
+    "studentAge": {
+      "label": "Student Age/Grade",
+      "placeholder": "Select age/grade"
+    },
+    "disability": {
+      "label": "Primary Disability",
+      "placeholder": "Select disability type"
+    },
+    "currentLevel": {
+      "label": "Current Performance Level",
+      "placeholder": "Describe the student's current abilities and challenges..."
+    },
+    "goalArea": {
+      "label": "Goal Area",
+      "placeholder": "What specific skill or behavior needs improvement?"
+    },
+    "bloomsLevel": {
+      "label": "Thinking Level",
+      "placeholder": "Select thinking level"
+    },
+    "standard": {
+      "label": "Related Standard (optional)",
+      "placeholder": "Common Core, state standard..."
+    },
+    "slideCount": {
+      "label": "Number of Slides",
+      "placeholder": "Select number of slides"
+    },
+    "includeActivities": {
+      "label": "Include Interactive Elements",
+      "placeholder": "Include activities?"
+    },
+    "contentType": {
+      "label": "Content Type",
+      "placeholder": "Select content type"
+    },
+    "length": {
+      "label": "Content Length",
+      "placeholder": "Select length"
+    },
+    "currentTopic": {
+      "label": "Current Topic",
+      "placeholder": "What are you currently teaching?"
+    },
+    "reviewTopics": {
+      "label": "Topics to Review",
+      "placeholder": "List previous topics to include in the review..."
+    },
+    "problemCount": {
+      "label": "Number of Problems",
+      "placeholder": "Select number of problems"
+    },
+    "difficulty": {
+      "label": "Difficulty Level",
+      "placeholder": "Select difficulty"
+    },
+    "text": {
+      "label": "Text to Analyze",
+      "placeholder": "Paste the text you want to validate..."
+    },
+    "targetGrade": {
+      "label": "Target Grade Level",
+      "placeholder": "Select target grade"
+    },
+    "purpose": {
+      "label": "Text Purpose",
+      "placeholder": "Select text purpose"
+    },
+    "proofreading": {
+      "label": "Proofreading",
+      "placeholder": "Include proofreading?"
+    },
+    "rewriteTo": {
+      "label": "Re-write to make it",
+      "placeholder": "Select rewrite option"
+    },
+    "textSummariser": {
+      "label": "Text Summariser",
+      "placeholder": "Select summary type"
+    },
+    "concept": {
+      "label": "Concept to Explain",
+      "placeholder": "What concept needs multiple explanations?"
+    },
+    "explanationTypes": {
+      "label": "Types of Explanations",
+      "placeholder": "Select explanation types"
+    },
+    "assessmentType": {
+      "label": "Assessment Type",
+      "placeholder": "Select assessment type"
+    },
+    "questionCount": {
+      "label": "Number of Questions",
+      "placeholder": "Select number of questions"
+    },
+    "questionTypes": {
+      "label": "Question Types",
+      "placeholder": "Select question types"
+    },
+    "questionType": {
+      "label": "Question Type",
+      "placeholder": "Select question type"
+    },
+    "includeAnswerKey": {
+      "label": "Include Answer Key",
+      "placeholder": "Include answer key?"
+    },
+    "assignmentType": {
+      "label": "Assignment Type",
+      "placeholder": "Select assignment type"
+    },
+    "learningGoals": {
+      "label": "Learning Goals",
+      "placeholder": "What should students learn from this assignment?"
+    },
+    "dokLevel": {
+      "label": "DOK Level",
+      "placeholder": "Select DOK level"
+    },
+    "mathTopic": {
+      "label": "Math Topic",
+      "placeholder": "Select math topic"
+    },
+    "includeWordProblems": {
+      "label": "Include Word Problems",
+      "placeholder": "Include word problems?"
+    },
+    "studentText": {
+      "label": "Student Text",
+      "placeholder": "Paste the student's text submission here for analysis..."
+    },
+    "studentGrade": {
+      "label": "Student Grade Level",
+      "placeholder": "Select student grade"
+    },
+    "analysisDepth": {
+      "label": "Analysis Depth",
+      "placeholder": "Select analysis depth"
+    },
+    "emailType": {
+      "label": "Email Type",
+      "placeholder": "Select email type"
+    },
+    "studentName": {
+      "label": "Student Name",
+      "placeholder": "Enter student name"
+    },
+    "situation": {
+      "label": "Situation/Context",
+      "placeholder": "Describe the situation or context for the email..."
+    },
+    "behaviors": {
+      "label": "Target Behaviors",
+      "placeholder": "List the specific behaviors to address..."
+    },
+    "interventions": {
+      "label": "Current Interventions",
+      "placeholder": "Describe any current strategies being used..."
+    },
+    "newsletterType": {
+      "label": "Newsletter Type",
+      "placeholder": "Select newsletter type"
+    },
+    "highlights": {
+      "label": "Key Highlights",
+      "placeholder": "What important updates or achievements should be included?"
+    },
+    "meetingType": {
+      "label": "Meeting Type",
+      "placeholder": "Select meeting type"
+    },
+    "meetingPurpose": {
+      "label": "Meeting Purpose",
+      "placeholder": "What is the main purpose of this meeting?"
+    },
+    "participants": {
+      "label": "Participants",
+      "placeholder": "Who will be attending this meeting?"
+    },
+    "reportType": {
+      "label": "Report Type",
+      "placeholder": "Select report type"
+    },
+    "strengths": {
+      "label": "Student Strengths",
+      "placeholder": "Describe the student's key strengths and achievements..."
+    },
+    "improvementAreas": {
+      "label": "Areas for Improvement",
+      "placeholder": "What areas could the student work on?"
+    },
+    "achievements": {
+      "label": "Key Achievements",
+      "placeholder": "Describe the student's most significant accomplishments..."
+    },
+    "character": {
+      "label": "Character Qualities",
+      "placeholder": "What character traits make this student special?"
+    },
+    "theme": {
+      "label": "Theme/Subject",
+      "placeholder": "What theme or subject should the bulletin board focus on?"
+    },
+    "season": {
+      "label": "Season/Time",
+      "placeholder": "Select season or time period"
+    },
+    "ageGroup": {
+      "label": "Student Age Group",
+      "placeholder": "Select age group"
+    },
+    "classSize": {
+      "label": "Class Size",
+      "placeholder": "Select class size"
+    },
+    "challenges": {
+      "label": "Specific Challenges",
+      "placeholder": "What specific classroom management challenges are you facing?"
+    },
+    "schoolLevel": {
+      "label": "School Level",
+      "placeholder": "Select school level"
+    },
+    "teachingStyle": {
+      "label": "Teaching Style",
+      "placeholder": "Describe your teaching style and classroom atmosphere..."
+    },
+    "groupSize": {
+      "label": "Group Size",
+      "placeholder": "Select group size"
+    },
+    "groupingCriteria": {
+      "label": "Grouping Criteria",
+      "placeholder": "Select grouping criteria"
+    },
+    "activityType": {
+      "label": "Activity Type",
+      "placeholder": "Select activity type"
+    },
+    "studentNeeds": {
+      "label": "Student Needs",
+      "placeholder": "Describe any specific student needs or considerations..."
+    },
+    "absenceDuration": {
+      "label": "Absence Duration",
+      "placeholder": "Select absence duration"
+    },
+    "missedContent": {
+      "label": "Missed Content",
+      "placeholder": "What content or activities did the student miss?"
+    },
+    "exitTicketType": {
+      "label": "Exit Ticket Type",
+      "placeholder": "Select exit ticket type"
+    },
+    "lessonObjective": {
+      "label": "Lesson Objective",
+      "placeholder": "What was the main objective of today's lesson?"
+    },
+    "readingLevel": {
+      "label": "Reading Level",
+      "placeholder": "Select reading level"
+    },
+    "textType": {
+      "label": "Text Type",
+      "placeholder": "Select text type"
+    },
+    "comprehensionFocus": {
+      "label": "Comprehension Focus",
+      "placeholder": "Select comprehension focus"
+    },
+    "wordCount": {
+      "label": "Number of Words",
+      "placeholder": "Select number of words"
+    },
+    "difficultyLevel": {
+      "label": "Difficulty Level",
+      "placeholder": "Select difficulty level"
+    },
+    "writingType": {
+      "label": "Writing Type",
+      "placeholder": "Select writing type"
+    },
+    "promptTheme": {
+      "label": "Prompt Theme",
+      "placeholder": "Select prompt theme"
+    },
+    "creativity": {
+      "label": "Creativity Level",
+      "placeholder": "Select creativity level"
+    },
+    "targetWord": {
+      "label": "Target Word",
+      "placeholder": "Enter the word you need rhymes for"
+    },
+    "rhymeCount": {
+      "label": "Number of Rhymes",
+      "placeholder": "Select number of rhymes"
+    },
+    "targetWords": {
+      "label": "Target Words",
+      "placeholder": "Enter words separated by commas"
+    },
+    "exerciseType": {
+      "label": "Exercise Type",
+      "placeholder": "Select exercise type"
+    },
+    "mathConcept": {
+      "label": "Math Concept",
+      "placeholder": "Select math concept"
+    },
+    "realWorldContext": {
+      "label": "Real-World Context",
+      "placeholder": "Select real-world context"
+    },
+    "scienceSubject": {
+      "label": "Science Subject",
+      "placeholder": "Select science subject"
+    },
+    "labType": {
+      "label": "Lab Type",
+      "placeholder": "Select lab type"
+    },
+    "safetyLevel": {
+      "label": "Safety Level",
+      "placeholder": "Select safety level"
+    },
+    "sourceType": {
+      "label": "Source Type",
+      "placeholder": "Select source type"
+    },
+    "timePeriod": {
+      "label": "Time Period",
+      "placeholder": "Select time period"
+    },
+    "analysisType": {
+      "label": "Analysis Type",
+      "placeholder": "Select analysis type"
+    },
+    "newsSource": {
+      "label": "News Source/Topic",
+      "placeholder": "What current event or news topic would you like to discuss?"
+    },
+    "discussionFocus": {
+      "label": "Discussion Focus",
+      "placeholder": "Select discussion focus"
+    },
+    "culturalFocus": {
+      "label": "Cultural Focus",
+      "placeholder": "What culture or cultural aspect would you like to celebrate?"
+    },
+    "celebrationType": {
+      "label": "Celebration Type",
+      "placeholder": "Select celebration type"
+    },
+    "learningOutcome": {
+      "label": "Learning Outcome",
+      "placeholder": "What should students learn from this cultural celebration?"
+    }
+  },
+  "options": {
+    "grades": {
+      "k": "K",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "11": "11",
+      "12": "12",
+      "k2": "K-2",
+      "35": "3-5",
+      "68": "6-8",
+      "912": "9-12",
+      "algebra": "Algebra",
+      "geometry": "Geometry"
+    },
+    "duration": {
+      "1hour": "1 hour",
+      "1.5hours": "1.5 hours",
+      "2hours": "2 hours",
+      "2.5hours": "2.5 hours",
+      "3hours": "3 hours",
+      "5minutes": "5 minutes",
+      "10minutes": "10 minutes",
+      "15minutes": "15 minutes",
+      "1week": "1 week",
+      "2weeks": "2 weeks",
+      "1month": "1 month",
+      "quarterLong": "Quarter-long"
+    },
+    "learningStyle": {
+      "visual": "Visual",
+      "auditory": "Auditory",
+      "kinesthetic": "Kinesthetic",
+      "mixed": "Mixed"
+    },
+    "resources": {
+      "basicSupplies": "Basic supplies only",
+      "technologyAvailable": "Technology available",
+      "manipulatives": "Manipulatives",
+      "noSpecialResources": "No special resources"
+    },
+    "disability": {
+      "learningDisability": "Learning Disability",
+      "adhd": "ADHD",
+      "autismSpectrum": "Autism Spectrum",
+      "intellectualDisability": "Intellectual Disability",
+      "other": "Other"
+    },
+    "subjectArea": {
+      "reading": "Reading",
+      "math": "Math",
+      "writing": "Writing",
+      "socialSkills": "Social Skills",
+      "behavior": "Behavior",
+      "communication": "Communication"
+    },
+    "bloomsLevel": {
+      "remember": "Remember",
+      "understand": "Understand",
+      "apply": "Apply",
+      "analyze": "Analyze",
+      "evaluate": "Evaluate",
+      "create": "Create"
+    },
+    "slideCount": {
+      "58": "5-8 slides",
+      "1012": "10-12 slides",
+      "1520": "15-20 slides"
+    },
+    "yesNo": {
+      "yes": "Yes",
+      "no": "No"
+    },
+    "contentType": {
+      "explanation": "Explanation",
+      "examples": "Examples",
+      "practiceProblems": "Practice Problems",
+      "vocabulary": "Vocabulary",
+      "summary": "Summary"
+    },
+    "length": {
+      "brief": "Brief",
+      "moderate": "Moderate",
+      "detailed": "Detailed"
+    },
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard",
+      "mixed": "Mixed"
+    },
+    "textPurpose": {
+      "independentReading": "Independent Reading",
+      "guidedReading": "Guided Reading",
+      "instructionalText": "Instructional Text",
+      "assessment": "Assessment"
+    },
+    "rewriteTo": {
+      "simpler": "Simpler",
+      "moreComplex": "More Complex",
+      "moreEngaging": "More Engaging",
+      "moreFormal": "More Formal",
+      "moreInformal": "More Informal"
+    },
+    "textSummariser": {
+      "briefSummary": "Brief Summary",
+      "detailedSummary": "Detailed Summary",
+      "keyPointsOnly": "Key Points Only",
+      "noSummary": "No Summary"
+    },
+    "explanationTypes": {
+      "visualVerbal": "Visual & Verbal",
+      "simpleComplex": "Simple & Complex",
+      "analogyDirect": "Analogy & Direct",
+      "allTypes": "All Types"
+    },
+    "assessmentType": {
+      "quiz": "Quiz",
+      "test": "Test",
+      "performanceTask": "Performance Task",
+      "projectRubric": "Project Rubric"
+    },
+    "questionTypes": {
+      "multipleChoice": "Multiple Choice",
+      "shortAnswer": "Short Answer",
+      "essay": "Essay",
+      "mixed": "Mixed",
+      "trueFalse": "True/False",
+      "fillInTheBlank": "Fill in the Blank"
+    },
+    "assignmentType": {
+      "researchProject": "Research Project",
+      "labReport": "Lab Report",
+      "essay": "Essay",
+      "creativeProject": "Creative Project",
+      "problemSolving": "Problem Solving"
+    },
+    "dokLevel": {
+      "level1": "Level 1 (Recall)",
+      "level2": "Level 2 (Application)",
+      "level3": "Level 3 (Analysis)",
+      "level4": "Level 4 (Extended Thinking)",
+      "mixedLevels": "Mixed Levels"
+    },
+    "mathTopic": {
+      "addition": "Addition",
+      "subtraction": "Subtraction",
+      "multiplication": "Multiplication",
+      "division": "Division",
+      "fractions": "Fractions",
+      "decimals": "Decimals",
+      "geometry": "Geometry",
+      "algebra": "Algebra",
+      "wordProblems": "Word Problems"
+    },
+    "includeWordProblems": {
+      "yes": "Yes",
+      "no": "No",
+      "onlyWordProblems": "Only Word Problems"
+    },
+    "analysisDepth": {
+      "quickCheck": "Quick Check",
+      "standardAnalysis": "Standard Analysis",
+      "detailedReview": "Detailed Review"
+    },
+    "emailType": {
+      "positiveUpdate": "Positive Update",
+      "concern": "Concern",
+      "academicProgress": "Academic Progress",
+      "behaviorUpdate": "Behavior Update",
+      "meetingRequest": "Meeting Request",
+      "generalUpdate": "General Update"
+    },
+    "newsletterType": {
+      "classroomNewsletter": "Classroom Newsletter",
+      "parentNewsletter": "Parent Newsletter",
+      "schoolNewsletter": "School Newsletter"
+    },
+    "meetingType": {
+      "parentConference": "Parent Conference",
+      "iepMeeting": "IEP Meeting",
+      "teamMeeting": "Team Meeting",
+      "studentMeeting": "Student Meeting"
+    },
+    "reportType": {
+      "progressReport": "Progress Report",
+      "interimReport": "Interim Report",
+      "finalReport": "Final Report"
+    },
+    "season": {
+      "fall": "Fall",
+      "winter": "Winter",
+      "spring": "Spring",
+      "summer": "Summer",
+      "backToSchool": "Back to School",
+      "endOfYear": "End of Year"
+    },
+    "ageGroup": {
+      "earlyElementary": "Early Elementary (K-2)",
+      "lateElementary": "Late Elementary (3-5)",
+      "middleSchool": "Middle School (6-8)",
+      "highSchool": "High School (9-12)"
+    },
+    "classSize": {
+      "small": "Small (1-15 students)",
+      "medium": "Medium (16-25 students)",
+      "large": "Large (26+ students)"
+    },
+    "schoolLevel": {
+      "elementary": "Elementary",
+      "middleSchool": "Middle School",
+      "highSchool": "High School"
+    },
+    "groupSize": {
+      "pairs": "Pairs (2 students)",
+      "smallGroups": "Small Groups (3-4 students)",
+      "mediumGroups": "Medium Groups (5-6 students)",
+      "largeGroups": "Large Groups (7+ students)"
+    },
+    "groupingCriteria": {
+      "abilityLevel": "Ability Level",
+      "interests": "Interests",
+      "learningStyle": "Learning Style",
+      "personality": "Personality",
+      "random": "Random",
+      "mixed": "Mixed Ability"
+    },
+    "activityType": {
+      "collaborative": "Collaborative",
+      "competitive": "Competitive",
+      "creative": "Creative",
+      "analytical": "Analytical",
+      "hands-on": "Hands-on"
+    },
+    "absenceDuration": {
+      "oneDay": "One Day",
+      "multipleDays": "Multiple Days",
+      "oneWeek": "One Week",
+      "extended": "Extended Absence"
+    },
+    "exitTicketType": {
+      "comprehensionCheck": "Comprehension Check",
+      "reflectionQuestion": "Reflection Question",
+      "applicationTask": "Application Task",
+      "selfAssessment": "Self-Assessment"
+    },
+    "readingLevel": {
+      "emergent": "Emergent Reader",
+      "beginning": "Beginning Reader",
+      "developing": "Developing Reader",
+      "fluent": "Fluent Reader",
+      "advanced": "Advanced Reader"
+    },
+    "textType": {
+      "fiction": "Fiction",
+      "nonfiction": "Nonfiction",
+      "poetry": "Poetry",
+      "drama": "Drama"
+    },
+    "comprehensionFocus": {
+      "mainIdea": "Main Idea",
+      "details": "Details",
+      "inference": "Inference",
+      "vocabulary": "Vocabulary",
+      "structure": "Text Structure"
+    },
+    "writingType": {
+      "narrative": "Narrative",
+      "expository": "Expository",
+      "persuasive": "Persuasive",
+      "descriptive": "Descriptive",
+      "creative": "Creative"
+    },
+    "promptTheme": {
+      "adventure": "Adventure",
+      "friendship": "Friendship",
+      "family": "Family",
+      "school": "School",
+      "future": "Future",
+      "personal": "Personal Experience"
+    },
+    "creativity": {
+      "structured": "Structured",
+      "openEnded": "Open-ended",
+      "mixed": "Mixed"
+    },
+    "exerciseType": {
+      "matchingActivity": "Matching Activity",
+      "fillInTheBlanks": "Fill in the Blanks",
+      "sentenceCompletion": "Sentence Completion",
+      "wordSort": "Word Sort"
+    },
+    "mathConcept": {
+      "basicOperations": "Basic Operations",
+      "fractions": "Fractions",
+      "decimals": "Decimals",
+      "percentages": "Percentages",
+      "algebra": "Algebra",
+      "geometry": "Geometry",
+      "statistics": "Statistics"
+    },
+    "realWorldContext": {
+      "shopping": "Shopping",
+      "cooking": "Cooking",
+      "sports": "Sports",
+      "travel": "Travel",
+      "construction": "Construction",
+      "nature": "Nature"
+    },
+    "scienceSubject": {
+      "biology": "Biology",
+      "chemistry": "Chemistry",
+      "physics": "Physics",
+      "earthScience": "Earth Science",
+      "environmental": "Environmental Science"
+    },
+    "labType": {
+      "observation": "Observation",
+      "experiment": "Experiment",
+      "investigation": "Investigation",
+      "demonstration": "Demonstration"
+    },
+    "safetyLevel": {
+      "basic": "Basic Safety",
+      "moderate": "Moderate Safety",
+      "advanced": "Advanced Safety Required"
+    },
+    "sourceType": {
+      "document": "Historical Document",
+      "speech": "Speech/Address",
+      "letter": "Letter/Diary",
+      "newspaper": "Newspaper Article",
+      "photograph": "Photograph",
+      "artifact": "Artifact"
+    },
+    "timePeriod": {
+      "ancient": "Ancient Times",
+      "medieval": "Medieval Period",
+      "renaissance": "Renaissance",
+      "modern": "Modern Era",
+      "contemporary": "Contemporary"
+    },
+    "analysisType": {
+      "sourcing": "Sourcing",
+      "contextualizing": "Contextualizing",
+      "corroborating": "Corroborating",
+      "closeReading": "Close Reading"
+    },
+    "discussionFocus": {
+      "factual": "Factual Understanding",
+      "opinion": "Opinion Formation",
+      "connection": "Personal Connection",
+      "impact": "Impact Analysis"
+    },
+    "culturalFocus": {
+      "traditions": "Traditions",
+      "celebrations": "Celebrations",
+      "food": "Food Culture",
+      "arts": "Arts & Crafts",
+      "music": "Music & Dance",
+      "history": "Historical Heritage"
+    },
+    "celebrationType": {
+      "interactive": "Interactive Activity",
+      "presentation": "Student Presentation",
+      "project": "Cultural Project",
+      "discussion": "Group Discussion"
+    }
+  },
+  "ui": {
+    "buttons": {
+      "generateContent": "Generate Content",
+      "copy": "Copy",
+      "download": "Download",
+      "exportSlides": "Export to PowerPoint",
+      "save": "Save",
+      "close": "Close",
+      "cancel": "Cancel",
+      "submit": "Submit",
+      "useTool": "Use Tool",
+      "backToDashboard": "Back to Dashboard",
+      "viewMore": "View More",
+      "loadMore": "Load More",
+      "refresh": "Refresh",
+      "search": "Search",
+      "filter": "Filter",
+      "reset": "Reset",
+      "edit": "Edit",
+      "delete": "Delete",
+      "update": "Update",
+      "updating": "Updating...",
+      "generating": "Generating...",
+      "saving": "Saving...",
+      "loading": "Loading...",
+      "exporting": "Exporting..."
+    },
+    "messages": {
+      "noToolsFound": "No tools found matching your search.",
+      "tryDifferentKeywords": "Try different keywords or browse categories.",
+      "contentGenerated": "Content generated successfully!",
+      "contentCopied": "Content copied to clipboard!",
+      "contentSaved": "Content saved successfully!",
+      "slidesExported": "Slides exported successfully!",
+      "errorGenerating": "Error generating content. Please try again.",
+      "errorSaving": "Error saving content. Please try again.",
+      "errorCopying": "Error copying content. Please try again.",
+      "errorExporting": "Error exporting slides. Please try again.",
+      "fillAllFields": "Please fill in all required fields.",
+      "networkError": "Network error. Please check your connection.",
+      "unknownError": "An unknown error occurred. Please try again.",
+      "needModifications": "Need modifications?",
+      "tellModifications": "Tell me how you'd like to modify this content...",
+      "feedbackThankYou": "Thank you for your feedback!",
+      "emptyState": "No content available",
+      "noResults": "No results found",
+      "searchSuggestions": "Search suggestions:"
+    },
+    "labels": {
+      "searchTools": "Search tools...",
+      "selectCategory": "Select Category",
+      "allCategories": "All Categories",
+      "timesSaved": "Times Saved",
+      "estimatedTime": "Estimated Time",
+      "generatedContent": "Generated Content",
+      "toolName": "Tool Name",
+      "category": "Category",
+      "description": "Description",
+      "lastUsed": "Last Used",
+      "createdAt": "Created At",
+      "feedback": "Feedback",
+      "rating": "Rating",
+      "recommendations": "Recommendations",
+      "settings": "Settings",
+      "profile": "Profile",
+      "dashboard": "Dashboard",
+      "tools": "Tools",
+      "history": "History",
+      "favorites": "Favorites",
+      "recent": "Recent",
+      "popular": "Popular",
+      "new": "New"
+    },
+    "placeholders": {
+      "searchPlaceholder": "Search for tools, categories, or descriptions...",
+      "noContentPlaceholder": "Select a tool to get started",
+      "loadingPlaceholder": "Loading content...",
+      "errorPlaceholder": "Something went wrong"
+    }
+  },
+  "feedback": {
+    "satisfactionSurvey": "Satisfaction Survey",
+    "helpImprove": "Help us improve your experience",
+    "toolAppreciation": "How much did you appreciate this tool?",
+    "responseQuality": "How would you rate the quality of the response?",
+    "missingFields": "What fields or options are missing that would be helpful?",
+    "additionalFeedback": "Any additional feedback or suggestions?",
+    "wouldRecommend": "Would you recommend this tool to other educators?",
+    "submitFeedback": "Submit Feedback",
+    "thankYou": "Thank you for your feedback!",
+    "dashboard": {
+      "title": "Feedback Dashboard",
+      "totalFeedback": "Total Feedback",
+      "avgToolRating": "Avg Tool Rating",
+      "avgQualityRating": "Avg Quality Rating",
+      "wouldRecommend": "Would Recommend",
+      "submissionDate": "Submission Date",
+      "recommendation": "Recommendation",
+      "noFeedback": "No feedback submitted yet.",
+      "startUsing": "Start using tools to provide feedback and see your insights here."
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "close": "Close",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "language": "Language",
+    "yes": "Yes",
+    "no": "No",
+    "none": "None",
+    "all": "All",
+    "other": "Other",
+    "optional": "optional",
+    "required": "required",
+    "minutes": "minutes",
+    "hours": "hours",
+    "days": "days",
+    "weeks": "weeks",
+    "months": "months",
+    "years": "years"
+
   }
 }

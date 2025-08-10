@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { Award, Users, TrendingUp, Brain, Laptop } from "lucide-react";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Award, Users, BookOpen, TrendingUp, Brain, Laptop, Globe, Database, Search, GraduationCap, LineChart, Users2, Calendar, MessageCircle, Trophy, Zap, Star } from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
+import universitiesHero from "@/assets/universities-hero.jpg";
+
 import Footer from "@/components/home/Footer";
 
 const Universities = () => {

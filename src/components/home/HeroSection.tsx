@@ -3,6 +3,9 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import AnimatedCounter from "@/components/ui/animated-counter";
+
+import ScrollReveal from "@/components/ui/scroll-reveal";
+
 import {
   Users,
   TrendingUp,
@@ -114,6 +117,7 @@ const HeroSection = ({ onShowLogin }: HeroSectionProps) => {
             />
           </div>
         </div>
+
         {/* Hero Section Cards */}
         <div className="w-full pt-12 grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto mb-4 animate-fade-in px-4 md:px-8">
           <div className=" bg-white/80 backdrop-blur-sm rounded-xl p-6 hover:shadow-lg hover-scale transition-all duration-300 border border-white/20">

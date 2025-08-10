@@ -1,3 +1,8 @@
+
+import { useTranslation } from 'react-i18next';
+import { Button } from "@/components/ui/button";
+import { ArrowLeft, Zap, Shield, Users, Globe, CheckCircle } from "lucide-react";
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -7,12 +12,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Zap, CheckCircle } from "lucide-react";
 import Navigation from "@/components/home/Navigation";
 import Footer from "@/components/home/Footer";
 
 const PartnersIntegrations = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
 
@@ -67,13 +72,13 @@ const PartnersIntegrations = () => {
   ];
 
   return (
+
     <>
       <Navigation onShowLogin={() => setShowLogin(true)} />
 
       <div
-        className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
       >
         {/* Hero Section */}
         <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
@@ -97,6 +102,7 @@ const PartnersIntegrations = () => {
             </div>
           </div>
         </section>
+
 
         {/* Integrations Section */}
         <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">

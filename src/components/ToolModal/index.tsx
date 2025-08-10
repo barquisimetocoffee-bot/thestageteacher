@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { generateLessonPlan, generateParentEmail, generateBehaviorPlan, generateEducationalContent, generateAITextAnalysis } from "@/utils/aiService";
+import * as aiService from "@/utils/aiServiceWithUsage";
 import { saveGeneratedContent } from "@/utils/contentService";
 import { exportToPowerPoint } from "@/utils/slideExporter";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "react-i18next";
+import { UsageLimitModal } from "@/components/UsageLimitModal";
 import SatisfactionSurvey from "@/components/SatisfactionSurvey";
 import ToolModalForm from './ToolModalForm';
 import ToolModalContent from './ToolModalContent';
@@ -22,9 +24,11 @@ const ToolModal = ({ tool, isOpen, onClose, teacherProfile }: ToolModalProps) =>
   const [isSaving, setIsSaving] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [showSurvey, setShowSurvey] = useState(false);
+  const [showUsageLimit, setShowUsageLimit] = useState(false);
   const [isRegenerating, setIsRegenerating] = useState(false);
   const [isExportingSlides, setIsExportingSlides] = useState(false);
   const { toast } = useToast();
+  const { i18n } = useTranslation();
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -37,46 +41,57 @@ const ToolModal = ({ tool, isOpen, onClose, teacherProfile }: ToolModalProps) =>
       
       switch (tool.id) {
         case 1: // lesson-plan
-          content = await generateLessonPlan(
+          content = await aiService.generateLessonPlan(
             formData.subject || '',
             formData.topic || '',
-            formData.grade || ''
+            formData.grade || '',
+            i18n.language
           );
           break;
         case 17: // ai-text-detector
-          content = await generateAITextAnalysis(
+          content = await aiService.generateAITextAnalysis(
             formData.studentText || '',
             formData.assignmentType || '',
             formData.studentGrade || '',
             formData.analysisDepth || '',
-            formData.additionalContext || ''
+            formData.additionalContext || '',
+            i18n.language
           );
           break;
         case 18: // parent-email
-          content = await generateParentEmail(
+          content = await aiService.generateParentEmail(
             formData.studentName || '',
             formData.situation || '',
-            formData.emailType || ''
+            formData.emailType || '',
+            i18n.language
           );
           break;
         case 21: // behavior-plan
-          content = await generateBehaviorPlan(
+          content = await aiService.generateBehaviorPlan(
             formData.behaviorConcern || '',
             formData.studentAge || '',
-            formData.strengths || ''
+            formData.strengths || '',
+            i18n.language
           );
           break;
         default:
           const prompt = Object.entries(formData)
             .map(([key, value]) => `${key}: ${value}`)
             .join(', ');
-          content = await generateEducationalContent(prompt, tool.name);
+          content = await aiService.generateEducationalContent(prompt, tool.name, i18n.language);
           break;
       }
       
       setGeneratedContent(content);
       setIsSaved(false);
     } catch (error) {
+      // Check if it's a usage limit error
+      if (error instanceof Error && error.message === "USAGE_LIMIT_EXCEEDED") {
+        setShowUsageLimit(true);
+        setIsGenerating(false);
+        return;
+      }
+      
       toast({
         title: "Generation Error",
         description: "Failed to generate content. Please try again.",
@@ -91,7 +106,7 @@ const ToolModal = ({ tool, isOpen, onClose, teacherProfile }: ToolModalProps) =>
     setIsRegenerating(true);
     try {
       const enhancedPrompt = `Previous content: ${generatedContent}\n\nUser's modification request: ${chatMessage}\n\nPlease modify the content based on the user's request.`;
-      const modifiedContent = await generateEducationalContent(enhancedPrompt, tool.name);
+      const modifiedContent = await aiService.generateEducationalContent(enhancedPrompt, tool.name, i18n.language);
       setGeneratedContent(modifiedContent);
       toast({
         title: "Content Updated",
@@ -281,6 +296,12 @@ const ToolModal = ({ tool, isOpen, onClose, teacherProfile }: ToolModalProps) =>
         }}
         toolName={tool.name}
         onSubmit={handleSurveySubmit}
+      />
+      
+      <UsageLimitModal
+        isOpen={showUsageLimit}
+        onClose={() => setShowUsageLimit(false)}
+        onUpgrade={() => setShowUsageLimit(false)}
       />
     </>
   );

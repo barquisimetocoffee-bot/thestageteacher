@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { useTranslation } from "react-i18next";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -25,6 +26,7 @@ interface SurveyFeedback {
 }
 
 const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: SatisfactionSurveyProps) => {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<SurveyFeedback>({
@@ -45,8 +47,8 @@ const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: Satisfactio
   const handleSubmit = async () => {
     if (feedback.toolAppreciation === 0 || feedback.responseQuality === 0) {
       toast({
-        title: "Please complete the ratings",
-        description: "Both star ratings are required to submit your feedback.",
+        title: t("feedback.completeRatings"),
+        description: t("feedback.ratingsRequired"),
         variant: "destructive"
       });
       return;
@@ -68,15 +70,15 @@ const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: Satisfactio
       
       onSubmit(feedback);
       toast({
-        title: "Thank you for your feedback! 🙏",
-        description: "Your input helps us improve the teaching tools experience.",
+        title: t("feedback.thankYou"),
+        description: t("feedback.thanksDescription"),
       });
       onClose();
     } catch (error) {
       console.error('Failed to submit feedback:', error);
       toast({
-        title: "Error submitting feedback",
-        description: "There was an issue saving your feedback. Please try again.",
+        title: t("feedback.errorSubmitting"),
+        description: t("feedback.errorMessage"),
         variant: "destructive"
       });
     } finally {
@@ -107,7 +109,7 @@ const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: Satisfactio
         ))}
       </div>
       <p className="text-xs text-gray-500">
-        {rating === 0 ? 'Click to rate' : `${rating}/5 stars`}
+        {rating === 0 ? t("feedback.clickToRate") : t("feedback.starsRating", { rating })}
       </p>
     </div>
   );
@@ -119,7 +121,7 @@ const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: Satisfactio
           <div className="flex items-center justify-between">
             <DialogTitle className="text-xl font-bold flex items-center space-x-2">
               <MessageSquare className="h-5 w-5 text-blue-600" />
-              <span>How was your experience with {toolName}?</span>
+              <span>{t("feedback.title", { toolName })}</span>
             </DialogTitle>
             <Button variant="ghost" size="sm" onClick={onClose} disabled={isSubmitting}>
               <X className="h-4 w-4" />
@@ -131,7 +133,7 @@ const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: Satisfactio
           <Card className="bg-blue-50 border-blue-200">
             <CardContent className="p-4">
               <p className="text-sm text-blue-800">
-                Your feedback helps us improve our AI teaching tools. Please take a moment to share your experience! 📚✨
+                {t("feedback.description")}
               </p>
             </CardContent>
           </Card>
@@ -141,7 +143,7 @@ const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: Satisfactio
             <StarRating
               rating={feedback.toolAppreciation}
               onRate={(rating) => handleStarRating('toolAppreciation', rating)}
-              label="How much did you appreciate this tool overall?"
+              label={t("feedback.toolAppreciation")}
             />
           </div>
 
@@ -150,19 +152,19 @@ const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: Satisfactio
             <StarRating
               rating={feedback.responseQuality}
               onRate={(rating) => handleStarRating('responseQuality', rating)}
-              label="How would you rate the quality of the generated content?"
+              label={t("feedback.responseQuality")}
             />
           </div>
 
           {/* Missing Fields Feedback */}
           <div className="space-y-2">
             <Label className="text-sm font-medium">
-              Were there any fields missing that could have made your request more detailed and accurate?
+              {t("feedback.missingFields")}
             </Label>
             <Textarea
               value={feedback.missingFields}
               onChange={(e) => setFeedback(prev => ({ ...prev, missingFields: e.target.value }))}
-              placeholder="e.g., 'Would love a field for student reading level', 'Missing options for special needs accommodations', etc."
+              placeholder={t("feedback.missingFieldsPlaceholder")}
               className="min-h-[80px]"
               disabled={isSubmitting}
             />
@@ -171,12 +173,12 @@ const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: Satisfactio
           {/* Additional Feedback */}
           <div className="space-y-2">
             <Label className="text-sm font-medium">
-              Any additional feedback or suggestions?
+              {t("feedback.additionalFeedback")}
             </Label>
             <Textarea
               value={feedback.additionalFeedback}
               onChange={(e) => setFeedback(prev => ({ ...prev, additionalFeedback: e.target.value }))}
-              placeholder="Share any other thoughts about your experience..."
+              placeholder={t("feedback.additionalFeedbackPlaceholder")}
               className="min-h-[80px]"
               disabled={isSubmitting}
             />
@@ -185,7 +187,7 @@ const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: Satisfactio
           {/* Recommendation */}
           <div className="space-y-3">
             <Label className="text-sm font-medium">
-              Would you recommend this tool to other educators?
+              {t("feedback.wouldRecommend")}
             </Label>
             <div className="flex space-x-4">
               <Button
@@ -195,7 +197,7 @@ const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: Satisfactio
                 disabled={isSubmitting}
               >
                 <ThumbsUp className="h-4 w-4" />
-                <span>Yes, I'd recommend it</span>
+                <span>{t("feedback.yesRecommend")}</span>
               </Button>
               <Button
                 variant={!feedback.wouldRecommend ? "default" : "outline"}
@@ -204,7 +206,7 @@ const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: Satisfactio
                 disabled={isSubmitting}
               >
                 <ThumbsDown className="h-4 w-4" />
-                <span>No, needs improvement</span>
+                <span>{t("feedback.noRecommend")}</span>
               </Button>
             </div>
           </div>
@@ -212,16 +214,16 @@ const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: Satisfactio
           {/* Submit Button */}
           <div className="flex justify-end space-x-3 pt-4 border-t">
             <Button variant="outline" onClick={onClose} disabled={isSubmitting}>
-              Skip for now
+              {t("feedback.skipForNow")}
             </Button>
             <Button onClick={handleSubmit} className="bg-blue-600 hover:bg-blue-700" disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Submitting...
+                  {t("feedback.submitting")}
                 </>
               ) : (
-                'Submit Feedback'
+                t("feedback.submitFeedback")
               )}
             </Button>
           </div>

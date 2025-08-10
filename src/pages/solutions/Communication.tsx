@@ -1,16 +1,30 @@
 import { Button } from "@/components/ui/button";
-import { MessageSquare, Megaphone, Bell, Globe, Users } from "lucide-react";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { MessageSquare, Megaphone, Bell, Globe, Users, ArrowRight, Target, Zap, Video, Send } from "lucide-react";
+
 import UniversalHeader from "@/components/layout/UniversalHeader";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
+
+import communicationHero from "@/assets/solutions/communication-hero.jpg";
+
 import Footer from "@/components/home/Footer";
 
 const Communication = () => {
+  const { t } = useTranslation();
   const [showLogin, setShowLogin] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   const features = [
     {
       icon: Megaphone,
+
       title: "Mass Announcements",
       description:
         "Send announcements via email, SMS, or in-app notifications instantly",
@@ -124,7 +138,11 @@ const Communication = () => {
                 </p>
               </div>
             </div>
+            <p className="text-xl text-gray-700 text-center max-w-5xl mx-auto leading-relaxed">
+              {t("solutions.communication.whyItMatters.description")}
+            </p>
           </div>
+
 
           {/* CTA Section */}
           <div className="text-center">

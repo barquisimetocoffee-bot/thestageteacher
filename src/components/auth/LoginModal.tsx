@@ -270,6 +270,7 @@ const LoginModal = ({
               </div>
             </div>
 
+
             <div className="flex items-center space-x-2 pt-2">
               <Checkbox
                 id="remember-me"

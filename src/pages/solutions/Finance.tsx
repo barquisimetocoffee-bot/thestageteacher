@@ -1,22 +1,30 @@
 import { Button } from "@/components/ui/button";
-import {
-  DollarSign,
-  CreditCard,
-  FileBarChart,
-  Banknote,
-  PieChart,
-} from "lucide-react";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { DollarSign, CreditCard, FileBarChart, Banknote, PieChart, ArrowRight, Target, Zap, Calculator, TrendingDown } from "lucide-react";
+
 import UniversalHeader from "@/components/layout/UniversalHeader";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
+
+import financeHero from "@/assets/solutions/finance-hero.jpg";
+
 import Footer from "@/components/home/Footer";
 
 const Finance = () => {
+  const { t } = useTranslation();
   const [showLogin, setShowLogin] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   const features = [
     {
       icon: CreditCard,
+
       title: "Fee Management & Automated Billing",
       description:
         "Streamlined fee collection with automated billing and payment processing",

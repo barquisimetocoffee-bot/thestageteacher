@@ -1,3 +1,6 @@
+
+import { useTranslation } from 'react-i18next';
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -22,6 +25,7 @@ import Navigation from "@/components/home/Navigation";
 
 const CaseStudies = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [onModelOpen, setOnModelOpen] = useState(false);
 
@@ -66,12 +70,12 @@ const CaseStudies = () => {
   ];
 
   return (
+
     <>
       <Navigation onShowLogin={() => setOnModelOpen(true)} />
       <div
-        className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
       >
         {/* Hero Section */}
         <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
@@ -94,6 +98,7 @@ const CaseStudies = () => {
             </div>
           </div>
         </section>
+
 
         {/* Case Studies Grid */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">

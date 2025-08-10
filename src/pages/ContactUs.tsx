@@ -1,3 +1,6 @@
+
+import { useTranslation } from 'react-i18next';
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -24,6 +27,7 @@ import Footer from "@/components/home/Footer";
 
 const ContactUs = () => {
   const navigate = useNavigate();
+
   const [showLogin, setShowLogin] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -46,6 +50,7 @@ const ContactUs = () => {
   const contactInfo = [
     {
       icon: Mail,
+
       title: "Email Us",
       details: "support@ecerta.com",
       description: "Get in touch for general inquiries",
@@ -74,9 +79,8 @@ const ContactUs = () => {
     <>
       <Navigation onShowLogin={() => setShowLogin(true)} />
       <div
-        className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
       >
         {/* Hero Section */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
@@ -99,6 +103,7 @@ const ContactUs = () => {
             </div>
           </div>
         </section>
+
 
         {/* Contact Information */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -143,6 +148,7 @@ const ContactUs = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
+
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
@@ -188,10 +194,12 @@ const ContactUs = () => {
                           setFormData({ ...formData, subject: e.target.value })
                         }
                         className="border border-gray-200 focus:outline-none py-6"
+
                         required
                       />
                     </div>
                     <div>
+
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Message
                       </label>

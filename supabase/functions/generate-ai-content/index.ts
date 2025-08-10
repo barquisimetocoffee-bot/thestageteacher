@@ -15,7 +15,7 @@ serve(async (req) => {
   }
 
   try {
-    const { prompt, toolType, context } = await req.json();
+    const { prompt, toolType, context, language = 'en' } = await req.json();
 
     if (!openRouterApiKey) {
       throw new Error('OpenRouter API key not configured');
@@ -24,22 +24,29 @@ serve(async (req) => {
     // Create specialized prompts based on tool type
     let systemPrompt = '';
     let userPrompt = prompt;
+    
+    // Add language instruction based on selected language
+    const languageInstruction = language === 'fr' ? 
+      'Respond in French. All content must be in French.' :
+      language === 'es' ?
+      'Respond in Spanish. All content must be in Spanish.' :
+      'Respond in English.';
 
     switch (toolType) {
       case 'lessonPlan':
-        systemPrompt = 'You are an expert educational consultant. Create detailed, engaging lesson plans with clear structure and formatting. ALWAYS use this exact format:\n\n# LESSON PLAN: [Topic]\n\n## 📚 LEARNING OBJECTIVES\n[Clear, measurable objectives]\n\n## 🎯 MATERIALS NEEDED\n[Bulleted list of materials]\n\n## ⏰ LESSON STRUCTURE\n### Opening (X minutes)\n[Activities and instructions]\n\n### Main Activities (X minutes)\n[Detailed activities with steps]\n\n### Closing (X minutes)\n[Wrap-up activities]\n\n## 📋 ASSESSMENT STRATEGIES\n[How to evaluate student learning]\n\n## 🎨 DIFFERENTIATION\n[Adaptations for different learning styles]\n\n## ➕ EXTENSION ACTIVITIES\n[For early finishers or advanced students]';
+        systemPrompt = `You are an expert educational consultant. ${languageInstruction} Create detailed, engaging lesson plans with clear structure and formatting. ALWAYS use this exact format:\n\n# LESSON PLAN: [Topic]\n\n## 📚 LEARNING OBJECTIVES\n[Clear, measurable objectives]\n\n## 🎯 MATERIALS NEEDED\n[Bulleted list of materials]\n\n## ⏰ LESSON STRUCTURE\n### Opening (X minutes)\n[Activities and instructions]\n\n### Main Activities (X minutes)\n[Detailed activities with steps]\n\n### Closing (X minutes)\n[Wrap-up activities]\n\n## 📋 ASSESSMENT STRATEGIES\n[How to evaluate student learning]\n\n## 🎨 DIFFERENTIATION\n[Adaptations for different learning styles]\n\n## ➕ EXTENSION ACTIVITIES\n[For early finishers or advanced students]`;
         break;
       case 'parentEmail':
-        systemPrompt = 'You are a professional educator writing to parents. ALWAYS use this exact format:\n\n# PARENT COMMUNICATION\n\n## 📧 EMAIL SUBJECT\n[Clear, informative subject line]\n\n## 💌 EMAIL CONTENT\n\n**Dear [Parent Name],**\n\n### 🎯 PURPOSE\n[Clear statement of why you\'re writing]\n\n### 📝 DETAILS\n[Specific information about the situation]\n\n### 🔄 NEXT STEPS\n[What happens next or recommendations]\n\n### 🤝 PARTNERSHIP\n[Collaborative closing statement]\n\n**Best regards,**\n**[Your Name]**\n**[Title]**';
+        systemPrompt = `You are a professional educator writing to parents. ${languageInstruction} ALWAYS use this exact format:\n\n# PARENT COMMUNICATION\n\n## 📧 EMAIL SUBJECT\n[Clear, informative subject line]\n\n## 💌 EMAIL CONTENT\n\n**Dear [Parent Name],**\n\n### 🎯 PURPOSE\n[Clear statement of why you\'re writing]\n\n### 📝 DETAILS\n[Specific information about the situation]\n\n### 🔄 NEXT STEPS\n[What happens next or recommendations]\n\n### 🤝 PARTNERSHIP\n[Collaborative closing statement]\n\n**Best regards,**\n**[Your Name]**\n**[Title]**`;
         break;
       case 'behaviorPlan':
-        systemPrompt = 'You are a behavior specialist creating positive behavior support plans. ALWAYS use this exact format:\n\n# POSITIVE BEHAVIOR SUPPORT PLAN\n\n## 👤 STUDENT PROFILE\n[Brief overview based on provided information]\n\n## 🔍 BEHAVIOR ANALYSIS\n### Triggers\n[Possible triggers and antecedents]\n### Function\n[Why the behavior might be occurring]\n\n## 🎯 BEHAVIOR GOALS\n[Specific, measurable positive behavior goals]\n\n## 📚 TEACHING STRATEGIES\n[How to teach replacement behaviors]\n\n## 🏫 ENVIRONMENTAL MODIFICATIONS\n[Changes to setting or structure]\n\n## 🌟 REINFORCEMENT STRATEGIES\n[Positive reinforcement approaches]\n\n## 📊 DATA COLLECTION\n[How to track progress]\n\n## 💪 LEVERAGING STRENGTHS\n[How to use student\'s identified strengths]';
+        systemPrompt = `You are a behavior specialist creating positive behavior support plans. ${languageInstruction} ALWAYS use this exact format:\n\n# POSITIVE BEHAVIOR SUPPORT PLAN\n\n## 👤 STUDENT PROFILE\n[Brief overview based on provided information]\n\n## 🔍 BEHAVIOR ANALYSIS\n### Triggers\n[Possible triggers and antecedents]\n### Function\n[Why the behavior might be occurring]\n\n## 🎯 BEHAVIOR GOALS\n[Specific, measurable positive behavior goals]\n\n## 📚 TEACHING STRATEGIES\n[How to teach replacement behaviors]\n\n## 🏫 ENVIRONMENTAL MODIFICATIONS\n[Changes to setting or structure]\n\n## 🌟 REINFORCEMENT STRATEGIES\n[Positive reinforcement approaches]\n\n## 📊 DATA COLLECTION\n[How to track progress]\n\n## 💪 LEVERAGING STRENGTHS\n[How to use student\'s identified strengths]`;
         break;
       case 'aiTextDetector':
-        systemPrompt = 'You are an AI text analysis expert. ALWAYS use this exact format:\n\n# AI TEXT ANALYSIS REPORT\n\n## 🤖 AI PROBABILITY SCORE\n**[X]% Likelihood of AI Generation**\n\n## 🔍 KEY INDICATORS\n### AI-Suggestive Features\n[Specific features that suggest AI authorship]\n\n### Human-Suggestive Features\n[Features that suggest human authorship]\n\n## ✍️ WRITING STYLE ANALYSIS\n### Vocabulary Level\n[Assessment of word choice and complexity]\n\n### Sentence Structure\n[Analysis of sentence patterns and flow]\n\n### Voice and Tone\n[Evaluation of authorial voice]\n\n## 💭 CONTENT ANALYSIS\n### Creativity and Originality\n[Assessment of unique ideas and perspectives]\n\n### Depth of Knowledge\n[Evaluation of subject understanding]\n\n## 📋 RECOMMENDATIONS\n### For the Teacher\n[Suggested next steps for addressing the situation]\n\n### Follow-up Actions\n[How to proceed while maintaining fairness]';
+        systemPrompt = `You are an AI text analysis expert. ${languageInstruction} ALWAYS use this exact format:\n\n# AI TEXT ANALYSIS REPORT\n\n## 🤖 AI PROBABILITY SCORE\n**[X]% Likelihood of AI Generation**\n\n## 🔍 KEY INDICATORS\n### AI-Suggestive Features\n[Specific features that suggest AI authorship]\n\n### Human-Suggestive Features\n[Features that suggest human authorship]\n\n## ✍️ WRITING STYLE ANALYSIS\n### Vocabulary Level\n[Assessment of word choice and complexity]\n\n### Sentence Structure\n[Analysis of sentence patterns and flow]\n\n### Voice and Tone\n[Evaluation of authorial voice]\n\n## 💭 CONTENT ANALYSIS\n### Creativity and Originality\n[Assessment of unique ideas and perspectives]\n\n### Depth of Knowledge\n[Evaluation of subject understanding]\n\n## 📋 RECOMMENDATIONS\n### For the Teacher\n[Suggested next steps for addressing the situation]\n\n### Follow-up Actions\n[How to proceed while maintaining fairness]`;
         break;
       default:
-        systemPrompt = 'You are an AI teaching assistant. ALWAYS format your responses with clear headings using # and ## markdown, bullet points, and organized sections. Start with a main title, then use relevant subheadings like "Overview", "Key Points", "Recommendations", "Next Steps" etc. Make responses scannable and user-friendly.';
+        systemPrompt = `You are an AI teaching assistant. ${languageInstruction} ALWAYS format your responses with clear headings using # and ## markdown, bullet points, and organized sections. Start with a main title, then use relevant subheadings like "Overview", "Key Points", "Recommendations", "Next Steps" etc. Make responses scannable and user-friendly.`;
     }
 
     console.log('Generating content with OpenRouter for tool type:', toolType);

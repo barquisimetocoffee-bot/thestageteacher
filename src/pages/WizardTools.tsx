@@ -10,18 +10,19 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Search, ArrowLeft, Clock } from "lucide-react";
-import { tools } from "@/lib/toolsData";
 import { Link } from "react-router-dom";
 import ToolModal from "@/components/ToolModal";
+import { useTranslatedTools } from "@/hooks/useTranslatedTools";
 
 const WizardTools = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedTool, setSelectedTool] = useState(null);
+  const translatedTools = useTranslatedTools();
 
-  const filteredTools = tools.filter(
-    (tool) =>
-      tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      tool.description.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredTools = translatedTools.filter(tool =>
+    tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    tool.description.toLowerCase().includes(searchTerm.toLowerCase())
+
   );
 
   const handleToolClick = (tool) => {

@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock } from "lucide-react";
+import { Clock, Wand2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 interface ToolsGridProps {
@@ -47,7 +47,7 @@ const ToolsGrid = ({
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {tools.map((tool) => {
         const IconComponent = tool.icon;
         const categoryInfo = categories.find(
@@ -57,13 +57,15 @@ const ToolsGrid = ({
         return (
           <Card
             key={tool.id}
-            className="group hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2 border-0 bg-white/90 backdrop-blur-sm shadow-lg overflow-hidden relative"
+            className="group relative overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-white/95 backdrop-blur-md border border-primary/20 hover:border-primary/40 rounded-2xl"
             onClick={(e) => handleToolClick(tool, e)}
           >
             <div
-              className={`absolute inset-0 bg-gradient-to-br ${categoryInfo?.gradient} opacity-0 group-hover:opacity-1 transition-opacity duration-300`}
-            ></div>
+              className={`absolute inset-0 bg-gradient-to-br ${categoryInfo?.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+            />
+
             <CardHeader className="pb-4 relative">
+
               <div className="flex items-start justify-between">
                 <div className="flex items-center space-x-4">
                   <div
@@ -86,13 +88,42 @@ const ToolsGrid = ({
                 <div className="flex items-center space-x-1 text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">
                   <Clock className="h-4 w-4" />
                   <span className="font-medium">{tool.timesSaved}</span>
+
                 </div>
+
+                {tool.timesSaved && (
+                  <div className="flex items-center space-x-1 text-xs text-accent bg-accent/10 px-2 py-1 rounded-full border border-accent/20">
+                    <Clock className="h-3 w-3" />
+                    <span className="font-medium">{tool.timesSaved}</span>
+                  </div>
+                )}
+              </div>
+
+              <CardTitle className="text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:from-secondary group-hover:to-primary transition-all duration-300 line-clamp-2 min-h-[3.5rem]">
+                {tool.name}
+              </CardTitle>
+
+              <div className="flex items-center justify-between mt-2">
+                <Badge
+                  variant="secondary"
+                  className="text-xs bg-primary/10 text-primary border-primary/20 font-medium"
+                >
+                  {tool.category}
+                </Badge>
+
+                {tool.estimatedTime && (
+                  <span className="text-xs text-emerald-600 font-semibold bg-emerald-50 px-2 py-1 rounded-full border border-emerald-200">
+                    ✓ {t("easyteach.tools.readyIn", { time: tool.estimatedTime })}
+                  </span>
+                )}
               </div>
             </CardHeader>
-            <CardContent className="relative">
-              <CardDescription className="text-gray-600 leading-relaxed text-base mb-6">
+
+            <CardContent className="relative pt-0">
+              <CardDescription className="text-muted-foreground leading-relaxed text-sm mb-6 line-clamp-3 min-h-[4.5rem]">
                 {tool.description}
               </CardDescription>
+
               <div className="flex items-center justify-between">
                 <span className="text-sm text-green-600 font-semibold bg-green-50 px-3 py-1 rounded-full">
                   ✓ {t("easyteach.tools.readyIn", { time: tool.estimatedTime })}

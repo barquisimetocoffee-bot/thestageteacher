@@ -106,7 +106,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
       title: "General Report",
       icon: FileBarChart,
       color: "from-purple-500 to-indigo-500",
-      onClick: () => navigate("/solutions/reporting"),
+      onClick: () => navigate("/solutions/general-reports"),
     },
     {
       title: "HR & Payroll",
@@ -208,7 +208,9 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                 <span className="text-foreground hover:text-primary hover:bg-blue-100 px-3 py-2 rounded-md cursor-pointer">
                   {t("navigation.products")}
                 </span>
+
                 <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-4 min-w-96 animate-fade-in duration-700 rounded-2xl z-50">
+
                   <div className="space-y-3">
                     {products.map((product) => (
                       <div
@@ -250,7 +252,9 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                 <span className="text-foreground hover:text-primary hover:bg-blue-100 px-3 py-2 rounded-md cursor-pointer">
                   {t("navigation.solutions")}
                 </span>
+
                 <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-6 w-96 animate-fade-in rounded-2xl z-50">
+
                   <div className="grid grid-cols-2 gap-6">
                     {/* By Category */}
                     <div>

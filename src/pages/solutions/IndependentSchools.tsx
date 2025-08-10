@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Target, Award, Users, Trophy, Crown } from "lucide-react";
+import { Target, Award, BookOpen, Users, Trophy, Star, Crown, Shield, Gem, Settings, LineChart, Users2, Calendar, MessageCircle, Zap } from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
+import independentSchoolsHero from "@/assets/independent-schools-hero.jpg";
 import Footer from "@/components/home/Footer";
 
 const IndependentSchools = () => {

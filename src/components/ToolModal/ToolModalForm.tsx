@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import LanguageBasedGradeSelector from "@/components/LanguageBasedGradeSelector";
 
 interface ToolModalFormProps {
   tool: any;
@@ -18,6 +20,7 @@ interface ToolModalFormProps {
   onGenerate: () => void;
   isGenerating: boolean;
 }
+
 
 const ToolModalForm = ({
   tool,
@@ -44,6 +47,7 @@ const ToolModalForm = ({
     return tool.fields.map((field: any, index: number) => (
       <div key={index} className="space-y-2">
         <Label htmlFor={field.name}>{field.label}</Label>
+
         {field.type === "select" ? (
           <Select onValueChange={(value) => onInputChange(field.name, value)}>
             <SelectTrigger>
@@ -98,9 +102,10 @@ const ToolModalForm = ({
         {isGenerating ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Generating...
+            {t('ui.buttons.generating')}
           </>
         ) : (
+
           "Generate Content"
         )}
       </button>

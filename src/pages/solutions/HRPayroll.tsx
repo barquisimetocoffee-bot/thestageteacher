@@ -1,18 +1,23 @@
 import { Button } from "@/components/ui/button";
-import {
-  Users,
-  CreditCard,
-  UserPlus,
-  ClipboardCheck,
-  Shield,
-} from "lucide-react";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Users, CreditCard, UserPlus, ClipboardCheck, Shield, ArrowRight, Target, Zap, Calendar, FileSearch } from "lucide-react";
+
 import UniversalHeader from "@/components/layout/UniversalHeader";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
+import hrHero from "@/assets/solutions/hr-payroll-hero.jpg";
 import Footer from "@/components/home/Footer";
 
 const HRPayroll = () => {
+  const { t } = useTranslation();
   const [showLogin, setShowLogin] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   const features = [
     {
