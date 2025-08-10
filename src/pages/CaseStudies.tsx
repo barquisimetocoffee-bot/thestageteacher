@@ -78,7 +78,7 @@ const CaseStudies = () => {
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
               <div className="p-4 rounded-3xl icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
-                <FileText className="size-8 md:size-10 md:size-10 text-white" />
+                <FileText className="size-8 md:size-10 text-white" />
               </div>
               <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
                 Case
@@ -102,7 +102,7 @@ const CaseStudies = () => {
               {caseStudies.map((study, index) => (
                 <Card
                   key={index}
-                  className="hover:shadow-2xl transition-all duration-500 border-0 bg-gradient-to-br from-white to-gray-50 overflow-hidden animate-fade-in"
+                  className="hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-gray-50 overflow-hidden animate-fade-in border border-gray-100"
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   <div className="flex flex-col lg:flex-row">
