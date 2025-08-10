@@ -38,7 +38,7 @@ const AIAssistant = ({ tools = [], onToolRecommend }: AIAssistantProps) => {
   // Function to find relevant tools based on user message
   const findRelevantTools = (userMessage: string): any[] => {
     if (!tools.length) return [];
-    
+
     const keywords = userMessage.toLowerCase();
     const relevantTools = tools.filter(tool => {
       return (
@@ -53,7 +53,7 @@ const AIAssistant = ({ tools = [], onToolRecommend }: AIAssistantProps) => {
         tool.category?.includes('Lesson Planning') && (keywords.includes('plan') || keywords.includes('objective'))
       );
     });
-    
+
     return relevantTools.slice(0, 3); // Return max 3 relevant tools
   };
 
@@ -74,7 +74,7 @@ const AIAssistant = ({ tools = [], onToolRecommend }: AIAssistantProps) => {
     try {
       // Enhanced prompt to include tool recommendation context
       const enhancedPrompt = `${inputMessage}\n\nContext: You are an AI assistant for EasyTeach by Vicerta, helping educators with teaching-related questions. If relevant, mention that specific tools are available to help with their request.`;
-      
+
       const aiResponse = await generateEducationalContent(
         enhancedPrompt,
         "AI Assistant Chat",
@@ -118,8 +118,10 @@ const AIAssistant = ({ tools = [], onToolRecommend }: AIAssistantProps) => {
   };
 
   return (
-    <Card className="h-[700px] flex flex-col bg-white/95 backdrop-blur-md border border-primary/20 shadow-xl rounded-2xl">
-      <CardHeader className="pb-3 bg-gradient-to-r from-primary via-secondary to-accent text-white rounded-t-2xl">
+
+    <Card className="h-[500px] flex flex-col bg-white/90 backdrop-blur-sm border-blue-200">
+      <CardHeader className="pb-3 bg-gradient-to-r from-blue-500 to-[#2901b3] text-white rounded-t-lg">
+
         <CardTitle className="flex items-center space-x-2 text-lg text-white">
           <Bot className="h-5 w-5" />
           <span>Virtual Teaching Assistant</span>
@@ -134,23 +136,22 @@ const AIAssistant = ({ tools = [], onToolRecommend }: AIAssistantProps) => {
           {messages.map((message) => (
             <div
               key={message.id}
-              className={`flex ${
-                message.sender === "user" ? "justify-end" : "justify-start"
-              }`}
+              className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"
+                }`}
             >
               <div
-                className={`flex items-start space-x-3 max-w-[85%] ${
-                  message.sender === "user"
+                className={`flex items-start space-x-3 max-w-[85%] ${message.sender === "user"
                     ? "flex-row-reverse space-x-reverse"
                     : ""
-                }`}
+                  }`}
               >
                 <div
-                  className={`w-8 h-8 rounded-full p-2 flex items-center justify-center flex-shrink-0 ${
-                    message.sender === "user"
-                      ? "bg-gradient-to-r from-primary via-secondary to-accent text-white"
-                      : "bg-muted text-muted-foreground"
-                  }`}
+                  className={`w-8 h-8 rounded-full p-2 flex items-center justify-center flex-shrink-0 ${message.sender === "user"
+
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-200 text-gray-600"
+
+                    }`}
                 >
                   {message.sender === "user" ? (
                     <User className="h-4 w-4" />
@@ -158,67 +159,13 @@ const AIAssistant = ({ tools = [], onToolRecommend }: AIAssistantProps) => {
                     <Bot className="h-4 w-4" />
                   )}
                 </div>
-                <div className="flex flex-col space-y-2 flex-1 min-w-0">
-                  <div
-                    className={`p-4 rounded-2xl text-sm leading-relaxed ${
-                      message.sender === "user"
-                        ? "bg-gradient-to-r from-primary via-secondary to-accent text-white ml-4"
-                        : "bg-gray-50 text-gray-800 mr-4 border border-gray-200"
+                <div
+                  className={`p-3 rounded-lg text-sm ${message.sender === "user"
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-100 text-gray-800"
                     }`}
-                  >
-                    <div className="whitespace-pre-wrap break-words">
-                      {message.text.split('\n').map((line, index) => {
-                        // Handle bold text formatting
-                        if (line.includes('**')) {
-                          const parts = line.split('**');
-                          return (
-                            <div key={index} className="mb-2">
-                              {parts.map((part, partIndex) => (
-                                partIndex % 2 === 1 ? 
-                                  <strong key={partIndex} className="font-bold">{part}</strong> : 
-                                  <span key={partIndex}>{part}</span>
-                              ))}
-                            </div>
-                          );
-                        }
-                        // Handle bullet points
-                        if (line.startsWith('•')) {
-                          return (
-                            <div key={index} className="mb-1 pl-2">
-                              {line}
-                            </div>
-                          );
-                        }
-                        // Handle emojis and tool recommendations
-                        if (line.includes('🛠️')) {
-                          return (
-                            <div key={index} className="mb-2 font-semibold border-t border-white/20 pt-2 mt-2">
-                              {line}
-                            </div>
-                          );
-                        }
-                        return line ? <div key={index} className="mb-1">{line}</div> : <br key={index} />;
-                      })}
-                    </div>
-                  </div>
-                  
-                  {/* Tool recommendations */}
-                  {message.recommendedTools && message.recommendedTools.length > 0 && onToolRecommend && (
-                    <div className="space-y-2 ml-11">
-                      {message.recommendedTools.map((tool, index) => (
-                        <Button
-                          key={index}
-                          variant="outline"
-                          size="sm"
-                          onClick={() => onToolRecommend(tool)}
-                          className="w-full justify-start text-xs bg-white hover:bg-blue-50 border-blue-200 hover:border-blue-300 text-blue-600 hover:text-blue-700 transition-all duration-200"
-                        >
-                          <Wand2 className="h-3 w-3 mr-2" />
-                          Use {tool.name}
-                        </Button>
-                      ))}
-                    </div>
-                  )}
+                >
+                  {message.text}
                 </div>
               </div>
             </div>
@@ -251,9 +198,11 @@ const AIAssistant = ({ tools = [], onToolRecommend }: AIAssistantProps) => {
           <Button
             onClick={handleSendMessage}
             disabled={!inputMessage.trim() || isLoading}
-            className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 self-end text-white px-4 rounded-xl"
+
+            className="bg-blue-600 hover:bg-[#2901b3] self-end group"
+
           >
-            <Send className="h-4 w-4" />
+            <Send className="h-4 w-4 group-hover:rotate-45 transition-transform duration-300" />
           </Button>
         </div>
       </CardContent>

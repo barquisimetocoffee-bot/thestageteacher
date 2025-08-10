@@ -146,9 +146,17 @@
   color: white;
   transition: background 0.3s ease;
 }
+.my-btn:active {
+  transform: scale(0.95);
+}
 
 .my-btn:hover {
   background: linear-gradient(to right, #5c2fff, #2901B3);
+}
+
+html::selection{
+  color: white;
+  background: #2901B3;
 }
 
   .compact-text {

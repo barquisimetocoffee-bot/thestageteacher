@@ -1,8 +1,13 @@
-
-import { useState } from 'react';
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Search, ArrowLeft, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -14,9 +19,10 @@ const WizardTools = () => {
   const [selectedTool, setSelectedTool] = useState(null);
   const translatedTools = useTranslatedTools();
 
-  const filteredTools = translatedTools.filter(tool => 
+  const filteredTools = translatedTools.filter(tool =>
     tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     tool.description.toLowerCase().includes(searchTerm.toLowerCase())
+
   );
 
   const handleToolClick = (tool) => {
@@ -30,7 +36,11 @@ const WizardTools = () => {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center space-x-4">
             <Link to="/easyteach-app">
-              <Button variant="outline" size="sm">
+              <Button
+                variant="outline"
+                size="sm"
+                className="bg-white hover:bg-gray-100 hover:text-black"
+              >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Home
               </Button>
@@ -60,9 +70,9 @@ const WizardTools = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredTools.map((tool) => {
             const IconComponent = tool.icon;
-            
+
             return (
-              <Card 
+              <Card
                 key={tool.id}
                 className="hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:-translate-y-1 border-2 border-gray-100 hover:border-blue-200"
                 onClick={() => handleToolClick(tool)}
@@ -70,7 +80,7 @@ const WizardTools = () => {
                 <CardHeader className="pb-3">
                   <div className="flex items-start justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className={`p-2 rounded-lg ${tool.color}`}>
+                      <div className={`p-2 rounded-lg icon-bg text-white`}>
                         <IconComponent className="h-6 w-6" />
                       </div>
                       <div>
@@ -96,7 +106,10 @@ const WizardTools = () => {
                     <span className="text-sm text-green-600 font-medium">
                       ✓ Ready in {tool.estimatedTime}
                     </span>
-                    <Button size="sm" className="rounded-full">
+                    <Button
+                      size="sm"
+                      className="rounded-full hover:bg-blue-700 bg-[#2901b3]"
+                    >
                       Try it →
                     </Button>
                   </div>
@@ -112,9 +125,7 @@ const WizardTools = () => {
             <h3 className="text-xl font-semibold text-gray-700 mb-2">
               No tools found for "{searchTerm}"
             </h3>
-            <p className="text-gray-500">
-              Try a different search term.
-            </p>
+            <p className="text-gray-500">Try a different search term.</p>
           </div>
         )}
       </div>

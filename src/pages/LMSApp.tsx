@@ -1,13 +1,27 @@
-import { useState, useEffect } from 'react';
-import { useAuth } from '@/hooks/useAuth';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Badge } from '@/components/ui/badge';
-import { BookOpen, Users, GraduationCap, Plus, Calendar, Bell, BarChart3 } from 'lucide-react';
-import UniversalHeader from '@/components/layout/UniversalHeader';
-import Footer from '@/components/home/Footer';
-import LoginModal from '@/components/auth/LoginModal';
+import { useState, useEffect } from "react";
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import {
+  BookOpen,
+  Users,
+  GraduationCap,
+  Plus,
+  Calendar,
+  Bell,
+  BarChart3,
+} from "lucide-react";
+import UniversalHeader from "@/components/layout/UniversalHeader";
+import Footer from "@/components/home/Footer";
+import LoginModal from "@/components/auth/LoginModal";
 
 const LMSApp = () => {
   const { user } = useAuth();
@@ -33,19 +47,16 @@ const LMSApp = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button 
-                onClick={() => setShowLogin(true)} 
-                className="w-full"
-              >
+              <Button onClick={() => setShowLogin(true)} className="w-full">
                 Sign In to Continue
               </Button>
             </CardContent>
           </Card>
         </div>
         <Footer />
-        <LoginModal 
-          isOpen={showLogin} 
-          onClose={() => setShowLogin(false)} 
+        <LoginModal
+          isOpen={showLogin}
+          onClose={() => setShowLogin(false)}
           redirectPath="/lms"
         />
       </div>
@@ -55,19 +66,20 @@ const LMSApp = () => {
   return (
     <div className="min-h-screen bg-background">
       <UniversalHeader onShowLogin={() => setShowLogin(true)} />
-      
+
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-2">
             Vicerta Learning Management System
           </h1>
           <p className="text-muted-foreground text-lg">
-            Welcome back, {user.email}! Manage your courses and track your learning progress.
+            Welcome back, {user.email}! Manage your courses and track your
+            learning progress.
           </p>
         </div>
 
         <Tabs defaultValue="dashboard" className="w-full">
-          <TabsList className="grid w-full grid-cols-5">
+          <TabsList className="grid w-full grid-cols-5 h-14">
             <TabsTrigger value="dashboard" className="flex items-center gap-2">
               <BarChart3 className="h-4 w-4" />
               Dashboard
@@ -115,9 +127,7 @@ const LMSApp = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">0</div>
-                  <p className="text-xs text-muted-foreground">
-                    This month
-                  </p>
+                  <p className="text-xs text-muted-foreground">This month</p>
                 </CardContent>
               </Card>
               <Card>
@@ -129,9 +139,7 @@ const LMSApp = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">0</div>
-                  <p className="text-xs text-muted-foreground">
-                    This week
-                  </p>
+                  <p className="text-xs text-muted-foreground">This week</p>
                 </CardContent>
               </Card>
             </div>
@@ -156,19 +164,21 @@ const LMSApp = () => {
           <TabsContent value="courses" className="space-y-6">
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold">My Courses</h2>
-              <Button className="flex items-center gap-2">
+              <Button className="flex items-center gap-2 my-btn">
                 <Plus className="h-4 w-4" />
                 Enroll in Course
               </Button>
             </div>
-            
+
             <div className="text-center py-12">
               <BookOpen className="h-16 w-16 mx-auto mb-4 text-muted-foreground opacity-50" />
-              <h3 className="text-lg font-semibold mb-2">No courses enrolled yet</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                No courses enrolled yet
+              </h3>
               <p className="text-muted-foreground mb-4">
                 Start your learning journey by exploring available courses
               </p>
-              <Button>Browse Courses</Button>
+              <Button className="my-btn">Browse Courses</Button>
             </div>
           </TabsContent>
 
@@ -183,24 +193,35 @@ const LMSApp = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3, 4, 5, 6].map((i) => (
-                <Card key={i} className="group hover:shadow-lg transition-shadow">
+                <Card
+                  key={i}
+                  className="group hover:shadow-lg transition-shadow"
+                >
                   <CardHeader>
                     <div className="w-full h-32 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg mb-4 flex items-center justify-center">
                       <BookOpen className="h-8 w-8 text-primary" />
                     </div>
                     <CardTitle className="text-lg">Sample Course {i}</CardTitle>
                     <CardDescription>
-                      Learn the fundamentals with hands-on projects and expert guidance.
+                      Learn the fundamentals with hands-on projects and expert
+                      guidance.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="flex items-center justify-between mb-4">
                       <Badge variant="secondary">Beginner</Badge>
-                      <span className="text-sm text-muted-foreground">4 weeks</span>
+                      <span className="text-sm text-muted-foreground">
+                        4 weeks
+                      </span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">0 students</span>
-                      <Badge variant="outline" className="text-green-600 border-green-200">
+                      <span className="text-sm text-muted-foreground">
+                        0 students
+                      </span>
+                      <Badge
+                        variant="outline"
+                        className="text-green-600 border-green-200"
+                      >
                         Free
                       </Badge>
                     </div>
@@ -213,7 +234,7 @@ const LMSApp = () => {
           <TabsContent value="teaching" className="space-y-6">
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold">Teaching Dashboard</h2>
-              <Button className="flex items-center gap-2">
+              <Button className="flex items-center gap-2 my-btn">
                 <Plus className="h-4 w-4" />
                 Create Course
               </Button>
@@ -225,7 +246,7 @@ const LMSApp = () => {
               <p className="text-muted-foreground mb-4">
                 Create your first course and share your knowledge with students
               </p>
-              <Button>Create Your First Course</Button>
+              <Button className="my-btn">Create Your First Course</Button>
             </div>
           </TabsContent>
 
@@ -255,10 +276,10 @@ const LMSApp = () => {
       </main>
 
       <Footer />
-      
-      <LoginModal 
-        isOpen={showLogin} 
-        onClose={() => setShowLogin(false)} 
+
+      <LoginModal
+        isOpen={showLogin}
+        onClose={() => setShowLogin(false)}
         redirectPath="/lms"
       />
     </div>

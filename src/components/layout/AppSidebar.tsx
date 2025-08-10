@@ -92,7 +92,7 @@ const AppSidebar = () => {
 
       <SidebarContent className="bg-gradient-to-b from-background via-primary/2 to-secondary/3 relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(120,119,198,0.03),transparent)] pointer-events-none" />
-        
+
         <SidebarGroup className="px-6 py-8 relative z-10">
           <SidebarGroupLabel className="text-foreground/70 font-bold text-sm mb-6 flex items-center space-x-3 tracking-wide uppercase">
             <div className="w-6 h-6 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
@@ -107,14 +107,16 @@ const AppSidebar = () => {
                   <SidebarMenuButton asChild className="group">
                     <a
                       href={item.href}
-                      className="flex items-center space-x-4 p-4 rounded-2xl bg-white/80 hover:bg-white border border-gray-100 hover:border-primary/20 hover:shadow-xl transition-all duration-300 group/item relative backdrop-blur-sm hover:scale-[1.02] min-h-[80px]"
+
+                      className="flex items-center space-x-2 px-2 py-6 rounded-lg bg-white backdrop-blur-sm hover:bg-white/30 hover:shadow-xl hover:scale-105 relative overflow-hidden"
+
                     >
                       <div
                         className={`p-3 rounded-xl bg-gradient-to-br ${item.gradient} shadow-lg ring-1 ring-white/30 group-hover:shadow-xl transition-all duration-300 flex-shrink-0`}
                       >
                         <item.icon className="h-5 w-5 text-white" />
                       </div>
-                      
+
                       <div className="flex-1 min-w-0 flex flex-col justify-center">
                         <span className="text-sm font-bold text-gray-900 leading-tight mb-1 truncate">
                           {item.name}
@@ -128,7 +130,7 @@ const AppSidebar = () => {
                           </span>
                         )}
                       </div>
-                      
+
                       {/* Hover arrow indicator */}
                       <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="w-2 h-2 border-r-2 border-t-2 border-primary rotate-45"></div>
@@ -145,7 +147,7 @@ const AppSidebar = () => {
           <div className="bg-gradient-to-br from-primary/8 via-secondary/8 to-accent/8 rounded-2xl p-5 border border-primary/20 backdrop-blur-sm relative overflow-hidden shadow-lg">
             {/* Decorative background */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(120,119,198,0.1),transparent)] pointer-events-none" />
-            
+
             <div className="relative z-10">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="p-2 bg-gradient-to-r from-red-400 to-pink-500 rounded-lg shadow-md">
@@ -177,7 +179,7 @@ const AppSidebar = () => {
       <SidebarFooter className="p-5 bg-gradient-to-br from-primary/10 to-secondary/10 border-t border-primary/20 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(120,119,198,0.05)_50%,transparent_75%)] pointer-events-none" />
-        
+
         <div className="relative z-10 text-center space-y-3">
           <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
             <div className="p-1 bg-gradient-to-r from-primary to-secondary rounded-md">

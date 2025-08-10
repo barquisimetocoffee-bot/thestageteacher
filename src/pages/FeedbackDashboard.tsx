@@ -1,6 +1,19 @@
-import { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { useState, useEffect } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Star, ThumbsUp, ThumbsDown } from "lucide-react";
@@ -35,7 +48,7 @@ const FeedbackDashboard = () => {
       const data = await getUserFeedback();
       setFeedback(data);
     } catch (error) {
-      console.error('Error loading feedback:', error);
+      console.error("Error loading feedback:", error);
       toast({
         title: "Error",
         description: "Failed to load feedback data. Please try again.",
@@ -53,7 +66,9 @@ const FeedbackDashboard = () => {
           <Star
             key={star}
             className={`h-4 w-4 ${
-              star <= rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
+              star <= rating
+                ? "fill-yellow-400 text-yellow-400"
+                : "text-gray-300"
             }`}
           />
         ))}
@@ -63,12 +78,12 @@ const FeedbackDashboard = () => {
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
     });
   };
 
@@ -104,55 +119,79 @@ const FeedbackDashboard = () => {
         <div className="mb-6">
           <Button
             variant="ghost"
-            onClick={() => navigate('/easyteach-app')}
-            className="mb-4"
+            className="mb-4 bg-white hover:text-black hover:bg-gray-200"
+            onClick={() => navigate("/easyteach-app")}
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Dashboard
           </Button>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Feedback Dashboard</h1>
-          <p className="text-gray-600">View and analyze user feedback for teaching tools</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Feedback Dashboard
+          </h1>
+          <p className="text-gray-600">
+            View and analyze user feedback for teaching tools
+          </p>
         </div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
           <Card>
             <CardContent className="p-4">
-              <div className="text-2xl font-bold text-blue-600">{feedback.length}</div>
-              <div className="text-sm text-muted-foreground">Total Feedback</div>
+              <div className="text-2xl font-bold text-blue-600">
+                {feedback.length}
+              </div>
+              <div className="text-sm text-muted-foreground">
+                Total Feedback
+              </div>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="p-4">
               <div className="text-2xl font-bold text-green-600">
-                {feedback.length > 0 ? 
-                  (feedback.reduce((sum, f) => sum + f.tool_appreciation, 0) / feedback.length).toFixed(1) 
-                  : '0'
-                }
+                {feedback.length > 0
+                  ? (
+                      feedback.reduce(
+                        (sum, f) => sum + f.tool_appreciation,
+                        0
+                      ) / feedback.length
+                    ).toFixed(1)
+                  : "0"}
               </div>
-              <div className="text-sm text-muted-foreground">Avg Tool Rating</div>
+              <div className="text-sm text-muted-foreground">
+                Avg Tool Rating
+              </div>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="p-4">
               <div className="text-2xl font-bold text-purple-600">
-                {feedback.length > 0 ? 
-                  (feedback.reduce((sum, f) => sum + f.response_quality, 0) / feedback.length).toFixed(1) 
-                  : '0'
-                }
+                {feedback.length > 0
+                  ? (
+                      feedback.reduce((sum, f) => sum + f.response_quality, 0) /
+                      feedback.length
+                    ).toFixed(1)
+                  : "0"}
               </div>
-              <div className="text-sm text-muted-foreground">Avg Quality Rating</div>
+              <div className="text-sm text-muted-foreground">
+                Avg Quality Rating
+              </div>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="p-4">
               <div className="text-2xl font-bold text-orange-600">
-                {feedback.length > 0 ? 
-                  Math.round((feedback.filter(f => f.would_recommend).length / feedback.length) * 100) 
-                  : 0
-                }%
+                {feedback.length > 0
+                  ? Math.round(
+                      (feedback.filter((f) => f.would_recommend).length /
+                        feedback.length) *
+                        100
+                    )
+                  : 0}
+                %
               </div>
-              <div className="text-sm text-muted-foreground">Would Recommend</div>
+              <div className="text-sm text-muted-foreground">
+                Would Recommend
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -168,9 +207,12 @@ const FeedbackDashboard = () => {
           <CardContent>
             {feedback.length === 0 ? (
               <div className="text-center py-8">
-                <p className="text-muted-foreground">No feedback data available yet.</p>
+                <p className="text-muted-foreground">
+                  No feedback data available yet.
+                </p>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Feedback will appear here after users submit satisfaction surveys.
+                  Feedback will appear here after users submit satisfaction
+                  surveys.
                 </p>
               </div>
             ) : (
@@ -217,7 +259,10 @@ const FeedbackDashboard = () => {
                         <TableCell>
                           {item.missing_fields ? (
                             <div className="max-w-xs">
-                              <p className="text-sm text-muted-foreground truncate" title={item.missing_fields}>
+                              <p
+                                className="text-sm text-muted-foreground truncate"
+                                title={item.missing_fields}
+                              >
                                 {item.missing_fields}
                               </p>
                             </div>
@@ -228,7 +273,10 @@ const FeedbackDashboard = () => {
                         <TableCell>
                           {item.additional_feedback ? (
                             <div className="max-w-xs">
-                              <p className="text-sm text-muted-foreground truncate" title={item.additional_feedback}>
+                              <p
+                                className="text-sm text-muted-foreground truncate"
+                                title={item.additional_feedback}
+                              >
                                 {item.additional_feedback}
                               </p>
                             </div>

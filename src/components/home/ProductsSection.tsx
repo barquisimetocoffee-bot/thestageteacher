@@ -59,9 +59,12 @@ const ProductsSection = ({
   const products = [
     {
       id: "easyteach-free",
-      name: t("products.easyTeachFree"),
-      description: t("products.basicLessonPlanning"),
-      longDescription: t("products.teachersCount"),
+
+      name: "EasyTeach Free",
+      description:
+        "Perfect for getting started with AI-powered teaching tools and basic content generation.",
+      longDescription:
+        "Get started with essential AI teaching tools including lesson planning, communication assistance, and basic content generation.",
       icon: BookOpen,
       status: "available",
       color: "from-blue-500 to-blue-600",
@@ -182,124 +185,128 @@ const ProductsSection = ({
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            {t("products.choosePlan")}
+
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Choose Your
+            <span className="bg-gradient-to-r from-[#2901B3] to-blue-600 bg-clip-text text-transparent">
+              {" "}
+              Plan
+            </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t("products.planDescription")}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 lg:gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-3">
           {products.map((product, index) => (
             <div
               key={product.id}
-              className={`relative border border-gray-300 rounded-2xl hover:border-${product.bgColor}-600`}
+
+              className={`relative flex flex-col justify-between border border-gray-300 rounded-2xl hover:border-${product.bgColor}-600 hover:border-blue-500`}
             >
-              {/* header */}
-              <div
-                className={`flex items-center justify-between bg-${
-                  product.bgColor
-                }-600 text-white rounded-t-2xl px-4 py-12 ${
-                  product.name.startsWith("School")
-                    ? "md:py-9 bg-orange-600"
-                    : "md:py-12"
-                }`}
-              >
-                <h1 className="text-lg/6 font-bold text-white">
-                  {product.name}
-                </h1>
-                <span
-                  className={`text-xs ${
-                    product.name.startsWith("School")
-                      ? "w-fit md:w-[108px] text-center"
-                      : "w-fit"
-                  } bg-white rounded-full px-2 py-1 text-${
-                    product.bgColor
-                  }-600 font-semibold`}
+              <div>
+                {/* header */}
+                <div
+                  className={`flex items-center justify-between bg-${product.bgColor
+                    }-600 ${product.name.startsWith("School") && "bg-orange-600"
+                    } text-white rounded-t-2xl px-4 py-12 md:py-12
+                `}
                 >
-                  {product.status}
-                </span>
-              </div>
-
-              {/* icon */}
-              <span
-                className={`absolute top-[85px] left-4 z-10 size-16 p-3 rounded-full bg-accent flex items-center justify-center bg-${product.bgColor}-100`}
-              >
-                <product.icon
-                  className={`h-6 w-6 text-${product.bgColor}-600`}
-                />
-              </span>
-              {/* content goes here */}
-              <div className="px-4 flex flex-col gap-2">
-                <h1 className="pt-8 text-2xl font-bold">
-                  {product.price}
-                  {product.priceSubtext && (
-                    <span className="text-gray-600 ml-1 text-sm">/</span>
-                  )}
-                  <span className="text-sm font-semibold">
-                    {product.priceSubtext}
+                  <h1 className="text-lg/6 font-bold text-white">
+                    {product.name}
+                  </h1>
+                  <span
+                    className={`text-xs ${product.name.startsWith("School")
+                        ? "w-fit md:w-[108px] text-center"
+                        : "w-fit"
+                      } bg-white rounded-full px-2 py-1 text-${product.bgColor
+                      }-600 font-semibold`}
+                  >
+                    {product.status}
                   </span>
-                </h1>
-                <p className="text-sm">{product.description}</p>
-
-                {/* users */}
-                <div className="mb-4">
-                  {product.price === "Free" ? (
-                    <div className="flex items-center text-xs text-gray-500 mb-3">
-                      <Users className="h-3 w-3 mr-1" />
-                      <span className="">{product.users}</span>
-                    </div>
-                  ) : (
-                    <span
-                      className={`bg-${product.bgColor}-100 rounded-full px-2 py-1 text-xs font-semibold text-${product.bgColor}-600`}
-                    >
-                      {product.users}
-                    </span>
-                  )}
                 </div>
-                <p className="text-sm">{product.longDescription}</p>
 
-                {/* What's included */}
-                <div>
-                  <h3 className="text-sm font-semibold mb-1 mt-4">
-                    {t("products.whatsIncluded")}
-                  </h3>
-                  <div className="flex flex-col gap-2">
-                    {product.features.slice(0, 4).map((feature, featureIndex) => (
-                      <p
-                        key={`${product.id}-feature-${featureIndex}`}
-                        className={`text-gray-600 flex items-start text-sm ${
-                          feature.text.startsWith("Everything in Free")
-                            ? "font-semibold"
-                            : ""
-                        }`}
-                      >
-                        <feature.reactIcon
-                          className={`size-4 mr-2 mt-1 text-${product.bgColor}-600`}
-                        />
-                        {feature.text}
-                      </p>
-                    ))}
-                    <span className="text-gray-500 italic text-sm">
-                      {t("products.featuresMore", { count: product.features.length - 4 })}
+                {/* icon */}
+                <span
+                  className={`absolute left-4 z-10 size-16 p-3 rounded-full bg-accent flex items-center justify-center bg-${product.bgColor
+                    }-100 ${product.name.startsWith("School")
+                      ? "top-20 md:top-[110px]"
+                      : "top-[85px]"
+                    }`}
+                >
+                  <product.icon
+                    className={`h-6 w-6 text-${product.bgColor}-600`}
+                  />
+                </span>
+                {/* content goes here */}
+                <div className="px-4 flex flex-col gap-2">
+                  <h1 className="pt-8 text-2xl font-bold">
+                    {product.price}
+                    {product.priceSubtext && (
+                      <span className="text-gray-600 ml-1 text-sm">/</span>
+                    )}
+                    <span className="text-sm font-semibold">
+                      {product.priceSubtext}
                     </span>
+                  </h1>
+                  <p className="text-sm">{product.description}</p>
+
+                  {/* users */}
+                  <div className="mb-4">
+                    {product.price === "Free" ? (
+                      <div className="flex items-center text-xs text-gray-500 mb-3">
+                        <Users className="h-3 w-3 mr-1" />
+                        <span className="">{product.users}</span>
+                      </div>
+                    ) : (
+                      <span
+                        className={`bg-${product.bgColor}-100 rounded-full px-2 py-1 text-xs font-semibold text-${product.bgColor}-600`}
+                      >
+                        {product.users}
+                      </span>
+                    )}
+                  </div>
+                  {/* <p className="text-sm">{product.longDescription}</p> */}
+
+                  {/* What's included */}
+                  <div>
+                    <h3 className="text-sm font-semibold mb-1">
+                      What's included:
+                    </h3>
+                    <div className="flex flex-col gap-2">
+                      {product.features
+                        .slice(0, 4)
+                        .map((feature, featureIndex) => (
+                          <p
+                            key={`${product.id}-feature-${featureIndex}`}
+                            className={`text-gray-600 flex items-start text-sm ${feature.text.startsWith("Everything in Free")
+                                ? "font-semibold"
+                                : ""
+                              }`}
+                          >
+                            <feature.reactIcon
+                              className={`size-4 mr-2 mt-1 text-${product.bgColor}-600`}
+                            />
+                            {feature.text}
+                          </p>
+                        ))}
+                      <span className="text-gray-500 italic text-sm">
+                        +{product.features.length - 4} features more
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* button */}
-              <div
-                className={`p-4 relative ${
-                  product.actionText.startsWith("Enter LMS")
-                    ? "md:bottom-1"
-                    : "md:-bottom-14"
-                }`}
-              >
+              <div className={`p-4`}>
                 <Button
-                  onClick={product.action}
-                  disabled={product.id === "easyteach-pro" && upgrading}
-                  className={`mt-4 py-6 w-full flex items-center justify-center bg-${product.bgColor}-600 hover:bg-${product.bgColor}-700`}
+
+                  className={`mt-4 py-6 w-full flex items-center justify-center bg-${product.bgColor
+                    }-600 hover:bg-${product.bgColor}-700 ${product.name.startsWith("School") &&
+                    "bg-orange-600 hover:bg-orange-700"
+                    }`}
                 >
                   {product.id === "easyteach-pro" && upgrading ? "Opening Checkout..." : product.actionText}{" "}
                   <product.btnIcon className="h-4 w-4 ml-2" />

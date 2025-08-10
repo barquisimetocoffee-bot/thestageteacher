@@ -183,11 +183,11 @@ const LoginModal = ({
       <DialogContent className="h-screen no-scrollbar sm:max-w-md bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 border-0 shadow-2xl">
         <DialogHeader className="text-center space-y-4">
           <div className="flex justify-center">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+            <div className="w-16 h-16 icon-bg rounded-2xl flex items-center justify-center shadow-lg">
               <Sparkles className="h-8 w-8 text-white" />
             </div>
           </div>
-          <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent">
             Welcome to EasyTeach
           </DialogTitle>
           <DialogDescription className="text-gray-600 text-base">
@@ -198,22 +198,25 @@ const LoginModal = ({
         </DialogHeader>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-2 bg-gray-100/80 backdrop-blur-sm">
+          <TabsList className="grid w-full grid-cols-2 mt-4 bg-gray-100/80 backdrop-blur-sm h-full">
             <TabsTrigger
               value="signin"
-              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-500 data-[state=active]:text-white font-semibold transition-all duration-200"
+              className="data-[state=active]:my-btn data-[state=active]:text-white font-semibold transition-all duration-200"
             >
               Sign In
             </TabsTrigger>
             <TabsTrigger
               value="signup"
-              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-500 data-[state=active]:text-white font-semibold transition-all duration-200"
+              className="data-[state=active]:my-btn data-[state=active]:text-white font-semibold transition-all duration-200"
             >
               Sign Up
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="signin" className="space-y-5 mt-6">
+          <TabsContent
+            value="signin"
+            className="space-y-5 mt-6 focus:outline-none border-none"
+          >
             <div className="space-y-2">
               <Label
                 htmlFor="signin-email"
@@ -229,7 +232,7 @@ const LoginModal = ({
                   placeholder="Enter your email"
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
-                  className="pl-10 bg-white/80 backdrop-blur-sm border-gray-200 focus:border-purple-300 focus:ring-purple-200 transition-all duration-200"
+                  className="pl-4 bg-white/80 backdrop-blur-sm py-6 focus:outline-none transition-all duration-200"
                 />
               </div>
             </div>
@@ -251,7 +254,7 @@ const LoginModal = ({
                   onChange={(e) =>
                     handleInputChange("password", e.target.value)
                   }
-                  className="pl-10 pr-10 bg-white/80 backdrop-blur-sm border-gray-200 focus:border-purple-300 focus:ring-purple-200 transition-all duration-200"
+                  className="pl-4 bg-white/80 backdrop-blur-sm py-6 focus:outline-none transition-all duration-200"
                 />
                 <button
                   type="button"
@@ -267,34 +270,26 @@ const LoginModal = ({
               </div>
             </div>
 
-            <div className="flex items-center justify-between pt-2">
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="remember-me"
-                  checked={rememberMe}
-                  onCheckedChange={(checked) => setRememberMe(checked as boolean)}
-                  className="border-gray-300 data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-blue-500 data-[state=checked]:to-purple-500"
-                />
-                <Label
-                  htmlFor="remember-me"
-                  className="text-sm text-gray-600 font-medium"
-                >
-                  Keep me signed in
-                </Label>
-              </div>
-              <button
-                type="button"
-                onClick={() => setShowForgotPassword(true)}
-                className="text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors"
+
+            <div className="flex items-center space-x-2 pt-2">
+              <Checkbox
+                id="remember-me"
+                checked={rememberMe}
+                onCheckedChange={(checked) => setRememberMe(checked as boolean)}
+                className="border-gray-300 data-[state=checked]:my-btn"
+              />
+              <Label
+                htmlFor="remember-me"
+                className="text-sm text-gray-600 font-medium"
               >
                 Forgot Password?
-              </button>
+              </Label>
             </div>
 
             <Button
               onClick={handleSignIn}
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 min-h-[48px]"
+              className="w-full my-btn text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 min-h-[48px]"
             >
               {isLoading ? (
                 <>
@@ -321,7 +316,7 @@ const LoginModal = ({
                 placeholder="Enter your full name"
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
-                className="bg-white/80 backdrop-blur-sm border-gray-200 focus:border-purple-300 focus:ring-purple-200 transition-all duration-200"
+                className="pl-4 bg-white/80 backdrop-blur-sm py-6 focus:outline-none transition-all duration-200"
               />
             </div>
 
@@ -340,7 +335,7 @@ const LoginModal = ({
                   placeholder="Enter your email"
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
-                  className="pl-10 bg-white/80 backdrop-blur-sm border-gray-200 focus:border-purple-300 focus:ring-purple-200 transition-all duration-200"
+                  className="pl-4 bg-white/80 backdrop-blur-sm py-6 focus:outline-none transition-all duration-200"
                 />
               </div>
             </div>
@@ -362,7 +357,7 @@ const LoginModal = ({
                   onChange={(e) =>
                     handleInputChange("password", e.target.value)
                   }
-                  className="pl-10 pr-10 bg-white/80 backdrop-blur-sm border-gray-200 focus:border-purple-300 focus:ring-purple-200 transition-all duration-200"
+                  className="pl-4 bg-white/80 backdrop-blur-sm py-6 focus:outline-none transition-all duration-200"
                 />
                 <button
                   type="button"
@@ -393,14 +388,14 @@ const LoginModal = ({
                 onChange={(e) =>
                   handleInputChange("confirmPassword", e.target.value)
                 }
-                className="bg-white/80 backdrop-blur-sm border-gray-200 focus:border-purple-300 focus:ring-purple-200 transition-all duration-200"
+                className="pl-4 bg-white/80 backdrop-blur-sm py-6 focus:outline-none transition-all duration-200"
               />
             </div>
 
             <Button
               onClick={handleSignUp}
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 min-h-[48px]"
+              className="w-full my-btn text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 min-h-[48px]"
             >
               {isLoading ? (
                 <>
@@ -419,7 +414,7 @@ const LoginModal = ({
           </TabsContent>
         </Tabs>
       </DialogContent>
-      
+
       <ForgotPasswordModal
         isOpen={showForgotPassword}
         onClose={() => setShowForgotPassword(false)}

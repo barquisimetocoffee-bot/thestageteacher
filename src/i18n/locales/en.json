@@ -338,6 +338,7 @@
     "newPassword": "New Password",
     "confirmPassword": "Confirm Password", 
     "updatePassword": "Update Password",
+
     "passwordUpdated": "Password Updated Successfully!",
     "emailAddress": "Email Address",
     "enterEmailPlaceholder": "Enter your email",
@@ -351,6 +352,7 @@
     "errorOccurred": "An unexpected error occurred",
     "resetEmailSent": "Reset Email Sent",
     "checkEmailMessage": "Check your email for password reset instructions"
+
   },
   "solutions": {
     "startFreeTrial": "Start Free Trial",
@@ -747,5 +749,6 @@
       "generating": "Generating...",
       "requestDemo": "Request Demo"
     }
+
   }
 }

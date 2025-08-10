@@ -1,32 +1,41 @@
-
-import { useState } from 'react';
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { ArrowLeft, Send, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ToolsSuggestions = () => {
-  const [toolName, setToolName] = useState('');
-  const [description, setDescription] = useState('');
-  const [reason, setReason] = useState('');
+  const [toolName, setToolName] = useState("");
+  const [description, setDescription] = useState("");
+  const [reason, setReason] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!toolName || !description || !reason) return;
-    
+
     // Here you would typically submit to a backend
-    console.log('Tool suggestion submitted:', { toolName, description, reason });
+    console.log("Tool suggestion submitted:", {
+      toolName,
+      description,
+      reason,
+    });
     setIsSubmitted(true);
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
-      setToolName('');
-      setDescription('');
-      setReason('');
+      setToolName("");
+      setDescription("");
+      setReason("");
     }, 3000);
   };
 
@@ -37,14 +46,22 @@ const ToolsSuggestions = () => {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center space-x-4">
             <Link to="/easyteach-app">
-              <Button variant="outline" size="sm">
+              <Button
+                variant="outline"
+                size="sm"
+                className="bg-white hover:text-black hover:bg-gray-50"
+              >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Home
               </Button>
             </Link>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Tool Suggestions</h1>
-              <p className="text-gray-600">Help us build the perfect tool for educators</p>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Tool Suggestions
+              </h1>
+              <p className="text-gray-600">
+                Help us build the perfect tool for educators
+              </p>
             </div>
           </div>
         </div>
@@ -57,7 +74,8 @@ const ToolsSuggestions = () => {
               <span>Suggest a New Tool</span>
             </CardTitle>
             <CardDescription>
-              Have an idea for a tool that would make your teaching life easier? We'd love to hear it!
+              Have an idea for a tool that would make your teaching life easier?
+              We'd love to hear it!
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -74,7 +92,10 @@ const ToolsSuggestions = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="toolName" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="toolName"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Tool Name *
                   </label>
                   <Input
@@ -87,7 +108,10 @@ const ToolsSuggestions = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="description"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Tool Description *
                   </label>
                   <Textarea
@@ -101,7 +125,10 @@ const ToolsSuggestions = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="reason" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="reason"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Why would this tool be helpful? *
                   </label>
                   <Textarea
@@ -114,7 +141,11 @@ const ToolsSuggestions = () => {
                   />
                 </div>
 
-                <Button type="submit" className="w-full" disabled={!toolName || !description || !reason}>
+                <Button
+                  type="submit"
+                  className="w-full my-btn py-6"
+                  disabled={!toolName || !description || !reason}
+                >
                   <Send className="h-4 w-4 mr-2" />
                   Submit Suggestion
                 </Button>
@@ -134,27 +165,35 @@ const ToolsSuggestions = () => {
           <CardContent>
             <div className="space-y-4">
               <div className="p-4 bg-gray-50 rounded-lg">
-                <h4 className="font-semibold text-gray-900">Automated Grading Assistant</h4>
+                <h4 className="font-semibold text-gray-900">
+                  Automated Grading Assistant
+                </h4>
                 <p className="text-gray-600 text-sm mt-1">
-                  A tool that can grade short answer questions and provide feedback
+                  A tool that can grade short answer questions and provide
+                  feedback
                 </p>
                 <div className="mt-2">
                   <span className="text-xs text-gray-500">👍 23 votes</span>
                 </div>
               </div>
-              
+
               <div className="p-4 bg-gray-50 rounded-lg">
-                <h4 className="font-semibold text-gray-900">Seating Chart Optimizer</h4>
+                <h4 className="font-semibold text-gray-900">
+                  Seating Chart Optimizer
+                </h4>
                 <p className="text-gray-600 text-sm mt-1">
-                  Generate optimal seating arrangements based on student needs and behaviors
+                  Generate optimal seating arrangements based on student needs
+                  and behaviors
                 </p>
                 <div className="mt-2">
                   <span className="text-xs text-gray-500">👍 18 votes</span>
                 </div>
               </div>
-              
+
               <div className="p-4 bg-gray-50 rounded-lg">
-                <h4 className="font-semibold text-gray-900">Parent-Teacher Conference Scheduler</h4>
+                <h4 className="font-semibold text-gray-900">
+                  Parent-Teacher Conference Scheduler
+                </h4>
                 <p className="text-gray-600 text-sm mt-1">
                   Automatically coordinate and schedule parent-teacher meetings
                 </p>

@@ -171,12 +171,9 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
   return (
     <nav className="bg-background/90 backdrop-blur-sm border-b border-border shadow-lg sticky top-0 z-50 animate-fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <div
-            className="flex items-center space-x-2 sm:space-x-3 animate-scale-in cursor-pointer"
-            onClick={() => navigate("/")}
-          >
+          <div className="flex items-center space-x-2 sm:space-x-3 animate-scale-in cursor-pointer">
             <div className="flex items-center gap-2">
               {/* Mobile Menu Icon */}
               <button
@@ -191,6 +188,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                 src="/logos/brand.svg"
                 alt="Website Logo"
                 className="h-8 hidden md:block"
+                onClick={() => navigate("/")}
               />
 
               {/* Mobile Logo */}
@@ -198,6 +196,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                 src="/favicon.png"
                 alt="Mobile logo"
                 className="h-8 md:hidden"
+                onClick={() => navigate("/")}
               />
             </div>
           </div>
@@ -209,7 +208,9 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                 <span className="text-foreground hover:text-primary hover:bg-blue-100 px-3 py-2 rounded-md cursor-pointer">
                   {t("navigation.products")}
                 </span>
-                <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-4 min-w-96 animate-fade-in duration-700 rounded-2xl z-50 backdrop-blur-sm">
+
+                <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-4 min-w-96 animate-fade-in duration-700 rounded-2xl z-50">
+
                   <div className="space-y-3">
                     {products.map((product) => (
                       <div
@@ -220,7 +221,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                         <div
                           className={`p-2 rounded-lg bg-gradient-to-r ${product.color}`}
                         >
-                          <product.icon className="h-5 w-5 text-white" />
+                          <product.icon className="size-4 text-white" />
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-2">
@@ -251,7 +252,9 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                 <span className="text-foreground hover:text-primary hover:bg-blue-100 px-3 py-2 rounded-md cursor-pointer">
                   {t("navigation.solutions")}
                 </span>
-                <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-6 w-96 animate-fade-in rounded-2xl z-50 backdrop-blur-sm">
+
+                <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-6 w-96 animate-fade-in rounded-2xl z-50">
+
                   <div className="grid grid-cols-2 gap-6">
                     {/* By Category */}
                     <div>
@@ -269,7 +272,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                               <div
                                 className={`p-1.5 rounded-lg bg-gradient-to-r ${solution.color} group-hover:scale-110 transition-transform duration-200`}
                               >
-                                <solution.icon className="h-3 w-3 text-white" />
+                                <solution.icon className="size-4 text-white" />
                               </div>
                               <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
                                 {solution.title}
@@ -296,7 +299,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                               <div
                                 className={`p-1.5 rounded-lg bg-gradient-to-r ${solution.color} group-hover:scale-110 transition-transform duration-200`}
                               >
-                                <solution.icon className="h-3 w-3 text-white" />
+                                <solution.icon className="size-4 text-white" />
                               </div>
                               <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
                                 {solution.title}
@@ -332,7 +335,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                         onClick={item.onClick}
                       >
                         <div className="p-2 rounded-lg bg-gradient-to-r from-orange-500 to-red-500">
-                          <item.icon className="h-4 w-4 text-white" />
+                          <item.icon className="size-4 text-white" />
                         </div>
                         <span className="font-medium text-foreground hover:text-orange-700 transition-colors">
                           {item.title}
@@ -356,7 +359,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                         onClick={item.onClick}
                       >
                         <div className="p-2 rounded-lg bg-gradient-to-r from-slate-500 to-[#2901B3]">
-                          <item.icon className="h-4 w-4 text-white" />
+                          <item.icon className="size-4 text-white" />
                         </div>
                         <span className="font-medium text-foreground hover:text-slate-700 transition-colors">
                           {item.title}
@@ -395,10 +398,9 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
             >
               Login
             </Button>
-            <span className="size-8 rounded-sm bg-blue-100 flex items-center justify-center">
+            <span className="size-9 rounded-md bg-blue-50 flex items-center justify-center">
               <LanguageSelector />
             </span>
-
           </div>
         </div>
       </div>

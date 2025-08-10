@@ -15,9 +15,6 @@ import {
   Users,
   TrendingUp,
   Globe,
-  BookOpen,
-  GraduationCap,
-  Building2,
   CheckCircle,
 } from "lucide-react";
 
@@ -32,8 +29,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
     {
       title: t("showcase.consolidatedAI"),
       description: t("showcase.consolidatedAIDesc"),
-      image:
-        "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
+      image: "./home/showcase1.svg",
       icon: Brain,
       features: [
         "Cross-platform learning",
@@ -45,8 +41,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
     {
       title: t("showcase.seamlessIntegration"),
       description: t("showcase.seamlessIntegrationDesc"),
-      image:
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+      image: "./home/showcase2.svg",
       icon: Network,
       features: [
         "Data synchronization",
@@ -58,8 +53,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
     {
       title: t("showcase.revolutionaryImpact"),
       description: t("showcase.revolutionaryImpactDesc"),
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+      image: "./home/showcase3.svg",
       icon: Zap,
       features: [
         "Industry transformation",
@@ -94,7 +88,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               {t("showcase.drivingForce")}
               <span className="bg-gradient-to-r from-[#2901B3] to-blue-600 bg-clip-text text-transparent">
                 {" "}
@@ -120,7 +114,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
                     <div className="p-3 rounded-2xl  icon-bg shadow-lg">
                       <feature.icon className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-3xl font-bold text-[#2901B3]">
+                    <h3 className="text-2xl md:text-3xl font-bold text-[#2901B3]">
                       {feature.title}
                     </h3>
                   </div>
@@ -137,10 +131,10 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
                     {feature.features.map((item, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                        className="flex items-center text-sm text-gray-600 "
                       >
                         <CheckCircle
-                          className="h-4 w-4 text-green-500 mr-2 flex-shrink-0 animate-pulse"
+                          className="h-4 w-4 text-green-500 mr-2 flex-shrink-0 "
                           style={{ animationDelay: `${idx * 0.1}s` }}
                         />
                         {item}
@@ -149,16 +143,12 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
                   </div>
                 </div>
 
-                <div className="flex-1 relative">
-                  <div className="relative mx-auto max-w-lg">
-                    <div className="bg-white rounded-2xl p-4 shadow-2xl overflow-hidden hover:shadow-3xl hover:scale-105 transition-all duration-500">
-                      <img
-                        src={feature.image}
-                        alt={feature.title}
-                        className="w-full h-64 object-cover rounded-lg"
-                      />
-                    </div>
-                  </div>
+                <div className="flex-1">
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="w-[80%] mx-auto animate-fade-in"
+                  />
                 </div>
               </div>
             ))}
@@ -170,7 +160,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               {t("showcase.whyEcerta").slice(0, 19)}
               <span className="bg-gradient-to-r from-[#2901B3] to-blue-600 bg-clip-text text-transparent">
                 {t("showcase.whyEcerta").slice(
@@ -213,7 +203,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
           <div className="text-center mt-12">
             <Button
               onClick={onShowLogin}
-              className="my-btn text-white px-6 py-6 rounded-xl group"
+              className="w-full md:w-72 my-btn text-white px-6 py-6 rounded-xl group"
             >
               {t("showcase.experienceFuture")}
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-all duration-200" />

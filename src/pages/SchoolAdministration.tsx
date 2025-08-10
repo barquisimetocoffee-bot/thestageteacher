@@ -19,7 +19,6 @@ import {
   MessageSquare,
   BarChart3,
   Shield,
-  Clock,
   CheckCircle,
   ArrowRight,
 } from "lucide-react";
@@ -82,29 +81,32 @@ const SchoolAdministration = () => {
     <>
       <Navigation onShowLogin={() => setOnShowLogin(true)} />
       <div
-        className={`min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 via-purple-50 to-pink-50 transition-all duration-1000 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        className={`min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 via-purple-50 to-pink-50 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
       >
         {/* Hero Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
-              <div className="p-4 rounded-3xl icon-bg shadow-lg mx-auto w-20 h-20 flex items-center justify-center mb-6">
-                <Building2 className="h-10 w-10 text-white" />
+              <div className="p-4 rounded-3xl icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
+                <Building2 className="size-8 md:size-10 text-white" />
               </div>
-              <h1 className="text-5xl font-bold text-foreground mb-6">
-                {t('products.schoolAdminTitle')}
-                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+
+              <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                School
+                <span className=" bg-gradient-to-r from-[#2903b1] to-blue-600 bg-clip-text text-transparent">
+
                   {" "}
-                  
+
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
                 {t('products.schoolAdminDesc')}
               </p>
-              <Button className="my-btn group text-white p-6 rounded-xl">
-                {t('common.joinWaitlist')}
+
+              <Button className="w-full md:w-72 my-btn group text-white p-6 rounded-xl">
+                Join the Waitlist
+
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
@@ -112,60 +114,64 @@ const SchoolAdministration = () => {
         </section>
 
         {/* Features Grid */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-foreground mb-16">
-              {t('schoolAdmin.sections.complete')}{" "}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                {t('schoolAdmin.sections.solution')}
+
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+              Complete Administrative{" "}
+              <span className="bg-gradient-to-r from-[#2903b1] to-blue-600 bg-clip-text text-transparent">
+                Solution
               </span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 place-content-center gap-4 md:gap-8">
               {features.map((feature, index) => (
-                <Card
+                <div
                   key={index}
-                  className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-white to-blue-50 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="group bg-gradient-to-br from-white to-blue-50 border border-gray-100 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
                 >
-                  <CardHeader>
-                    <div className="p-3 rounded-2xl icon-bg shadow-lg w-fit group-hover:scale-110 transition-transform duration-300">
-                      <feature.icon className="h-6 w-6 text-white" />
+                  <div>
+                    <div className="flex flex-col items-start justify-center gap-2">
+                      <div className="p-3 icon-bg rounded-lg  group-hover:scale-105 transition-transform duration-300">
+                        <feature.icon className="h-6 w-6 text-white" />
+                      </div>
+                      <h2 className="text-lg/6 font-bold">{feature.title}</h2>
                     </div>
-                    <CardTitle className="text-xl font-bold text-foreground ">
-                      {feature.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-muted-foreground text-base">
-                      {feature.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+
+                  </div>
+
+                  <p className="text-gray-600 text-base/6 pt-2">
+                    {feature.description}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
         {/* Modules Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-blue-50">
+        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-blue-50">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-foreground mb-12">
-              {t('schoolAdmin.sections.integratedModules')}
+
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
+              Integrated Modules
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
               {modules.map((module, index) => (
                 <div
                   key={index}
-                  className="flex items-center text-lg text-muted-foreground p-4 bg-white rounded-lg shadow-sm animate-fade-in"
+
+                  className="flex items-center text-lg text-gray-700"
+
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <CheckCircle className="h-6 w-6 text-blue-500 mr-3 flex-shrink-0" />
+                  <CheckCircle className="size-5 md:size-6 text-green-500 mr-3 flex-shrink-0" />
                   {module}
                 </div>
               ))}
             </div>
-            <Button className="my-btn text-white p-6 rounded-xl">
-              {t('schoolAdmin.buttons.requestDemo')}
+
+            <Button className="w-full md:w-72 my-btn text-white p-6 rounded-xl">
+              Request Demo
             </Button>
           </div>
         </section>

@@ -44,7 +44,7 @@ const LanguageSelector = () => {
           <DropdownMenuItem
             key={language.code}
             onClick={() => handleLanguageChange(language.code)}
-            className="flex items-center justify-between cursor-pointer"
+            className="flex items-center justify-between cursor-pointer bg-gray-50 border border-gray-100 hover:bg-gray-200 mb-1"
           >
             <div className="flex items-center space-x-2">
               <span className="text-lg">{language.flag}</span>

@@ -1,11 +1,27 @@
-
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Download, Eye, Trash2, Loader2 } from "lucide-react";
+import {
+  ArrowLeft,
+  Calendar,
+  Download,
+  Eye,
+  Trash2,
+  Loader2,
+} from "lucide-react";
 import { Link } from "react-router-dom";
-import { getUserGeneratedContent, deleteGeneratedContent, GeneratedContent } from "@/utils/contentService";
+import {
+  getUserGeneratedContent,
+  deleteGeneratedContent,
+  GeneratedContent,
+} from "@/utils/contentService";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 
@@ -42,7 +58,7 @@ const OutputHistory = () => {
     try {
       setDeleting(id);
       await deleteGeneratedContent(id);
-      setHistory(prev => prev.filter(item => item.id !== id));
+      setHistory((prev) => prev.filter((item) => item.id !== id));
       toast({
         title: "Success",
         description: "Content deleted successfully",
@@ -59,11 +75,13 @@ const OutputHistory = () => {
   };
 
   const downloadContent = (content: GeneratedContent) => {
-    const blob = new Blob([content.content], { type: 'text/plain' });
+    const blob = new Blob([content.content], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
-    a.download = `${content.title || content.tool_name}_${new Date(content.created_at).toLocaleDateString()}.txt`;
+    a.download = `${content.title || content.tool_name}_${new Date(
+      content.created_at
+    ).toLocaleDateString()}.txt`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -71,7 +89,7 @@ const OutputHistory = () => {
   };
 
   const getStatusColor = (status: string) => {
-    return 'bg-green-100 text-green-800';
+    return "bg-green-100 text-green-800";
   };
 
   if (loading) {
@@ -92,14 +110,22 @@ const OutputHistory = () => {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center space-x-4">
             <Link to="/easyteach-app">
-              <Button variant="outline" size="sm">
+              <Button
+                variant="outline"
+                size="sm"
+                className="bg-white hover:text-black hover:bg-gray-50"
+              >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Dashboard
               </Button>
             </Link>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Output History</h1>
-              <p className="text-gray-600">View all your generated content and past requests</p>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Output History
+              </h1>
+              <p className="text-gray-600">
+                View all your generated content and past requests
+              </p>
             </div>
           </div>
         </div>
@@ -115,11 +141,14 @@ const OutputHistory = () => {
                       {item.tool_name}
                     </CardTitle>
                     <CardDescription className="mt-1">
-                      {item.title || item.topic || item.subject || 'Generated Content'}
+                      {item.title ||
+                        item.topic ||
+                        item.subject ||
+                        "Generated Content"}
                     </CardDescription>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Badge className={getStatusColor('completed')}>
+                    <Badge className={getStatusColor("completed")}>
                       completed
                     </Badge>
                     <div className="flex items-center text-sm text-gray-500">
@@ -134,30 +163,31 @@ const OutputHistory = () => {
                   {item.content.substring(0, 200)}...
                 </p>
                 <div className="flex space-x-2">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="sm"
                     onClick={() => {
                       // Create modal or expand view for full content
                       toast({
                         title: "Content Preview",
-                        description: "Full content viewing will be implemented soon",
+                        description:
+                          "Full content viewing will be implemented soon",
                       });
                     }}
                   >
                     <Eye className="h-4 w-4 mr-2" />
                     View
                   </Button>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="sm"
                     onClick={() => downloadContent(item)}
                   >
                     <Download className="h-4 w-4 mr-2" />
                     Download
                   </Button>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="sm"
                     onClick={() => handleDelete(item.id)}
                     disabled={deleting === item.id}
@@ -186,9 +216,7 @@ const OutputHistory = () => {
               Start using our AI tools to see your generated content here.
             </p>
             <Link to="/easyteach-app">
-              <Button>
-                Create Your First Content
-              </Button>
+              <Button>Create Your First Content</Button>
             </Link>
           </div>
         )}

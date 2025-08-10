@@ -63,13 +63,34 @@ const ToolsGrid = ({
             <div
               className={`absolute inset-0 bg-gradient-to-br ${categoryInfo?.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
             />
-            
+
             <CardHeader className="pb-4 relative">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-                  <IconComponent className="h-6 w-6 text-white" />
+
+              <div className="flex items-start justify-between">
+                <div className="flex items-center space-x-4">
+                  <div
+                    className={`p-3 rounded-2xl icon-bg group-hover:scale-110 transition-transform duration-200 shadow-md`}
+                  >
+                    <IconComponent className="h-7 w-7 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-xl font-bold text-gray-900 ">
+                      {tool.name}
+                    </CardTitle>
+                    <Badge
+                      variant="secondary"
+                      className={`bg-blue-100 text-gray-800 font-medium mt-1`}
+                    >
+                      {tool.category}
+                    </Badge>
+                  </div>
                 </div>
-                
+                <div className="flex items-center space-x-1 text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">
+                  <Clock className="h-4 w-4" />
+                  <span className="font-medium">{tool.timesSaved}</span>
+
+                </div>
+
                 {tool.timesSaved && (
                   <div className="flex items-center space-x-1 text-xs text-accent bg-accent/10 px-2 py-1 rounded-full border border-accent/20">
                     <Clock className="h-3 w-3" />
@@ -81,7 +102,7 @@ const ToolsGrid = ({
               <CardTitle className="text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:from-secondary group-hover:to-primary transition-all duration-300 line-clamp-2 min-h-[3.5rem]">
                 {tool.name}
               </CardTitle>
-              
+
               <div className="flex items-center justify-between mt-2">
                 <Badge
                   variant="secondary"
@@ -89,7 +110,7 @@ const ToolsGrid = ({
                 >
                   {tool.category}
                 </Badge>
-                
+
                 {tool.estimatedTime && (
                   <span className="text-xs text-emerald-600 font-semibold bg-emerald-50 px-2 py-1 rounded-full border border-emerald-200">
                     ✓ {t("easyteach.tools.readyIn", { time: tool.estimatedTime })}
@@ -97,20 +118,23 @@ const ToolsGrid = ({
                 )}
               </div>
             </CardHeader>
-            
+
             <CardContent className="relative pt-0">
               <CardDescription className="text-muted-foreground leading-relaxed text-sm mb-6 line-clamp-3 min-h-[4.5rem]">
                 {tool.description}
               </CardDescription>
-              
-              <Button
-                size="sm"
-                className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-medium rounded-xl group-hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg"
-                onClick={(e) => handleToolClick(tool, e)}
-              >
-                <Wand2 className="h-4 w-4 mr-2" />
-                {t("easyteach.tools.useToolButton")}
-              </Button>
+
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-green-600 font-semibold bg-green-50 px-3 py-1 rounded-full">
+                  ✓ {t("easyteach.tools.readyIn", { time: tool.estimatedTime })}
+                </span>
+                <button
+                  className="rounded-full bg-blue-100 hover:bg-blue-200 text-sm text-[#2901b3] py-1 px-3"
+                  onClick={(e) => handleToolClick(tool, e)}
+                >
+                  {t("easyteach.tools.useToolButton")}
+                </button>
+              </div>
             </CardContent>
           </Card>
         );

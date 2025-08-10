@@ -14,10 +14,13 @@ import ToolsGrid from "@/components/sections/ToolsGrid";
 import TeacherProfile from "@/components/TeacherProfile";
 import ToolModal from "@/components/ToolModal";
 import AIAssistant from "@/components/AIAssistant";
+
 import GradeSystemSelector from "@/components/GradeSystemSelector";
 import LanguageSelector from "@/components/LanguageSelector";
 import { SubscriptionStatus } from "@/components/SubscriptionStatus";
 import { useTranslatedTools, useTranslatedCategories } from "@/hooks/useTranslatedTools";
+
+import { tools } from "@/lib/toolsData";
 
 const EasyTeachApp = () => {
   const { t } = useTranslation();
@@ -70,7 +73,7 @@ const EasyTeachApp = () => {
   const categoryMapping = {
     [t("categories.all")]: "All",
     [t("categories.lessonPlanning")]: "Lesson Planning",
-    [t("categories.contentHub")]: "Content Hub", 
+    [t("categories.contentHub")]: "Content Hub",
     [t("categories.assessment")]: "Assessment",
     [t("categories.communication") + " & " + t("categories.classroomManagement")]: "Communication"
   };
@@ -82,8 +85,8 @@ const EasyTeachApp = () => {
     const matchesCategory =
       categoryMapping[selectedCategory] === "All" ||
       tool.category === categoryMapping[selectedCategory] ||
-      (categoryMapping[selectedCategory] === "Communication" && 
-       (tool.category === "Communication" || tool.category === "Classroom Management"));
+      (categoryMapping[selectedCategory] === "Communication" &&
+        (tool.category === "Communication" || tool.category === "Classroom Management"));
     return matchesSearch && matchesCategory;
   });
 
@@ -165,7 +168,7 @@ const EasyTeachApp = () => {
                   onQuickAction={handleQuickAction}
                 />
               </div>
-              
+
               {/* Compact Subscription Status */}
               <div className="lg:col-span-1">
                 <SubscriptionStatus className="h-full" />
@@ -174,16 +177,20 @@ const EasyTeachApp = () => {
 
             {/* Main Content Tabs */}
             <Tabs defaultValue="tools" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 bg-white/80 backdrop-blur-sm border border-primary/20 mb-6 sm:mb-8 h-14 rounded-xl shadow-sm">
+
+              <TabsList className="grid w-full grid-cols-2 bg-blue-50 border border-gray-300 mb-6 sm:mb-8 h-14">
                 <TabsTrigger
                   value="tools"
-                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-white text-sm sm:text-base font-medium rounded-lg transition-all duration-300"
+                  className="data-[state=active]:bg-[#2901b3] data-[state=active]:text-white text-sm sm:text-base"
+
                 >
                   {t("easyteach.tabs.teachingTools")}
                 </TabsTrigger>
                 <TabsTrigger
                   value="ai-assistant"
-                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-white text-sm sm:text-base font-medium rounded-lg transition-all duration-300"
+
+                  className="data-[state=active]:bg-[#2901b3] data-[state=active]:text-white text-sm sm:text-base"
+
                 >
                   <Bot className="h-4 w-4 mr-1 sm:mr-2" />
                   <span className="hidden sm:inline">

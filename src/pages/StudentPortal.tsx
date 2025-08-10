@@ -1,13 +1,26 @@
-import { useState, useEffect } from 'react';
-import { useAuth } from '@/hooks/useAuth';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Badge } from '@/components/ui/badge';
-import { BookOpen, Brain, Trophy, Play, MessageCircle, TrendingUp } from 'lucide-react';
-import UniversalHeader from '@/components/layout/UniversalHeader';
-import Footer from '@/components/home/Footer';
-import LoginModal from '@/components/auth/LoginModal';
+import { useState, useEffect } from "react";
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import {
+  BookOpen,
+  Brain,
+  Trophy,
+  Play,
+  MessageCircle,
+  TrendingUp,
+} from "lucide-react";
+import UniversalHeader from "@/components/layout/UniversalHeader";
+import Footer from "@/components/home/Footer";
+import LoginModal from "@/components/auth/LoginModal";
 
 const StudentPortal = () => {
   const { user } = useAuth();
@@ -33,19 +46,16 @@ const StudentPortal = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button 
-                onClick={() => setShowLogin(true)} 
-                className="w-full"
-              >
+              <Button onClick={() => setShowLogin(true)} className="w-full">
                 Sign In as Student
               </Button>
             </CardContent>
           </Card>
         </div>
         <Footer />
-        <LoginModal 
-          isOpen={showLogin} 
-          onClose={() => setShowLogin(false)} 
+        <LoginModal
+          isOpen={showLogin}
+          onClose={() => setShowLogin(false)}
           redirectPath="/student"
         />
       </div>
@@ -55,19 +65,20 @@ const StudentPortal = () => {
   return (
     <div className="min-h-screen bg-background">
       <UniversalHeader onShowLogin={() => setShowLogin(true)} />
-      
+
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-2">
             Student Dashboard
           </h1>
           <p className="text-muted-foreground text-lg">
-            Welcome back! Continue your learning journey with AI-powered assistance.
+            Welcome back! Continue your learning journey with AI-powered
+            assistance.
           </p>
         </div>
 
         <Tabs defaultValue="dashboard" className="w-full">
-          <TabsList className="grid w-full grid-cols-6">
+          <TabsList className="grid w-full grid-cols-6 h-14">
             <TabsTrigger value="dashboard" className="flex items-center gap-2">
               <TrendingUp className="h-4 w-4" />
               Dashboard
@@ -105,12 +116,10 @@ const StudentPortal = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">3</div>
-                  <p className="text-xs text-muted-foreground">
-                    In progress
-                  </p>
+                  <p className="text-xs text-muted-foreground">In progress</p>
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
@@ -120,12 +129,10 @@ const StudentPortal = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">12</div>
-                  <p className="text-xs text-muted-foreground">
-                    Days in a row
-                  </p>
+                  <p className="text-xs text-muted-foreground">Days in a row</p>
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
@@ -135,12 +142,10 @@ const StudentPortal = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">47</div>
-                  <p className="text-xs text-muted-foreground">
-                    This week
-                  </p>
+                  <p className="text-xs text-muted-foreground">This week</p>
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
@@ -150,9 +155,7 @@ const StudentPortal = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">1,240</div>
-                  <p className="text-xs text-muted-foreground">
-                    Total earned
-                  </p>
+                  <p className="text-xs text-muted-foreground">Total earned</p>
                 </CardContent>
               </Card>
             </div>
@@ -168,14 +171,31 @@ const StudentPortal = () => {
                 <CardContent>
                   <div className="space-y-4">
                     {[
-                      { title: "Advanced React Patterns", difficulty: "Intermediate", match: "95%" },
-                      { title: "Data Structures & Algorithms", difficulty: "Advanced", match: "87%" },
-                      { title: "Machine Learning Basics", difficulty: "Beginner", match: "82%" }
+                      {
+                        title: "Advanced React Patterns",
+                        difficulty: "Intermediate",
+                        match: "95%",
+                      },
+                      {
+                        title: "Data Structures & Algorithms",
+                        difficulty: "Advanced",
+                        match: "87%",
+                      },
+                      {
+                        title: "Machine Learning Basics",
+                        difficulty: "Beginner",
+                        match: "82%",
+                      },
                     ].map((course, i) => (
-                      <div key={i} className="flex items-center justify-between p-3 border rounded-lg">
+                      <div
+                        key={i}
+                        className="flex items-center justify-between p-3 border rounded-lg"
+                      >
                         <div>
                           <h4 className="font-medium">{course.title}</h4>
-                          <p className="text-sm text-muted-foreground">{course.difficulty}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {course.difficulty}
+                          </p>
                         </div>
                         <Badge variant="secondary">{course.match} match</Badge>
                       </div>
@@ -194,22 +214,37 @@ const StudentPortal = () => {
                 <CardContent>
                   <div className="space-y-4">
                     {[
-                      { skill: "Algorithm Optimization", level: 60, gap: "Moderate" },
+                      {
+                        skill: "Algorithm Optimization",
+                        level: 60,
+                        gap: "Moderate",
+                      },
                       { skill: "System Design", level: 35, gap: "High" },
-                      { skill: "React Testing", level: 75, gap: "Low" }
+                      { skill: "React Testing", level: 75, gap: "Low" },
                     ].map((skill, i) => (
                       <div key={i} className="space-y-2">
                         <div className="flex justify-between text-sm">
                           <span>{skill.skill}</span>
-                          <span className="text-muted-foreground">{skill.level}%</span>
+                          <span className="text-muted-foreground">
+                            {skill.level}%
+                          </span>
                         </div>
                         <div className="w-full bg-muted rounded-full h-2">
-                          <div 
-                            className="bg-primary h-2 rounded-full" 
+                          <div
+                            className="bg-primary h-2 rounded-full"
                             style={{ width: `${skill.level}%` }}
                           />
                         </div>
-                        <Badge variant={skill.gap === 'High' ? 'destructive' : skill.gap === 'Moderate' ? 'default' : 'secondary'} className="text-xs">
+                        <Badge
+                          variant={
+                            skill.gap === "High"
+                              ? "destructive"
+                              : skill.gap === "Moderate"
+                              ? "default"
+                              : "secondary"
+                          }
+                          className="text-xs"
+                        >
                           {skill.gap} Priority
                         </Badge>
                       </div>
@@ -234,16 +269,22 @@ const StudentPortal = () => {
               <CardContent>
                 <div className="text-center py-12">
                   <Brain className="h-16 w-16 mx-auto mb-4 text-primary" />
-                  <h3 className="text-lg font-semibold mb-2">Ask your AI Tutor anything!</h3>
+                  <h3 className="text-lg font-semibold mb-2">
+                    Ask your AI Tutor anything!
+                  </h3>
                   <p className="text-muted-foreground mb-6">
-                    Get step-by-step explanations, practice problems, and personalized feedback
+                    Get step-by-step explanations, practice problems, and
+                    personalized feedback
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-md mx-auto">
-                    <Button className="flex items-center gap-2">
+                    <Button className="flex items-center gap-2 my-btn">
                       <MessageCircle className="h-4 w-4" />
                       Start Text Chat
                     </Button>
-                    <Button variant="outline" className="flex items-center gap-2">
+                    <Button
+                      variant="outline"
+                      className="flex items-center gap-2 hover:bg-gray-50 hover:text-[#2901b3]"
+                    >
                       <Play className="h-4 w-4" />
                       Voice Interaction
                     </Button>
@@ -258,15 +299,20 @@ const StudentPortal = () => {
               <h2 className="text-2xl font-bold">My Learning Path</h2>
               <Button>Browse More Courses</Button>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3].map((i) => (
-                <Card key={i} className="group hover:shadow-lg transition-shadow">
+                <Card
+                  key={i}
+                  className="group hover:shadow-lg transition-shadow"
+                >
                   <CardHeader>
                     <div className="w-full h-32 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg mb-4 flex items-center justify-center">
                       <BookOpen className="h-8 w-8 text-primary" />
                     </div>
-                    <CardTitle className="text-lg">Advanced React Development</CardTitle>
+                    <CardTitle className="text-lg">
+                      Advanced React Development
+                    </CardTitle>
                     <CardDescription>
                       Master modern React patterns and performance optimization
                     </CardDescription>
@@ -278,13 +324,20 @@ const StudentPortal = () => {
                         <span>65%</span>
                       </div>
                       <div className="w-full bg-muted rounded-full h-2">
-                        <div className="bg-primary h-2 rounded-full" style={{ width: '65%' }} />
+                        <div
+                          className="bg-primary h-2 rounded-full"
+                          style={{ width: "65%" }}
+                        />
                       </div>
                       <div className="flex items-center justify-between">
                         <Badge variant="secondary">Intermediate</Badge>
-                        <span className="text-sm text-muted-foreground">8/12 lessons</span>
+                        <span className="text-sm text-muted-foreground">
+                          8/12 lessons
+                        </span>
                       </div>
-                      <Button className="w-full">Continue Learning</Button>
+                      <Button className="w-full my-btn">
+                        Continue Learning
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -303,9 +356,12 @@ const StudentPortal = () => {
               <CardContent>
                 <div className="text-center py-8">
                   <Trophy className="h-16 w-16 mx-auto mb-4 text-primary" />
-                  <h3 className="text-lg font-semibold mb-2">Detailed Analytics Coming Soon</h3>
+                  <h3 className="text-lg font-semibold mb-2">
+                    Detailed Analytics Coming Soon
+                  </h3>
                   <p className="text-muted-foreground">
-                    View comprehensive progress tracking, skill assessments, and predictive insights
+                    View comprehensive progress tracking, skill assessments, and
+                    predictive insights
                   </p>
                 </div>
               </CardContent>
@@ -323,7 +379,9 @@ const StudentPortal = () => {
               <CardContent>
                 <div className="text-center py-8">
                   <Play className="h-16 w-16 mx-auto mb-4 text-primary" />
-                  <h3 className="text-lg font-semibold mb-2">Smart Practice Sessions</h3>
+                  <h3 className="text-lg font-semibold mb-2">
+                    Smart Practice Sessions
+                  </h3>
                   <p className="text-muted-foreground">
                     AI-generated quizzes, flashcards, and coding challenges
                   </p>
@@ -355,10 +413,10 @@ const StudentPortal = () => {
       </main>
 
       <Footer />
-      
-      <LoginModal 
-        isOpen={showLogin} 
-        onClose={() => setShowLogin(false)} 
+
+      <LoginModal
+        isOpen={showLogin}
+        onClose={() => setShowLogin(false)}
         redirectPath="/student"
       />
     </div>

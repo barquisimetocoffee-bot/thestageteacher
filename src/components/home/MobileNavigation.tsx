@@ -29,7 +29,12 @@ interface MobileNavigationProps {
   onShowLogin: () => void;
 }
 
-const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProps) => {
+
+const MobileNavigation = ({
+  isOpen,
+  onClose,
+  onShowLogin,
+}: MobileNavigationProps) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -65,18 +70,40 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
   ];
 
   const solutionsByCategory = [
-    { title: "Primary Schools", icon: Heart, path: "/solutions/primary-schools" },
-    { title: "Secondary Schools", icon: TrendingUp, path: "/solutions/secondary-schools" },
+
+    {
+      title: "Primary Schools",
+      icon: Heart,
+      path: "/solutions/primary-schools",
+    },
+    {
+      title: "Secondary Schools",
+      icon: TrendingUp,
+      path: "/solutions/secondary-schools",
+    },
     { title: "Universities", icon: Award, path: "/solutions/universities" },
-    { title: "Independent Schools", icon: Target, path: "/solutions/independent-schools" },
+    {
+      title: "Independent Schools",
+      icon: Target,
+      path: "/solutions/independent-schools",
+    },
   ];
 
   const solutionsByDepartment = [
     { title: "Admissions", icon: UserCheck, path: "/solutions/admissions" },
-    { title: "General Report", icon: FileBarChart, path: "/solutions/general-reports" },
+
+    {
+      title: "General Report",
+      icon: FileBarChart,
+      path: "/solutions/reporting",
+    },
     { title: "HR & Payroll", icon: Users, path: "/solutions/hr-payroll" },
     { title: "Finance", icon: DollarSign, path: "/solutions/finance" },
-    { title: "Communication", icon: MessageSquare, path: "/solutions/communication" },
+    {
+      title: "Communication",
+      icon: MessageSquare,
+      path: "/solutions/communication",
+    },
   ];
 
   const resources = [
@@ -86,7 +113,12 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
   ];
 
   const about = [
-    { title: "Partners & Integrations", icon: Zap, path: "/partners-integrations" },
+
+    {
+      title: "Partners & Integrations",
+      icon: Zap,
+      path: "/partners-integrations",
+    },
     { title: "Data Protection & GDPR", icon: Shield, path: "/data-protection" },
     { title: "Contact Us", icon: Mail, path: "/contact-us" },
   ];
@@ -94,12 +126,14 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 lg:hidden">
+
+    <div className="fixed left-0 top-0 w-full lg:hidden">
       {/* Backdrop */}
-      <div className="fixed inset-0 bg-black/50" onClick={onClose} />
-      
+      {/* <div className="fixed inset-0 bg-black/50" onClick={onClose} /> */}
+
       {/* Menu Panel */}
-      <div className="fixed right-0 top-0 h-full w-80 bg-background shadow-xl animate-slide-in-right">
+      <div className="w-full h-screen bg-background shadow-xl animate-slide-in-right">
+
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-border">
@@ -118,10 +152,10 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
                 className="flex items-center justify-between w-full p-3 text-left font-medium text-foreground hover:bg-accent/10 rounded-lg"
               >
                 {t("navigation.products")}
-                <ChevronRight 
-                  className={`h-4 w-4 transition-transform ${
-                    expandedSection === "products" ? "rotate-90" : ""
-                  }`} 
+
+                <ChevronRight
+                  className={`h-4 w-4 transition-transform ${expandedSection === "products" ? "rotate-90" : ""
+                    }`}
                 />
               </button>
               {expandedSection === "products" && (
@@ -130,7 +164,9 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
                     <button
                       key={product.id}
                       onClick={() => handleNavigate(product.path)}
-                      className="flex items-center space-x-3 w-full p-2 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg"
+
+                      className="py-3 flex items-center space-x-3 w-full px-4 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-blue-100 rounded-lg"
+
                     >
                       <product.icon className="h-4 w-4" />
                       <span>{product.name}</span>
@@ -147,10 +183,10 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
                 className="flex items-center justify-between w-full p-3 text-left font-medium text-foreground hover:bg-accent/10 rounded-lg"
               >
                 {t("navigation.solutions")}
-                <ChevronRight 
-                  className={`h-4 w-4 transition-transform ${
-                    expandedSection === "solutions" ? "rotate-90" : ""
-                  }`} 
+
+                <ChevronRight
+                  className={`h-4 w-4 transition-transform ${expandedSection === "solutions" ? "rotate-90" : ""
+                    }`}
                 />
               </button>
               {expandedSection === "solutions" && (
@@ -164,7 +200,9 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
                         <button
                           key={index}
                           onClick={() => handleNavigate(solution.path)}
-                          className="flex items-center space-x-3 w-full p-2 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg"
+
+                          className="flex items-center space-x-3 w-full px-4 py-3 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg"
+
                         >
                           <solution.icon className="h-4 w-4" />
                           <span>{solution.title}</span>
@@ -172,7 +210,6 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
                       ))}
                     </div>
                   </div>
-                  
                   <div>
                     <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
                       {t("navigation.byDepartment")}
@@ -182,7 +219,8 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
                         <button
                           key={index}
                           onClick={() => handleNavigate(solution.path)}
-                          className="flex items-center space-x-3 w-full p-2 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg"
+
+                          className="flex items-center space-x-3 w-full px-4 py-3 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg"
                         >
                           <solution.icon className="h-4 w-4" />
                           <span>{solution.title}</span>
@@ -201,10 +239,10 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
                 className="flex items-center justify-between w-full p-3 text-left font-medium text-foreground hover:bg-accent/10 rounded-lg"
               >
                 {t("navigation.resources")}
-                <ChevronRight 
-                  className={`h-4 w-4 transition-transform ${
-                    expandedSection === "resources" ? "rotate-90" : ""
-                  }`} 
+
+                <ChevronRight
+                  className={`h-4 w-4 transition-transform ${expandedSection === "resources" ? "rotate-90" : ""
+                    }`}
                 />
               </button>
               {expandedSection === "resources" && (
@@ -213,7 +251,8 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
                     <button
                       key={index}
                       onClick={() => handleNavigate(item.path)}
-                      className="flex items-center space-x-3 w-full p-2 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg"
+
+                      className="flex items-center space-x-3 w-full px-4 py-3 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg"
                     >
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
@@ -230,10 +269,10 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
                 className="flex items-center justify-between w-full p-3 text-left font-medium text-foreground hover:bg-accent/10 rounded-lg"
               >
                 {t("navigation.aboutUs")}
-                <ChevronRight 
-                  className={`h-4 w-4 transition-transform ${
-                    expandedSection === "about" ? "rotate-90" : ""
-                  }`} 
+
+                <ChevronRight
+                  className={`h-4 w-4 transition-transform ${expandedSection === "about" ? "rotate-90" : ""
+                    }`}
                 />
               </button>
               {expandedSection === "about" && (
@@ -242,7 +281,8 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
                     <button
                       key={index}
                       onClick={() => handleNavigate(item.path)}
-                      className="flex items-center space-x-3 w-full p-2 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg"
+
+                      className="flex items-center space-x-3 w-full px-4 py-3 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg"
                     >
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
@@ -258,7 +298,8 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
             <Button
               onClick={() => handleNavigate("/contact-us")}
               variant="outline"
-              className="w-full"
+
+              className="w-full p-6"
             >
               {t("navigation.contact")}
             </Button>
@@ -267,7 +308,8 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
                 onShowLogin();
                 onClose();
               }}
-              className="w-full bg-primary hover:bg-primary/90"
+
+              className="w-full my-btn p-6"
             >
               {t("navigation.login")}
             </Button>
@@ -277,5 +319,6 @@ const MobileNavigation = ({ isOpen, onClose, onShowLogin }: MobileNavigationProp
     </div>
   );
 };
+
 
 export default MobileNavigation;
