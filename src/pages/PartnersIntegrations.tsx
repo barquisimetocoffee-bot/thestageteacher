@@ -1,7 +1,13 @@
-
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Zap, Shield, Users, Globe, CheckCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  Zap,
+  Shield,
+  Users,
+  Globe,
+  CheckCircle,
+} from "lucide-react";
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -72,19 +78,19 @@ const PartnersIntegrations = () => {
   ];
 
   return (
-
     <>
       <Navigation onShowLogin={() => setShowLogin(true)} />
 
       <div
-        className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+        className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
       >
         {/* Hero Section */}
         <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
-              <div className="p-4 rounded-3xl icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
+              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
                 <Zap className="size-8 md:size-10 text-white" />
               </div>
               <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -102,7 +108,6 @@ const PartnersIntegrations = () => {
             </div>
           </div>
         </section>
-
 
         {/* Integrations Section */}
         <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">

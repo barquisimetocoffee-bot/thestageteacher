@@ -203,32 +203,31 @@ const AdvancedLMS = () => {
     <>
       <Navigation onShowLogin={() => setOnShowLogin(true)} />
       <div
-        className={`min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 via-purple-50 to-pink-50 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+        className={`min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 via-purple-50 to-pink-50 transition-all duration-1000 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
       >
         {/* Hero Section */}
         <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
-              <div className="p-4 rounded-3xl icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
+              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
                 <GraduationCap className="size-8 md:size-10 text-white" />
               </div>
 
               <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
                 Advanced
                 <span className="bg-gradient-to-r from-[#2901e3] to-blue-600 bg-clip-text text-transparent">
-
                   {" "}
                   AI LMS
                 </span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                {t('products.advancedLMSDesc')}
+                {t("products.advancedLMSDesc")}
               </p>
 
               <Button className="w-full md:w-72 my-btn group text-white p-6 rounded-xl">
                 Join the Waitlist
-
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-all duration-300" />
               </Button>
             </div>
@@ -238,7 +237,6 @@ const AdvancedLMS = () => {
         {/* Features Categories */}
         <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
-
             <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-900 mb-16">
               Revolutionary AI-Powered{" "}
               <span className="bg-gradient-to-r from-[#2901e3] to-blue-600 bg-clip-text text-transparent">
@@ -253,16 +251,20 @@ const AdvancedLMS = () => {
                   style={{ animationDelay: `${categoryIndex * 0.2}s` }}
                 >
                   <div
-                    className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${categoryIndex % 2 === 1 ? "lg:flex-row-reverse" : ""
-                      }`}
+                    className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
+                      categoryIndex % 2 === 1 ? "lg:flex-row-reverse" : ""
+                    }`}
                   >
                     {/* Content Section - Left for even, Right for odd */}
                     <div
-                      className={`space-y-8 ${categoryIndex % 2 === 1 ? "lg:order-2" : "lg:order-1"
-                        }`}
+                      className={`space-y-8 ${
+                        categoryIndex % 2 === 1 ? "lg:order-2" : "lg:order-1"
+                      }`}
                     >
                       <div className="flex items-center space-x-4">
-                        <div className={`p-4 rounded-2xl icon-bg shadow-lg`}>
+                        <div
+                          className={`p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg`}
+                        >
                           <category.icon className="size-6 md:size-8 text-white" />
                         </div>
                         <div>
@@ -277,7 +279,7 @@ const AdvancedLMS = () => {
                         {category.features.map((feature, featureIndex) => (
                           <div
                             key={featureIndex}
-                            className="group hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 p-2 md:p-4 rounded-2xl transition-all duration-300 border border-transparent "
+                            className="group hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 p-2 md:p-4 rounded-tr rounded-bl-sm transition-all duration-300 border border-transparent "
                           >
                             <div className="flex items-start space-x-4">
                               <div className="p-3 rounded-xl bg-white shadow-md border group-hover:shadow-lg transition-shadow duration-300">
@@ -299,8 +301,9 @@ const AdvancedLMS = () => {
 
                     {/* Image Section - Right for even, Left for odd */}
                     <div
-                      className={`relative ${categoryIndex % 2 === 1 ? "lg:order-1" : "lg:order-2"
-                        }`}
+                      className={`relative ${
+                        categoryIndex % 2 === 1 ? "lg:order-1" : "lg:order-2"
+                      }`}
                     >
                       <div className="relative overflow-hidden rounded-3xl shadow-2xl group">
                         <div className="aspect-[4/3] relative">
@@ -330,7 +333,6 @@ const AdvancedLMS = () => {
         {/* Benefits Section */}
         <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 to-blue-50">
           <div className="max-w-4xl mx-auto text-center">
-
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 md:mb-12">
               Transform Your Institution
             </h2>

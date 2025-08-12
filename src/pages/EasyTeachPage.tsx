@@ -390,7 +390,7 @@ const EasyTeachPage = () => {
       <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex justify-center mb-6">
-            <div className="p-4 rounded-2xl icon-bg shadow-lg">
+            <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg">
               <BookOpen className="h-12 w-12 text-white" />
             </div>
           </div>
@@ -440,7 +440,7 @@ const EasyTeachPage = () => {
                   className="mr-4 md:mr-12 bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200 hover:shadow-lg transition-all duration-300 text-center"
                 >
                   <div className="flex justify-center mb-2">
-                    <div className="p-2 rounded-lg icon-bg">
+                    <div className="p-2 rounded-tr rounded-bl icon-bg">
                       <stat.icon className="h-5 w-5 text-white" />
                     </div>
                   </div>
@@ -543,7 +543,7 @@ const EasyTeachPage = () => {
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-center space-x-4">
-                    <div className="p-2 md:p-4 rounded-2xl icon-bg shadow-lg group-hover:scale-110 transition-transform duration-200">
+                    <div className="p-2 md:p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg group-hover:scale-110 transition-transform duration-200">
                       <item.icon className="size-6 md:size-8 text-white" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900 ">

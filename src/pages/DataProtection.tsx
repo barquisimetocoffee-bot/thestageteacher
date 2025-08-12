@@ -85,7 +85,7 @@ const DataProtection = () => {
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
-              <div className="p-4 rounded-3xl icon-bg shadow-lg mx-auto w-20 h-20 flex items-center justify-center mb-6">
+              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto w-20 h-20 flex items-center justify-center mb-6">
                 <Shield className="h-10 w-10 text-white" />
               </div>
               <h1 className="text-5xl font-bold text-gray-900 mb-6">
@@ -118,7 +118,7 @@ const DataProtection = () => {
                 >
                   <div>
                     <div className="flex flex-col items-start justify-center gap-2">
-                      <div className="p-3 icon-bg rounded-lg  group-hover:scale-105 transition-transform duration-300">
+                      <div className="p-3 icon-bg rounded-tr rounded-bl-sm   group-hover:scale-105 transition-transform duration-300">
                         <protection.icon className="h-6 w-6 text-white" />
                       </div>
                       <h2 className="text-lg/6 font-bold">
@@ -151,7 +151,7 @@ const DataProtection = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {gdprRights.map((right, index) => (
-                <div className="flex items-center justify-between bg-white/50 backdrop-blur-2xl p-4 rounded-3xl">
+                <div className="flex items-center justify-between bg-white/50 backdrop-blur-2xl p-4 rounded-tr rounded-bl-sm">
                   <span className="size-8 rounded-full mr-4 bg-white flex items-center justify-center font-semibold">
                     {index + 1}
                   </span>

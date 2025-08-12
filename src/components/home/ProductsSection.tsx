@@ -68,7 +68,6 @@ const ProductsSection = ({
       icon: BookOpen,
       status: "available",
       color: "from-blue-500 to-blue-600",
-      bgColor: "blue",
       price: t("products.freeForever"),
       priceSubtext: "",
       features: [
@@ -95,7 +94,6 @@ const ProductsSection = ({
       icon: Crown,
       status: "available",
       color: "from-purple-500 to-purple-600",
-      bgColor: "purple",
       price: "$89",
       priceSubtext: t("products.perYear"),
       features: [
@@ -125,7 +123,6 @@ const ProductsSection = ({
       icon: Building2,
       status: "coming-soon",
       color: "from-orange-500 to-orange-600",
-      bgColor: "orange",
       price: t("products.comingSoon"),
       priceSubtext: "",
       features: [
@@ -159,7 +156,6 @@ const ProductsSection = ({
       icon: GraduationCap,
       status: "coming-soon",
       color: "from-green-500 to-green-600",
-      bgColor: "green",
       price: t("products.comingSoon"),
       priceSubtext: "",
       features: [
@@ -216,16 +212,12 @@ const ProductsSection = ({
           {products.map((product, index) => (
             <div
               key={product.id}
-              className={`relative flex flex-col justify-between border border-gray-300 rounded-2xl hover:border-${product.bgColor}-600 hover:border-blue-500`}
+              className={`relative flex flex-col justify-between border border-gray-300 rounded-2xl hover:border-blue-600`}
             >
               <div>
                 {/* header */}
                 <div
-                  className={`flex items-center justify-between bg-${
-                    product.bgColor
-                  }-600 ${
-                    product.name.startsWith("School") && "bg-orange-600"
-                  } text-white rounded-t-2xl px-4 py-12 md:py-12
+                  className={`flex items-center justify-between bg-[#2901B3]  text-white rounded-t-2xl px-4 py-12 md:py-12
                 `}
                 >
                   <h1 className="text-lg/6 font-bold text-white">
@@ -236,9 +228,7 @@ const ProductsSection = ({
                       product.name.startsWith("School")
                         ? "w-fit md:w-[108px] text-center"
                         : "w-fit"
-                    } bg-white rounded-full px-2 py-1 text-${
-                      product.bgColor
-                    }-600 font-semibold`}
+                    } bg-white rounded-full px-2 py-1 text-blue-600 font-semibold`}
                   >
                     {product.status}
                   </span>
@@ -246,17 +236,13 @@ const ProductsSection = ({
 
                 {/* icon */}
                 <span
-                  className={`absolute left-4 z-10 size-16 p-3 rounded-full bg-accent flex items-center justify-center bg-${
-                    product.bgColor
-                  }-100 ${
+                  className={`absolute left-4 z-10 size-16 p-3 rounded-full bg-accent flex items-center justify-center bg-blue-100 ${
                     product.name.startsWith("School")
                       ? "top-20 md:top-[110px]"
                       : "top-[85px]"
                   }`}
                 >
-                  <product.icon
-                    className={`h-6 w-6 text-${product.bgColor}-600`}
-                  />
+                  <product.icon className={`h-6 w-6 text-blue-600`} />
                 </span>
                 {/* content goes here */}
                 <div className="px-4 flex flex-col gap-2">
@@ -280,7 +266,7 @@ const ProductsSection = ({
                       </div>
                     ) : (
                       <span
-                        className={`bg-${product.bgColor}-100 rounded-full px-2 py-1 text-xs font-semibold text-${product.bgColor}-600`}
+                        className={`bg-blue-100 rounded-full px-2 py-1 text-xs font-semibold text-blue-600`}
                       >
                         {product.users}
                       </span>
@@ -306,7 +292,7 @@ const ProductsSection = ({
                             }`}
                           >
                             <feature.reactIcon
-                              className={`size-4 mr-2 mt-1 text-${product.bgColor}-600`}
+                              className={`size-4 mr-2 mt-1 text-blue-600`}
                             />
                             {feature.text}
                           </p>
@@ -322,12 +308,7 @@ const ProductsSection = ({
               {/* button */}
               <div className={`p-4`}>
                 <Button
-                  className={`mt-4 py-6 w-full flex items-center justify-center bg-${
-                    product.bgColor
-                  }-600 hover:bg-${product.bgColor}-700 ${
-                    product.name.startsWith("School") &&
-                    "bg-orange-600 hover:bg-orange-700"
-                  }`}
+                  className={`mt-4 py-6 w-full flex items-center justify-center my-btn`}
                 >
                   {product.id === "easyteach-pro" && upgrading
                     ? "Opening Checkout..."

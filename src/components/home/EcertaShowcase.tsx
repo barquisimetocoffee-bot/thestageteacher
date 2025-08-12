@@ -113,7 +113,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
               >
                 <div className="flex-1 space-y-6">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="p-3 rounded-2xl  icon-bg shadow-lg">
+                    <div className="p-3 rounded-tr rounded-bl-sm  icon-bg shadow-lg">
                       <feature.icon className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-2xl md:text-3xl font-bold text-[#2901B3]">
@@ -185,7 +185,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
               >
                 <CardHeader className="pb-4">
                   <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="p-4 rounded-2xl  icon-bg shadow group-hover:scale-110 transition-transform duration-200">
+                    <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow group-hover:scale-110 transition-transform duration-200">
                       <item.icon className="h-8 w-8 text-white" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-purple-700 transition-colors">

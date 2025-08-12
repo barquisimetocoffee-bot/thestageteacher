@@ -1,5 +1,4 @@
-
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -79,14 +78,15 @@ const ContactUs = () => {
     <>
       <Navigation onShowLogin={() => setShowLogin(true)} />
       <div
-        className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+        className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
       >
         {/* Hero Section */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
-              <div className="p-4 rounded-3xl icon-bg shadow-lg mx-auto w-20 h-20 flex items-center justify-center mb-6">
+              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto w-20 h-20 flex items-center justify-center mb-6">
                 <Mail className="h-10 w-10 text-white" />
               </div>
               <h1 className="text-5xl font-bold text-gray-900 mb-6">
@@ -104,7 +104,6 @@ const ContactUs = () => {
           </div>
         </section>
 
-
         {/* Contact Information */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
@@ -118,7 +117,7 @@ const ContactUs = () => {
                   className="group shadow bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
                 >
                   <div className="flex flex-col items-start justify-center gap-2">
-                    <div className="p-3 icon-bg rounded-lg  group-hover:scale-105 transition-transform duration-300">
+                    <div className="p-3 icon-bg rounded-tr rounded-bl-sm   group-hover:scale-105 transition-transform duration-300">
                       <info.icon className="h-6 w-6 text-white" />
                     </div>
                     <h2 className="text-lg/6 font-bold">{info.title}</h2>
@@ -148,7 +147,6 @@ const ContactUs = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
@@ -194,12 +192,10 @@ const ContactUs = () => {
                           setFormData({ ...formData, subject: e.target.value })
                         }
                         className="border border-gray-200 focus:outline-none py-6"
-
                         required
                       />
                     </div>
                     <div>
-
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Message
                       </label>

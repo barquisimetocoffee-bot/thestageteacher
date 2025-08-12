@@ -6,28 +6,6 @@ import LanguageSelector from "@/components/LanguageSelector";
 import MobileNavigation from "./MobileNavigation";
 import { RiMenuLine } from "react-icons/ri";
 import { Badge } from "@/components/ui/badge";
-import {
-  BookOpen,
-  GraduationCap,
-  Building2,
-  Sparkles,
-  Users,
-  TrendingUp,
-  Heart,
-  Zap,
-  Award,
-  Target,
-  FileText,
-  HelpCircle,
-  Shield,
-  Mail,
-  UserCheck,
-  FileBarChart,
-  DollarSign,
-  MessageSquare,
-  School,
-  HamIcon,
-} from "lucide-react";
 
 interface NavigationProps {
   onShowLogin: () => void;
@@ -43,7 +21,6 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
       id: "easyteach",
       name: "EasyTeach",
       description: "AI-powered teaching tools",
-      icon: BookOpen,
       status: "available",
       color: "from-blue-500 to-blue-600",
       onClick: () => navigate("/easyteach"),
@@ -52,7 +29,6 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
       id: "lms",
       name: "Advanced AI LMS",
       description: "Next-generation learning management",
-      icon: GraduationCap,
       status: "coming-soon",
       color: "from-purple-500 to-purple-600",
       onClick: () => navigate("/advanced-lms"),
@@ -61,7 +37,6 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
       id: "admin",
       name: "School Administration",
       description: "Comprehensive school management",
-      icon: Building2,
       status: "coming-soon",
       color: "from-green-500 to-green-600",
       onClick: () => navigate("/school-administration"),
@@ -71,25 +46,21 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
   const solutionsByCategory = [
     {
       title: "Primary Schools",
-      icon: Heart,
       color: "from-pink-500 to-rose-500",
       onClick: () => navigate("/solutions/primary-schools"),
     },
     {
       title: "Secondary Schools",
-      icon: TrendingUp,
       color: "from-blue-500 to-cyan-500",
       onClick: () => navigate("/solutions/secondary-schools"),
     },
     {
       title: "Universities",
-      icon: Award,
       color: "from-purple-500 to-indigo-500",
       onClick: () => navigate("/solutions/universities"),
     },
     {
       title: "Independent Schools",
-      icon: Target,
       color: "from-green-500 to-emerald-500",
       onClick: () => navigate("/solutions/independent-schools"),
     },
@@ -98,31 +69,26 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
   const solutionsByDepartment = [
     {
       title: "Admissions",
-      icon: UserCheck,
       color: "from-blue-500 to-cyan-500",
       onClick: () => navigate("/solutions/admissions"),
     },
     {
       title: "General Report",
-      icon: FileBarChart,
       color: "from-purple-500 to-indigo-500",
       onClick: () => navigate("/solutions/general-reports"),
     },
     {
       title: "HR & Payroll",
-      icon: Users,
       color: "from-green-500 to-emerald-500",
       onClick: () => navigate("/solutions/hr-payroll"),
     },
     {
       title: "Finance",
-      icon: DollarSign,
       color: "from-yellow-500 to-orange-500",
       onClick: () => navigate("/solutions/finance"),
     },
     {
       title: "Communication",
-      icon: MessageSquare,
       color: "from-pink-500 to-rose-500",
       onClick: () => navigate("/solutions/communication"),
     },
@@ -131,17 +97,14 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
   const resourcesMenu = [
     {
       title: "Case Studies",
-      icon: FileText,
       onClick: () => navigate("/case-studies"),
     },
     {
       title: "Blog",
-      icon: BookOpen,
       onClick: () => navigate("/blog"),
     },
     {
       title: "Knowledge Base",
-      icon: HelpCircle,
       onClick: () => navigate("/knowledge-base"),
     },
   ];
@@ -149,17 +112,14 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
   const aboutMenu = [
     {
       title: "Partners & Integrations",
-      icon: Zap,
       onClick: () => navigate("/partners-integrations"),
     },
     {
       title: "Data Protection & GDPR",
-      icon: Shield,
       onClick: () => navigate("/data-protection"),
     },
     {
       title: "Contact Us",
-      icon: Mail,
       onClick: () => navigate("/contact-us"),
     },
   ];
@@ -210,7 +170,6 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                 </span>
 
                 <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-4 min-w-96 animate-fade-in duration-700 rounded-2xl z-50">
-
                   <div className="space-y-3">
                     {products.map((product) => (
                       <div
@@ -218,11 +177,6 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                         className="flex items-start space-x-3 p-3 rounded-lg hover:bg-accent/10 hover:text-white transition-colors cursor-pointer"
                         onClick={product.onClick}
                       >
-                        <div
-                          className={`p-2 rounded-lg bg-gradient-to-r ${product.color}`}
-                        >
-                          <product.icon className="size-4 text-white" />
-                        </div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-2">
                             <h4 className="font-semibold text-foreground">
@@ -254,7 +208,6 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                 </span>
 
                 <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-6 w-96 animate-fade-in rounded-2xl z-50">
-
                   <div className="grid grid-cols-2 gap-6">
                     {/* By Category */}
                     <div>
@@ -269,11 +222,6 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                             onClick={solution.onClick}
                           >
                             <div className="flex items-center space-x-3">
-                              <div
-                                className={`p-1.5 rounded-lg bg-gradient-to-r ${solution.color} group-hover:scale-110 transition-transform duration-200`}
-                              >
-                                <solution.icon className="size-4 text-white" />
-                              </div>
                               <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
                                 {solution.title}
                               </span>
@@ -296,11 +244,6 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                             onClick={solution.onClick}
                           >
                             <div className="flex items-center space-x-3">
-                              <div
-                                className={`p-1.5 rounded-lg bg-gradient-to-r ${solution.color} group-hover:scale-110 transition-transform duration-200`}
-                              >
-                                <solution.icon className="size-4 text-white" />
-                              </div>
                               <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
                                 {solution.title}
                               </span>
@@ -334,9 +277,6 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                         className="flex items-center space-x-3 p-3 rounded-lg hover:bg-accent/10 transition-colors cursor-pointer"
                         onClick={item.onClick}
                       >
-                        <div className="p-2 rounded-lg bg-gradient-to-r from-orange-500 to-red-500">
-                          <item.icon className="size-4 text-white" />
-                        </div>
                         <span className="font-medium text-foreground hover:text-orange-700 transition-colors">
                           {item.title}
                         </span>
@@ -358,9 +298,6 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                         className="flex items-center space-x-3 p-3 rounded-lg hover:bg-accent/10 transition-colors cursor-pointer"
                         onClick={item.onClick}
                       >
-                        <div className="p-2 rounded-lg bg-gradient-to-r from-slate-500 to-[#2901B3]">
-                          <item.icon className="size-4 text-white" />
-                        </div>
                         <span className="font-medium text-foreground hover:text-slate-700 transition-colors">
                           {item.title}
                         </span>

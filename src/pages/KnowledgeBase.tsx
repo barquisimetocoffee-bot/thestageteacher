@@ -180,7 +180,6 @@ const KnowledgeBase = () => {
   ];
 
   const popularArticles = [
-
     "How to create your first lesson plan with EasyTeach",
     "Setting up parent communication preferences",
     "Understanding behavior tracking features",
@@ -192,14 +191,15 @@ const KnowledgeBase = () => {
     <>
       <Navigation onShowLogin={() => setOnModelOpen(true)} />
       <div
-        className={`min-h-screen bg-gradient-to-br from-blue-50  to-blue-100 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+        className={`min-h-screen bg-gradient-to-br from-blue-50  to-blue-100 transition-all duration-1000 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
       >
         {/* Hero Section */}
         <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-8">
-              <div className="p-4 rounded-3xl icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
+              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
                 <HelpCircle className="size-8 md:size-10 text-white" />
               </div>
               <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -250,7 +250,6 @@ const KnowledgeBase = () => {
                     </div>
                   </div>
 
-
                   <p className="text-gray-600 text-base/6 pt-2">
                     {category.description}
                   </p>
@@ -275,7 +274,6 @@ const KnowledgeBase = () => {
                 >
                   <div className="flex items-center justify-between gap-4">
                     <h3 className="text-base/6 md:text-lg font-medium md:font-semibold text-gray-900 ">
-
                       {article}
                     </h3>
                     <div className="text-blue-500  group">

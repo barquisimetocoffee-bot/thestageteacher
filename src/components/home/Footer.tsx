@@ -1,95 +1,123 @@
-import { useTranslation } from "react-i18next";
-import { Instagram, Linkedin, Sparkles } from "lucide-react";
-
-import { Facebook, Twitter, Youtube } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  Wrench,
+  Github,
+  Twitter,
+  Mail,
+  Facebook,
+  Linkedin,
+  Instagram,
+  Youtube,
+} from "lucide-react";
 
 const Footer = () => {
-  const { t } = useTranslation();
-  return (
-    <footer className="bg-[#2901b3] text-white flex flex-col md:flex-row justify-between gap-8 py-12 px-4 sm:px-6 lg:px-8">
-      {/* Footer Content */}
-      <div className="w-full md:w-1/3">
-        <img
-          src="/logos/brand-light.svg"
-          alt="Footer Logo"
-          className="w-32 mb-4"
-        />
-        <p className="text-gray-200 mb-4">
-          Vicerta is revolutionizing the future of education with a powerful
-          suite of AI-driven solutions, seamlessly transforming the way we
-          teach, learn, and manage institutions. By integrating innovation with
-          accessibility, we empower educators, students, and administrators to
-          achieve more than ever before.
-        </p>
-        <h1 className="text-2xl font-semibold text-white block text-center md:text-start">
-          Follow us
-        </h1>
+  const currentYear = new Date().getFullYear();
 
-        <div className="flex items-center justify-center md:justify-start space-x-2 pt-2">
-          {[
-            { name: "twitter", href: "#" },
-            {
-              name: "linkden",
-              href: "https://www.linkedin.com/company/vicerta/",
-            },
-            {
-              name: "instagram",
-              href: "https://www.instagram.com/getvicerta?igsh=MTAydTBlMzU4cjFxcw==",
-            },
-            {
-              name: "youtube",
-              href: "https://youtube.com/@vicerta?si=2ZgigIb4rlfOd_IN",
-            },
-            {
-              name: "facebook",
-              href: "https://www.facebook.com/share/196DREtSkM/?mibextid=wwXIfr",
-            },
-          ].map((a) => (
-            <a
-              href={a.href}
-              className="border border-gray-200 rounded-full p-1 hover:bg-white hover:text-[#2901b3] transition-all duration-200"
-            >
-              {a.name.startsWith("twi") && <Twitter size={18} />}
-              {a.name.startsWith("yout") && <Youtube size={18} />}
-              {a.name.startsWith("fac") && <Facebook size={18} />}
-              {a.name.startsWith("inst") && <Instagram size={18} />}
-              {a.name.startsWith("link") && <Linkedin size={18} />}
-            </a>
-          ))}
-        </div>
-      </div>
-      <div className="flex justify-between px-12 md:px-0 w-1/2">
-        <div>
-          <h3 className="text-lg font-semibold mb-4 text-white block text-center">
-            Content
-          </h3>
-          <div className="flex flex-col items-center space-y-2">
-            {[
-              { name: "Home", href: "#" },
-              { name: "About", href: "#" },
-              { name: "Contact", href: "#" },
-            ].map((a) => (
-              <a href={a.href} className="text-gray-200 hover:text-blue-300">
-                {a.name}
+  return (
+    <footer className="bg-[#2901b3] border-t border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand */}
+          <div className="space-y-4">
+            <div className="">
+              <img
+                src="/logos/brand-light.svg"
+                alt="Footer Logo"
+                className="h-12"
+              />
+            </div>
+            <p className="text-sm text-gray-100">
+              Vicerta is revolutionizing the future of education with a powerful
+              suite of AI-driven solutions, seamlessly transforming the way we
+              teach, learn, and manage institutions. By integrating innovation
+              with accessibility, we empower educators, students, and
+              administrators to achieve more than ever before.
+            </p>
+          </div>
+
+          {/* Tools */}
+          <div>
+            <h3 className="font-semibold text-white mb-4">Quick Links</h3>
+            <ul className="space-y-2 text-sm">
+              {[
+                { name: "Home", link: "/" },
+                { name: "Primary School", link: "/solutions/primary-schools" },
+                {
+                  name: "Secondary School",
+                  link: "/solutions/secondary-schools",
+                },
+                { name: "University", link: "/solutions/universities" },
+                { name: "About", link: "#" },
+                { name: "Contact", link: "/contact" },
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link
+                    to={item.link}
+                    className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Popular */}
+          <div>
+            <h3 className="font-semibold text-white mb-4">Popular Tools</h3>
+            <ul className="space-y-2 text-sm">
+              {[
+                "Quiz Creator",
+                "AI Text Detector",
+                "Lesson Plan Generator",
+                "Presentation Generator",
+                "Student Grouping Tool",
+              ].map((tool) => (
+                <li key={tool}>
+                  <p className="text-gray-200 text-sm hover:text-white transition-colors duration-200">
+                    {tool}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Connect */}
+          <div>
+            <h3 className="font-semibold text-white mb-4">Connect</h3>
+            <div className="flex space-x-4">
+              <a
+                href="https://www.facebook.com/share/196DREtSkM/?mibextid=wwXIfr"
+                className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
+              >
+                <Facebook className="h-5 w-5" />
               </a>
-            ))}
+              <a
+                href="https://www.linkedin.com/company/vicerta/"
+                className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/getvicerta?igsh=MTAydTBlMzU4cjFxcw=="
+                className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://youtube.com/@vicerta?si=2ZgigIb4rlfOd_IN"
+                className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
+              >
+                <Youtube className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
-        <div>
-          <h3 className="text-lg font-semibold mb-4 text-white block text-center">
-            Content
-          </h3>
-          <div className="flex flex-col items-center space-y-2">
-            {[
-              { name: "Home", href: "#" },
-              { name: "About", href: "#" },
-              { name: "Contact", href: "#" },
-            ].map((a) => (
-              <a href={a.href} className="text-gray-200 hover:text-blue-300">
-                {a.name}
-              </a>
-            ))}
-          </div>
+
+        <div className="border-t border-border mt-8 pt-8 text-center">
+          <p className="text-sm text-gray-100">
+            © {currentYear} Vicerta. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

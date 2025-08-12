@@ -57,19 +57,6 @@ const CTASection = ({ onShowLogin, onJoinWaitlist }: CTASectionProps) => {
             Join Waitlist
           </Button>
         </div>
-
-        {/* Additional messaging */}
-        <div className="backdrop-blur-2xl bg-white/60 rounded-2xl p-6">
-          <p className="text-gray-600 text-lg">
-            <span className="font-semibold text-purple-700">
-              {t("cta.noCreditCard")}
-            </span>{" "}
-            •<span className="mx-2">{t("cta.freePlan")}</span> •
-            <span className="font-semibold text-primary">
-              {t("cta.setupTime")}
-            </span>
-          </p>
-        </div>
       </div>
     </section>
   );

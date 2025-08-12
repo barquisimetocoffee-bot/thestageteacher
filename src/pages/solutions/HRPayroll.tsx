@@ -1,7 +1,24 @@
 import { Button } from "@/components/ui/button";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, CreditCard, UserPlus, ClipboardCheck, Shield, ArrowRight, Target, Zap, Calendar, FileSearch } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Users,
+  CreditCard,
+  UserPlus,
+  ClipboardCheck,
+  Shield,
+  ArrowRight,
+  Target,
+  Zap,
+  Calendar,
+  FileSearch,
+} from "lucide-react";
 
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState, useEffect } from "react";
@@ -59,7 +76,7 @@ const HRPayroll = () => {
         <div className="container mx-auto px-4 py-6 md:py-16">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-full mb-6">
+            <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
               <Users className="size-8 md:size-10 text-white" />
             </div>
             <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -80,7 +97,7 @@ const HRPayroll = () => {
               >
                 <div>
                   <div className="flex flex-col items-start justify-center gap-2">
-                    <div className="p-3 icon-bg rounded-lg  group-hover:scale-105 transition-transform duration-300">
+                    <div className="p-3 icon-bg rounded-tr rounded-bl-sm  group-hover:scale-105 transition-transform duration-300">
                       <feature.icon className="h-6 w-6 text-white" />
                     </div>
                     <h2 className="text-lg/6 font-bold">{feature.title}</h2>
