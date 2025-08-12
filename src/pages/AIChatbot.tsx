@@ -86,7 +86,11 @@ const AIChatbot = () => {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center space-x-4">
             <Link to="/easyteach-app">
-              <Button variant="outline" size="sm" className="my-btn py-4">
+              <Button
+                variant="outline"
+                size="sm"
+                className="bg-white hover:bg-gray-100 hover:text-black"
+              >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Home
               </Button>

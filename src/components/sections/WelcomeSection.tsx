@@ -75,7 +75,6 @@ const WelcomeSection = ({
   };
 
   return (
-
     <div className="mb-6">
       {/* Compact Welcome Message */}
       <div className="text-center mb-4">
@@ -132,7 +131,7 @@ const WelcomeSection = ({
             <Button
               key={index}
               onClick={() => onQuickAction?.(tool.category, tool.toolId)}
-              className={`w-[200px] my-btn py-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 text-xs font-medium cursor-pointer`}
+              className={`w-full md:w-[200px] my-btn py-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 text-xs font-medium cursor-pointer`}
             >
               <tool.icon className="mr-1 h-3 w-3" />
               {tool.name}

@@ -21,7 +21,7 @@ import {
   BarChart3,
   Sparkles,
 } from "lucide-react";
-import easyTeachLogo from "@/assets/easyteach-logo.png";
+
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -30,7 +30,7 @@ const AppSidebar = () => {
   const { user } = useAuth();
 
   // Check if user has Vicerta email address
-  const isVicertaUser = user?.email?.includes('@vicerta') || false;
+  const isVicertaUser = user?.email?.includes("@vicerta") || false;
 
   const sidebarItems = [
     {
@@ -62,25 +62,29 @@ const AppSidebar = () => {
       gradient: "from-accent to-secondary",
     },
     // Only show feedback dashboard for Vicerta users
-    ...(isVicertaUser ? [{
-      name: t("easyteach.sidebar.feedbackDashboard"),
-      icon: BarChart3,
-      href: "/feedback-dashboard",
-      description: t("easyteach.sidebar.feedbackDashboardDesc"),
-      gradient: "from-emerald-500 to-teal-500",
-      isVicertaOnly: true,
-    }] : []),
+    ...(isVicertaUser
+      ? [
+          {
+            name: t("easyteach.sidebar.feedbackDashboard"),
+            icon: BarChart3,
+            href: "/feedback-dashboard",
+            description: t("easyteach.sidebar.feedbackDashboardDesc"),
+            gradient: "from-emerald-500 to-teal-500",
+            isVicertaOnly: true,
+          },
+        ]
+      : []),
   ];
 
   return (
     <Sidebar className="border-0 shadow-2xl bg-white/98 backdrop-blur-xl w-64">
-      <SidebarHeader className="p-6 bg-gradient-to-br from-blue-500/10 via-green-500/10 to-purple-500/10 border-b border-blue-500/20">
+      <SidebarHeader className="p-4 bg-gradient-to-br from-blue-500/10 via-green-500/10 to-purple-500/10 border-b border-blue-500/20">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-green-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg ring-2 ring-blue-500/20">
+          <div className="w-10 h-10 bg-gradient-to-br from-[#2901b3] to-blue-500 rounded-xl flex items-center justify-center shadow-lg ring-2 ring-blue-500/20">
             <Sparkles className="h-5 w-5 text-white animate-pulse" />
           </div>
           <div>
-            <h2 className="text-lg font-bold bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-lg font-bold bg-gradient-to-r from-[#2901b3] to-blue-500 bg-clip-text text-transparent">
               EasyTeach
             </h2>
             <p className="text-xs text-muted-foreground font-medium tracking-wide">
@@ -93,7 +97,7 @@ const AppSidebar = () => {
       <SidebarContent className="bg-gradient-to-b from-background via-primary/2 to-secondary/3 relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(120,119,198,0.03),transparent)] pointer-events-none" />
 
-        <SidebarGroup className="px-6 py-8 relative z-10">
+        <SidebarGroup className="px-3 py-8 relative z-10">
           <SidebarGroupLabel className="text-foreground/70 font-bold text-sm mb-6 flex items-center space-x-3 tracking-wide uppercase">
             <div className="w-6 h-6 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
               <Star className="h-3 w-3 text-white" />
@@ -101,27 +105,25 @@ const AppSidebar = () => {
             <span>Quick Access</span>
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-3">
+            <SidebarMenu className="space-y-1">
               {sidebarItems.map((item, index) => (
                 <SidebarMenuItem key={item.name}>
                   <SidebarMenuButton asChild className="group">
                     <a
                       href={item.href}
-
-                      className="flex items-center space-x-2 px-2 py-6 rounded-lg bg-white backdrop-blur-sm hover:bg-white/30 hover:shadow-xl hover:scale-105 relative overflow-hidden"
-
+                      className="flex items-center space-x-1 px-2 py-8 rounded-lg bg-white backdrop-blur-sm hover:bg-white/30 hover:shadow-xl hover:scale-105 relative overflow-hidden transition-all duration-300"
                     >
                       <div
-                        className={`p-3 rounded-xl bg-gradient-to-br ${item.gradient} shadow-lg ring-1 ring-white/30 group-hover:shadow-xl transition-all duration-300 flex-shrink-0`}
+                        className={`p-3 rounded-xl icon-bg shadow-lg group-hover:shadow-xl transition-all duration-300 flex-shrink-0`}
                       >
-                        <item.icon className="h-5 w-5 text-white" />
+                        <item.icon className="size-4 text-white" />
                       </div>
 
                       <div className="flex-1 min-w-0 flex flex-col justify-center">
-                        <span className="text-sm font-bold text-gray-900 leading-tight mb-1 truncate">
+                        <span className="text-xs font-bold text-gray-900 leading-tight mb-1 truncate">
                           {item.name}
                         </span>
-                        <span className="text-xs text-gray-500 leading-tight font-medium line-clamp-2">
+                        <span className="text-xs text-gray-500 leading-tight line-clamp-2">
                           {item.description}
                         </span>
                         {(item as any).isVicertaOnly && (
@@ -143,7 +145,7 @@ const AppSidebar = () => {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        <div className="px-6 py-6 relative z-10">
+        <div className="px-3 py-6 relative z-10">
           <div className="bg-gradient-to-br from-primary/8 via-secondary/8 to-accent/8 rounded-2xl p-5 border border-primary/20 backdrop-blur-sm relative overflow-hidden shadow-lg">
             {/* Decorative background */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(120,119,198,0.1),transparent)] pointer-events-none" />
@@ -169,7 +171,9 @@ const AppSidebar = () => {
                     />
                   ))}
                 </div>
-                <span className="text-xs text-muted-foreground font-medium">Sarah M.</span>
+                <span className="text-xs text-muted-foreground font-medium">
+                  Sarah M.
+                </span>
               </div>
             </div>
           </div>
@@ -185,10 +189,14 @@ const AppSidebar = () => {
             <div className="p-1 bg-gradient-to-r from-primary to-secondary rounded-md">
               <GraduationCap className="h-4 w-4 text-white" />
             </div>
-            <span className="font-semibold tracking-wide">{t("easyteach.sidebar.empoweringEducators")}</span>
+            <span className="font-semibold tracking-wide">
+              {t("easyteach.sidebar.empoweringEducators")}
+            </span>
           </div>
           <div className="flex items-center justify-center space-x-2">
-            <span className="text-xs text-muted-foreground font-medium">Powered by</span>
+            <span className="text-xs text-muted-foreground font-medium">
+              Powered by
+            </span>
             <div className="relative">
               <span className="text-sm font-black bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent tracking-wider">
                 VICERTA

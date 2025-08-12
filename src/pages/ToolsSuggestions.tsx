@@ -104,6 +104,7 @@ const ToolsSuggestions = () => {
                     onChange={(e) => setToolName(e.target.value)}
                     placeholder="e.g., Field Trip Permission Generator"
                     required
+                    className="py-6 focus:outline-none"
                   />
                 </div>
 
@@ -121,6 +122,7 @@ const ToolsSuggestions = () => {
                     placeholder="Describe what this tool would do and how it would work..."
                     rows={4}
                     required
+                    className=" focus:outline-none"
                   />
                 </div>
 
@@ -138,6 +140,7 @@ const ToolsSuggestions = () => {
                     placeholder="Explain how this tool would save time, improve teaching, or solve a specific problem..."
                     rows={4}
                     required
+                    className=" focus:outline-none"
                   />
                 </div>
 

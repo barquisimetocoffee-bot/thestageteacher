@@ -1,24 +1,34 @@
-
-import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
   const { toast } = useToast();
   const [profile, setProfile] = useState({
-    name: currentProfile?.name || '',
-    school: currentProfile?.school || '',
-    grade: currentProfile?.grade || '',
-    subjects: currentProfile?.subjects || '',
-    experience: currentProfile?.experience || '',
-    tone: currentProfile?.tone || 'friendly',
-    specialNeeds: currentProfile?.specialNeeds || '',
-    goals: currentProfile?.goals || ''
+    name: currentProfile?.name || "",
+    school: currentProfile?.school || "",
+    grade: currentProfile?.grade || "",
+    subjects: currentProfile?.subjects || "",
+    experience: currentProfile?.experience || "",
+    tone: currentProfile?.tone || "friendly",
+    specialNeeds: currentProfile?.specialNeeds || "",
+    goals: currentProfile?.goals || "",
   });
 
   const handleSave = () => {
@@ -26,7 +36,7 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
       toast({
         title: "Please fill in required fields",
         description: "Name and grade level are required.",
-        variant: "destructive"
+        variant: "destructive",
       });
       return;
     }
@@ -47,7 +57,8 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
             Let's Personalize Your Experience! ✨
           </DialogTitle>
           <p className="text-center text-gray-600 mt-2">
-            Tell us about yourself so we can create content that fits your classroom perfectly.
+            Tell us about yourself so we can create content that fits your
+            classroom perfectly.
           </p>
         </DialogHeader>
 
@@ -60,9 +71,11 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
               <Input
                 id="name"
                 value={profile.name}
-                onChange={(e) => setProfile({ ...profile, name: e.target.value })}
+                onChange={(e) =>
+                  setProfile({ ...profile, name: e.target.value })
+                }
                 placeholder="Ms. Johnson"
-                className="mt-1"
+                className="mt-1 focus:outline-none py-5"
               />
             </div>
 
@@ -73,9 +86,11 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
               <Input
                 id="school"
                 value={profile.school}
-                onChange={(e) => setProfile({ ...profile, school: e.target.value })}
+                onChange={(e) =>
+                  setProfile({ ...profile, school: e.target.value })
+                }
                 placeholder="Sunshine Elementary"
-                className="mt-1"
+                className="mt-1 focus:outline-none py-5"
               />
             </div>
           </div>
@@ -85,8 +100,13 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
               <Label htmlFor="grade" className="text-sm font-medium">
                 Grade Level *
               </Label>
-              <Select value={profile.grade} onValueChange={(value) => setProfile({ ...profile, grade: value })}>
-                <SelectTrigger className="mt-1">
+              <Select
+                value={profile.grade}
+                onValueChange={(value) =>
+                  setProfile({ ...profile, grade: value })
+                }
+              >
+                <SelectTrigger className="mt-1 focus:outline-none py-5">
                   <SelectValue placeholder="Select grade level" />
                 </SelectTrigger>
                 <SelectContent>
@@ -115,9 +135,11 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
               <Input
                 id="subjects"
                 value={profile.subjects}
-                onChange={(e) => setProfile({ ...profile, subjects: e.target.value })}
+                onChange={(e) =>
+                  setProfile({ ...profile, subjects: e.target.value })
+                }
                 placeholder="Math, Science, Reading"
-                className="mt-1"
+                className="mt-1 focus:outline-none py-5"
               />
             </div>
           </div>
@@ -127,8 +149,13 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
               <Label htmlFor="experience" className="text-sm font-medium">
                 Years Teaching
               </Label>
-              <Select value={profile.experience} onValueChange={(value) => setProfile({ ...profile, experience: value })}>
-                <SelectTrigger className="mt-1">
+              <Select
+                value={profile.experience}
+                onValueChange={(value) =>
+                  setProfile({ ...profile, experience: value })
+                }
+              >
+                <SelectTrigger className="mt-1 focus:outline-none py-5">
                   <SelectValue placeholder="Select experience" />
                 </SelectTrigger>
                 <SelectContent>
@@ -145,8 +172,13 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
               <Label htmlFor="tone" className="text-sm font-medium">
                 Preferred Communication Style
               </Label>
-              <Select value={profile.tone} onValueChange={(value) => setProfile({ ...profile, tone: value })}>
-                <SelectTrigger className="mt-1">
+              <Select
+                value={profile.tone}
+                onValueChange={(value) =>
+                  setProfile({ ...profile, tone: value })
+                }
+              >
+                <SelectTrigger className="mt-1 focus:outline-none py-5">
                   <SelectValue placeholder="Select tone" />
                 </SelectTrigger>
                 <SelectContent>
@@ -166,9 +198,11 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
             <Input
               id="specialNeeds"
               value={profile.specialNeeds}
-              onChange={(e) => setProfile({ ...profile, specialNeeds: e.target.value })}
+              onChange={(e) =>
+                setProfile({ ...profile, specialNeeds: e.target.value })
+              }
               placeholder="ELL students, Special Ed, Gifted, etc."
-              className="mt-1"
+              className="mt-1 focus:outline-none py-5"
             />
             <p className="text-xs text-gray-500 mt-1">
               This helps us suggest appropriate accommodations and strategies.
@@ -182,19 +216,25 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
             <Textarea
               id="goals"
               value={profile.goals}
-              onChange={(e) => setProfile({ ...profile, goals: e.target.value })}
+              onChange={(e) =>
+                setProfile({ ...profile, goals: e.target.value })
+              }
               placeholder="e.g., Help struggling readers catch up, make math more engaging, improve parent communication..."
-              className="mt-1"
+              className="mt-1 focus:outline-none"
               rows={3}
             />
           </div>
         </div>
 
         <div className="flex justify-end space-x-3 pt-4 border-t">
-          <Button variant="outline" onClick={onClose}>
+          <Button
+            variant="outline"
+            onClick={onClose}
+            className="hover:bg-gray-100 hover:text-black"
+          >
             Skip for Now
           </Button>
-          <Button onClick={handleSave} className="bg-blue-600 hover:bg-blue-700">
+          <Button onClick={handleSave} className="my-btn">
             Save My Profile 🎯
           </Button>
         </div>

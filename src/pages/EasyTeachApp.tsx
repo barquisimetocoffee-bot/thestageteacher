@@ -18,16 +18,17 @@ import AIAssistant from "@/components/AIAssistant";
 import GradeSystemSelector from "@/components/GradeSystemSelector";
 import LanguageSelector from "@/components/LanguageSelector";
 import { SubscriptionStatus } from "@/components/SubscriptionStatus";
-import { useTranslatedTools, useTranslatedCategories } from "@/hooks/useTranslatedTools";
+import {
+  useTranslatedTools,
+  useTranslatedCategories,
+} from "@/hooks/useTranslatedTools";
 
 import { tools } from "@/lib/toolsData";
 
 const EasyTeachApp = () => {
   const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState(
-    t("categories.all")
-  );
+  const [selectedCategory, setSelectedCategory] = useState(t("categories.all"));
   const [showProfile, setShowProfile] = useState(false);
   const [selectedTool, setSelectedTool] = useState(null);
   const [teacherProfile, setTeacherProfile] = useState(null);
@@ -62,11 +63,14 @@ const EasyTeachApp = () => {
       gradient: "from-purple-500 to-violet-600",
     },
     {
-      name: t("categories.communication") + " & " + t("categories.classroomManagement"),
+      name:
+        t("categories.communication") +
+        " & " +
+        t("categories.classroomManagement"),
       icon: "MessageCircle",
       color: "bg-orange-100 text-orange-800",
       gradient: "from-orange-500 to-red-600",
-    }
+    },
   ];
 
   // Map translated categories back to English for tool filtering
@@ -75,7 +79,9 @@ const EasyTeachApp = () => {
     [t("categories.lessonPlanning")]: "Lesson Planning",
     [t("categories.contentHub")]: "Content Hub",
     [t("categories.assessment")]: "Assessment",
-    [t("categories.communication") + " & " + t("categories.classroomManagement")]: "Communication"
+    [t("categories.communication") +
+    " & " +
+    t("categories.classroomManagement")]: "Communication",
   };
 
   const filteredTools = translatedTools.filter((tool) => {
@@ -86,7 +92,8 @@ const EasyTeachApp = () => {
       categoryMapping[selectedCategory] === "All" ||
       tool.category === categoryMapping[selectedCategory] ||
       (categoryMapping[selectedCategory] === "Communication" &&
-        (tool.category === "Communication" || tool.category === "Classroom Management"));
+        (tool.category === "Communication" ||
+          tool.category === "Classroom Management"));
     return matchesSearch && matchesCategory;
   });
 
@@ -177,20 +184,16 @@ const EasyTeachApp = () => {
 
             {/* Main Content Tabs */}
             <Tabs defaultValue="tools" className="w-full">
-
               <TabsList className="grid w-full grid-cols-2 bg-blue-50 border border-gray-300 mb-6 sm:mb-8 h-14">
                 <TabsTrigger
                   value="tools"
                   className="data-[state=active]:bg-[#2901b3] data-[state=active]:text-white text-sm sm:text-base"
-
                 >
                   {t("easyteach.tabs.teachingTools")}
                 </TabsTrigger>
                 <TabsTrigger
                   value="ai-assistant"
-
                   className="data-[state=active]:bg-[#2901b3] data-[state=active]:text-white text-sm sm:text-base"
-
                 >
                   <Bot className="h-4 w-4 mr-1 sm:mr-2" />
                   <span className="hidden sm:inline">
@@ -255,7 +258,10 @@ const EasyTeachApp = () => {
                       {t("easyteach.aiAssistant.description")}
                     </p>
                   </div>
-                  <AIAssistant tools={translatedTools} onToolRecommend={handleToolClick} />
+                  <AIAssistant
+                    tools={translatedTools}
+                    onToolRecommend={handleToolClick}
+                  />
                 </div>
               </TabsContent>
             </Tabs>

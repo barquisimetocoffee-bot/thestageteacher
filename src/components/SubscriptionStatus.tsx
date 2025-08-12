@@ -1,18 +1,27 @@
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import { Badge } from '@/components/ui/badge';
-import { Crown, Zap, Settings, RefreshCw } from 'lucide-react';
-import { useSubscription } from '@/hooks/useSubscription';
-import { UsageLimitModal } from './UsageLimitModal';
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
+import { Crown, Zap, Settings, RefreshCw } from "lucide-react";
+import { useSubscription } from "@/hooks/useSubscription";
+import { UsageLimitModal } from "./UsageLimitModal";
 
 interface SubscriptionStatusProps {
   className?: string;
 }
 
-export function SubscriptionStatus({ className = "" }: SubscriptionStatusProps) {
-  const { subscription, usage, loading, checkSubscription, openCustomerPortal, refreshUsage } = useSubscription();
+export function SubscriptionStatus({
+  className = "",
+}: SubscriptionStatusProps) {
+  const {
+    subscription,
+    usage,
+    loading,
+    checkSubscription,
+    openCustomerPortal,
+    refreshUsage,
+  } = useSubscription();
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -26,15 +35,15 @@ export function SubscriptionStatus({ className = "" }: SubscriptionStatusProps) 
     try {
       await openCustomerPortal();
     } catch (error) {
-      console.error('Error opening customer portal:', error);
+      console.error("Error opening customer portal:", error);
     }
   };
 
-  const usagePercentage = usage && !usage.unlimited 
-    ? (usage.used / usage.limit) * 100 
-    : 0;
+  const usagePercentage =
+    usage && !usage.unlimited ? (usage.used / usage.limit) * 100 : 0;
 
-  const isPro = subscription?.subscribed && subscription?.subscription_tier === 'pro';
+  const isPro =
+    subscription?.subscribed && subscription?.subscription_tier === "pro";
 
   return (
     <>
@@ -46,7 +55,10 @@ export function SubscriptionStatus({ className = "" }: SubscriptionStatusProps) 
                 <>
                   <Crown className="h-5 w-5 text-yellow-500" />
                   <span>EasyTeach Pro</span>
-                  <Badge variant="secondary" className="bg-yellow-100 text-yellow-800">
+                  <Badge
+                    variant="secondary"
+                    className="bg-yellow-100 text-yellow-800"
+                  >
                     Active
                   </Badge>
                 </>
@@ -64,10 +76,16 @@ export function SubscriptionStatus({ className = "" }: SubscriptionStatusProps) 
                 onClick={handleRefresh}
                 disabled={refreshing || loading}
               >
-                <RefreshCw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
+                <RefreshCw
+                  className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`}
+                />
               </Button>
               {isPro && (
-                <Button variant="ghost" size="sm" onClick={handleManageSubscription}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleManageSubscription}
+                >
                   <Settings className="h-4 w-4" />
                 </Button>
               )}
@@ -81,21 +99,25 @@ export function SubscriptionStatus({ className = "" }: SubscriptionStatusProps) 
               {usage.unlimited ? (
                 <div className="text-center p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border border-yellow-200">
                   <Crown className="h-8 w-8 text-yellow-500 mx-auto mb-2" />
-                  <p className="font-semibold text-yellow-800">Unlimited AI Generations</p>
+                  <p className="font-semibold text-yellow-800">
+                    Unlimited AI Generations
+                  </p>
                   <p className="text-sm text-yellow-600">No monthly limits</p>
                 </div>
               ) : (
                 <>
                   <div className="flex justify-between text-sm">
                     <span>AI Generations This Month</span>
-                    <span className="font-medium">{usage.used} / {usage.limit}</span>
+                    <span className="font-medium">
+                      {usage.used} / {usage.limit}
+                    </span>
                   </div>
                   <Progress value={usagePercentage} className="h-2" />
                   <div className="flex justify-between text-xs text-muted-foreground">
                     <span>{usage.remaining} remaining</span>
                     <span>{usagePercentage.toFixed(0)}% used</span>
                   </div>
-                  
+
                   {usage.remaining <= 5 && (
                     <div className="p-3 bg-orange-50 border border-orange-200 rounded-lg">
                       <p className="text-sm text-orange-800 font-medium">
@@ -114,18 +136,19 @@ export function SubscriptionStatus({ className = "" }: SubscriptionStatusProps) 
           {/* Action Buttons */}
           <div className="space-y-2">
             {!isPro && (
-              <Button 
+              <Button
                 onClick={() => setShowUpgradeModal(true)}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                className="w-full my-btn"
               >
                 <Crown className="h-4 w-4 mr-2" />
                 Upgrade to Pro
               </Button>
             )}
-            
+
             {isPro && subscription?.subscription_end && (
               <div className="text-xs text-muted-foreground text-center">
-                Renews on {new Date(subscription.subscription_end).toLocaleDateString()}
+                Renews on{" "}
+                {new Date(subscription.subscription_end).toLocaleDateString()}
               </div>
             )}
           </div>

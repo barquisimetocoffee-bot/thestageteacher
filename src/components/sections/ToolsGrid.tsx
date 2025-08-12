@@ -47,7 +47,7 @@ const ToolsGrid = ({
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 md:gap-6">
       {tools.map((tool) => {
         const IconComponent = tool.icon;
         const categoryInfo = categories.find(
@@ -60,13 +60,8 @@ const ToolsGrid = ({
             className="group relative overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-white/95 backdrop-blur-md border border-primary/20 hover:border-primary/40 rounded-2xl"
             onClick={(e) => handleToolClick(tool, e)}
           >
-            <div
-              className={`absolute inset-0 bg-gradient-to-br ${categoryInfo?.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
-            />
-
             <CardHeader className="pb-4 relative">
-
-              <div className="flex items-start justify-between">
+              <div className="flex items-start justify-between mb-2">
                 <div className="flex items-center space-x-4">
                   <div
                     className={`p-3 rounded-2xl icon-bg group-hover:scale-110 transition-transform duration-200 shadow-md`}
@@ -77,31 +72,20 @@ const ToolsGrid = ({
                     <CardTitle className="text-xl font-bold text-gray-900 ">
                       {tool.name}
                     </CardTitle>
-                    <Badge
-                      variant="secondary"
-                      className={`bg-blue-100 text-gray-800 font-medium mt-1`}
-                    >
-                      {tool.category}
-                    </Badge>
                   </div>
                 </div>
                 <div className="flex items-center space-x-1 text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">
                   <Clock className="h-4 w-4" />
                   <span className="font-medium">{tool.timesSaved}</span>
-
                 </div>
 
-                {tool.timesSaved && (
+                {/* {tool.timesSaved && (
                   <div className="flex items-center space-x-1 text-xs text-accent bg-accent/10 px-2 py-1 rounded-full border border-accent/20">
                     <Clock className="h-3 w-3" />
                     <span className="font-medium">{tool.timesSaved}</span>
                   </div>
-                )}
+                )} */}
               </div>
-
-              <CardTitle className="text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:from-secondary group-hover:to-primary transition-all duration-300 line-clamp-2 min-h-[3.5rem]">
-                {tool.name}
-              </CardTitle>
 
               <div className="flex items-center justify-between mt-2">
                 <Badge
@@ -113,14 +97,15 @@ const ToolsGrid = ({
 
                 {tool.estimatedTime && (
                   <span className="text-xs text-emerald-600 font-semibold bg-emerald-50 px-2 py-1 rounded-full border border-emerald-200">
-                    ✓ {t("easyteach.tools.readyIn", { time: tool.estimatedTime })}
+                    ✓{" "}
+                    {t("easyteach.tools.readyIn", { time: tool.estimatedTime })}
                   </span>
                 )}
               </div>
             </CardHeader>
 
             <CardContent className="relative pt-0">
-              <CardDescription className="text-muted-foreground leading-relaxed text-sm mb-6 line-clamp-3 min-h-[4.5rem]">
+              <CardDescription className="text-muted-foreground leading-relaxed text-sm mb-2 line-clamp-3 min-h-[4.5rem]">
                 {tool.description}
               </CardDescription>
 

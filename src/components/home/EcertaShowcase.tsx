@@ -9,15 +9,17 @@ import {
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
-  Brain,
-  Network,
-  Zap,
   Users,
   TrendingUp,
   Globe,
   CheckCircle,
 } from "lucide-react";
-
+import { GiArtificialIntelligence } from "react-icons/gi";
+import { GrConnectivity } from "react-icons/gr";
+import { HiOutlineSparkles } from "react-icons/hi";
+import { FaProjectDiagram } from "react-icons/fa";
+import { FaInfinity } from "react-icons/fa6";
+import { FaGraduationCap } from "react-icons/fa6";
 interface EcertaShowcaseProps {
   onShowLogin: () => void;
 }
@@ -30,7 +32,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
       title: t("showcase.consolidatedAI"),
       description: t("showcase.consolidatedAIDesc"),
       image: "./home/showcase1.svg",
-      icon: Brain,
+      icon: GiArtificialIntelligence,
       features: [
         "Cross-platform learning",
         "Shared intelligence",
@@ -42,7 +44,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
       title: t("showcase.seamlessIntegration"),
       description: t("showcase.seamlessIntegrationDesc"),
       image: "./home/showcase2.svg",
-      icon: Network,
+      icon: GrConnectivity,
       features: [
         "Data synchronization",
         "Single sign-on",
@@ -54,7 +56,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
       title: t("showcase.revolutionaryImpact"),
       description: t("showcase.revolutionaryImpactDesc"),
       image: "./home/showcase3.svg",
-      icon: Zap,
+      icon: HiOutlineSparkles,
       features: [
         "Industry transformation",
         "Future-ready solutions",
@@ -66,17 +68,17 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
 
   const whyEcerta = [
     {
-      icon: Users,
+      icon: FaProjectDiagram,
       title: t("showcase.completeEcosystem"),
       description: t("showcase.completeEcosystemDesc"),
     },
     {
-      icon: TrendingUp,
+      icon: FaInfinity,
       title: t("showcase.exponentialGrowth"),
       description: t("showcase.exponentialGrowthDesc"),
     },
     {
-      icon: Globe,
+      icon: FaGraduationCap,
       title: t("showcase.globalTransformation"),
       description: t("showcase.globalTransformationDesc"),
     },
@@ -100,11 +102,11 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
             </p>
           </div>
 
-          <div className="space-y-20">
+          <div className="space-y-4 md:space-y-20">
             {ecosystemFeatures.map((feature, index) => (
               <div
                 key={index}
-                className={`flex flex-col lg:flex-row items-center gap-12 ${
+                className={`bg-white p-3 rounded-xl md:bg-transparent md:p-0 md:rounded-none flex flex-col-reverse lg:flex-row items-center gap-12 ${
                   index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 } animate-fade-in`}
                 style={{ animationDelay: `${index * 0.3}s` }}

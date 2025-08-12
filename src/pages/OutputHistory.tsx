@@ -216,7 +216,7 @@ const OutputHistory = () => {
               Start using our AI tools to see your generated content here.
             </p>
             <Link to="/easyteach-app">
-              <Button>Create Your First Content</Button>
+              <Button className="my-btn">Create Your First Content</Button>
             </Link>
           </div>
         )}

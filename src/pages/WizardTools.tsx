@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Search, ArrowLeft, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -19,10 +12,10 @@ const WizardTools = () => {
   const [selectedTool, setSelectedTool] = useState(null);
   const translatedTools = useTranslatedTools();
 
-  const filteredTools = translatedTools.filter(tool =>
-    tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    tool.description.toLowerCase().includes(searchTerm.toLowerCase())
-
+  const filteredTools = translatedTools.filter(
+    (tool) =>
+      tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      tool.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleToolClick = (tool) => {
@@ -72,36 +65,40 @@ const WizardTools = () => {
             const IconComponent = tool.icon;
 
             return (
-              <Card
+              <div
                 key={tool.id}
-                className="hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:-translate-y-1 border-2 border-gray-100 hover:border-blue-200"
+                className="hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:-translate-y-1 bg-white border border-gray-200 p-4 rounded-2xl"
                 onClick={() => handleToolClick(tool)}
               >
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className={`p-2 rounded-lg icon-bg text-white`}>
-                        <IconComponent className="h-6 w-6" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-lg font-semibold text-gray-900">
-                          {tool.name}
-                        </CardTitle>
-                        <Badge variant="secondary" className="mt-1">
-                          {tool.category}
-                        </Badge>
-                      </div>
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center space-x-3">
+                    <div
+                      className={`p-3 rounded-2xl icon-bg text-white group-hover:scale-110 transition-transform duration-200 shadow-md`}
+                    >
+                      <IconComponent className="h-7 w-7" />
                     </div>
-                    <div className="flex items-center space-x-1 text-sm text-amber-600">
-                      <Clock className="h-4 w-4" />
-                      <span>{tool.timesSaved}</span>
+                    <div>
+                      <h1 className="text-lg font-bold text-gray-900">
+                        {tool.name}
+                      </h1>
+                      <Badge
+                        variant="secondary"
+                        className="text-xs bg-primary/10 text-primary border-primary/20 font-medium"
+                      >
+                        {tool.category}
+                      </Badge>
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600 leading-relaxed">
+                  <div className="flex items-center space-x-1 text-sm text-amber-600">
+                    <Clock className="h-4 w-4" />
+                    <span>{tool.timesSaved}</span>
+                  </div>
+                </div>
+
+                <div className="flex flex-col justify-between">
+                  <p className="text-gray-600 leading-relaxed">
                     {tool.description}
-                  </CardDescription>
+                  </p>
                   <div className="mt-4 flex items-center justify-between">
                     <span className="text-sm text-green-600 font-medium">
                       ✓ Ready in {tool.estimatedTime}
@@ -113,8 +110,8 @@ const WizardTools = () => {
                       Try it →
                     </Button>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             );
           })}
         </div>

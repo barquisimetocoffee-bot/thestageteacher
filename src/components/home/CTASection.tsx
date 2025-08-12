@@ -16,7 +16,6 @@ const CTASection = ({ onShowLogin, onJoinWaitlist }: CTASectionProps) => {
         {/* Trust indicators */}
         <div className="flex justify-center items-center space-x-8 mb-8 text-gray-600">
           <div className="flex items-center space-x-2">
-
             <Users className="size-6 md:size-5 text-blue-500" />
             <span className="text-sm font-medium">100,000+ Teachers</span>
           </div>
@@ -31,8 +30,7 @@ const CTASection = ({ onShowLogin, onJoinWaitlist }: CTASectionProps) => {
         </div>
 
         <h2 className="text-3xl md:text-5xl font-bold mb-6 pb-2 bg-gradient-to-r from-[#2901B3] to-blue-600 bg-clip-text text-transparent">
-          Ready to Transform Your Teaching?
-
+          Smarter Teaching. Seamless Learning. Effortless School Management.
         </h2>
 
         <p className="text-xl mb-12 text-gray-700 max-w-2xl mx-auto leading-relaxed">
@@ -45,10 +43,8 @@ const CTASection = ({ onShowLogin, onJoinWaitlist }: CTASectionProps) => {
             onClick={onShowLogin}
             className="w-full md:w-72 my-btn text-white px-6 py-6 rounded-xl group"
           >
-
             Get Started for Free
             <ArrowRight className="ml-2 size-6 md:size-5 group-hover:translate-x-1 transition-transform" />
-
           </Button>
 
           <Button
@@ -57,7 +53,6 @@ const CTASection = ({ onShowLogin, onJoinWaitlist }: CTASectionProps) => {
             onClick={() => onJoinWaitlist("Advanced Features")}
             className="w-full md:w-72 hover:bg-purple-50 hover:text-primary px-6 py-6 rounded-xl group"
           >
-
             <Sparkles className="mr-2 size-6 md:size-5 group-hover:scale-110 transition-transform" />
             Join Waitlist
           </Button>

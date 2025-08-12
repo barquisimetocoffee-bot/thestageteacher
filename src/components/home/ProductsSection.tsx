@@ -51,7 +51,7 @@ const ProductsSection = ({
       setUpgrading(true);
       await createCheckout(); // Use default Pro plan price
     } catch (error) {
-      console.error('Error upgrading:', error);
+      console.error("Error upgrading:", error);
     } finally {
       setUpgrading(false);
     }
@@ -60,7 +60,7 @@ const ProductsSection = ({
     {
       id: "easyteach-free",
 
-      name: "EasyTeach Free",
+      name: t("products.easyTeachFree"),
       description:
         "Perfect for getting started with AI-powered teaching tools and basic content generation.",
       longDescription:
@@ -69,11 +69,14 @@ const ProductsSection = ({
       status: "available",
       color: "from-blue-500 to-blue-600",
       bgColor: "blue",
-      price: t("common.free"),
-      priceSubtext: t("products.freeForever"),
+      price: t("products.freeForever"),
+      priceSubtext: "",
       features: [
         { text: t("products.basicLessonPlanning"), reactIcon: FaCheck },
-        { text: t("products.parentCommunicationTemplates"), reactIcon: FaCheck },
+        {
+          text: t("products.parentCommunicationTemplates"),
+          reactIcon: FaCheck,
+        },
         { text: t("products.limitedAIGenerations"), reactIcon: FaCheck },
         { text: t("products.basicBehaviorManagement"), reactIcon: FaCheck },
         { text: t("products.communitySupportText"), reactIcon: FaCheck },
@@ -131,8 +134,14 @@ const ProductsSection = ({
           reactIcon: MdOutlineAutoGraph,
         },
         { text: t("products.aiPoweredAdministrative"), reactIcon: FaRobot },
-        { text: t("products.studentPerformanceAnalytics"), reactIcon: VscGraph },
-        { text: t("products.staffManagementScheduling"), reactIcon: PiUsersThreeFill },
+        {
+          text: t("products.studentPerformanceAnalytics"),
+          reactIcon: VscGraph,
+        },
+        {
+          text: t("products.staffManagementScheduling"),
+          reactIcon: PiUsersThreeFill,
+        },
         { text: t("products.parentSchoolCommunication"), reactIcon: FaCheck },
         { text: t("products.institutionalReporting"), reactIcon: FaCheck },
       ],
@@ -166,8 +175,14 @@ const ProductsSection = ({
           text: t("products.smartProctoringGrading"),
           reactIcon: RiSecurePaymentFill,
         },
-        { text: t("products.gamificationVRARIntegration"), reactIcon: FaGamepad },
-        { text: t("products.predictiveAnalyticsAssistant"), reactIcon: FaCheck },
+        {
+          text: t("products.gamificationVRARIntegration"),
+          reactIcon: FaGamepad,
+        },
+        {
+          text: t("products.predictiveAnalyticsAssistant"),
+          reactIcon: FaCheck,
+        },
         {
           text: t("products.blockchainCertificates"),
           reactIcon: FaCheck,
@@ -185,7 +200,6 @@ const ProductsSection = ({
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
-
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Choose Your
             <span className="bg-gradient-to-r from-[#2901B3] to-blue-600 bg-clip-text text-transparent">
@@ -202,26 +216,29 @@ const ProductsSection = ({
           {products.map((product, index) => (
             <div
               key={product.id}
-
               className={`relative flex flex-col justify-between border border-gray-300 rounded-2xl hover:border-${product.bgColor}-600 hover:border-blue-500`}
             >
               <div>
                 {/* header */}
                 <div
-                  className={`flex items-center justify-between bg-${product.bgColor
-                    }-600 ${product.name.startsWith("School") && "bg-orange-600"
-                    } text-white rounded-t-2xl px-4 py-12 md:py-12
+                  className={`flex items-center justify-between bg-${
+                    product.bgColor
+                  }-600 ${
+                    product.name.startsWith("School") && "bg-orange-600"
+                  } text-white rounded-t-2xl px-4 py-12 md:py-12
                 `}
                 >
                   <h1 className="text-lg/6 font-bold text-white">
                     {product.name}
                   </h1>
                   <span
-                    className={`text-xs ${product.name.startsWith("School")
+                    className={`text-xs ${
+                      product.name.startsWith("School")
                         ? "w-fit md:w-[108px] text-center"
                         : "w-fit"
-                      } bg-white rounded-full px-2 py-1 text-${product.bgColor
-                      }-600 font-semibold`}
+                    } bg-white rounded-full px-2 py-1 text-${
+                      product.bgColor
+                    }-600 font-semibold`}
                   >
                     {product.status}
                   </span>
@@ -229,11 +246,13 @@ const ProductsSection = ({
 
                 {/* icon */}
                 <span
-                  className={`absolute left-4 z-10 size-16 p-3 rounded-full bg-accent flex items-center justify-center bg-${product.bgColor
-                    }-100 ${product.name.startsWith("School")
+                  className={`absolute left-4 z-10 size-16 p-3 rounded-full bg-accent flex items-center justify-center bg-${
+                    product.bgColor
+                  }-100 ${
+                    product.name.startsWith("School")
                       ? "top-20 md:top-[110px]"
                       : "top-[85px]"
-                    }`}
+                  }`}
                 >
                   <product.icon
                     className={`h-6 w-6 text-${product.bgColor}-600`}
@@ -280,10 +299,11 @@ const ProductsSection = ({
                         .map((feature, featureIndex) => (
                           <p
                             key={`${product.id}-feature-${featureIndex}`}
-                            className={`text-gray-600 flex items-start text-sm ${feature.text.startsWith("Everything in Free")
+                            className={`text-gray-600 flex items-start text-sm ${
+                              feature.text.startsWith("Everything in Free")
                                 ? "font-semibold"
                                 : ""
-                              }`}
+                            }`}
                           >
                             <feature.reactIcon
                               className={`size-4 mr-2 mt-1 text-${product.bgColor}-600`}
@@ -302,13 +322,16 @@ const ProductsSection = ({
               {/* button */}
               <div className={`p-4`}>
                 <Button
-
-                  className={`mt-4 py-6 w-full flex items-center justify-center bg-${product.bgColor
-                    }-600 hover:bg-${product.bgColor}-700 ${product.name.startsWith("School") &&
+                  className={`mt-4 py-6 w-full flex items-center justify-center bg-${
+                    product.bgColor
+                  }-600 hover:bg-${product.bgColor}-700 ${
+                    product.name.startsWith("School") &&
                     "bg-orange-600 hover:bg-orange-700"
-                    }`}
+                  }`}
                 >
-                  {product.id === "easyteach-pro" && upgrading ? "Opening Checkout..." : product.actionText}{" "}
+                  {product.id === "easyteach-pro" && upgrading
+                    ? "Opening Checkout..."
+                    : product.actionText}{" "}
                   <product.btnIcon className="h-4 w-4 ml-2" />
                 </Button>
               </div>

@@ -1,55 +1,64 @@
-
-
 import { useTranslation } from "react-i18next";
-import { Sparkles } from "lucide-react";
+import { Instagram, Linkedin, Sparkles } from "lucide-react";
 
 import { Facebook, Twitter, Youtube } from "lucide-react";
-
 
 const Footer = () => {
   const { t } = useTranslation();
   return (
-
-    <footer className="bg-[#2901b3] text-white grid grid-cols-1 md:grid-cols-3 gap-8 py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#2901b3] text-white flex flex-col md:flex-row justify-between gap-8 py-12 px-4 sm:px-6 lg:px-8">
       {/* Footer Content */}
-      <div>
+      <div className="w-full md:w-1/3">
         <img
           src="/logos/brand-light.svg"
           alt="Footer Logo"
           className="w-32 mb-4"
         />
         <p className="text-gray-200 mb-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-          recusandae asperiores beatae aut delectus commodi sint deleniti magni
-          enim reiciendis sunt, vero provident labore facere tenetur nam iste
-          cum, inventore repellendus assumenda temporibus consequatur quia
-          cupiditate! Iusto quasi porro itaque?
+          Vicerta is revolutionizing the future of education with a powerful
+          suite of AI-driven solutions, seamlessly transforming the way we
+          teach, learn, and manage institutions. By integrating innovation with
+          accessibility, we empower educators, students, and administrators to
+          achieve more than ever before.
         </p>
         <h1 className="text-2xl font-semibold text-white block text-center md:text-start">
           Follow us
         </h1>
 
-        <div className="flex items-center justify-center md:justify-start space-x-4 pt-2">
+        <div className="flex items-center justify-center md:justify-start space-x-2 pt-2">
           {[
             { name: "twitter", href: "#" },
             {
-              name: "youtube",
-              href: "#",
+              name: "linkden",
+              href: "https://www.linkedin.com/company/vicerta/",
             },
-            { name: "facebook", href: "#" },
+            {
+              name: "instagram",
+              href: "https://www.instagram.com/getvicerta?igsh=MTAydTBlMzU4cjFxcw==",
+            },
+            {
+              name: "youtube",
+              href: "https://youtube.com/@vicerta?si=2ZgigIb4rlfOd_IN",
+            },
+            {
+              name: "facebook",
+              href: "https://www.facebook.com/share/196DREtSkM/?mibextid=wwXIfr",
+            },
           ].map((a) => (
             <a
               href={a.href}
-              className="border border-gray-200 rounded-full p-2 hover:bg-white hover:text-[#2901b3] transition-all duration-200"
+              className="border border-gray-200 rounded-full p-1 hover:bg-white hover:text-[#2901b3] transition-all duration-200"
             >
-              {a.name.startsWith("twi") && <Twitter />}
-              {a.name.startsWith("yout") && <Youtube />}
-              {a.name.startsWith("fac") && <Facebook />}
+              {a.name.startsWith("twi") && <Twitter size={18} />}
+              {a.name.startsWith("yout") && <Youtube size={18} />}
+              {a.name.startsWith("fac") && <Facebook size={18} />}
+              {a.name.startsWith("inst") && <Instagram size={18} />}
+              {a.name.startsWith("link") && <Linkedin size={18} />}
             </a>
           ))}
         </div>
       </div>
-      <div className="flex justify-between px-12 md:px-0 border border-emerald-300">
+      <div className="flex justify-between px-12 md:px-0 w-1/2">
         <div>
           <h3 className="text-lg font-semibold mb-4 text-white block text-center">
             Content
