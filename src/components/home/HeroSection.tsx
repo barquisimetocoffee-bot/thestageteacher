@@ -7,8 +7,6 @@ import { GiEmptyHourglass } from "react-icons/gi";
 import { LiaUsersSolid } from "react-icons/lia";
 import { GrIntegration } from "react-icons/gr";
 import {
-  Users,
-  TrendingUp,
   Shield,
   Globe,
   Star,
@@ -17,6 +15,9 @@ import {
   Contact,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import AnimateFromBottom from "../animation/AnimateFromBottom";
+import TypingEffect from "../animation/TypingText";
+import ScrollInFromBottom from "../animation/ScrollInFromBottom";
 
 interface HeroSectionProps {
   onShowLogin: () => void;
@@ -59,7 +60,7 @@ const HeroSection = ({ onShowLogin }: HeroSectionProps) => {
             <h1 className="text-center md:text-start text-3xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight animate-scale-in">
               {t("hero.title")}
               <span className="bg-gradient-to-r from-[#2901B3] to-blue-600 bg-clip-text text-transparent block transition-all duration-1000 animate-fade-in pb-2">
-                {messages[currentMessageIndex]}
+                <TypingEffect text={messages[currentMessageIndex]} speed={50} />
               </span>
             </h1>
 
@@ -90,86 +91,96 @@ const HeroSection = ({ onShowLogin }: HeroSectionProps) => {
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button
-                size="lg"
-                onClick={onShowLogin}
-                className="w-full md:w-72 my-btn text-white px-6 py-6 rounded-xl group"
-              >
-                Get Started Free
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
+            <AnimateFromBottom time={1.5}>
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <Button
+                  size="lg"
+                  onClick={onShowLogin}
+                  className="w-full md:w-72 my-btn text-white px-6 py-6 rounded-xl group"
+                >
+                  Get Started Free
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </Button>
 
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full md:w-72 text-black hover:bg-gray-50 hover:text-[#2901B3] px-6 py-6 rounded-xl group"
-                onClick={() => navigate("/contact-us")}
-              >
-                <Contact className="mr-2 size-5 group-hover:scale-[1.04] transition-all duration-300" />
-                Contact Us
-              </Button>
-            </div>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full md:w-72 text-black hover:bg-gray-50 hover:text-[#2901B3] px-6 py-6 rounded-xl group"
+                  onClick={() => navigate("/contact-us")}
+                >
+                  <Contact className="mr-2 size-5 group-hover:scale-[1.04] transition-all duration-300" />
+                  Contact Us
+                </Button>
+              </div>
+            </AnimateFromBottom>
           </div>
           <div>
-            <img
-              src="/hero/hero.svg"
-              alt=""
-              className="md:w-[500px] lg:w-[450px]"
-            />
+            <AnimateFromBottom time={1.5}>
+              <img
+                src="/hero/hero.svg"
+                alt=""
+                className="md:w-[500px] lg:w-[450px]"
+              />
+            </AnimateFromBottom>
           </div>
         </div>
 
         {/* Hero Section Cards */}
         <div className="w-full pt-12 grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto mb-4 animate-fade-in px-4 md:px-8">
-          <div className=" bg-white/80 backdrop-blur-sm rounded-xl p-6 hover:shadow-lg hover:scale-105  transition-all duration-300 border border-white/20">
-            <div className="flex items-center justify-center mb-4">
-              <div className="p-3 rounded-tr rounded-bl-sm icon-bg shadow-lg">
-                <LiaUsersSolid className="h-6 w-6 text-white" />
+          <ScrollInFromBottom delay={0.4}>
+            <div className=" bg-white/80 backdrop-blur-sm rounded-xl p-6 hover:shadow-lg hover:scale-105  transition-all duration-300 border border-white/20">
+              <div className="flex items-center justify-center mb-4">
+                <div className="p-3 rounded-tr rounded-bl-sm icon-bg shadow-lg">
+                  <LiaUsersSolid className="h-6 w-6 text-white" />
+                </div>
+              </div>
+              <div className="text-3xl font-bold text-[#2901B3] mb-2">
+                <AnimatedCounter end={500} suffix="+" />
+              </div>
+              <div className="text-gray-700 font-medium mb-2">
+                {t("hero.activeEducators")}
+              </div>
+              <div className="text-sm text-gray-500">
+                {t("hero.acrossAllPlatforms")}
               </div>
             </div>
-            <div className="text-3xl font-bold text-[#2901B3] mb-2">
-              <AnimatedCounter end={500} suffix="+" />
-            </div>
-            <div className="text-gray-700 font-medium mb-2">
-              {t("hero.activeEducators")}
-            </div>
-            <div className="text-sm text-gray-500">
-              {t("hero.acrossAllPlatforms")}
-            </div>
-          </div>
-          <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 hover:shadow-lg hover:scale-105  transition-all duration-300 border border-white/20">
-            <div className="flex items-center justify-center mb-4">
-              <div className="p-3 rounded-tr rounded-bl-sm icon-bg shadow-lg">
-                <GrIntegration className="h-6 w-6 text-white" />
+          </ScrollInFromBottom>
+          <ScrollInFromBottom delay={0.6}>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 hover:shadow-lg hover:scale-105  transition-all duration-300 border border-white/20">
+              <div className="flex items-center justify-center mb-4">
+                <div className="p-3 rounded-tr rounded-bl-sm icon-bg shadow-lg">
+                  <GrIntegration className="h-6 w-6 text-white" />
+                </div>
+              </div>
+              <div className="text-3xl font-bold text-[#2901B3] mb-2">
+                <AnimatedCounter end={3} />
+              </div>
+              <div className="text-gray-700 font-medium mb-2">
+                {t("hero.integratedProducts")}
+              </div>
+              <div className="text-sm text-gray-500">
+                {t("hero.completeEcosystem")}
               </div>
             </div>
-            <div className="text-3xl font-bold text-[#2901B3] mb-2">
-              <AnimatedCounter end={3} />
-            </div>
-            <div className="text-gray-700 font-medium mb-2">
-              {t("hero.integratedProducts")}
-            </div>
-            <div className="text-sm text-gray-500">
-              {t("hero.completeEcosystem")}
-            </div>
-          </div>
-          <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 hover:shadow-lg hover:scale-105  transition-all duration-300 border border-white/20">
-            <div className="flex items-center justify-center mb-4">
-              <div className="p-3 rounded-tr rounded-bl-sm icon-bg shadow-lg">
-                <GiEmptyHourglass className="h-6 w-6 text-white" />
+          </ScrollInFromBottom>
+          <ScrollInFromBottom delay={0.8}>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 hover:shadow-lg hover:scale-105  transition-all duration-300 border border-white/20">
+              <div className="flex items-center justify-center mb-4">
+                <div className="p-3 rounded-tr rounded-bl-sm icon-bg shadow-lg">
+                  <GiEmptyHourglass className="h-6 w-6 text-white" />
+                </div>
+              </div>
+              <div className="text-3xl font-bold text-[#2901B3] mb-2">
+                <AnimatedCounter end={50} suffix="+" />
+              </div>
+              <div className="text-gray-700 font-medium mb-2">
+                {t("hero.hoursSavedMonthly")}
+              </div>
+              <div className="text-sm text-gray-500">
+                {t("hero.perInstitution")}
               </div>
             </div>
-            <div className="text-3xl font-bold text-[#2901B3] mb-2">
-              <AnimatedCounter end={50} suffix="+" />
-            </div>
-            <div className="text-gray-700 font-medium mb-2">
-              {t("hero.hoursSavedMonthly")}
-            </div>
-            <div className="text-sm text-gray-500">
-              {t("hero.perInstitution")}
-            </div>
-          </div>
+          </ScrollInFromBottom>
         </div>
       </div>
     </section>

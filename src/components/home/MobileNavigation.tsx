@@ -212,6 +212,11 @@ const MobileNavigation = ({
               )}
             </div>
 
+            {/* Pricing */}
+            <button className="flex items-center  w-full px-4 py-3 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg">
+              <span>Pricing</span>
+            </button>
+
             {/* Resources */}
             <div>
               <button

@@ -8,6 +8,7 @@ import CTASection from "@/components/home/CTASection";
 import Footer from "@/components/home/Footer";
 import LoginModal from "@/components/auth/LoginModal";
 import WaitlistModal from "@/components/WaitlistModal";
+import FAQ from "@/components/home/FAQ";
 
 const EcertaHome = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -33,6 +34,8 @@ const EcertaHome = () => {
         onShowLogin={() => setShowLogin(true)}
         onJoinWaitlist={handleJoinWaitlist}
       />
+
+      <FAQ />
 
       <CTASection
         onShowLogin={() => setShowLogin(true)}

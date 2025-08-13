@@ -46,21 +46,25 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
   const solutionsByCategory = [
     {
       title: "Primary Schools",
+      desc: "Engage young learners with simple, intuitive tools",
       color: "from-pink-500 to-rose-500",
       onClick: () => navigate("/solutions/primary-schools"),
     },
     {
       title: "Secondary Schools",
+      desc: "Empower educators, engage students, and simplify operations",
       color: "from-blue-500 to-cyan-500",
       onClick: () => navigate("/solutions/secondary-schools"),
     },
     {
       title: "Universities",
+      desc: "Streamline academic workflows and enhance student experience",
       color: "from-purple-500 to-indigo-500",
       onClick: () => navigate("/solutions/universities"),
     },
     {
       title: "Independent Schools",
+      desc: "Flexible, tailored solutions for unique learning models",
       color: "from-green-500 to-emerald-500",
       onClick: () => navigate("/solutions/independent-schools"),
     },
@@ -69,26 +73,31 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
   const solutionsByDepartment = [
     {
       title: "Admissions",
+      desc: "Attract, manage, and enroll students with zero hassle",
       color: "from-blue-500 to-cyan-500",
       onClick: () => navigate("/solutions/admissions"),
     },
     {
       title: "General Report",
+      desc: "Real-time insights for smarter decision-making",
       color: "from-purple-500 to-indigo-500",
       onClick: () => navigate("/solutions/general-reports"),
     },
     {
       title: "HR & Payroll",
+      desc: "Effortless staff management, from hiring to payroll",
       color: "from-green-500 to-emerald-500",
       onClick: () => navigate("/solutions/hr-payroll"),
     },
     {
       title: "Finance",
+      desc: "Stay on top of budgets, fees, and payments in real time",
       color: "from-yellow-500 to-orange-500",
       onClick: () => navigate("/solutions/finance"),
     },
     {
       title: "Communication",
+      desc: "Keep everyone connected in one hub",
       color: "from-pink-500 to-rose-500",
       onClick: () => navigate("/solutions/communication"),
     },
@@ -174,7 +183,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                     {products.map((product) => (
                       <div
                         key={product.id}
-                        className="flex items-start space-x-3 p-3 rounded-lg hover:bg-accent/10 hover:text-white transition-colors cursor-pointer"
+                        className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-100 hover:text-white transition-colors cursor-pointer"
                         onClick={product.onClick}
                       >
                         <div className="flex-1">
@@ -207,23 +216,26 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                   {t("navigation.solutions")}
                 </span>
 
-                <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-6 w-96 animate-fade-in rounded-2xl z-50">
+                <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-6 w-[600px] animate-fade-in rounded z-50">
                   <div className="grid grid-cols-2 gap-6">
                     {/* By Category */}
                     <div>
                       <h3 className="font-semibold text-foreground mb-3">
                         {t("navigation.byCategory")}
                       </h3>
-                      <div className="space-y-2">
+                      <div className="">
                         {solutionsByCategory.map((solution, index) => (
                           <div
                             key={index}
-                            className="group p-2 rounded-lg hover:bg-accent/10 transition-all duration-200 cursor-pointer"
+                            className=" p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 cursor-pointer"
                             onClick={solution.onClick}
                           >
-                            <div className="flex items-center space-x-3">
-                              <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                            <div className="flex flex-col">
+                              <span className="text-sm font-medium text-black">
                                 {solution.title}
+                              </span>
+                              <span className="text-xs text-gray-600">
+                                {solution.desc}
                               </span>
                             </div>
                           </div>
@@ -236,16 +248,19 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                       <h3 className="font-semibold text-foreground mb-3">
                         {t("navigation.byDepartment")}
                       </h3>
-                      <div className="space-y-2">
+                      <div className="">
                         {solutionsByDepartment.map((solution, index) => (
                           <div
                             key={index}
-                            className="group p-2 rounded-lg hover:bg-accent/10 transition-all duration-200 cursor-pointer"
+                            className="p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 cursor-pointer"
                             onClick={solution.onClick}
                           >
-                            <div className="flex items-center space-x-3">
-                              <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                            <div className="flex flex-col">
+                              <span className="text-sm font-medium">
                                 {solution.title}
+                              </span>
+                              <span className="text-xs text-gray-600">
+                                {solution.desc}
                               </span>
                             </div>
                           </div>
@@ -265,6 +280,15 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                 </div>
               </div>
 
+              <div className="group p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 cursor-pointer">
+                <div className="flex items-center space-x-3">
+                  <span className="text-[15px] text-foreground group-hover:text-primary transition-colors">
+                    Pricing
+                  </span>
+                </div>
+              </div>
+
+              {/* resources */}
               <div className="relative group">
                 <span className="text-foreground hover:text-primary hover:bg-blue-100 px-3 py-2 rounded-md cursor-pointer">
                   {t("navigation.resources")}
@@ -274,10 +298,10 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                     {resourcesMenu.map((item, index) => (
                       <div
                         key={index}
-                        className="flex items-center space-x-3 p-3 rounded-lg hover:bg-accent/10 transition-colors cursor-pointer"
+                        className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
                         onClick={item.onClick}
                       >
-                        <span className="font-medium text-foreground hover:text-orange-700 transition-colors">
+                        <span className="font-medium text-foreground">
                           {item.title}
                         </span>
                       </div>
@@ -295,7 +319,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                     {aboutMenu.map((item, index) => (
                       <div
                         key={index}
-                        className="flex items-center space-x-3 p-3 rounded-lg hover:bg-accent/10 transition-colors cursor-pointer"
+                        className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
                         onClick={item.onClick}
                       >
                         <span className="font-medium text-foreground hover:text-slate-700 transition-colors">
@@ -312,7 +336,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
               <LanguageSelector />
               <Button
                 variant="outline"
-                className="text-primary border-border hover:bg-accent/10 hover:text-primary/90 transition-all duration-200"
+                className="text-primary border-border hover:bg-gray-100 hover:text-primary/90 transition-all duration-200"
                 onClick={handleBookDemo}
               >
                 {t("navigation.contact")}
