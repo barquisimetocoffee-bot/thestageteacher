@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#2901b3] border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="space-y-4">
             <div className="">
@@ -26,29 +26,52 @@ const Footer = () => {
                 className="h-12"
               />
             </div>
-            <p className="text-sm text-gray-100">
-              Vicerta is revolutionizing the future of education with a powerful
-              suite of AI-driven solutions, seamlessly transforming the way we
-              teach, learn, and manage institutions. By integrating innovation
-              with accessibility, we empower educators, students, and
-              administrators to achieve more than ever before.
-            </p>
+
+            {/* Social Media Links */}
+            <div>
+              <h1 className="text-lg font-semibold text-white mb-2">
+                Follow Us
+              </h1>
+              <div className="flex space-x-3">
+                <a
+                  href="https://www.facebook.com/share/196DREtSkM/?mibextid=wwXIfr"
+                  className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
+                >
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/vicerta/"
+                  className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/getvicerta?igsh=MTAydTBlMzU4cjFxcw=="
+                  className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://youtube.com/@vicerta?si=2ZgigIb4rlfOd_IN"
+                  className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
+                >
+                  <Youtube className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* Tools */}
+          {/* Platform */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-white mb-4">Platform</h3>
             <ul className="space-y-2 text-sm">
               {[
-                { name: "Home", link: "/" },
-                { name: "Primary School", link: "/solutions/primary-schools" },
+                { name: "EasyTeach", link: "/" },
+                { name: "Advanced AI LMS", link: "/solutions/primary-schools" },
                 {
-                  name: "Secondary School",
+                  name: "School Administration",
                   link: "/solutions/secondary-schools",
                 },
-                { name: "University", link: "/solutions/universities" },
-                { name: "About", link: "#" },
-                { name: "Contact", link: "/contact" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link
@@ -62,55 +85,79 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Popular */}
+          {/* Solutions */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Popular Tools</h3>
+            <h3 className="font-semibold text-white mb-4">Solutions</h3>
             <ul className="space-y-2 text-sm">
               {[
-                "Quiz Creator",
-                "AI Text Detector",
-                "Lesson Plan Generator",
-                "Presentation Generator",
-                "Student Grouping Tool",
+                { name: "Primary Schools", link: "/solutions/primary-schools" },
+                {
+                  name: "Secondary Schools",
+                  link: "/solutions/secondary-schools",
+                },
+                {
+                  name: "Independent Schools",
+                  link: "/solutions/independent-schools",
+                },
+                { name: "Universities", link: "/solutions/universities" },
+                { name: "Admissions", link: "/solutions/admissions" },
+                { name: "General Report", link: "/solutions/general-report" },
+                { name: "HR & Payroll", link: "/solutions/hr-payroll" },
+                { name: "Finance", link: "/solutions/finance" },
+                { name: "Communication", link: "/solutions/communication" },
               ].map((tool) => (
-                <li key={tool}>
-                  <p className="text-gray-200 text-sm hover:text-white transition-colors duration-200">
-                    {tool}
-                  </p>
+                <li key={tool.name}>
+                  <Link
+                    to={tool.link}
+                    className="text-gray-200 text-sm hover:text-white transition-colors duration-200"
+                  >
+                    {tool.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Connect */}
+          {/* About us */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Connect</h3>
-            <div className="flex space-x-4">
-              <a
-                href="https://www.facebook.com/share/196DREtSkM/?mibextid=wwXIfr"
-                className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/vicerta/"
-                className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/getvicerta?igsh=MTAydTBlMzU4cjFxcw=="
-                className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="https://youtube.com/@vicerta?si=2ZgigIb4rlfOd_IN"
-                className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
-              >
-                <Youtube className="h-5 w-5" />
-              </a>
-            </div>
+            <h3 className="font-semibold text-white mb-4">About Us</h3>
+            <ul className="space-y-2 text-sm">
+              {[
+                { name: "Partner & Integrations", link: "/#partners" },
+                { name: "Data Protection & GDPR", link: "/" },
+                { name: "Contact", link: "/contact-us" },
+              ].map((tool) => (
+                <li key={tool.name}>
+                  <Link
+                    to={tool.link}
+                    className="text-gray-200 text-sm hover:text-white transition-colors duration-200"
+                  >
+                    {tool.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="font-semibold text-white mb-4">Resources</h3>
+            <ul className="space-y-2 text-sm">
+              {[
+                { name: "Blog", link: "/blog" },
+                { name: "Knowledge Base", link: "/knowledge-base" },
+                { name: "Case Studies", link: "/case-studies" },
+              ].map((tool) => (
+                <li key={tool.name}>
+                  <Link
+                    to={tool.link}
+                    className="text-gray-200 text-sm hover:text-white transition-colors duration-200"
+                  >
+                    {tool.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

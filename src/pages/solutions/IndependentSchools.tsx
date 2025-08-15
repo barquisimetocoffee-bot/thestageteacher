@@ -15,6 +15,7 @@ import {
   Calendar,
   MessageCircle,
   Zap,
+  CheckCircle,
 } from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState } from "react";
@@ -27,28 +28,37 @@ const IndependentSchools = () => {
 
   const features = [
     {
-      icon: Award,
-      title: "Premium Education Tools",
-      description:
-        "Exclusive features and personalized learning experiences for independent institutions",
-    },
-    {
       icon: Users,
       title: "Small Class Management",
-      description:
-        "Tailored tools for intimate learning environments and individual attention",
-    },
-    {
-      icon: Trophy,
-      title: "Excellence Tracking",
-      description:
-        "Advanced analytics to maintain and showcase academic excellence",
+      description: "Maximize the benefits of personalized learning.",
+      feature: [
+        "Tailored scheduling tools for small group or one-on-one lessons.",
+        "Individualized progress tracking for every student.",
+        "Flexible grading and assessment models to suit your pedagogy.",
+        "Attendance, participation, and behavior monitoring designed for close-knit classes.",
+      ],
     },
     {
       icon: Crown,
       title: "Custom Branding",
-      description:
-        "White-label solutions that reflect your school's unique identity and values",
+      description: "Showcase your school’s identity at every touchpoint.",
+      feature: [
+        "Fully branded portals for students, parents, and staff.",
+        "Personalized certificates, reports, and communications with your school’s logo and colors.",
+        "Branded mobile apps to reinforce your identity both on and off campus.",
+        "Marketing integrations to promote your school’s unique programs.",
+      ],
+    },
+    {
+      icon: Award,
+      title: "Scalable Administration",
+      description: "Grow without losing your personal touch.",
+      feature: [
+        "Manage multiple programs or campuses from one dashboard.",
+        "Role-based permissions for different staff members.",
+        "Custom reports for governance and compliance.",
+        "Financial tracking tools for sustainable growth.",
+      ],
     },
   ];
 
@@ -63,22 +73,25 @@ const IndependentSchools = () => {
             <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
               <Target className="size-8 md:size-10 text-white" />
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              Independent Schools
+            <h1 className="text-3xl w-full md:w-[80%] md:mx-auto md:block md:text-5xl font-bold bg-gradient-to-tr from-[#2901B3] to-blue-600 bg-clip-text text-transparent mb-6">
+              Independent Schools{" "}
+              <span className="text-gray-800">
+                – Flexible Solutions for Unique Visions
+              </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Elevate your independent institution with premium educational
-              technology designed for excellence and personalized learning
-              experiences.
+              Independent schools thrive on individuality. Our Independent
+              School Solution gives you the freedom to run your institution your
+              way, with powerful tools that adapt to your vision.
             </p>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
+                className="group bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
                 <div>
                   <div className="flex flex-col items-start justify-center gap-2">
@@ -92,6 +105,28 @@ const IndependentSchools = () => {
                 <p className="text-gray-600 text-base/6 pt-2">
                   {feature.description}
                 </p>
+
+                {
+                  // Feature List
+                  feature.feature && (
+                    <ul className="mt-4 space-y-2 *:text-gray-600 *:text-sm">
+                      {feature.feature.map((item, index) => (
+                        <li
+                          key={index}
+                          className="text-gray-600 text-base/6 flex gap-2"
+                        >
+                          <span>
+                            <CheckCircle
+                              className="inline-block mt-1 text-green-600"
+                              size={16}
+                            />
+                          </span>
+                          <p> {item}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  )
+                }
               </div>
             ))}
           </div>

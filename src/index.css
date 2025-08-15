@@ -154,6 +154,28 @@
   background: linear-gradient(to right, #5c2fff, #2901B3);
 }
 
+.hover-link {
+  position: relative;
+  color: #2901B3; /* Text color */
+  text-decoration: none;
+}
+
+.hover-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Distance from text */
+  width: 0;
+  height: 2px;
+  background-color: #2901B3; /* Line color */
+  transition: width 0.3s ease;
+}
+
+.hover-link:hover::after {
+  width: 100%;
+}
+
+
 html::selection{
   color: white;
   background: #2901B3;

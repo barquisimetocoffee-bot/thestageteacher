@@ -6,6 +6,7 @@ import LanguageSelector from "@/components/LanguageSelector";
 import MobileNavigation from "./MobileNavigation";
 import { RiMenuLine } from "react-icons/ri";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 
 interface NavigationProps {
   onShowLogin: () => void;
@@ -174,7 +175,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
           <div className="hidden lg:flex w-[70%]">
             <div className="w-full space-x-6 flex items-center justify-center ">
               <div className="relative group">
-                <span className="text-foreground hover:text-primary hover:bg-blue-100 px-3 py-2 rounded-md cursor-pointer">
+                <span className="text-foreground hover-link hover:text-primary px-3 py-2 rounded-md cursor-pointer">
                   {t("navigation.products")}
                 </span>
 
@@ -212,7 +213,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
               </div>
 
               <div className="relative group">
-                <span className="text-foreground hover:text-primary hover:bg-blue-100 px-3 py-2 rounded-md cursor-pointer">
+                <span className="text-foreground hover-link hover:text-primary px-3 py-2 rounded-md cursor-pointer">
                   {t("navigation.solutions")}
                 </span>
 
@@ -280,17 +281,18 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                 </div>
               </div>
 
-              <div className="group p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 cursor-pointer">
-                <div className="flex items-center space-x-3">
-                  <span className="text-[15px] text-foreground group-hover:text-primary transition-colors">
-                    Pricing
-                  </span>
-                </div>
+              <div className="flex items-center space-x-3">
+                <Link
+                  to="/"
+                  className="text-foreground hover-link hover:text-primary px-3 py-2 rounded-md cursor-pointer"
+                >
+                  Pricing
+                </Link>
               </div>
 
               {/* resources */}
               <div className="relative group">
-                <span className="text-foreground hover:text-primary hover:bg-blue-100 px-3 py-2 rounded-md cursor-pointer">
+                <span className="text-foreground hover-link hover:text-primary px-3 py-2 rounded-md cursor-pointer">
                   {t("navigation.resources")}
                 </span>
                 <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-4 w-64 animate-fade-in rounded-2xl z-50">
@@ -311,7 +313,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
               </div>
 
               <div className="relative group">
-                <span className="text-foreground hover:text-primary hover:bg-blue-100 px-3 py-2 rounded-md cursor-pointer w-fit">
+                <span className="text-foreground hover-link hover:text-primary px-3 py-2 rounded-md cursor-pointer">
                   {t("navigation.aboutUs")}
                 </span>
                 <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-4 w-64 animate-fade-in rounded-2xl z-50">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown } from "react-icons/fa";
+import ScrollInFromBothSides from "../animation/ScrollInFromBothSides";
 
 const faqs = [
   {
@@ -45,41 +46,43 @@ const FAQ = () => {
         </h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-gray-200 rounded-lg overflow-hidden shadow-sm"
-            >
-              {/* Question */}
-              <button
-                onClick={() => toggleFaq(index)}
-                className="w-full flex justify-between items-center p-4 text-left focus:outline-none hover:bg-gray-50"
+            <ScrollInFromBothSides key={index}>
+              <div
+                key={index}
+                className="border border-gray-200 rounded-lg overflow-hidden shadow-sm"
               >
-                <span className="text-lg font-medium text-gray-800">
-                  {faq.question}
-                </span>
-                <motion.span
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
+                {/* Question */}
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full flex justify-between items-center p-4 text-left focus:outline-none hover:bg-gray-50"
                 >
-                  <FaChevronDown className="text-gray-500" />
-                </motion.span>
-              </button>
-
-              {/* Answer */}
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
+                  <span className="text-lg font-medium text-gray-800">
+                    {faq.question}
+                  </span>
+                  <motion.span
+                    animate={{ rotate: openIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
                   >
-                    <div className="p-4 pt-0 text-gray-600">{faq.answer}</div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                    <FaChevronDown className="text-gray-500" />
+                  </motion.span>
+                </button>
+
+                {/* Answer */}
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-4 pt-0 text-gray-600">{faq.answer}</div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </ScrollInFromBothSides>
           ))}
         </div>
       </section>

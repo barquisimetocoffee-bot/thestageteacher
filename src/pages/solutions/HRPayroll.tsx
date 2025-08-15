@@ -18,6 +18,7 @@ import {
   Zap,
   Calendar,
   FileSearch,
+  CheckCircle,
 } from "lucide-react";
 
 import UniversalHeader from "@/components/layout/UniversalHeader";
@@ -41,30 +42,55 @@ const HRPayroll = () => {
       icon: UserPlus,
       title: "Digital Staff Onboarding",
       description:
-        "Streamlined onboarding process with role-based access management",
+        "Say goodbye to endless forms and in-person processing. Our platform makes hiring and onboarding a fully digital, paperless experience.",
+      feature: [
+        "Custom Onboarding Portals – Send new hires a secure link to upload documents, fill forms, and sign contracts electronically.",
+        "Role-Based Access – Automatically assign system permissions based on position (teachers, administrators, support staff).",
+        "Faster Integration – Give new employees instant access to resources, policies, and training materials so they can be productive from day one.",
+      ],
     },
     {
       icon: CreditCard,
       title: "Payroll Automation",
       description:
-        "Automated payroll with tax calculations and benefits management",
+        "No more manual calculations, compliance headaches, or last-minute payroll rush.",
+      feature: [
+        "Automated Salary Processing – Handle full-time, part-time, and hourly payroll with built-in tax and benefits calculations.",
+        "Multiple Payment Schedules – Support different pay cycles for teaching and non-teaching staff.",
+        "Error-Free Compliance – Ensure every payment meets local labor laws and regulations.",
+      ],
     },
     {
       icon: ClipboardCheck,
       title: "Attendance & Leave Management",
       description:
-        "Comprehensive tracking of staff attendance and leave requests",
+        "Track attendance and leave requests with precision — no more chasing signatures or juggling calendars.",
+      feature: [
+        "Smart Clock-In Options – Web, mobile, or biometric attendance tracking.",
+        "Real-Time Absence Tracking – View who’s in, who’s out, and approve leave requests instantly.",
+        "Automated Reporting – Generate attendance summaries for payroll and compliance.",
+      ],
     },
     {
       icon: Users,
       title: "Performance Evaluation",
-      description: "Digital performance tracking and evaluation systems",
+      description:
+        "Support professional growth with structured, fair, and data-backed evaluations.",
+      feature: [
+        "Custom Evaluation Templates – Tailor performance reviews for teachers, administrators, and support staff.",
+        "360° Feedback – Incorporate feedback from peers, students, and supervisors.",
+        "Actionable Insights – Identify training needs and track improvement over time.",
+      ],
     },
     {
       icon: Shield,
       title: "Compliance & Records",
-      description:
-        "Automated compliance alerts and secure digital recordkeeping",
+      description: "Stay audit-ready without digging through filing cabinets.",
+      feature: [
+        "Secure Digital Records – Store contracts, certifications, and HR documents in one place.",
+        "Automated Alerts – Get notified before certifications expire or compliance deadlines approach.",
+        "Role-Based Security – Control who can access sensitive HR data, with full audit logs for transparency.",
+      ],
     },
   ];
 
@@ -79,21 +105,24 @@ const HRPayroll = () => {
             <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
               <Users className="size-8 md:size-10 text-white" />
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              HR & Payroll
+            <h1 className="text-3xl w-full md:w-[80%] md:mx-auto md:block md:text-5xl font-bold text-gray-900 mb-6">
+              HR & Payroll – Smarter Workforce Management for Schools
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-              Manage your school's most valuable asset—its people—with precision
-              and ease.
+              Managing school staff should be simple, efficient, and accurate —
+              not buried in spreadsheets and paperwork. <br />
+              Our AI-powered HR & Payroll module streamlines the entire employee
+              lifecycle, from digital onboarding to payroll automation, so your
+              team can focus on building a thriving school environment.
             </p>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
+                className="group bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
                 <div>
                   <div className="flex flex-col items-start justify-center gap-2">
@@ -107,6 +136,28 @@ const HRPayroll = () => {
                 <p className="text-gray-600 text-base/6 pt-2">
                   {feature.description}
                 </p>
+
+                {
+                  // Feature List
+                  feature.feature && (
+                    <ul className="mt-4 space-y-2 *:text-gray-600 *:text-sm">
+                      {feature.feature.map((item, index) => (
+                        <li
+                          key={index}
+                          className="text-gray-600 text-base/6 flex gap-2"
+                        >
+                          <span>
+                            <CheckCircle
+                              className="inline-block mt-1 text-green-600"
+                              size={16}
+                            />
+                          </span>
+                          <p> {item}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  )
+                }
               </div>
             ))}
           </div>

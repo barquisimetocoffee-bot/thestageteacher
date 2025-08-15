@@ -20,6 +20,7 @@ import { HiOutlineSparkles } from "react-icons/hi";
 import { FaProjectDiagram } from "react-icons/fa";
 import { FaInfinity } from "react-icons/fa6";
 import { FaGraduationCap } from "react-icons/fa6";
+import ScrollInFromBottom from "../animation/ScrollInFromBottom";
 interface EcertaShowcaseProps {
   onShowLogin: () => void;
 }
@@ -104,55 +105,57 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
 
           <div className="space-y-4 md:space-y-20">
             {ecosystemFeatures.map((feature, index) => (
-              <div
-                key={index}
-                className={`bg-white p-3 rounded-xl md:bg-transparent md:p-0 md:rounded-none flex flex-col-reverse lg:flex-row items-center gap-12 ${
-                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                } animate-fade-in`}
-                style={{ animationDelay: `${index * 0.3}s` }}
-              >
-                <div className="flex-1 space-y-6">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="p-3 rounded-tr rounded-bl-sm  icon-bg shadow-lg">
-                      <feature.icon className="h-8 w-8 text-white" />
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-[#2901B3]">
-                      {feature.title}
-                    </h3>
-                  </div>
-                  <p
-                    className="text-lg text-gray-600 leading-relaxed animate-fade-in"
-                    style={{ animationDelay: `${index * 0.3 + 0.2}s` }}
-                  >
-                    {feature.description}
-                  </p>
-                  <div
-                    className="grid grid-cols-2 gap-3 animate-fade-in"
-                    style={{ animationDelay: `${index * 0.3 + 0.4}s` }}
-                  >
-                    {feature.features.map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-center text-sm text-gray-600 "
-                      >
-                        <CheckCircle
-                          className="h-4 w-4 text-green-500 mr-2 flex-shrink-0 "
-                          style={{ animationDelay: `${idx * 0.1}s` }}
-                        />
-                        {item}
+              <ScrollInFromBottom delay={index * 0.2}>
+                <div
+                  key={index}
+                  className={`bg-white p-3 rounded-xl md:bg-transparent md:p-0 md:rounded-none flex flex-col-reverse lg:flex-row items-center gap-12 ${
+                    index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                  } animate-fade-in`}
+                  style={{ animationDelay: `${index * 0.3}s` }}
+                >
+                  <div className="flex-1 space-y-6">
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className="p-3 rounded-tr rounded-bl-sm  icon-bg shadow-lg">
+                        <feature.icon className="h-8 w-8 text-white" />
                       </div>
-                    ))}
+                      <h3 className="text-2xl md:text-3xl font-bold text-[#2901B3]">
+                        {feature.title}
+                      </h3>
+                    </div>
+                    <p
+                      className="text-lg text-gray-600 leading-relaxed animate-fade-in"
+                      style={{ animationDelay: `${index * 0.3 + 0.2}s` }}
+                    >
+                      {feature.description}
+                    </p>
+                    <div
+                      className="grid grid-cols-2 gap-3 animate-fade-in"
+                      style={{ animationDelay: `${index * 0.3 + 0.4}s` }}
+                    >
+                      {feature.features.map((item, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-center text-sm text-gray-600 "
+                        >
+                          <CheckCircle
+                            className="h-4 w-4 text-green-500 mr-2 flex-shrink-0 "
+                            style={{ animationDelay: `${idx * 0.1}s` }}
+                          />
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex-1">
+                    <img
+                      src={feature.image}
+                      alt={feature.title}
+                      className="w-[80%] mx-auto animate-fade-in"
+                    />
                   </div>
                 </div>
-
-                <div className="flex-1">
-                  <img
-                    src={feature.image}
-                    alt={feature.title}
-                    className="w-[80%] mx-auto animate-fade-in"
-                  />
-                </div>
-              </div>
+              </ScrollInFromBottom>
             ))}
           </div>
         </div>
@@ -178,27 +181,29 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {whyEcerta.map((item, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-white to-blue-50 overflow-hidden animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardHeader className="pb-4">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow group-hover:scale-110 transition-transform duration-200">
-                      <item.icon className="h-8 w-8 text-white" />
+              <ScrollInFromBottom delay={index * 0.3}>
+                <Card
+                  key={index}
+                  className="group hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-white to-blue-50 overflow-hidden animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardHeader className="pb-4">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow group-hover:scale-110 transition-transform duration-200">
+                        <item.icon className="h-8 w-8 text-white" />
+                      </div>
+                      <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-purple-700 transition-colors">
+                        {item.title}
+                      </CardTitle>
                     </div>
-                    <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-purple-700 transition-colors">
-                      {item.title}
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600 text-base leading-relaxed text-center">
-                    {item.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-gray-600 text-base leading-relaxed text-center">
+                      {item.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </ScrollInFromBottom>
             ))}
           </div>
 

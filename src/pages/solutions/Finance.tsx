@@ -1,31 +1,18 @@
 import { Button } from "@/components/ui/button";
 
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
   DollarSign,
   CreditCard,
   FileBarChart,
   Banknote,
   PieChart,
-  ArrowRight,
-  Target,
-  Zap,
-  Calculator,
-  TrendingDown,
+  CheckCircle,
 } from "lucide-react";
 
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
-
-import financeHero from "@/assets/solutions/finance-hero.jpg";
 
 import Footer from "@/components/home/Footer";
 
@@ -44,25 +31,47 @@ const Finance = () => {
 
       title: "Fee Management & Automated Billing",
       description:
-        "Streamlined fee collection with automated billing and payment processing",
+        "Make tuition and fee collection effortless for staff, parents, and students.",
+      feature: [
+        "Set up flexible fee structures for different programs and student categories.",
+        "Automate billing cycles and reminders to reduce late payments.",
+        "Apply discounts, scholarships, and penalties with just a few clicks.",
+        "Track payment status in real time with instant notifications.",
+      ],
     },
     {
       icon: FileBarChart,
       title: "Custom Financial Reports",
-      description:
-        "Comprehensive financial reporting with detailed audit trails",
+      description: "Get the numbers you need — in the format you need them.",
+      feature: [
+        "Generate profit & loss statements, balance sheets, and cash flow reports.",
+        "Filter by term, department, or payment category for more precise analysis.",
+        "Save and schedule recurring reports for monthly or quarterly reviews.",
+        "Export to PDF, Excel, or CSV for easy sharing and record-keeping.",
+      ],
     },
     {
       icon: PieChart,
       title: "Budget Planning & Tracking",
-      description:
-        "Advanced budget planning tools with real-time expenditure tracking",
+      description: "Plan ahead with data-driven financial forecasting.",
+      feature: [
+        "Set annual or term-based budgets for different departments.",
+        "Monitor spending against allocated budgets in real time.",
+        "Get alerts for overspending or budget deviations.",
+        "Use historical data to plan more accurately for the next academic year.",
+      ],
     },
     {
       icon: Banknote,
       title: "Banking & Payment Integration",
       description:
-        "Seamless integration with bank systems and payment gateways",
+        "Connect your school’s finances to the systems you already use.",
+      feature: [
+        "Seamless integration with major banks and online payment gateways.",
+        "Accept multiple payment methods — credit/debit cards, mobile wallets, and bank transfers.",
+        "Instant reconciliation between your bank records and school accounts.",
+        "Enhanced transaction security with encryption and fraud detection.",
+      ],
     },
   ];
 
@@ -77,21 +86,23 @@ const Finance = () => {
             <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
               <DollarSign className="size-8 md:size-10 text-white" />
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              Finance Management
+            <h1 className="text-3xl w-full md:w-[80%] md:mx-auto md:block md:text-5xl font-bold text-gray-900 mb-6">
+              Finance – Simplify School Finances, Maximize Transparency
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-              Keep your school financially healthy with full visibility and
-              control over every penny.
+              Managing your school’s finances doesn’t have to be complicated.
+              Our Finance module streamlines everything from fee collection to
+              budgeting, giving you complete control and real-time visibility
+              over your institution’s financial health.
             </p>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
+                className="group bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
                 <div>
                   <div className="flex flex-col items-start justify-center gap-2">
@@ -105,6 +116,28 @@ const Finance = () => {
                 <p className="text-gray-600 text-base/6 pt-2">
                   {feature.description}
                 </p>
+
+                {
+                  // Feature List
+                  feature.feature && (
+                    <ul className="mt-4 space-y-2 *:text-gray-600 *:text-sm">
+                      {feature.feature.map((item, index) => (
+                        <li
+                          key={index}
+                          className="text-gray-600 text-base/6 flex gap-2"
+                        >
+                          <span>
+                            <CheckCircle
+                              className="inline-block mt-1 text-green-600"
+                              size={16}
+                            />
+                          </span>
+                          <p> {item}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  )
+                }
               </div>
             ))}
           </div>

@@ -187,7 +187,7 @@ const LoginModal = ({
               <Sparkles className="h-8 w-8 text-white" />
             </div>
           </div>
-          <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent">
+          <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent text-center">
             Welcome to EasyTeach
           </DialogTitle>
           <DialogDescription className="text-gray-600 text-base">
@@ -270,7 +270,6 @@ const LoginModal = ({
               </div>
             </div>
 
-
             <div className="flex items-center space-x-2 pt-2">
               <Checkbox
                 id="remember-me"
@@ -282,7 +281,7 @@ const LoginModal = ({
                 htmlFor="remember-me"
                 className="text-sm text-gray-600 font-medium"
               >
-                Forgot Password?
+                Remember me ?
               </Label>
             </div>
 

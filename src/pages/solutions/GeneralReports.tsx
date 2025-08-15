@@ -18,12 +18,12 @@ import {
   Zap,
   Shield,
   Clock,
+  CheckCircle,
 } from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
-import reportsHero from "@/assets/solutions/reports-hero.jpg";
 
 import Footer from "@/components/home/Footer";
 
@@ -41,26 +41,46 @@ const GeneralReports = () => {
       icon: BarChart3,
 
       title: "Dynamic Dashboards",
-      description:
-        "Real-time academic, behavioral, and operational data visualization",
+      description: "Visualize your school’s performance at a glance.",
+      feature: [
+        "Interactive dashboards that update in real time.",
+        "Track key metrics such as attendance, grades, finances, and admissions.",
+        "Drill down into department-specific data for deeper analysis.",
+        "Customize layouts to show only the KPIs that matter most to your role.",
+      ],
     },
     {
       icon: FileSpreadsheet,
       title: "Custom Report Builder",
-      description:
-        "Create tailored reports for attendance, grades, performance, and more",
+      description: "Create reports your way — no coding required.",
+      feature: [
+        "Drag-and-drop interface for building reports in minutes.",
+        "Combine data from multiple departments into a single view.",
+        "Save report templates for recurring use.",
+        "Schedule automated reports to be sent directly to your inbox.",
+      ],
     },
     {
       icon: Download,
       title: "Export Flexibility",
-      description:
-        "Export reports to Excel, PDF, or send directly to stakeholders",
+      description: "Share insights without compatibility headaches.",
+      feature: [
+        "Export reports in PDF, Excel, or CSV formats.",
+        "One-click sharing with team members or stakeholders.",
+        "Integration-ready for third-party analytics tools.",
+        "Mobile-friendly exports for on-the-go access.",
+      ],
     },
     {
       icon: Brain,
       title: "AI-Assisted Insights",
-      description:
-        "Intelligent trends analysis and predictive insights for better decisions",
+      description: "Let AI uncover trends you might miss.",
+      feature: [
+        "Predict academic performance and enrollment trends.",
+        "Identify potential risks such as declining attendance or low engagement.",
+        "Get actionable recommendations for improving student outcomes.",
+        "Natural language summaries so anyone can understand the data — no analyst required.",
+      ],
     },
   ];
 
@@ -75,21 +95,23 @@ const GeneralReports = () => {
             <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
               <BarChart3 className="size-8 md:size-10 text-white" />
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              General Reports
+            <h1 className="text-3xl w-full md:w-[80%] md:mx-auto md:block md:text-5xl font-bold text-gray-900 mb-6">
+              General Reporting – Turn School Data into Actionable Insights
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-              Access real-time, data-driven insights that help you lead with
-              confidence.
+              Make faster, smarter decisions with real-time reporting that’s
+              built for modern schools. Our General Report module transforms
+              complex data into easy-to-understand dashboards and custom reports
+              — so you can focus on improvement, not manual data crunching.
             </p>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
+                className="group bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
                 <div>
                   <div className="flex flex-col items-start justify-center gap-2">
@@ -103,6 +125,28 @@ const GeneralReports = () => {
                 <p className="text-gray-600 text-base/6 pt-2">
                   {feature.description}
                 </p>
+
+                {
+                  // Feature List
+                  feature.feature && (
+                    <ul className="mt-4 space-y-2 *:text-gray-600 *:text-sm">
+                      {feature.feature.map((item, index) => (
+                        <li
+                          key={index}
+                          className="text-gray-600 text-base/6 flex gap-2"
+                        >
+                          <span>
+                            <CheckCircle
+                              className="inline-block mt-1 text-green-600"
+                              size={16}
+                            />
+                          </span>
+                          <p> {item}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  )
+                }
               </div>
             ))}
           </div>

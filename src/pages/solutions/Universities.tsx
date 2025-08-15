@@ -1,35 +1,15 @@
 import { Button } from "@/components/ui/button";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   Award,
   Users,
-  BookOpen,
   TrendingUp,
   Brain,
   Laptop,
-  Globe,
-  Database,
-  Search,
-  GraduationCap,
-  LineChart,
-  Users2,
-  Calendar,
-  MessageCircle,
-  Trophy,
-  Zap,
-  Star,
+  CheckCircle,
 } from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
-import universitiesHero from "@/assets/universities-hero.jpg";
 
 import Footer from "@/components/home/Footer";
 
@@ -41,25 +21,47 @@ const Universities = () => {
       icon: Brain,
       title: "Advanced Research Tools",
       description:
-        "AI-powered research assistance and academic collaboration platforms",
+        "Empower faculty and students to push the boundaries of knowledge.",
+      feature: [
+        "Secure, cloud-based storage for research data and publications.",
+        "Collaborative workspaces for cross-department and global partnerships.",
+        "Integrated citation and bibliography management tools.",
+        "AI-assisted literature reviews and trend analysis to speed up discoveries.",
+      ],
     },
     {
       icon: Users,
       title: "Large-Scale Management",
-      description:
-        "Handle thousands of students with sophisticated enrollment and tracking systems",
+      description: "Handle every aspect of university operations with ease.",
+      feature: [
+        "Centralized dashboard for overseeing multiple campuses or departments.",
+        "Automated workflows for admissions, grading, and scheduling.",
+        "Role-based permissions to ensure secure and efficient access control.",
+        "Resource allocation and facility management tools to optimize campus assets.",
+      ],
     },
     {
       icon: Laptop,
-      title: "Digital Campus",
+      title: "Digital Campus (LMS)",
       description:
-        "Complete virtual learning environment with interactive lecture halls",
+        "Bring the full university experience online without losing the human touch.",
+      feature: [
+        "Comprehensive Learning Management System for lectures, assignments, and assessments.",
+        "Video conferencing integration for live classes and guest lectures.",
+        "Self-paced course options for flexible learning pathways.",
+        "Mobile-friendly portals for students and faculty to stay connected anywhere.",
+      ],
     },
     {
       icon: TrendingUp,
       title: "Analytics & Insights",
-      description:
-        "Advanced analytics for academic performance and institutional efficiency",
+      description: "Make smarter decisions backed by real data.",
+      feature: [
+        "Student performance tracking across courses and semesters.",
+        "Enrollment and retention trend analysis for growth planning.",
+        "Research output tracking for institutional rankings and grants.",
+        "Customizable reports for accreditation and funding compliance.",
+      ],
     },
   ];
 
@@ -74,21 +76,27 @@ const Universities = () => {
             <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
               <Award className="size-8 md:size-10 text-white" />
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              Universities
+            <h1 className="text-3xl w-full md:w-[80%] md:mx-auto md:block md:text-5xl font-bold bg-gradient-to-tr from-[#2901B3] to-blue-600 bg-clip-text text-transparent mb-6">
+              Universities{" "}
+              <span className="text-gray-800">
+                – Manage, Innovate, and Elevate Higher Education
+              </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Empower higher education with advanced learning management systems
-              designed for universities and research institutions.
+              Universities face unique challenges — from handling large student
+              populations to advancing groundbreaking research. Our University
+              Solution is built to manage the complexity, foster innovation, and
+              deliver an exceptional campus experience for students, faculty,
+              and administrators.
             </p>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
+                className="group bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
                 <div>
                   <div className="flex flex-col items-start justify-center gap-2">
@@ -102,6 +110,28 @@ const Universities = () => {
                 <p className="text-gray-600 text-base/6 pt-2">
                   {feature.description}
                 </p>
+
+                {
+                  // Feature List
+                  feature.feature && (
+                    <ul className="mt-4 space-y-2 *:text-gray-600 *:text-sm">
+                      {feature.feature.map((item, index) => (
+                        <li
+                          key={index}
+                          className="text-gray-600 text-base/6 flex gap-2"
+                        >
+                          <span>
+                            <CheckCircle
+                              className="inline-block mt-1 text-green-600"
+                              size={16}
+                            />
+                          </span>
+                          <p> {item}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  )
+                }
               </div>
             ))}
           </div>

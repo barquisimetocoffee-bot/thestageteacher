@@ -21,6 +21,7 @@ import {
   FaGamepad,
   FaRocket,
 } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 // react-icons/io (Ionicons)
 import {
@@ -210,7 +211,15 @@ const ProductsSection = ({
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-3">
           {products.map((product, index) => (
-            <div
+            <motion.div
+              initial={{ y: 80, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.2,
+                ease: "easeOut",
+              }}
+              viewport={{ once: true, amount: 0.2 }} // Trigger when 20% is visible
               key={product.id}
               className={`relative flex flex-col justify-between border border-gray-300 rounded-2xl hover:border-blue-600`}
             >
@@ -316,7 +325,7 @@ const ProductsSection = ({
                   <product.btnIcon className="h-4 w-4 ml-2" />
                 </Button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

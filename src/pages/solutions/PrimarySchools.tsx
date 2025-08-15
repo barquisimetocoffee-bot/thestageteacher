@@ -13,18 +13,12 @@ import {
   BookOpen,
   Shield,
   Star,
-  Play,
   Gamepad2,
-  Palette,
-  Calendar,
-  MessageCircle,
-  Trophy,
-  Zap,
+  CheckCircle,
 } from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
-import primarySchoolsHero from "@/assets/primary-schools-hero.jpg";
 
 import Footer from "@/components/home/Footer";
 
@@ -35,26 +29,68 @@ const PrimarySchools = () => {
     {
       icon: Heart,
       title: "Age-Appropriate Learning",
-      description:
-        "Specially designed curriculum and tools for young learners aged 5-11",
+      description: "Content and tools built for young learners.",
+      feature: [
+        "Curriculum-aligned lesson plans tailored for ages 5–11.",
+        "Fun, easy-to-understand activities that match developmental stages.",
+        "Adaptive learning tools that adjust to each child’s pace.",
+        "Balanced screen time for healthy digital engagement.",
+      ],
     },
     {
       icon: Users2,
       title: "Parent Engagement",
-      description:
-        "Enhanced communication tools to keep parents involved in their child's education",
+      description: "Bring parents into the learning journey.",
+      feature: [
+        "Dedicated parent portal for progress updates, homework, and events.",
+        "Easy two-way communication between teachers and parents.",
+        "Automated notifications for attendance, achievements, and concerns.",
+        "Transparent academic and behavioral reporting.",
+      ],
     },
     {
       icon: BookOpen,
       title: "Interactive Content",
-      description:
-        "Gamified learning experiences that make education fun and engaging",
+      description: "GTurn lessons into experiences students love.",
+      feature: [
+        "Gamified quizzes, puzzles, and storytelling modules.",
+        "Animated, visual-based learning for complex concepts.",
+        "Real-time classroom polls and interactive whiteboards.",
+        "Activity tracking to measure engagement.",
+      ],
     },
     {
       icon: Shield,
       title: "Child Safety",
-      description:
-        "Enhanced security features and monitoring designed specifically for young students",
+      description: "Peace of mind for parents and staff.",
+      feature: [
+        "Secure logins and role-based access for students, teachers, and parents.",
+        "Content filtering to block inappropriate materials.",
+        "Safe messaging features to protect children from external contact.",
+        "Compliance with child data protection regulations.",
+      ],
+    },
+    {
+      icon: Gamepad2,
+      title: "Educational Gaming",
+      description: "Learning through play — the smart way.",
+      feature: [
+        "Curriculum-based games that reinforce classroom learning.",
+        "Reward systems to motivate participation.",
+        "Multiplayer collaboration games for teamwork skills.",
+        "Progress tracking to align playtime with educational goals.",
+      ],
+    },
+    {
+      icon: Star,
+      title: "Creative Expression",
+      description: "Give every child the tools to explore their imagination.",
+      feature: [
+        "Digital art boards, music tools, and storytelling apps.",
+        "Safe spaces for students to share projects with peers and teachers.",
+        "Guided creative assignments to boost confidence.",
+        "Portfolios to showcase student growth over time.",
+      ],
     },
   ];
 
@@ -69,24 +105,26 @@ const PrimarySchools = () => {
             <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
               <Heart className="size-8 md:size-10 text-white" />
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              Primary{" "}
-              <span className="bg-gradient-to-tr from-[#2901B3] to-blue-600 bg-clip-text text-transparent">
-                Schools
+            <h1 className="text-3xl w-full md:w-[80%] md:mx-auto md:block md:text-5xl font-bold bg-gradient-to-tr from-[#2901B3] to-blue-600 bg-clip-text text-transparent mb-6">
+              Primary Schools{" "}
+              <span className="text-gray-800">
+                – Build Bright Futures from the Start
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Nurture young minds with our specialized educational technology
-              platform designed specifically for primary school environments.
+              Early education is where curiosity takes root and lifelong
+              learning begins. Our Primary School solution is designed to
+              nurture young minds while making teaching and school management
+              simple, secure, and engaging.
             </p>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group bg-white border border-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
+                className="group bg-white border border-gray-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
                 <div>
                   <div className="flex flex-col items-start justify-center gap-2">
@@ -97,9 +135,31 @@ const PrimarySchools = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-600 text-base/6 pt-2">
+                <p className="text-gray-800 text-base/6 pt-1">
                   {feature.description}
                 </p>
+
+                {
+                  // Feature List
+                  feature.feature && (
+                    <ul className="mt-4 space-y-2 *:text-gray-600 *:text-sm">
+                      {feature.feature.map((item, index) => (
+                        <li
+                          key={index}
+                          className="text-gray-600 text-base/6 flex gap-2"
+                        >
+                          <span>
+                            <CheckCircle
+                              className="inline-block mt-1 text-green-600"
+                              size={16}
+                            />
+                          </span>
+                          <p> {item}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  )
+                }
               </div>
             ))}
           </div>

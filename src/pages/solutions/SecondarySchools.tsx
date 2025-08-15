@@ -22,6 +22,7 @@ import {
   Trophy,
   Zap,
   Star,
+  CheckCircle,
 } from "lucide-react";
 
 import UniversalHeader from "@/components/layout/UniversalHeader";
@@ -37,26 +38,43 @@ const SecondarySchools = () => {
   const features = [
     {
       icon: Brain,
-      title: "Advanced Learning Paths",
-      description:
-        "Personalized curriculum designed for teenage learners and career preparation",
+      title: "Advanced Learning Tools",
+      description: null,
+      feature: [
+        "Curriculum support for grades 7–12 with challenging, real-world content.",
+        "Interactive simulations, problem-solving activities, and critical thinking modules.",
+        "Adaptive technology that personalizes learning paths.",
+      ],
     },
     {
       icon: Target,
-      title: "Exam Preparation",
-      description:
-        "Comprehensive tools for standardized tests and university entrance exams",
+      title: "Career & University Prep",
+      description: null,
+      feature: [
+        "Tools for tracking academic requirements for higher education.",
+        "Career guidance resources and aptitude assessments.",
+        "Digital portfolios to showcase achievements.",
+      ],
     },
     {
       icon: Users,
-      title: "Collaborative Learning",
-      description: "Group projects and peer-to-peer learning environments",
+      title: "Parent-Teacher Collaboration",
+      description: null,
+      feature: [
+        "Regular progress updates with clear grading insights.",
+        "Secure messaging and meeting scheduling.",
+        "Attendance alerts and academic milestone notifications.",
+      ],
     },
     {
       icon: Lightbulb,
-      title: "STEM Focus",
-      description:
-        "Advanced science, technology, engineering, and mathematics programs",
+      title: "Student Engagement",
+      description: null,
+      feature: [
+        "Debate clubs, online competitions, and project-based learning spaces.",
+        "Gamified assignments to encourage participation.",
+        "Peer-to-peer collaboration platforms.",
+      ],
     },
   ];
 
@@ -71,22 +89,26 @@ const SecondarySchools = () => {
             <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
               <TrendingUp className="size-8 md:size-10 text-white" />
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              Secondary Schools
+            <h1 className="text-3xl w-full md:w-[80%] md:mx-auto md:block md:text-5xl font-bold bg-gradient-to-tr from-[#2901B3] to-blue-600 bg-clip-text text-transparent mb-6">
+              Secondary Schools{" "}
+              <span className="text-gray-800">
+                – Empower the Next Generation of Thinkers
+              </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Prepare students for higher education and careers with our
-              comprehensive secondary education platform designed for grades
-              6-12.
+              Secondary education is where students prepare for higher learning
+              and future careers. Our Secondary School solution helps educators
+              deliver advanced lessons, monitor progress, and create an
+              environment where teens thrive academically and socially.
             </p>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
+                className="group bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
                 <div>
                   <div className="flex flex-col items-start justify-center gap-2">
@@ -100,6 +122,28 @@ const SecondarySchools = () => {
                 <p className="text-gray-600 text-base/6 pt-2">
                   {feature.description}
                 </p>
+
+                {
+                  // Feature List
+                  feature.feature && (
+                    <ul className="mt-4 space-y-2 *:text-gray-600 *:text-sm">
+                      {feature.feature.map((item, index) => (
+                        <li
+                          key={index}
+                          className="text-gray-600 text-base/6 flex gap-2"
+                        >
+                          <span>
+                            <CheckCircle
+                              className="inline-block mt-1 text-green-600"
+                              size={16}
+                            />
+                          </span>
+                          <p> {item}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  )
+                }
               </div>
             ))}
           </div>

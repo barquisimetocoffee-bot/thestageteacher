@@ -18,15 +18,13 @@ import {
   Zap,
   Video,
   Send,
+  CheckCircle,
 } from "lucide-react";
 
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
-
-import communicationHero from "@/assets/solutions/communication-hero.jpg";
-
 import Footer from "@/components/home/Footer";
 
 const Communication = () => {
@@ -44,25 +42,49 @@ const Communication = () => {
 
       title: "Mass Announcements",
       description:
-        "Send announcements via email, SMS, or in-app notifications instantly",
+        "Deliver important updates instantly across your school community.",
+      feature: [
+        "Send messages to all students, parents, and staff in one click.",
+        "Choose channels — email, SMS, mobile app notifications, or all at once.",
+        "Schedule announcements in advance for planned events or reminders.",
+        "Track delivery and open rates to ensure your message is received.",
+      ],
     },
     {
       icon: Bell,
       title: "Automated Alerts",
       description:
-        "Smart alerts for attendance, grades, deadlines, and important events",
+        "Let the system handle routine notifications so you don’t have to.",
+      feature: [
+        "Instant alerts for attendance issues, upcoming deadlines, or fee payments.",
+        "Customize triggers for specific events or student activities.",
+        "Send emergency notifications without delay.",
+        "Reduce communication gaps between departments, parents, and students.",
+      ],
     },
     {
       icon: MessageSquare,
       title: "Two-Way Communication",
       description:
-        "Direct communication portals between teachers, parents, and students",
+        "Move beyond one-sided announcements — create real conversations.",
+      feature: [
+        "Allow parents to respond directly to teachers or administrators.",
+        "Enable students to communicate securely with approved school channels.",
+        "Centralize all messages in one platform for easy tracking.",
+        "Maintain full privacy and control over who can initiate or reply.",
+      ],
     },
     {
       icon: Globe,
       title: "Language & Accessibility",
       description:
-        "Built-in translation and accessibility features for inclusive communication",
+        "Make sure every message is understood and accessible to all.",
+      feature: [
+        "Automatic translation into multiple languages for diverse school communities.",
+        "Text-to-speech and speech-to-text support for accessibility needs.",
+        "Mobile-friendly layouts for better readability on any device.",
+        "Compliance with accessibility standards for inclusive communication.",
+      ],
     },
   ];
 
@@ -78,16 +100,19 @@ const Communication = () => {
               <MessageSquare className="size-8 md:size-10 text-white" />
             </div>
             <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              Communication Hub
+              Communication – Keep Your School Connected, Anytime, Anywhere
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-              Connect every member of your school community with intelligent,
-              real-time communication tools.
+              Seamless communication is the heartbeat of a successful school.
+              Our Communication module ensures that important information
+              reaches the right people at the right time — whether you’re making
+              an urgent announcement or keeping parents updated on student
+              progress.
             </p>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-16">
             {features.map((feature, index) => (
               <div
                 key={index}
@@ -105,6 +130,23 @@ const Communication = () => {
                 <p className="text-gray-600 text-base/6 pt-2">
                   {feature.description}
                 </p>
+
+                {
+                  // Feature List
+                  feature.feature && (
+                    <ul className="mt-4 space-y-2">
+                      {feature.feature.map((item, index) => (
+                        <li key={index} className="text-gray-600 text-base/6">
+                          <CheckCircle
+                            className="inline-block mr-2 text-green-600"
+                            size={16}
+                          />{" "}
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )
+                }
               </div>
             ))}
           </div>
