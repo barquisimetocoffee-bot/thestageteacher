@@ -1,5 +1,3 @@
-import { useTranslation } from "react-i18next";
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -12,17 +10,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  ArrowLeft,
-  Mail,
-  Phone,
-  MapPin,
-  Clock,
-  Send,
-  Info,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import Navigation from "@/components/home/Navigation";
 import Footer from "@/components/home/Footer";
+import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
+import { motion } from "framer-motion";
 
 const ContactUs = () => {
   const navigate = useNavigate();
@@ -86,20 +78,22 @@ const ContactUs = () => {
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
-              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto w-20 h-20 flex items-center justify-center mb-6">
-                <Mail className="h-10 w-10 text-white" />
-              </div>
-              <h1 className="text-5xl font-bold text-gray-900 mb-6">
-                Contact
-                <span className="bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent">
-                  {" "}
-                  Us
-                </span>
-              </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                We'd love to hear from you. Get in touch with our team for
-                support, partnerships, or any questions about Ecerta.
-              </p>
+              <ScrollInFromBottom delay={0.3}>
+                <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto w-20 h-20 flex items-center justify-center mb-6">
+                  <Mail className="h-10 w-10 text-white" />
+                </div>
+                <h1 className="text-5xl font-bold text-gray-900 mb-6">
+                  Contact
+                  <span className="bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent">
+                    {" "}
+                    Us
+                  </span>
+                </h1>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  We'd love to hear from you. Get in touch with our team for
+                  support, partnerships, or any questions about Ecerta.
+                </p>
+              </ScrollInFromBottom>
             </div>
           </div>
         </section>
@@ -112,8 +106,15 @@ const ContactUs = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {contactInfo.map((info, index) => (
-                <div
+                <motion.div
                   key={index}
+                  initial={{ y: 80, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: index * 0.2,
+                    ease: "easeOut",
+                  }}
                   className="group shadow bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
                 >
                   <div className="flex flex-col items-start justify-center gap-2">
@@ -130,35 +131,73 @@ const ContactUs = () => {
                       {info.description}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             {/* Contact Form */}
-            <div className="max-w-2xl mx-auto">
-              <Card className="border-0 shadow bg-gray-50">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl font-bold text-gray-900">
-                    Send Us a Message
-                  </CardTitle>
-                  <CardDescription className="text-gray-600">
-                    Fill out the form below and we'll get back to you as soon as
-                    possible.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <ScrollInFromBottom delay={0.3}>
+              <div className="max-w-2xl mx-auto">
+                <Card className="border-0 shadow bg-gray-50">
+                  <CardHeader className="text-center">
+                    <CardTitle className="text-2xl font-bold text-gray-900">
+                      Send Us a Message
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Fill out the form below and we'll get back to you as soon
+                      as possible.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Name
+                          </label>
+                          <Input
+                            type="text"
+                            value={formData.name}
+                            placeholder="John Doe"
+                            onChange={(e) =>
+                              setFormData({ ...formData, name: e.target.value })
+                            }
+                            className="border border-gray-200 focus:outline-none py-6"
+                            required
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Email
+                          </label>
+                          <Input
+                            type="email"
+                            value={formData.email}
+                            placeholder="johndoe@gmail.com"
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                email: e.target.value,
+                              })
+                            }
+                            className="border border-gray-200 focus:outline-none py-6"
+                            required
+                          />
+                        </div>
+                      </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Name
+                          Subject
                         </label>
                         <Input
                           type="text"
-                          value={formData.name}
-                          placeholder="John Doe"
+                          value={formData.subject}
+                          placeholder="I need help with..."
                           onChange={(e) =>
-                            setFormData({ ...formData, name: e.target.value })
+                            setFormData({
+                              ...formData,
+                              subject: e.target.value,
+                            })
                           }
                           className="border border-gray-200 focus:outline-none py-6"
                           required
@@ -166,60 +205,33 @@ const ContactUs = () => {
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Email
+                          Message
                         </label>
-                        <Input
-                          type="email"
-                          value={formData.email}
-                          placeholder="johndoe@gmail.com"
+                        <Textarea
+                          value={formData.message}
+                          placeholder="Enter your message here..."
                           onChange={(e) =>
-                            setFormData({ ...formData, email: e.target.value })
+                            setFormData({
+                              ...formData,
+                              message: e.target.value,
+                            })
                           }
-                          className="border border-gray-200 focus:outline-none py-6"
+                          className="border border-gray-200 focus:outline-none py-4 min-h-[120px]"
                           required
                         />
                       </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Subject
-                      </label>
-                      <Input
-                        type="text"
-                        value={formData.subject}
-                        placeholder="I need help with..."
-                        onChange={(e) =>
-                          setFormData({ ...formData, subject: e.target.value })
-                        }
-                        className="border border-gray-200 focus:outline-none py-6"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Message
-                      </label>
-                      <Textarea
-                        value={formData.message}
-                        placeholder="Enter your message here..."
-                        onChange={(e) =>
-                          setFormData({ ...formData, message: e.target.value })
-                        }
-                        className="border border-gray-200 focus:outline-none py-4 min-h-[120px]"
-                        required
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      className="w-full my-btn text-white p-6 group"
-                    >
-                      Send Message
-                      <Send className="ml-2 h-5 w-5 group-hover:rotate-45 transition-all duration-300" />
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
+                      <Button
+                        type="submit"
+                        className="w-full my-btn text-white p-6 group"
+                      >
+                        Send Message
+                        <Send className="ml-2 h-5 w-5 group-hover:rotate-45 transition-all duration-300" />
+                      </Button>
+                    </form>
+                  </CardContent>
+                </Card>
+              </div>
+            </ScrollInFromBottom>
           </div>
         </section>
       </div>

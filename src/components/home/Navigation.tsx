@@ -189,7 +189,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                       >
                         <div className="flex-1">
                           <div className="flex items-center space-x-2">
-                            <h4 className="font-semibold text-foreground">
+                            <h4 className="font-semibold text-sm text-black">
                               {product.name}
                             </h4>
                             {product.status === "available" ? (
@@ -202,7 +202,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                               </Badge>
                             )}
                           </div>
-                          <p className="text-sm text-muted-foreground mt-1">
+                          <p className="text-xs text-gray-600 mt-1">
                             {product.description}
                           </p>
                         </div>
@@ -303,7 +303,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                         className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
                         onClick={item.onClick}
                       >
-                        <span className="font-medium text-foreground">
+                        <span className="font-medium text-sm text-black">
                           {item.title}
                         </span>
                       </div>
@@ -324,7 +324,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                         className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
                         onClick={item.onClick}
                       >
-                        <span className="font-medium text-foreground hover:text-slate-700 transition-colors">
+                        <span className="font-medium text-sm text-black hover:text-slate-700 transition-colors">
                           {item.title}
                         </span>
                       </div>

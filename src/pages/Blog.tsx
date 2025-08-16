@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import Footer from "@/components/home/Footer";
 import Navigation from "@/components/home/Navigation";
+import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
 
 const Blog = () => {
   const navigate = useNavigate();
@@ -93,20 +94,24 @@ const Blog = () => {
         <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
-              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
-                <BookOpen className="size-8 md:size-10 text-white" />
-              </div>
-              <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-                Education
-                <span className="bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent">
-                  {" "}
-                  Blog
-                </span>
-              </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Insights, tips, and trends from the world of educational
-                technology and modern teaching.
-              </p>
+              <ScrollInFromBottom delay={0.2}>
+                <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
+                  <BookOpen className="size-8 md:size-10 text-white" />
+                </div>
+              </ScrollInFromBottom>
+              <ScrollInFromBottom delay={0.3}>
+                <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                  Education
+                  <span className="bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent">
+                    {" "}
+                    Blog
+                  </span>
+                </h1>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Insights, tips, and trends from the world of educational
+                  technology and modern teaching.
+                </p>
+              </ScrollInFromBottom>
             </div>
           </div>
         </section>
@@ -116,49 +121,51 @@ const Blog = () => {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
               {blogPosts.map((post, index) => (
-                <Card
-                  key={index}
-                  className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-white to-blue-50 overflow-hidden cursor-pointer animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge className="bg-blue-100 text-blue-800 border-blue-200">
-                        {post.category}
-                      </Badge>
-                      <div className="flex items-center text-sm text-gray-500">
-                        <Clock className="h-4 w-4 mr-1" />
-                        {post.readTime}
-                      </div>
+                <ScrollInFromBottom key={index * 0.2}>
+                  <Card
+                    key={index}
+                    className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-white to-blue-50 overflow-hidden cursor-pointer animate-fade-in"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="aspect-video overflow-hidden">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
-                    <CardTitle className="text-lg md:text-xl font-bold text-gray-900  line-clamp-2">
-                      {post.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-gray-600 text-base leading-relaxed mb-4 line-clamp-3">
-                      {post.excerpt}
-                    </CardDescription>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2 text-sm text-gray-500">
-                        <User className="h-4 w-4" />
-                        <span>{post.author}</span>
-                        <Calendar className="h-4 w-4" />
-                        <span>{post.date}</span>
+                    <CardHeader>
+                      <div className="flex items-center justify-between mb-2">
+                        <Badge className="bg-blue-100 text-blue-800 border-blue-200">
+                          {post.category}
+                        </Badge>
+                        <div className="flex items-center text-sm text-gray-500">
+                          <Clock className="h-4 w-4 mr-1" />
+                          {post.readTime}
+                        </div>
                       </div>
-                      <button className="text-blue-600 hover:text-blue-800 rounded-full size-8 bg-blue-100 flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300">
-                        <ArrowRight className="h-4 w-4 " />
-                      </button>
-                    </div>
-                  </CardContent>
-                </Card>
+                      <CardTitle className="text-lg md:text-xl font-bold text-gray-900  line-clamp-2">
+                        {post.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-gray-600 text-base leading-relaxed mb-4 line-clamp-3">
+                        {post.excerpt}
+                      </CardDescription>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2 text-sm text-gray-500">
+                          <User className="h-4 w-4" />
+                          <span>{post.author}</span>
+                          <Calendar className="h-4 w-4" />
+                          <span>{post.date}</span>
+                        </div>
+                        <button className="text-blue-600 hover:text-blue-800 rounded-full size-8 bg-blue-100 flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300">
+                          <ArrowRight className="h-4 w-4 " />
+                        </button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </ScrollInFromBottom>
               ))}
             </div>
           </div>

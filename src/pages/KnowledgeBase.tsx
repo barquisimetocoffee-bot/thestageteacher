@@ -1,15 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
-  ArrowLeft,
   Search,
   HelpCircle,
   BookOpen,
@@ -20,6 +12,9 @@ import {
 } from "lucide-react";
 import Navigation from "@/components/home/Navigation";
 import Footer from "@/components/home/Footer";
+import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
+import { motion } from "framer-motion";
+import ScrollInFromLeft from "@/components/animation/ScrollInFromLeft";
 
 const KnowledgeBase = () => {
   const navigate = useNavigate();
@@ -199,32 +194,38 @@ const KnowledgeBase = () => {
         <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-8">
-              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
-                <HelpCircle className="size-8 md:size-10 text-white" />
-              </div>
-              <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-                Knowledge
-                <span className="bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent">
-                  {" "}
-                  Base
-                </span>
-              </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                Find answers, tutorials, and guides to help you get the most out
-                of Ecerta's educational platform.
-              </p>
+              <ScrollInFromBottom delay={0.2}>
+                <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
+                  <HelpCircle className="size-8 md:size-10 text-white" />
+                </div>
+              </ScrollInFromBottom>
+              <ScrollInFromBottom delay={0.3}>
+                <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                  Knowledge
+                  <span className="bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent">
+                    {" "}
+                    Base
+                  </span>
+                </h1>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                  Find answers, tutorials, and guides to help you get the most
+                  out of Ecerta's educational platform.
+                </p>
+              </ScrollInFromBottom>
 
               {/* Search Bar */}
-              <div className="relative max-w-2xl mx-auto">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                <Input
-                  type="text"
-                  placeholder="Search for help articles, guides, or tutorials..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 pr-4 py-6 text-lg border-2 border-gray-200 rounded-2xl focus:outline-none"
-                />
-              </div>
+              <ScrollInFromBottom delay={0.4}>
+                <div className="relative max-w-2xl mx-auto">
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <Input
+                    type="text"
+                    placeholder="Search for help articles, guides, or tutorials..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-12 pr-4 py-6 text-lg border-2 border-gray-200 rounded-2xl focus:outline-none"
+                  />
+                </div>
+              </ScrollInFromBottom>
             </div>
           </div>
         </section>
@@ -237,8 +238,15 @@ const KnowledgeBase = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
               {categories.map((category, index) => (
-                <div
+                <motion.div
                   key={index}
+                  initial={{ y: 80, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: index * 0.2,
+                    ease: "easeOut",
+                  }}
                   className="group bg-white shadow rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300 border border-gray-100"
                 >
                   <div>
@@ -253,7 +261,7 @@ const KnowledgeBase = () => {
                   <p className="text-gray-600 text-base/6 pt-2">
                     {category.description}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -267,23 +275,25 @@ const KnowledgeBase = () => {
             </h2>
             <div className="space-y-4">
               {popularArticles.map((article, index) => (
-                <div
-                  key={index}
-                  className="bg-white/50 backdrop-blur-2xl group border-none hover:shadow-lg transition-all duration-300 cursor-pointer animate-fade-in p-4 md:p-6 rounded-md md:rounded-2xl"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex items-center justify-between gap-4">
-                    <h3 className="text-base/6 md:text-lg font-medium md:font-semibold text-gray-900 ">
-                      {article}
-                    </h3>
-                    <div className="text-blue-500  group">
-                      <ArrowDownRight
-                        size={26}
-                        className="group-hover:-rotate-45 transition-all duration-300"
-                      />
+                <ScrollInFromLeft delay={index * 0.2}>
+                  <div
+                    key={index}
+                    className="bg-white/50 backdrop-blur-2xl group border-none hover:shadow-lg transition-all duration-300 cursor-pointer animate-fade-in p-4 md:p-6 rounded-md md:rounded-2xl"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="flex items-center justify-between gap-4">
+                      <h3 className="text-base/6 md:text-lg font-medium md:font-semibold text-gray-900 ">
+                        {article}
+                      </h3>
+                      <div className="text-blue-500  group">
+                        <ArrowDownRight
+                          size={26}
+                          className="group-hover:-rotate-45 transition-all duration-300"
+                        />
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </div>{" "}
+                </ScrollInFromLeft>
               ))}
             </div>
           </div>

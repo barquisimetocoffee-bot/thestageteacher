@@ -1,12 +1,4 @@
 import { Button } from "@/components/ui/button";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   Heart,
   Users2,
@@ -19,8 +11,9 @@ import {
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
-
 import Footer from "@/components/home/Footer";
+import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
+import { motion } from "framer-motion";
 
 const PrimarySchools = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -102,28 +95,40 @@ const PrimarySchools = () => {
         <div className="container mx-auto px-4 py-6 md:py-16">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
-              <Heart className="size-8 md:size-10 text-white" />
-            </div>
-            <h1 className="text-3xl w-full md:w-[80%] md:mx-auto md:block md:text-5xl font-bold bg-gradient-to-tr from-[#2901B3] to-blue-600 bg-clip-text text-transparent mb-6">
-              Primary Schools{" "}
-              <span className="text-gray-800">
-                – Build Bright Futures from the Start
-              </span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Early education is where curiosity takes root and lifelong
-              learning begins. Our Primary School solution is designed to
-              nurture young minds while making teaching and school management
-              simple, secure, and engaging.
-            </p>
+            <ScrollInFromBottom delay={0.2}>
+              <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
+                <Heart className="size-8 md:size-10 text-white" />
+              </div>
+            </ScrollInFromBottom>
+            <ScrollInFromBottom delay={0.3}>
+              <h1 className="text-3xl w-full md:w-[80%] md:mx-auto md:block md:text-5xl font-bold bg-gradient-to-tr from-[#2901B3] to-blue-600 bg-clip-text text-transparent mb-6">
+                Primary Schools{" "}
+                <span className="text-gray-800">
+                  – Build Bright Futures from the Start
+                </span>
+              </h1>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Early education is where curiosity takes root and lifelong
+                learning begins. Our Primary School solution is designed to
+                nurture young minds while making teaching and school management
+                simple, secure, and engaging.
+              </p>{" "}
+            </ScrollInFromBottom>
           </div>
 
           {/* Features Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16">
             {features.map((feature, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ y: 80, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.2,
+                  ease: "easeOut",
+                }}
+                viewport={{ once: true, amount: 0.2 }} // Trigger when 20% is visible
                 className="group bg-white border border-gray-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
                 <div>
@@ -160,59 +165,63 @@ const PrimarySchools = () => {
                     </ul>
                   )
                 }
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Statistics */}
-          <div className="bg-[#2901B3] rounded-2xl p-8 mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-white">
-              Trusted by Primary Schools Worldwide
-            </h2>
-            <div className="grid grid-cols-3 md:grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
-                  15,000+
+          <ScrollInFromBottom delay={0.2}>
+            <div className="bg-[#2901B3] rounded-2xl p-8 mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-white">
+                Trusted by Primary Schools Worldwide
+              </h2>
+              <div className="grid grid-cols-3 md:grid-cols-3 gap-8 text-center">
+                <div>
+                  <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
+                    15,000+
+                  </div>
+                  <div className="text-gray-200 text-xs md:text-base">
+                    Young Learners
+                  </div>
                 </div>
-                <div className="text-gray-200 text-xs md:text-base">
-                  Young Learners
+                <div>
+                  <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
+                    500+
+                  </div>
+                  <div className="text-gray-200 text-xs md:text-base">
+                    Primary Schools
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
-                  500+
-                </div>
-                <div className="text-gray-200 text-xs md:text-base">
-                  Primary Schools
-                </div>
-              </div>
-              <div>
-                <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
-                  98%
-                </div>
-                <div className="text-gray-200 text-xs md:text-base">
-                  Teacher Satisfaction
+                <div>
+                  <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
+                    98%
+                  </div>
+                  <div className="text-gray-200 text-xs md:text-base">
+                    Teacher Satisfaction
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollInFromBottom>
 
           {/* CTA Section */}
-          <div className="text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Transform Primary Education?
-            </h2>
-            <p className="text-base text-gray-600 mb-8">
-              Join thousands of primary schools already using our platform.
-            </p>
-            <Button
-              size="lg"
-              onClick={() => setShowLogin(true)}
-              className="w-full md:w-72 my-btn text-white p-6"
-            >
-              Get Started Today
-            </Button>
-          </div>
+          <ScrollInFromBottom delay={0.3}>
+            <div className="text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Ready to Transform Primary Education?
+              </h2>
+              <p className="text-base text-gray-600 mb-8">
+                Join thousands of primary schools already using our platform.
+              </p>
+              <Button
+                size="lg"
+                onClick={() => setShowLogin(true)}
+                className="w-full md:w-72 my-btn text-white p-6"
+              >
+                Get Started Today
+              </Button>
+            </div>
+          </ScrollInFromBottom>
         </div>
 
         {showLogin && (

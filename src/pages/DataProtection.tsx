@@ -19,6 +19,8 @@ import {
 } from "lucide-react";
 import Navigation from "@/components/home/Navigation";
 import Footer from "@/components/home/Footer";
+import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
+import ScrollInFromLeft from "@/components/animation/ScrollInFromLeft";
 
 const DataProtection = () => {
   const navigate = useNavigate();
@@ -85,21 +87,25 @@ const DataProtection = () => {
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
-              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto w-20 h-20 flex items-center justify-center mb-6">
-                <Shield className="h-10 w-10 text-white" />
-              </div>
-              <h1 className="text-5xl font-bold text-gray-900 mb-6">
-                Data Protection &
-                <span className="bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent">
-                  {" "}
-                  GDPR
-                </span>
-              </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Your privacy and data security are our top priorities. Learn how
-                we protect your information and comply with global privacy
-                regulations.
-              </p>
+              <ScrollInFromBottom delay={0.2}>
+                <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto w-20 h-20 flex items-center justify-center mb-6">
+                  <Shield className="h-10 w-10 text-white" />
+                </div>
+              </ScrollInFromBottom>
+              <ScrollInFromBottom delay={0.3}>
+                <h1 className="text-5xl font-bold text-gray-900 mb-6">
+                  Data Protection &
+                  <span className="bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent">
+                    {" "}
+                    GDPR
+                  </span>
+                </h1>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Your privacy and data security are our top priorities. Learn
+                  how we protect your information and comply with global privacy
+                  regulations.
+                </p>
+              </ScrollInFromBottom>
             </div>
           </div>
         </section>
@@ -112,25 +118,24 @@ const DataProtection = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
               {protections.map((protection, index) => (
-                <div
-                  key={index}
-                  className="group bg-white shadow rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
-                >
-                  <div>
-                    <div className="flex flex-col items-start justify-center gap-2">
-                      <div className="p-3 icon-bg rounded-tr rounded-bl-sm   group-hover:scale-105 transition-transform duration-300">
-                        <protection.icon className="h-6 w-6 text-white" />
+                <ScrollInFromBottom delay={index * 0.1} key={index}>
+                  <div className="group bg-white shadow rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+                    <div>
+                      <div className="flex flex-col items-start justify-center gap-2">
+                        <div className="p-3 icon-bg rounded-tr rounded-bl-sm   group-hover:scale-105 transition-transform duration-300">
+                          <protection.icon className="h-6 w-6 text-white" />
+                        </div>
+                        <h2 className="text-lg/6 font-bold">
+                          {protection.title}
+                        </h2>
                       </div>
-                      <h2 className="text-lg/6 font-bold">
-                        {protection.title}
-                      </h2>
                     </div>
-                  </div>
 
-                  <p className="text-gray-600 text-base/6 pt-2">
-                    {protection.description}
-                  </p>
-                </div>
+                    <p className="text-gray-600 text-base/6 pt-2">
+                      {protection.description}
+                    </p>
+                  </div>
+                </ScrollInFromBottom>
               ))}
             </div>
           </div>
@@ -151,13 +156,15 @@ const DataProtection = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {gdprRights.map((right, index) => (
-                <div className="flex items-center justify-between bg-white/50 backdrop-blur-2xl p-4 rounded-tr rounded-bl-sm">
-                  <span className="size-8 rounded-full mr-4 bg-white flex items-center justify-center font-semibold">
-                    {index + 1}
-                  </span>
-                  <p className="text-gray-700 text-lg">{right}</p>
-                  <CheckCircle className="h-6 w-6 text-blue-500 flex-shrink-0 mt-0.5" />
-                </div>
+                <ScrollInFromLeft delay={index * 0.1} key={index}>
+                  <div className="flex items-center justify-between bg-white/50 backdrop-blur-2xl p-4 rounded-tr rounded-bl-sm">
+                    <span className="size-8 rounded-full mr-4 bg-white flex items-center justify-center font-semibold">
+                      {index + 1}
+                    </span>
+                    <p className="text-gray-700 text-lg">{right}</p>
+                    <CheckCircle className="h-6 w-6 text-blue-500 flex-shrink-0 mt-0.5" />
+                  </div>
+                </ScrollInFromLeft>
               ))}
             </div>
 

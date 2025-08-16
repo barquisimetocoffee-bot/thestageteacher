@@ -38,6 +38,7 @@ import predictiveAnalyticsImg from "@/assets/predictive-analytics-professional.j
 import corporateCertificationImg from "@/assets/corporate-certification-professional.jpg";
 import Navigation from "@/components/home/Navigation";
 import Footer from "@/components/home/Footer";
+import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
 
 const AdvancedLMS = () => {
   const [onShowLogin, setOnShowLogin] = useState(false);
@@ -211,25 +212,29 @@ const AdvancedLMS = () => {
         <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
-              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
-                <GraduationCap className="size-8 md:size-10 text-white" />
-              </div>
+              <ScrollInFromBottom delay={0.25}>
+                <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
+                  <GraduationCap className="size-8 md:size-10 text-white" />
+                </div>
 
-              <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-                Advanced
-                <span className="bg-gradient-to-r from-[#2901e3] to-blue-600 bg-clip-text text-transparent">
-                  {" "}
-                  AI LMS
-                </span>
-              </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                {t("products.advancedLMSDesc")}
-              </p>
+                <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                  Advanced
+                  <span className="bg-gradient-to-r from-[#2901e3] to-blue-600 bg-clip-text text-transparent">
+                    {" "}
+                    AI LMS
+                  </span>
+                </h1>
+              </ScrollInFromBottom>
+              <ScrollInFromBottom delay={0.25}>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                  {t("products.advancedLMSDesc")}
+                </p>
 
-              <Button className="w-full md:w-72 my-btn group text-white p-6 rounded-xl">
-                Join the Waitlist
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-all duration-300" />
-              </Button>
+                <Button className="w-full md:w-72 my-btn group text-white p-6 rounded-xl">
+                  Join the Waitlist
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-all duration-300" />
+                </Button>
+              </ScrollInFromBottom>
             </div>
           </div>
         </section>
@@ -245,86 +250,88 @@ const AdvancedLMS = () => {
             </h2>
             <div className="space-y-24">
               {featureCategories.map((category, categoryIndex) => (
-                <div
-                  key={category.id}
-                  className="animate-fade-in"
-                  style={{ animationDelay: `${categoryIndex * 0.2}s` }}
-                >
+                <ScrollInFromBottom delay={0.2}>
                   <div
-                    className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
-                      categoryIndex % 2 === 1 ? "lg:flex-row-reverse" : ""
-                    }`}
+                    key={category.id}
+                    className="animate-fade-in"
+                    style={{ animationDelay: `${categoryIndex * 0.2}s` }}
                   >
-                    {/* Content Section - Left for even, Right for odd */}
                     <div
-                      className={`space-y-8 ${
-                        categoryIndex % 2 === 1 ? "lg:order-2" : "lg:order-1"
+                      className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
+                        categoryIndex % 2 === 1 ? "lg:flex-row-reverse" : ""
                       }`}
                     >
-                      <div className="flex items-center space-x-4">
-                        <div
-                          className={`p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg`}
-                        >
-                          <category.icon className="size-6 md:size-8 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-2">
-                            {category.title}
-                          </h3>
-                          <div className="h-1 w-20 bg-gradient-to-r from-purple-500 to-blue-500 rounded"></div>
-                        </div>
-                      </div>
-
-                      <div className="space-y-2">
-                        {category.features.map((feature, featureIndex) => (
+                      {/* Content Section - Left for even, Right for odd */}
+                      <div
+                        className={`space-y-8 ${
+                          categoryIndex % 2 === 1 ? "lg:order-2" : "lg:order-1"
+                        }`}
+                      >
+                        <div className="flex items-center space-x-4">
                           <div
-                            key={featureIndex}
-                            className="group hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 p-2 md:p-4 rounded-tr rounded-bl-sm transition-all duration-300 border border-transparent "
+                            className={`p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg`}
                           >
-                            <div className="flex items-start space-x-4">
-                              <div className="p-3 rounded-xl bg-white shadow-md border group-hover:shadow-lg transition-shadow duration-300">
-                                <feature.icon className="h-6 w-6 text-blue-600" />
-                              </div>
-                              <div className="flex-1">
-                                <h4 className="text-lg font-semibold text-gray-900 mb-3 ">
-                                  {feature.title}
-                                </h4>
-                                <p className="text-gray-600 leading-relaxed">
-                                  {feature.description}
-                                </p>
+                            <category.icon className="size-6 md:size-8 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-2">
+                              {category.title}
+                            </h3>
+                            <div className="h-1 w-20 bg-gradient-to-r from-purple-500 to-blue-500 rounded"></div>
+                          </div>
+                        </div>
+
+                        <div className="space-y-2">
+                          {category.features.map((feature, featureIndex) => (
+                            <div
+                              key={featureIndex}
+                              className="group hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 p-2 md:p-4 rounded-tr rounded-bl-sm transition-all duration-300 border border-transparent "
+                            >
+                              <div className="flex items-start space-x-4">
+                                <div className="p-3 rounded-xl bg-white shadow-md border group-hover:shadow-lg transition-shadow duration-300">
+                                  <feature.icon className="h-6 w-6 text-blue-600" />
+                                </div>
+                                <div className="flex-1">
+                                  <h4 className="text-lg font-semibold text-gray-900 mb-3 ">
+                                    {feature.title}
+                                  </h4>
+                                  <p className="text-gray-600 leading-relaxed">
+                                    {feature.description}
+                                  </p>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Image Section - Right for even, Left for odd */}
-                    <div
-                      className={`relative ${
-                        categoryIndex % 2 === 1 ? "lg:order-1" : "lg:order-2"
-                      }`}
-                    >
-                      <div className="relative overflow-hidden rounded-3xl shadow-2xl group">
-                        <div className="aspect-[4/3] relative">
-                          <img
-                            src={category.image}
-                            alt={category.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                          />
+                          ))}
                         </div>
-                        {/* Floating badge */}
-                        <div className="absolute top-2 left-2 md:top-6 md:left-6">
-                          <div
-                            className={`px-4 py-2 rounded-full bg-blue-50 text-[#2901e3] text-sm font-semibold shadow-lg`}
-                          >
-                            AI-Powered
+                      </div>
+
+                      {/* Image Section - Right for even, Left for odd */}
+                      <div
+                        className={`relative ${
+                          categoryIndex % 2 === 1 ? "lg:order-1" : "lg:order-2"
+                        }`}
+                      >
+                        <div className="relative overflow-hidden rounded-3xl shadow-2xl group">
+                          <div className="aspect-[4/3] relative">
+                            <img
+                              src={category.image}
+                              alt={category.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            />
+                          </div>
+                          {/* Floating badge */}
+                          <div className="absolute top-2 left-2 md:top-6 md:left-6">
+                            <div
+                              className={`px-4 py-2 rounded-full bg-blue-50 text-[#2901e3] text-sm font-semibold shadow-lg`}
+                            >
+                              AI-Powered
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </ScrollInFromBottom>
               ))}
             </div>
           </div>
@@ -338,14 +345,15 @@ const AdvancedLMS = () => {
             </h2>
             <div className="space-y-4 mb-12 grid grid-cols-1 sm:grid-cols-2 place-content-center">
               {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="flex items-start md:items-center text-lg text-gray-700 animate-fade-in text-start"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <CheckCircle className="mt-1 size-5 md:size-6 text-green-500 mr-3 flex-shrink-0" />
-                  {benefit}.
-                </div>
+                <ScrollInFromBottom delay={index * 0.3}>
+                  <div
+                    key={index}
+                    className="flex items-start md:items-center text-lg text-gray-700 text-start"
+                  >
+                    <CheckCircle className="mt-1 size-5 md:size-6 text-green-500 mr-3 flex-shrink-0" />
+                    {benefit}.
+                  </div>
+                </ScrollInFromBottom>
               ))}
             </div>
             <Button className="w-full md:w-72 my-btn text-white px-8 py-6 rounded-xl">

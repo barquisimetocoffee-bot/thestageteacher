@@ -44,6 +44,7 @@ import ResetPassword from "./pages/ResetPassword";
 import CookieConsent from "./components/compliance/CookieConsent";
 import ConsentManager from "./components/compliance/ConsentManager";
 import Navigation from "./components/home/Navigation";
+import ScrollToTop from "./hooks/scrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const App = () => (
             <Toaster />
             <Sonner />
             <BrowserRouter>
+              <ScrollToTop />
               <ErrorBoundary>
                 <Routes>
                   <Route path="/" element={<Index />} />
@@ -64,7 +66,10 @@ const App = () => (
                   <Route path="/landing" element={<LandingPage />} />
                   <Route path="/ai-chatbot" element={<AIChatbot />} />
                   <Route path="/wizard-tools" element={<WizardTools />} />
-                  <Route path="/tools-suggestions" element={<ToolsSuggestions />} />
+                  <Route
+                    path="/tools-suggestions"
+                    element={<ToolsSuggestions />}
+                  />
                   <Route path="/output-history" element={<OutputHistory />} />
                   <Route path="/advanced-lms" element={<AdvancedLMS />} />
                   <Route
@@ -80,9 +85,15 @@ const App = () => (
                   />
                   <Route path="/data-protection" element={<DataProtection />} />
                   <Route path="/contact-us" element={<ContactUs />} />
-                  <Route path="/feedback-dashboard" element={<FeedbackDashboard />} />
+                  <Route
+                    path="/feedback-dashboard"
+                    element={<FeedbackDashboard />}
+                  />
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                  <Route path="/terms-of-service" element={<TermsOfService />} />
+                  <Route
+                    path="/terms-of-service"
+                    element={<TermsOfService />}
+                  />
                   <Route path="/lms" element={<LMSApp />} />
                   <Route path="/student" element={<StudentPortal />} />
                   <Route path="/teacher" element={<TeacherPortal />} />
@@ -94,13 +105,22 @@ const App = () => (
                     path="/solutions/secondary-schools"
                     element={<SecondarySchools />}
                   />
-                  <Route path="/solutions/universities" element={<Universities />} />
+                  <Route
+                    path="/solutions/universities"
+                    element={<Universities />}
+                  />
                   <Route
                     path="/solutions/independent-schools"
                     element={<IndependentSchools />}
                   />
-                  <Route path="/solutions/admissions" element={<Admissions />} />
-                  <Route path="/solutions/general-reports" element={<GeneralReports />} />
+                  <Route
+                    path="/solutions/admissions"
+                    element={<Admissions />}
+                  />
+                  <Route
+                    path="/solutions/general-reports"
+                    element={<GeneralReports />}
+                  />
                   <Route path="/solutions/hr-payroll" element={<HRPayroll />} />
                   <Route path="/solutions/finance" element={<Finance />} />
                   <Route
@@ -115,11 +135,10 @@ const App = () => (
               <ConsentManager />
             </BrowserRouter>
           </TooltipProvider>
-        </SubscriptionProvider >
-
-      </AuthProvider >
-    </QueryClientProvider >
-  </ErrorBoundary >
+        </SubscriptionProvider>
+      </AuthProvider>
+    </QueryClientProvider>
+  </ErrorBoundary>
 );
 
 export default App;

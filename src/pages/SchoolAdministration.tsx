@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import Navigation from "@/components/home/Navigation";
 import Footer from "@/components/home/Footer";
+import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
 
 const SchoolAdministration = () => {
   const [onShowLogin, setOnShowLogin] = useState(false);
@@ -89,24 +90,30 @@ const SchoolAdministration = () => {
         <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
-              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
-                <Building2 className="size-8 md:size-10 text-white" />
-              </div>
-
-              <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-                School
-                <span className=" bg-gradient-to-r from-[#2903b1] to-blue-600 bg-clip-text text-transparent">
-                  {" "}
-                </span>
-              </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                {t("products.schoolAdminDesc")}
-              </p>
-
-              <Button className="w-full md:w-72 my-btn group text-white p-6 rounded-xl">
-                Join the Waitlist
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <ScrollInFromBottom delay={0.2}>
+                <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
+                  <Building2 className="size-8 md:size-10 text-white" />
+                </div>
+              </ScrollInFromBottom>
+              <ScrollInFromBottom delay={0.3}>
+                <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                  School
+                  <span className=" bg-gradient-to-r from-[#2903b1] to-blue-600 bg-clip-text text-transparent">
+                    {" "}
+                  </span>
+                </h1>
+              </ScrollInFromBottom>
+              <ScrollInFromBottom delay={0.4}>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+                  {t("products.schoolAdminDesc")}
+                </p>
+              </ScrollInFromBottom>
+              <ScrollInFromBottom delay={0.4}>
+                <Button className="w-full md:w-72 my-btn group text-white p-6 rounded-xl">
+                  Join the Waitlist
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </ScrollInFromBottom>
             </div>
           </div>
         </section>
@@ -122,23 +129,25 @@ const SchoolAdministration = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-4 place-content-center gap-4 md:gap-8">
               {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="group bg-gradient-to-br from-white to-blue-50 border border-gray-100 rounded-tr rounded-bl-sm p-8 hover:shadow-lg transition-shadow duration-300"
-                >
-                  <div>
-                    <div className="flex flex-col items-start justify-center gap-2">
-                      <div className="p-3 icon-bg rounded-lg  group-hover:scale-105 transition-transform duration-300">
-                        <feature.icon className="h-6 w-6 text-white" />
+                <ScrollInFromBottom delay={index * 0.12}>
+                  <div
+                    key={index}
+                    className="group bg-gradient-to-br from-white to-blue-50 border border-gray-100 rounded-tr rounded-bl-sm p-8 hover:shadow-lg transition-shadow duration-300"
+                  >
+                    <div>
+                      <div className="flex flex-col items-start justify-center gap-2">
+                        <div className="p-3 icon-bg rounded-lg  group-hover:scale-105 transition-transform duration-300">
+                          <feature.icon className="h-6 w-6 text-white" />
+                        </div>
+                        <h2 className="text-lg/6 font-bold">{feature.title}</h2>
                       </div>
-                      <h2 className="text-lg/6 font-bold">{feature.title}</h2>
                     </div>
-                  </div>
 
-                  <p className="text-gray-600 text-base/6 pt-2">
-                    {feature.description}
-                  </p>
-                </div>
+                    <p className="text-gray-600 text-base/6 pt-2">
+                      {feature.description}
+                    </p>
+                  </div>
+                </ScrollInFromBottom>
               ))}
             </div>
           </div>
@@ -152,14 +161,16 @@ const SchoolAdministration = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
               {modules.map((module, index) => (
-                <div
-                  key={index}
-                  className="flex items-center text-lg text-gray-700"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <CheckCircle className="size-5 md:size-6 text-green-500 mr-3 flex-shrink-0" />
-                  {module}
-                </div>
+                <ScrollInFromBottom delay={index * 0.3}>
+                  <div
+                    key={index}
+                    className="flex items-center text-lg text-gray-700"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <CheckCircle className="size-5 md:size-6 text-green-500 mr-3 flex-shrink-0" />
+                    {module}
+                  </div>
+                </ScrollInFromBottom>
               ))}
             </div>
 

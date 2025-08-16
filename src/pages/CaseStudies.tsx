@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import Footer from "@/components/home/Footer";
 import Navigation from "@/components/home/Navigation";
+import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
 
 const CaseStudies = () => {
   const navigate = useNavigate();
@@ -80,20 +81,24 @@ const CaseStudies = () => {
         <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
-              <div className="p-4 rounded-tr rounded-bl-sm  icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
-                <FileText className="size-8 md:size-10 text-white" />
-              </div>
-              <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-                Case
-                <span className="bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent">
-                  {" "}
-                  Studies
-                </span>
-              </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Discover how schools worldwide are transforming education with
-                Ecerta's innovative solutions.
-              </p>
+              <ScrollInFromBottom delay={0.2}>
+                <div className="p-4 rounded-tr rounded-bl-sm  icon-bg shadow-lg mx-auto size-16 md:size-20 flex items-center justify-center mb-6">
+                  <FileText className="size-8 md:size-10 text-white" />
+                </div>
+              </ScrollInFromBottom>
+              <ScrollInFromBottom delay={0.3}>
+                <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                  Case
+                  <span className="bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent">
+                    {" "}
+                    Studies
+                  </span>
+                </h1>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Discover how schools worldwide are transforming education with
+                  Ecerta's innovative solutions.
+                </p>
+              </ScrollInFromBottom>
             </div>
           </div>
         </section>
@@ -101,53 +106,55 @@ const CaseStudies = () => {
         {/* Case Studies Grid */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 md:gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 md:gap-8">
               {caseStudies.map((study, index) => (
-                <Card
-                  key={index}
-                  className="hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-gray-50 overflow-hidden animate-fade-in border border-gray-100"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <div className="flex flex-col lg:flex-row">
-                    <div className="lg:w-1/3">
-                      <img
-                        src={study.image}
-                        alt={study.school}
-                        className="w-full h-64 lg:h-full object-cover"
-                      />
-                    </div>
-                    <div className="lg:w-2/3 p-4 md:p-8">
-                      <div className="flex items-center space-x-3 mb-4">
-                        <Badge className="bg-blue-100 text-blue-800 border-blue-200">
-                          {study.type}
-                        </Badge>
-                        <div className="flex items-center text-sm text-gray-500">
-                          <Clock className="h-4 w-4 mr-1" />
-                          {study.timeframe}
+                <ScrollInFromBottom key={index}>
+                  <Card
+                    key={index}
+                    className="hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-gray-50 overflow-hidden animate-fade-in border border-gray-100"
+                    style={{ animationDelay: `${index * 0.2}s` }}
+                  >
+                    <div className="flex flex-col lg:flex-row">
+                      <div className="lg:w-1/3">
+                        <img
+                          src={study.image}
+                          alt={study.school}
+                          className="w-full h-64 lg:h-full object-cover"
+                        />
+                      </div>
+                      <div className="lg:w-2/3 p-4 md:p-8">
+                        <div className="flex items-center space-x-3 mb-4">
+                          <Badge className="bg-blue-100 text-blue-800 border-blue-200">
+                            {study.type}
+                          </Badge>
+                          <div className="flex items-center text-sm text-gray-500">
+                            <Clock className="h-4 w-4 mr-1" />
+                            {study.timeframe}
+                          </div>
+                        </div>
+                        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">
+                          {study.title}
+                        </h3>
+                        <p className="text-lg text-blue-600 font-semibold mb-4">
+                          {study.school}
+                        </p>
+                        <p className="text-gray-600 mb-6 leading-relaxed">
+                          {study.description}
+                        </p>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center text-green-600 font-semibold">
+                            <TrendingUp className="h-5 w-5 mr-2" />
+                            {study.results}
+                          </div>
+                          <Button className="my-btn group text-white">
+                            Read Full Study
+                            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                          </Button>
                         </div>
                       </div>
-                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">
-                        {study.title}
-                      </h3>
-                      <p className="text-lg text-blue-600 font-semibold mb-4">
-                        {study.school}
-                      </p>
-                      <p className="text-gray-600 mb-6 leading-relaxed">
-                        {study.description}
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center text-green-600 font-semibold">
-                          <TrendingUp className="h-5 w-5 mr-2" />
-                          {study.results}
-                        </div>
-                        <Button className="my-btn group text-white">
-                          Read Full Study
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                        </Button>
-                      </div>
                     </div>
-                  </div>
-                </Card>
+                  </Card>
+                </ScrollInFromBottom>
               ))}
             </div>
           </div>

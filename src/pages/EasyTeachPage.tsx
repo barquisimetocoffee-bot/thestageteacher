@@ -33,6 +33,7 @@ import Marquee from "react-fast-marquee";
 import Navigation from "@/components/home/Navigation";
 import Footer from "@/components/home/Footer";
 import LoginModal from "@/components/auth/LoginModal";
+import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
 
 const EasyTeachPage = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -389,39 +390,47 @@ const EasyTeachPage = () => {
       {/* Hero Section */}
       <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="flex justify-center mb-6">
-            <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg">
-              <BookOpen className="h-12 w-12 text-white" />
+          <ScrollInFromBottom delay={0.2}>
+            <div className="flex justify-center mb-6">
+              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg">
+                <BookOpen className="h-12 w-12 text-white" />
+              </div>
             </div>
-          </div>
-          <Badge className="bg-green-100 text-green-800 border-green-200 mb-6">
-            <CheckCircle className="h-3 w-3 mr-1" />
-            Available Now
-          </Badge>
-          <div className="w-full text-center flex items-center justify-center">
-            <h1 className="lg:w-[70%] text-center text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              EasyTeach: AI-Powered Teaching
-              <span className="bg-gradient-to-r from-[#3101e3] to-blue-600 bg-clip-text text-transparent">
-                {" "}
-                Revolution
-              </span>
-            </h1>
-          </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Transform your teaching experience with smart lesson planning,
-            instant communication tools, behavior support, and personalized
-            learning resources that save you 15+ hours every week.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button
-              size="lg"
-              onClick={() => setShowLogin(true)}
-              className="w-full md:w-72 my-btn group text-white px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Start Teaching Smarter
-              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-all duration-300" />
-            </Button>
-          </div>
+          </ScrollInFromBottom>
+          <ScrollInFromBottom delay={0.2}>
+            <Badge className="bg-green-100 text-green-800 border-green-200 mb-6">
+              <CheckCircle className="h-3 w-3 mr-1" />
+              Available Now
+            </Badge>
+            <div className="w-full text-center flex items-center justify-center">
+              <h1 className="lg:w-[80%] text-center text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                EasyTeach: AI-Powered Teaching
+                <span className="bg-gradient-to-r from-[#3101e3] to-blue-600 bg-clip-text text-transparent">
+                  {" "}
+                  Revolution
+                </span>
+              </h1>
+            </div>
+          </ScrollInFromBottom>
+          <ScrollInFromBottom delay={0.3}>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              Transform your teaching experience with smart lesson planning,
+              instant communication tools, behavior support, and personalized
+              learning resources that save you 15+ hours every week.
+            </p>
+          </ScrollInFromBottom>
+          <ScrollInFromBottom delay={0.35}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Button
+                size="lg"
+                onClick={() => setShowLogin(true)}
+                className="w-full md:w-72 my-btn group text-white px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Start Teaching Smarter
+                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-all duration-300" />
+              </Button>
+            </div>
+          </ScrollInFromBottom>
           <div className="flex items-center justify-center text-sm text-gray-500 mb-8">
             <Users className="h-4 w-4 mr-2" />
             100,000+ Teachers Worldwide
@@ -460,59 +469,63 @@ const EasyTeachPage = () => {
       {/* Feature Showcase with Dashboard Mockups */}
       <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              The Most Comprehensive{" "}
-              <span className="bg-gradient-to-r from-[#3101e3] to-blue-600 bg-clip-text text-transparent">
-                AI Teaching Platform
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From lesson planning to student analytics, EasyTeach provides
-              everything educators need in one powerful, AI-driven platform
-            </p>
-          </div>
+          <ScrollInFromBottom delay={0.3}>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                The Most Comprehensive{" "}
+                <span className="bg-gradient-to-r from-[#3101e3] to-blue-600 bg-clip-text text-transparent">
+                  AI Teaching Platform
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                From lesson planning to student analytics, EasyTeach provides
+                everything educators need in one powerful, AI-driven platform
+              </p>
+            </div>
+          </ScrollInFromBottom>
 
           <div className="space-y-20">
             {easyteachFeatures.map((feature, index) => (
-              <div
-                key={index}
-                className={`flex flex-col lg:flex-row items-center gap-12 ${
-                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                }`}
-              >
-                <div className="flex-1 space-y-6">
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
-                    {feature.title}
-                  </h3>
-                  <p className="text-lg text-gray-600 leading-relaxed">
-                    {feature.description}
-                  </p>
-                  <div className="grid grid-cols-2 gap-3">
-                    {feature.features.map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-center text-sm text-gray-600"
-                      >
-                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
-                        {item}
-                      </div>
-                    ))}
+              <ScrollInFromBottom delay={0.3}>
+                <div
+                  key={index}
+                  className={`flex flex-col lg:flex-row items-center gap-12 ${
+                    index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                  }`}
+                >
+                  <div className="flex-1 space-y-6">
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+                      {feature.title}
+                    </h3>
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                      {feature.description}
+                    </p>
+                    <div className="grid grid-cols-2 gap-3">
+                      {feature.features.map((item, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-center text-sm text-gray-600"
+                        >
+                          <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                    <Button
+                      onClick={() => setShowLogin(true)}
+                      className="w-full md:w-72 my-btn text-white px-6 py-6 group rounded-xl"
+                    >
+                      Explore This Feature
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-all duration-300" />
+                    </Button>
                   </div>
-                  <Button
-                    onClick={() => setShowLogin(true)}
-                    className="w-full md:w-72 my-btn text-white px-6 py-6 group rounded-xl"
-                  >
-                    Explore This Feature
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-all duration-300" />
-                  </Button>
-                </div>
 
-                {/* Custom Dashboard Mockup */}
-                <div className="flex-1 relative">
-                  <feature.component />
+                  {/* Custom Dashboard Mockup */}
+                  <div className="flex-1 relative">
+                    <feature.component />
+                  </div>
                 </div>
-              </div>
+              </ScrollInFromBottom>
             ))}
           </div>
         </div>
@@ -521,42 +534,46 @@ const EasyTeachPage = () => {
       {/* Why Choose EasyTeach Section */}
       <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Why EasyTeach is the
-              <span className="bg-gradient-to-r from-[#2901e3] to-blue-600 bg-clip-text text-transparent">
-                {" "}
-                Educator's Choice
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Built by educators, for educators. We understand your challenges
-              and provide solutions that actually work.
-            </p>
-          </div>
+          <ScrollInFromBottom delay={0.3}>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Why EasyTeach is the
+                <span className="bg-gradient-to-r from-[#2901e3] to-blue-600 bg-clip-text text-transparent">
+                  {" "}
+                  Educator's Choice
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Built by educators, for educators. We understand your challenges
+                and provide solutions that actually work.
+              </p>
+            </div>
+          </ScrollInFromBottom>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {whyChooseEasyTeach.map((item, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-white to-gray-50 overflow-hidden"
-              >
-                <CardHeader className="pb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="p-2 md:p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg group-hover:scale-110 transition-transform duration-200">
-                      <item.icon className="size-6 md:size-8 text-white" />
+              <ScrollInFromBottom delay={index * 0.15}>
+                <Card
+                  key={index}
+                  className="group hover:shadow-2xl transition-all duration-300 border border-gray-100 bg-gradient-to-br from-white to-gray-50 overflow-hidden"
+                >
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="p-2 md:p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg group-hover:scale-110 transition-transform duration-200">
+                        <item.icon className="size-6 md:size-8 text-white" />
+                      </div>
+                      <CardTitle className="text-xl font-bold text-gray-900 ">
+                        {item.title}
+                      </CardTitle>
                     </div>
-                    <CardTitle className="text-xl font-bold text-gray-900 ">
-                      {item.title}
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600 text-base leading-relaxed">
-                    {item.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-gray-600 text-base leading-relaxed">
+                      {item.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </ScrollInFromBottom>
             ))}
           </div>
         </div>
@@ -564,57 +581,65 @@ const EasyTeachPage = () => {
 
       {/* CTA Section */}
       <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-400">
-        <div className="max-w-6xl mx-auto text-center *:text-white">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Ready to Transform Your <span className="">Teaching</span>?
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Join 100,000+ educators who are already saving 15+ hours weekly with
-            EasyTeach
-          </p>
+        <div className="max-w-6xl mx-auto text-center">
+          <ScrollInFromBottom delay={0.2}>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+              Ready to Transform Your <span className="">Teaching</span>?
+            </h2>
+          </ScrollInFromBottom>
+          <ScrollInFromBottom delay={0.2}>
+            <p className="text-xl mb-8 opacity-90 text-white">
+              Join 100,000+ educators who are already saving 15+ hours weekly
+              with EasyTeach
+            </p>
+          </ScrollInFromBottom>
 
-          <div className="flex flex-col md:flex-row justify-center gap-6 mb-12 *:w-full *:md:w-72">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 w-[300px] h-[200px] flex flex-col items-center justify-center">
-              <Clock className="h-8 w-8 mx-auto mb-3" />
-              <h3 className="font-bold mb-2 text-white">
-                Save 15+ Hours Weekly
-              </h3>
-              <p className="text-sm text-gray-100">
-                Automate lesson planning and communication
-              </p>
+          <ScrollInFromBottom delay={0.2}>
+            <div className="flex flex-col md:flex-row justify-center gap-6 mb-12 *:w-full *:md:w-72">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 w-[300px] h-[200px] flex flex-col items-center justify-center">
+                <Clock className="h-8 w-8 mx-auto mb-3 text-white" />
+                <h3 className="font-bold mb-2 text-white">
+                  Save 15+ Hours Weekly
+                </h3>
+                <p className="text-sm text-gray-100">
+                  Automate lesson planning and communication
+                </p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 w-[300px] h-[200px] flex flex-col items-center justify-center">
+                <Users className="h-8 w-8 mx-auto mb-3 text-white" />
+                <h3 className="font-bold mb-2 text-white">
+                  Join 100K+ Educators
+                </h3>
+                <p className="text-sm text-gray-100">
+                  Be part of the teaching revolution
+                </p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 w-[300px] h-[200px] flex flex-col items-center justify-center">
+                <Award className="h-8 w-8 mx-auto mb-3 text-white" />
+                <h3 className="font-bold mb-2 text-white">
+                  Improve Student Outcomes
+                </h3>
+                <p className="text-sm text-gray-100">
+                  Data-driven insights for better teaching
+                </p>
+              </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 w-[300px] h-[200px] flex flex-col items-center justify-center">
-              <Users className="h-8 w-8 mx-auto mb-3" />
-              <h3 className="font-bold mb-2 text-white">
-                Join 100K+ Educators
-              </h3>
-              <p className="text-sm text-gray-100">
-                Be part of the teaching revolution
-              </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 w-[300px] h-[200px] flex flex-col items-center justify-center">
-              <Award className="h-8 w-8 mx-auto mb-3" />
-              <h3 className="font-bold mb-2 text-white">
-                Improve Student Outcomes
-              </h3>
-              <p className="text-sm text-gray-100">
-                Data-driven insights for better teaching
-              </p>
-            </div>
-          </div>
+          </ScrollInFromBottom>
 
-          <Button
-            size="lg"
-            onClick={() => setShowLogin(true)}
-            className="w-full md:w-72 bg-white *:text-[#2901e3] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-100 hover:text-[#2901e3]"
-          >
-            <span>Start Teaching Smarter Today</span>
-            <Sparkles className="ml-3 h-6 w-6 text-[#2901e3]" />
-          </Button>
+          <ScrollInFromBottom delay={0.2}>
+            <Button
+              size="lg"
+              onClick={() => setShowLogin(true)}
+              className="w-full md:w-72 bg-white *:text-[#2901e3] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-100 hover:text-[#2901e3]"
+            >
+              <span>Start Teaching Smarter Today</span>
+              <Sparkles className="ml-3 h-6 w-6 text-[#2901e3]" />
+            </Button>
 
-          <p className="text-sm opacity-80 mt-6">
-            No credit card required • 14-day free trial • Cancel anytime
-          </p>
+            <p className="text-sm opacity-80 mt-6 text-white">
+              No credit card required • 14-day free trial • Cancel anytime
+            </p>
+          </ScrollInFromBottom>
         </div>
       </section>
 

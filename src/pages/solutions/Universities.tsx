@@ -10,8 +10,9 @@ import {
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
-
 import Footer from "@/components/home/Footer";
+import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
+import { motion } from "framer-motion";
 
 const Universities = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -73,29 +74,40 @@ const Universities = () => {
         <div className="container mx-auto px-4 py-6 md:py-16">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
-              <Award className="size-8 md:size-10 text-white" />
-            </div>
-            <h1 className="text-3xl w-full md:w-[80%] md:mx-auto md:block md:text-5xl font-bold bg-gradient-to-tr from-[#2901B3] to-blue-600 bg-clip-text text-transparent mb-6">
-              Universities{" "}
-              <span className="text-gray-800">
-                – Manage, Innovate, and Elevate Higher Education
-              </span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Universities face unique challenges — from handling large student
-              populations to advancing groundbreaking research. Our University
-              Solution is built to manage the complexity, foster innovation, and
-              deliver an exceptional campus experience for students, faculty,
-              and administrators.
-            </p>
+            <ScrollInFromBottom delay={0.2}>
+              <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
+                <Award className="size-8 md:size-10 text-white" />
+              </div>
+            </ScrollInFromBottom>
+            <ScrollInFromBottom delay={0.3}>
+              <h1 className="text-3xl w-full md:w-[80%] md:mx-auto md:block md:text-5xl font-bold bg-gradient-to-tr from-[#2901B3] to-blue-600 bg-clip-text text-transparent mb-6">
+                Universities{" "}
+                <span className="text-gray-800">
+                  – Manage, Innovate, and Elevate Higher Education
+                </span>
+              </h1>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Universities face unique challenges — from handling large
+                student populations to advancing groundbreaking research. Our
+                University Solution is built to manage the complexity, foster
+                innovation, and deliver an exceptional campus experience for
+                students, faculty, and administrators.
+              </p>
+            </ScrollInFromBottom>
           </div>
 
           {/* Features Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16">
             {features.map((feature, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ y: 80, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.2,
+                  ease: "easeOut",
+                }}
                 className="group bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
                 <div>
@@ -132,59 +144,63 @@ const Universities = () => {
                     </ul>
                   )
                 }
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Statistics */}
-          <div className="bg-[#2901b3] rounded-2xl p-8 shadow-lg mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-white">
-              Leading Universities Trust Us
-            </h2>
-            <div className="grid grid-cols-3 md:grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
-                  250,000+
+          <ScrollInFromBottom delay={0.2}>
+            <div className="bg-[#2901b3] rounded-2xl p-8 shadow-lg mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-white">
+                Leading Universities Trust Us
+              </h2>
+              <div className="grid grid-cols-3 md:grid-cols-3 gap-8 text-center">
+                <div>
+                  <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
+                    250,000+
+                  </div>
+                  <div className="text-gray-200 text-xs md:text-base">
+                    University Students
+                  </div>
                 </div>
-                <div className="text-gray-200 text-xs md:text-base">
-                  University Students
+                <div>
+                  <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
+                    150+
+                  </div>
+                  <div className="text-gray-200 text-xs md:text-base">
+                    Universities
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
-                  150+
-                </div>
-                <div className="text-gray-200 text-xs md:text-base">
-                  Universities
-                </div>
-              </div>
-              <div>
-                <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
-                  95%
-                </div>
-                <div className="text-gray-200 text-xs md:text-base">
-                  Research Efficiency
+                <div>
+                  <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
+                    95%
+                  </div>
+                  <div className="text-gray-200 text-xs md:text-base">
+                    Research Efficiency
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollInFromBottom>
 
           {/* CTA Section */}
-          <div className="text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Revolutionize Higher Education?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Join leading universities worldwide in transforming education.
-            </p>
-            <Button
-              size="lg"
-              onClick={() => setShowLogin(true)}
-              className="w-full md:w-72 icon-bg my-btn text-white p-6"
-            >
-              Get Started Today
-            </Button>
-          </div>
+          <ScrollInFromBottom delay={0.3}>
+            <div className="text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Ready to Revolutionize Higher Education?
+              </h2>
+              <p className="text-xl text-gray-600 mb-8">
+                Join leading universities worldwide in transforming education.
+              </p>
+              <Button
+                size="lg"
+                onClick={() => setShowLogin(true)}
+                className="w-full md:w-72 icon-bg my-btn text-white p-6"
+              >
+                Get Started Today
+              </Button>
+            </div>
+          </ScrollInFromBottom>
         </div>
 
         {showLogin && (

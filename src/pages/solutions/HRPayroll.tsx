@@ -1,23 +1,10 @@
 import { Button } from "@/components/ui/button";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   Users,
   CreditCard,
   UserPlus,
   ClipboardCheck,
   Shield,
-  ArrowRight,
-  Target,
-  Zap,
-  Calendar,
-  FileSearch,
   CheckCircle,
 } from "lucide-react";
 
@@ -25,7 +12,8 @@ import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
-import hrHero from "@/assets/solutions/hr-payroll-hero.jpg";
+import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
+import { motion } from "framer-motion";
 import Footer from "@/components/home/Footer";
 
 const HRPayroll = () => {
@@ -102,26 +90,41 @@ const HRPayroll = () => {
         <div className="container mx-auto px-4 py-6 md:py-16">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
-              <Users className="size-8 md:size-10 text-white" />
-            </div>
-            <h1 className="text-3xl w-full md:w-[80%] md:mx-auto md:block md:text-5xl font-bold text-gray-900 mb-6">
-              HR & Payroll – Smarter Workforce Management for Schools
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-              Managing school staff should be simple, efficient, and accurate —
-              not buried in spreadsheets and paperwork. <br />
-              Our AI-powered HR & Payroll module streamlines the entire employee
-              lifecycle, from digital onboarding to payroll automation, so your
-              team can focus on building a thriving school environment.
-            </p>
+            <ScrollInFromBottom delay={0.2}>
+              <div className="inline-flex items-center justify-center size-16 md:size-20 icon-bg rounded-tr rounded-bl-sm mb-6">
+                <Users className="size-8 md:size-10 text-white" />
+              </div>
+            </ScrollInFromBottom>
+            <ScrollInFromBottom delay={0.3}>
+              <h1 className="text-3xl w-full md:w-[80%] md:mx-auto md:block md:text-5xl font-bold bg-gradient-to-tr from-[#2901B3] to-blue-600 bg-clip-text text-transparent mb-6">
+                HR & Payroll{" "}
+                <span className="text-gray-800">
+                  – Smarter Workforce Management for Schools
+                </span>
+              </h1>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+                Managing school staff should be simple, efficient, and accurate
+                — not buried in spreadsheets and paperwork. <br />
+                Our AI-powered HR & Payroll module streamlines the entire
+                employee lifecycle, from digital onboarding to payroll
+                automation, so your team can focus on building a thriving school
+                environment.
+              </p>
+            </ScrollInFromBottom>
           </div>
 
           {/* Features Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16">
             {features.map((feature, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ y: 80, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.2,
+                  ease: "easeOut",
+                }}
                 className="group bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
                 <div>
@@ -158,7 +161,7 @@ const HRPayroll = () => {
                     </ul>
                   )
                 }
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -175,57 +178,61 @@ const HRPayroll = () => {
         </div> */}
 
           {/* Benefits */}
-          <div className="bg-[#2901b3] rounded-2xl p-8 mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-white">
-              Streamlined HR Operations
-            </h2>
-            <div className="grid grid-cols-3 md:grid-cols-3 gap-8 text-center">
-              <div>
-                <CreditCard className="size-8 md:size-12 text-white mx-auto mb-4" />
-                <h3 className="text-base/5 md:text-xl font-semibold mb-2 text-white">
-                  Automated
-                </h3>
-                <p className="text-gray-200 text-sm md:text-base">
-                  Payroll Processing
-                </p>
-              </div>
-              <div>
-                <Shield className="size-8 md:size-12 text-white mx-auto mb-4" />
-                <h3 className="text-base/5 md:text-xl font-semibold mb-2 text-white">
-                  100%
-                </h3>
-                <p className="text-gray-200 text-sm md:text-base">
-                  Compliance Ready
-                </p>
-              </div>
-              <div>
-                <ClipboardCheck className="size-8 md:size-12 text-white mx-auto mb-4" />
-                <h3 className="text-base/5 md:text-xl font-semibold mb-2 text-white">
-                  Digital
-                </h3>
-                <p className="text-gray-200 text-sm md:text-base">
-                  Record Management
-                </p>
+          <ScrollInFromBottom delay={0.2}>
+            <div className="bg-[#2901b3] rounded-2xl p-8 mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-white">
+                Streamlined HR Operations
+              </h2>
+              <div className="grid grid-cols-3 md:grid-cols-3 gap-8 text-center">
+                <div>
+                  <CreditCard className="size-8 md:size-12 text-white mx-auto mb-4" />
+                  <h3 className="text-base/5 md:text-xl font-semibold mb-2 text-white">
+                    Automated
+                  </h3>
+                  <p className="text-gray-200 text-sm md:text-base">
+                    Payroll Processing
+                  </p>
+                </div>
+                <div>
+                  <Shield className="size-8 md:size-12 text-white mx-auto mb-4" />
+                  <h3 className="text-base/5 md:text-xl font-semibold mb-2 text-white">
+                    100%
+                  </h3>
+                  <p className="text-gray-200 text-sm md:text-base">
+                    Compliance Ready
+                  </p>
+                </div>
+                <div>
+                  <ClipboardCheck className="size-8 md:size-12 text-white mx-auto mb-4" />
+                  <h3 className="text-base/5 md:text-xl font-semibold mb-2 text-white">
+                    Digital
+                  </h3>
+                  <p className="text-gray-200 text-sm md:text-base">
+                    Record Management
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollInFromBottom>
 
           {/* CTA Section */}
-          <div className="text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Modernize Your HR?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Focus on people, not paperwork with automated HR solutions.
-            </p>
-            <Button
-              size="lg"
-              onClick={() => setShowLogin(true)}
-              className="w-full md:w-72 my-btn text-white p-6"
-            >
-              Transform HR & Payroll Now
-            </Button>
-          </div>
+          <ScrollInFromBottom delay={0.3}>
+            <div className="text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Ready to Modernize Your HR?
+              </h2>
+              <p className="text-xl text-gray-600 mb-8">
+                Focus on people, not paperwork with automated HR solutions.
+              </p>
+              <Button
+                size="lg"
+                onClick={() => setShowLogin(true)}
+                className="w-full md:w-72 my-btn text-white p-6"
+              >
+                Transform HR & Payroll Now
+              </Button>
+            </div>
+          </ScrollInFromBottom>
         </div>
 
         {showLogin && (
