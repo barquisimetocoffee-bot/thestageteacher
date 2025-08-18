@@ -7,6 +7,28 @@ import MobileNavigation from "./MobileNavigation";
 import { RiMenuLine } from "react-icons/ri";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import {
+  BookOpen,
+  GraduationCap,
+  Building2,
+  Sparkles,
+  Users,
+  TrendingUp,
+  Heart,
+  Zap,
+  Award,
+  Target,
+  FileText,
+  HelpCircle,
+  Shield,
+  Mail,
+  UserCheck,
+  FileBarChart,
+  DollarSign,
+  MessageSquare,
+  School,
+  HamIcon,
+} from "lucide-react";
 
 interface NavigationProps {
   onShowLogin: () => void;
@@ -22,6 +44,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
       id: "easyteach",
       name: "EasyTeach",
       description: "AI-powered teaching tools",
+      icon: BookOpen,
       status: "available",
       color: "from-blue-500 to-blue-600",
       onClick: () => navigate("/easyteach"),
@@ -30,6 +53,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
       id: "lms",
       name: "Advanced AI LMS",
       description: "Next-generation learning management",
+      icon: GraduationCap,
       status: "coming-soon",
       color: "from-purple-500 to-purple-600",
       onClick: () => navigate("/advanced-lms"),
@@ -38,6 +62,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
       id: "admin",
       name: "School Administration",
       description: "Comprehensive school management",
+      icon: Building2,
       status: "coming-soon",
       color: "from-green-500 to-green-600",
       onClick: () => navigate("/school-administration"),
@@ -47,24 +72,28 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
   const solutionsByCategory = [
     {
       title: "Primary Schools",
+      icon: Heart,
       desc: "Engage young learners with simple, intuitive tools",
       color: "from-pink-500 to-rose-500",
       onClick: () => navigate("/solutions/primary-schools"),
     },
     {
       title: "Secondary Schools",
+      icon: TrendingUp,
       desc: "Empower educators, engage students, and simplify operations",
       color: "from-blue-500 to-cyan-500",
       onClick: () => navigate("/solutions/secondary-schools"),
     },
     {
       title: "Universities",
+      icon: Award,
       desc: "Streamline academic workflows and enhance student experience",
       color: "from-purple-500 to-indigo-500",
       onClick: () => navigate("/solutions/universities"),
     },
     {
       title: "Independent Schools",
+      icon: Target,
       desc: "Flexible, tailored solutions for unique learning models",
       color: "from-green-500 to-emerald-500",
       onClick: () => navigate("/solutions/independent-schools"),
@@ -74,30 +103,35 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
   const solutionsByDepartment = [
     {
       title: "Admissions",
+      icon: UserCheck,
       desc: "Attract, manage, and enroll students with zero hassle",
       color: "from-blue-500 to-cyan-500",
       onClick: () => navigate("/solutions/admissions"),
     },
     {
       title: "General Report",
+      icon: FileBarChart,
       desc: "Real-time insights for smarter decision-making",
       color: "from-purple-500 to-indigo-500",
       onClick: () => navigate("/solutions/general-reports"),
     },
     {
       title: "HR & Payroll",
+      icon: Users,
       desc: "Effortless staff management, from hiring to payroll",
       color: "from-green-500 to-emerald-500",
       onClick: () => navigate("/solutions/hr-payroll"),
     },
     {
       title: "Finance",
+      icon: DollarSign,
       desc: "Stay on top of budgets, fees, and payments in real time",
       color: "from-yellow-500 to-orange-500",
       onClick: () => navigate("/solutions/finance"),
     },
     {
       title: "Communication",
+      icon: MessageSquare,
       desc: "Keep everyone connected in one hub",
       color: "from-pink-500 to-rose-500",
       onClick: () => navigate("/solutions/communication"),
@@ -107,14 +141,17 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
   const resourcesMenu = [
     {
       title: "Case Studies",
+      icon: FileText,
       onClick: () => navigate("/case-studies"),
     },
     {
       title: "Blog",
+      icon: BookOpen,
       onClick: () => navigate("/blog"),
     },
     {
       title: "Knowledge Base",
+      icon: HelpCircle,
       onClick: () => navigate("/knowledge-base"),
     },
   ];
@@ -122,14 +159,17 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
   const aboutMenu = [
     {
       title: "Partners & Integrations",
+      icon: Zap,
       onClick: () => navigate("/partners-integrations"),
     },
     {
       title: "Data Protection & GDPR",
+      icon: Shield,
       onClick: () => navigate("/data-protection"),
     },
     {
       title: "Contact Us",
+      icon: Mail,
       onClick: () => navigate("/contact-us"),
     },
   ];
@@ -184,9 +224,12 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                     {products.map((product) => (
                       <div
                         key={product.id}
-                        className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-100 hover:text-white transition-colors cursor-pointer"
+                        className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 hover:text-white transition-colors cursor-pointer"
                         onClick={product.onClick}
                       >
+                        <div className={`p-1.5 rounded-lg`}>
+                          <product.icon className="size-6 text-blue-600" />
+                        </div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-2">
                             <h4 className="font-semibold text-sm text-black">
@@ -228,9 +271,12 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                         {solutionsByCategory.map((solution, index) => (
                           <div
                             key={index}
-                            className=" p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 cursor-pointer"
+                            className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 cursor-pointer"
                             onClick={solution.onClick}
                           >
+                            <div className={`p-1.5 rounded-lg`}>
+                              <solution.icon className="size-6 text-blue-600" />
+                            </div>
                             <div className="flex flex-col">
                               <span className="text-sm font-medium text-black">
                                 {solution.title}
@@ -253,9 +299,12 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                         {solutionsByDepartment.map((solution, index) => (
                           <div
                             key={index}
-                            className="p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 cursor-pointer"
+                            className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 cursor-pointer"
                             onClick={solution.onClick}
                           >
+                            <div className={`p-1.5 rounded-lg`}>
+                              <solution.icon className="size-6 text-blue-600" />
+                            </div>
                             <div className="flex flex-col">
                               <span className="text-sm font-medium">
                                 {solution.title}
@@ -296,13 +345,16 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                   {t("navigation.resources")}
                 </span>
                 <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-4 w-64 animate-fade-in rounded-2xl z-50">
-                  <div className="space-y-2">
+                  <div className="space-y-1">
                     {resourcesMenu.map((item, index) => (
                       <div
                         key={index}
                         className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
                         onClick={item.onClick}
                       >
+                        <div className={`p-1.5 rounded-lg`}>
+                          <item.icon className="size-6 text-blue-600" />
+                        </div>
                         <span className="font-medium text-sm text-black">
                           {item.title}
                         </span>
@@ -317,13 +369,16 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                   {t("navigation.aboutUs")}
                 </span>
                 <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-4 w-64 animate-fade-in rounded-2xl z-50">
-                  <div className="space-y-2">
+                  <div className="space-y-1">
                     {aboutMenu.map((item, index) => (
                       <div
                         key={index}
                         className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
                         onClick={item.onClick}
                       >
+                        <div className={`p-1.5 rounded-lg`}>
+                          <item.icon className="size-6 text-blue-600" />
+                        </div>
                         <span className="font-medium text-sm text-black hover:text-slate-700 transition-colors">
                           {item.title}
                         </span>
