@@ -7,13 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  Users,
-  TrendingUp,
-  Globe,
-  CheckCircle,
-} from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { GrConnectivity } from "react-icons/gr";
 import { HiOutlineSparkles } from "react-icons/hi";
@@ -32,7 +26,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
     {
       title: t("showcase.consolidatedAI"),
       description: t("showcase.consolidatedAIDesc"),
-      image: "./home/showcase1.svg",
+      image: "./home/showcase1.jpg",
       icon: GiArtificialIntelligence,
       features: [
         "Cross-platform learning",
@@ -44,7 +38,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
     {
       title: t("showcase.seamlessIntegration"),
       description: t("showcase.seamlessIntegrationDesc"),
-      image: "./home/showcase2.svg",
+      image: "./home/showcase2.jpg",
       icon: GrConnectivity,
       features: [
         "Data synchronization",
@@ -56,7 +50,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
     {
       title: t("showcase.revolutionaryImpact"),
       description: t("showcase.revolutionaryImpactDesc"),
-      image: "./home/showcase3.svg",
+      image: "./home/showcase3.jpg",
       icon: HiOutlineSparkles,
       features: [
         "Industry transformation",
@@ -151,7 +145,7 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
                     <img
                       src={feature.image}
                       alt={feature.title}
-                      className="w-[80%] mx-auto animate-fade-in"
+                      className={`w-[80%] mx-auto animate-fade-in rounded-2xl`}
                     />
                   </div>
                 </div>

@@ -61,8 +61,8 @@ const App = () => (
               <ErrorBoundary>
                 <Routes>
                   <Route path="/" element={<Index />} />
-                  <Route path="/easyteach-app" element={<EasyTeachApp />} />
-                  <Route path="/easyteach" element={<EasyTeachPage />} />
+                  <Route path="/pencil-app" element={<EasyTeachApp />} />
+                  <Route path="/pencil" element={<EasyTeachPage />} />
                   <Route path="/landing" element={<LandingPage />} />
                   <Route path="/ai-chatbot" element={<AIChatbot />} />
                   <Route path="/wizard-tools" element={<WizardTools />} />

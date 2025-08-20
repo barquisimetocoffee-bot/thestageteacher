@@ -6,6 +6,11 @@ import {
   ClipboardCheck,
   Shield,
   CheckCircle,
+  ArrowBigDownDash,
+  Workflow,
+  Earth,
+  University,
+  ArrowRight,
 } from "lucide-react";
 
 import UniversalHeader from "@/components/layout/UniversalHeader";
@@ -15,6 +20,7 @@ import LoginModal from "@/components/auth/LoginModal";
 import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
 import { motion } from "framer-motion";
 import Footer from "@/components/home/Footer";
+import FeatureCard from "@/components/FeatureCard";
 
 const HRPayroll = () => {
   const { t } = useTranslation();
@@ -114,106 +120,11 @@ const HRPayroll = () => {
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 gap-4 mb-16">
             {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ y: 80, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{
-                  duration: 0.8,
-                  delay: index * 0.2,
-                  ease: "easeOut",
-                }}
-                className="group bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
-              >
-                <div>
-                  <div className="flex flex-col items-start justify-center gap-2">
-                    <div className="p-3 icon-bg rounded-tr rounded-bl-sm  group-hover:scale-105 transition-transform duration-300">
-                      <feature.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <h2 className="text-lg/6 font-bold">{feature.title}</h2>
-                  </div>
-                </div>
-
-                <p className="text-gray-600 text-base/6 pt-2">
-                  {feature.description}
-                </p>
-
-                {
-                  // Feature List
-                  feature.feature && (
-                    <ul className="mt-4 space-y-2 *:text-gray-600 *:text-sm">
-                      {feature.feature.map((item, index) => (
-                        <li
-                          key={index}
-                          className="text-gray-600 text-base/6 flex gap-2"
-                        >
-                          <span>
-                            <CheckCircle
-                              className="inline-block mt-1 text-green-600"
-                              size={16}
-                            />
-                          </span>
-                          <p> {item}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  )
-                }
-              </motion.div>
+              <FeatureCard index={index} cardData={feature} />
             ))}
           </div>
-
-          {/* Why it Matters Section */}
-          {/* <div className="bg-white rounded-2xl p-8 shadow-lg mb-16">
-          <h2 className="text-3xl font-bold text-center mb-8">
-            Why it Matters
-          </h2>
-          <p className="text-lg text-gray-600 text-center max-w-4xl mx-auto leading-relaxed">
-            Streamline HR operations while staying compliant with regulatory
-            standards. Automating payroll and personnel records frees up time
-            for your team to focus on people, not paperwork.
-          </p>
-        </div> */}
-
-          {/* Benefits */}
-          <ScrollInFromBottom delay={0.2}>
-            <div className="bg-[#2901b3] rounded-2xl p-8 mb-16">
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-white">
-                Streamlined HR Operations
-              </h2>
-              <div className="grid grid-cols-3 md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <CreditCard className="size-8 md:size-12 text-white mx-auto mb-4" />
-                  <h3 className="text-base/5 md:text-xl font-semibold mb-2 text-white">
-                    Automated
-                  </h3>
-                  <p className="text-gray-200 text-sm md:text-base">
-                    Payroll Processing
-                  </p>
-                </div>
-                <div>
-                  <Shield className="size-8 md:size-12 text-white mx-auto mb-4" />
-                  <h3 className="text-base/5 md:text-xl font-semibold mb-2 text-white">
-                    100%
-                  </h3>
-                  <p className="text-gray-200 text-sm md:text-base">
-                    Compliance Ready
-                  </p>
-                </div>
-                <div>
-                  <ClipboardCheck className="size-8 md:size-12 text-white mx-auto mb-4" />
-                  <h3 className="text-base/5 md:text-xl font-semibold mb-2 text-white">
-                    Digital
-                  </h3>
-                  <p className="text-gray-200 text-sm md:text-base">
-                    Record Management
-                  </p>
-                </div>
-              </div>
-            </div>
-          </ScrollInFromBottom>
 
           {/* CTA Section */}
           <ScrollInFromBottom delay={0.3}>

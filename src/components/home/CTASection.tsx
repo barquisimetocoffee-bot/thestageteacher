@@ -1,6 +1,14 @@
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ArrowRight, Users, Award, Heart } from "lucide-react";
+import {
+  Sparkles,
+  ArrowRight,
+  Users,
+  Award,
+  Heart,
+  Shield,
+  Clock,
+} from "lucide-react";
 import ScrollInFromBottom from "../animation/ScrollInFromBottom";
 
 interface CTASectionProps {
@@ -13,21 +21,35 @@ const CTASection = ({ onShowLogin, onJoinWaitlist }: CTASectionProps) => {
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
-      <div className="max-w-4xl mx-auto text-center relative z-10">
+      <div className="w-full mx-auto text-center relative z-10">
         {/* Trust indicators */}
         <ScrollInFromBottom delay={0.2}>
-          <div className="flex justify-center items-center space-x-8 mb-8 text-gray-600">
+          <div className="flex justify-center items-center flex-wrap gap-4 space-x-8 mb-8 text-gray-600">
             <div className="flex items-center space-x-2">
               <Users className="size-6 md:size-5 text-blue-500" />
-              <span className="text-sm font-medium">100,000+ Teachers</span>
+              <span className="text-sm font-medium">20+ AI Teaching Tools</span>
             </div>
             <div className="flex items-center space-x-2">
               <Award className="size-6 md:size-5 text-purple-500" />
-              <span className="text-sm font-medium">4.9/5 Rating</span>
+              <span className="text-sm font-medium">
+                Save up to 15 hours every week
+              </span>
             </div>
             <div className="flex items-center space-x-2">
               <Heart className="size-6 md:size-5 text-pink-500" />
-              <span className="text-sm font-medium">Loved by Educators</span>
+              <span className="text-sm font-medium">
+                Works with many languages
+              </span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Clock className="size-6 md:size-5 text-pink-500" />
+              <span className="text-sm font-medium">24/7 AI Assistant</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Shield className="size-6 md:size-5 text-pink-500" />
+              <span className="text-sm font-medium">
+                99.9% Uptime Guarantee
+              </span>
             </div>
           </div>
         </ScrollInFromBottom>

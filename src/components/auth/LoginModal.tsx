@@ -26,7 +26,7 @@ interface LoginModalProps {
 const LoginModal = ({
   isOpen,
   onClose,
-  redirectPath = "/easyteach-app",
+  redirectPath = "/pencil-app",
 }: LoginModalProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -155,7 +155,7 @@ const LoginModal = ({
         setIsLoading(false);
       } else {
         toast({
-          title: "Welcome to EasyTeach!",
+          title: "Welcome to Pencil!",
           description: "Please check your email to confirm your account.",
         });
         resetForm();
@@ -188,9 +188,9 @@ const LoginModal = ({
             </div>
           </div>
           <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent text-center">
-            Welcome to EasyTeach
+            Welcome to Pencil
           </DialogTitle>
-          <DialogDescription className="text-gray-600 text-base">
+          <DialogDescription className="text-gray-600 text-center text-base">
             {activeTab === "signin"
               ? "Sign in to access your AI-powered teaching tools"
               : "Join thousands of educators transforming their teaching experience"}
@@ -213,92 +213,110 @@ const LoginModal = ({
             </TabsTrigger>
           </TabsList>
 
+          {/* --- SIGN IN TAB --- */}
           <TabsContent
             value="signin"
             className="space-y-5 mt-6 focus:outline-none border-none"
           >
-            <div className="space-y-2">
-              <Label
-                htmlFor="signin-email"
-                className="text-gray-700 font-medium"
-              >
-                Email Address
-              </Label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                <Input
-                  id="signin-email"
-                  type="email"
-                  placeholder="Enter your email"
-                  value={formData.email}
-                  onChange={(e) => handleInputChange("email", e.target.value)}
-                  className="pl-4 bg-white/80 backdrop-blur-sm py-6 focus:outline-none transition-all duration-200"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <Label
-                htmlFor="signin-password"
-                className="text-gray-700 font-medium"
-              >
-                Password
-              </Label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                <Input
-                  id="signin-password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter your password"
-                  value={formData.password}
-                  onChange={(e) =>
-                    handleInputChange("password", e.target.value)
-                  }
-                  className="pl-4 bg-white/80 backdrop-blur-sm py-6 focus:outline-none transition-all duration-200"
-                />
-                <button
-                  type="button"
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? (
-                    <EyeOff className="h-4 w-4" />
-                  ) : (
-                    <Eye className="h-4 w-4" />
-                  )}
-                </button>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-2 pt-2">
-              <Checkbox
-                id="remember-me"
-                checked={rememberMe}
-                onCheckedChange={(checked) => setRememberMe(checked as boolean)}
-                className="border-gray-300 data-[state=checked]:my-btn"
-              />
-              <Label
-                htmlFor="remember-me"
-                className="text-sm text-gray-600 font-medium"
-              >
-                Remember me ?
-              </Label>
-            </div>
-
-            <Button
-              onClick={handleSignIn}
-              disabled={isLoading}
-              className="w-full my-btn text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 min-h-[48px]"
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSignIn();
+              }}
+              className="space-y-5"
             >
-              {isLoading ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Signing In...
-                </>
-              ) : (
-                "Sign In to EasyTeach"
-              )}
-            </Button>
+              <div className="space-y-2">
+                <Label
+                  htmlFor="signin-email"
+                  className="text-gray-700 font-medium"
+                >
+                  Email Address
+                </Label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <Input
+                    id="signin-email"
+                    type="email"
+                    placeholder="Enter your email"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange("email", e.target.value)}
+                    className="pl-4 bg-white/80 backdrop-blur-sm py-6"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label
+                  htmlFor="signin-password"
+                  className="text-gray-700 font-medium"
+                >
+                  Password
+                </Label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <Input
+                    id="signin-password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your password"
+                    value={formData.password}
+                    onChange={(e) =>
+                      handleInputChange("password", e.target.value)
+                    }
+                    className="pl-4 bg-white/80 backdrop-blur-sm py-6"
+                  />
+                  <button
+                    type="button"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <EyeOff className="h-4 w-4" />
+                    ) : (
+                      <Eye className="h-4 w-4" />
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between pt-2">
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="remember-me"
+                    checked={rememberMe}
+                    onCheckedChange={(checked) =>
+                      setRememberMe(checked as boolean)
+                    }
+                  />
+                  <Label
+                    htmlFor="remember-me"
+                    className="text-sm text-gray-600 font-medium"
+                  >
+                    Remember me ?
+                  </Label>
+                </div>
+                <a
+                  href="/forgot-password"
+                  className="text-sm text-gray-600 hover:text-primary font-medium"
+                >
+                  Forgot Password ?
+                </a>
+              </div>
+
+              <Button
+                type="submit" // 👈 important for Enter key submit
+                disabled={isLoading}
+                className="w-full my-btn text-white font-semibold py-3 rounded-xl"
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Signing In...
+                  </>
+                ) : (
+                  "Sign In to Pencil"
+                )}
+              </Button>
+            </form>
           </TabsContent>
 
           <TabsContent value="signup" className="space-y-5 mt-6">

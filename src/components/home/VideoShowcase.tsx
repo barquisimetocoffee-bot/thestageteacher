@@ -5,6 +5,11 @@ import { Button } from "@/components/ui/button";
 const VideoShowcase = () => {
   const { t } = useTranslation();
 
+  const handleVideoClick = () => {
+    const video = document.getElementById("video") as HTMLVideoElement;
+    video?.play();
+  };
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-6xl mx-auto">
@@ -19,7 +24,7 @@ const VideoShowcase = () => {
 
         <div className="relative group animate-scale-in">
           {/* Video Container with Floating Elements */}
-          <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover-scale">
+          <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500">
             {/* Decorative floating elements */}
             <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 animate-pulse"></div>
             <div
@@ -34,6 +39,7 @@ const VideoShowcase = () => {
                 <div className="relative w-full h-full">
                   {/* Main App Interface Mockup */}
                   <div className="absolute inset-4 bg-white rounded-xl shadow-lg overflow-hidden animate-fade-in">
+                    <video src="./pencil.mov" controls id="video"></video>
                     {/* App Header */}
                     <div className="h-12 bg-gradient-to-r from-blue-600 to-purple-600 flex items-center px-4">
                       <div className="w-6 h-6 bg-white/20 rounded mr-3"></div>
@@ -42,66 +48,6 @@ const VideoShowcase = () => {
                         <div className="w-2 h-2 bg-white/40 rounded-full"></div>
                         <div className="w-2 h-2 bg-white/40 rounded-full"></div>
                         <div className="w-2 h-2 bg-white/40 rounded-full"></div>
-                      </div>
-                    </div>
-
-                    {/* Content Area with Animated Features */}
-                    <div className="p-6 h-full bg-gradient-to-br from-gray-50 to-blue-50">
-                      {/* Feature 1: Lesson Planning */}
-                      <div className="animate-[fadeIn_2s_ease-in-out_0s_infinite_alternate]">
-                        <div className="bg-blue-100 rounded-lg p-4 mb-4 transition-all duration-500">
-                          <div className="flex items-center mb-2">
-                            <div className="w-8 h-8 bg-blue-500 rounded-lg mr-3 flex items-center justify-center animate-pulse">
-                              <div className="w-4 h-4 bg-white rounded"></div>
-                            </div>
-                            <div className="text-blue-800 font-semibold">
-                              Lesson Plan Generator
-                            </div>
-                          </div>
-                          <div className="space-y-2">
-                            <div className="h-2 bg-blue-300 rounded w-3/4 animate-[loading_2s_ease-in-out_infinite]"></div>
-                            <div className="h-2 bg-blue-300 rounded w-1/2 animate-[loading_2s_ease-in-out_0.5s_infinite]"></div>
-                            <div className="h-2 bg-blue-300 rounded w-2/3 animate-[loading_2s_ease-in-out_1s_infinite]"></div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Feature 2: AI Assistant */}
-                      <div className="animate-[fadeIn_2s_ease-in-out_2s_infinite_alternate]">
-                        <div className="bg-purple-100 rounded-lg p-4 mb-4 transition-all duration-500">
-                          <div className="flex items-center mb-2">
-                            <div className="w-8 h-8 bg-purple-500 rounded-lg mr-3 flex items-center justify-center animate-spin">
-                              <div className="w-4 h-4 bg-white rounded-full"></div>
-                            </div>
-                            <div className="text-purple-800 font-semibold">
-                              Virtual Assistant
-                            </div>
-                          </div>
-                          <div className="space-y-2">
-                            <div className="h-2 bg-purple-300 rounded w-2/3 animate-[typing_1.5s_ease-in-out_infinite]"></div>
-                            <div className="h-2 bg-purple-300 rounded w-4/5 animate-[typing_1.5s_ease-in-out_0.5s_infinite]"></div>
-                            <div className="h-2 bg-purple-300 rounded w-1/2 animate-[typing_1.5s_ease-in-out_1s_infinite]"></div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Feature 3: Assessment Tools */}
-                      <div className="animate-[fadeIn_2s_ease-in-out_4s_infinite_alternate]">
-                        <div className="bg-green-100 rounded-lg p-4 transition-all duration-500">
-                          <div className="flex items-center mb-2">
-                            <div className="w-8 h-8 bg-green-500 rounded-lg mr-3 flex items-center justify-center animate-bounce">
-                              <div className="w-4 h-4 bg-white rounded"></div>
-                            </div>
-                            <div className="text-green-800 font-semibold">
-                              Smart Assessments
-                            </div>
-                          </div>
-                          <div className="space-y-2">
-                            <div className="h-2 bg-green-300 rounded w-5/6 animate-[progress_3s_ease-in-out_infinite]"></div>
-                            <div className="h-2 bg-green-300 rounded w-2/3 animate-[progress_3s_ease-in-out_0.5s_infinite]"></div>
-                            <div className="h-2 bg-green-300 rounded w-3/4 animate-[progress_3s_ease-in-out_1s_infinite]"></div>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -131,7 +77,10 @@ const VideoShowcase = () => {
               </div>
 
               {/* Play button overlay for interaction */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <div
+                className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer"
+                onClick={() => handleVideoClick()}
+              >
                 <div className="bg-white/90 backdrop-blur-sm rounded-full p-6 shadow-lg">
                   <Play className="h-12 w-12 text-blue-600" />
                 </div>
@@ -149,13 +98,13 @@ const VideoShowcase = () => {
                     </span>
                   </div>
                   <div className="flex items-center space-x-2 text-gray-600">
-                    <span className="text-sm">10s Product Demo</span>
+                    <span className="text-sm">18s Product Demo</span>
                   </div>
                 </div>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="hover:bg-blue-50 hover:border-blue-300 transition-all duration-200"
+                  className="hover:bg-blue-50 hover:border-blue-300 hover:text-black transition-all duration-200"
                 >
                   {t("videoShowcase.watchFull")}
                 </Button>

@@ -49,9 +49,9 @@ const MobileNavigation = ({
 
   const products = [
     {
-      id: "easyteach",
-      name: "EasyTeach",
-      path: "/easyteach",
+      id: "pencil",
+      name: "Pencil",
+      path: "/pencil",
     },
     {
       id: "lms",
@@ -112,6 +112,18 @@ const MobileNavigation = ({
   ];
 
   if (!isOpen) return null;
+
+  const handlePricing = () => {
+    navigate("/");
+    setTimeout(() => {
+      const section = document.getElementById("products");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100); // wait a bit for navigation to finish
+
+    onClose();
+  };
 
   return (
     <div className="fixed left-0 top-0 w-full lg:hidden">
@@ -213,7 +225,10 @@ const MobileNavigation = ({
             </div>
 
             {/* Pricing */}
-            <button className="flex items-center  w-full px-4 py-3 text-left text-sm text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg">
+            <button
+              className="flex items-center  w-full px-4 py-3 text-left text-base font-semibold text-gray-800 hover:text-foreground hover:bg-accent/10 rounded-lg"
+              onClick={handlePricing}
+            >
               <span>Pricing</span>
             </button>
 

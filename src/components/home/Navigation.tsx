@@ -41,13 +41,13 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
 
   const products = [
     {
-      id: "easyteach",
-      name: "EasyTeach",
+      id: "pencil",
+      name: "Pencil",
       description: "AI-powered teaching tools",
       icon: BookOpen,
       status: "available",
       color: "from-blue-500 to-blue-600",
-      onClick: () => navigate("/easyteach"),
+      onClick: () => navigate("/pencil"),
     },
     {
       id: "lms",
@@ -178,6 +178,16 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
     navigate("/contact-us");
   };
 
+  const handlePricing = () => {
+    navigate("/");
+    setTimeout(() => {
+      const section = document.getElementById("products");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100); // wait a bit for navigation to finish
+  };
+
   return (
     <nav className="bg-background/90 backdrop-blur-sm border-b border-border shadow-lg sticky top-0 z-50 animate-fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -219,7 +229,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                   {t("navigation.products")}
                 </span>
 
-                <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-4 min-w-96 animate-fade-in duration-700 rounded-2xl z-50">
+                <div className="absolute left-0 top-8 hidden group-hover:block bg-background shadow-xl border border-border p-4 min-w-96 animate-fade-in duration-700 rounded-2xl z-50">
                   <div className="space-y-3">
                     {products.map((product) => (
                       <div
@@ -260,7 +270,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                   {t("navigation.solutions")}
                 </span>
 
-                <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-6 w-[600px] animate-fade-in rounded z-50">
+                <div className="absolute left-0 top-8 hidden group-hover:block bg-background shadow-xl border border-border p-6 w-[600px] animate-fade-in rounded z-50">
                   <div className="grid grid-cols-2 gap-6">
                     {/* By Category */}
                     <div>
@@ -331,12 +341,12 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
               </div>
 
               <div className="flex items-center space-x-3">
-                <Link
-                  to="/"
+                <span
                   className="text-foreground hover-link hover:text-primary px-3 py-2 rounded-md cursor-pointer"
+                  onClick={() => handlePricing()}
                 >
                   Pricing
-                </Link>
+                </span>
               </div>
 
               {/* resources */}

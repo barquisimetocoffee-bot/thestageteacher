@@ -142,7 +142,7 @@ const EasyTeachApp = () => {
               </div>
               <div>
                 <h1 className="text-lg font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                  EasyTeach
+                  Pencil
                 </h1>
                 <p className="text-xs text-muted-foreground font-medium">
                   by Vicerta

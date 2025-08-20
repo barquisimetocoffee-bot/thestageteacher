@@ -1,11 +1,23 @@
 import { Button } from "@/components/ui/button";
-import { Target, Award, Users, Crown, CheckCircle } from "lucide-react";
+import {
+  Target,
+  Award,
+  Users,
+  Crown,
+  CheckCircle,
+  Dices,
+  Cable,
+  IdCard,
+  ChartGantt,
+  ArrowRight,
+} from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
 import Footer from "@/components/home/Footer";
 import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
 import { motion } from "framer-motion";
+import FeatureCard from "@/components/FeatureCard";
 
 const IndependentSchools = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -75,91 +87,11 @@ const IndependentSchools = () => {
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 gap-4 mb-16">
             {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ y: 80, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{
-                  duration: 0.8,
-                  delay: index * 0.2,
-                  ease: "easeOut",
-                }}
-                className="group bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
-              >
-                <div>
-                  <div className="flex flex-col items-start justify-center gap-2">
-                    <div className="p-3 icon-bg rounded-tr rounded-bl-sm  group-hover:scale-105 transition-transform duration-300">
-                      <feature.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <h2 className="text-lg/6 font-bold">{feature.title}</h2>
-                  </div>
-                </div>
-
-                <p className="text-gray-600 text-base/6 pt-2">
-                  {feature.description}
-                </p>
-
-                {
-                  // Feature List
-                  feature.feature && (
-                    <ul className="mt-4 space-y-2 *:text-gray-600 *:text-sm">
-                      {feature.feature.map((item, index) => (
-                        <li
-                          key={index}
-                          className="text-gray-600 text-base/6 flex gap-2"
-                        >
-                          <span>
-                            <CheckCircle
-                              className="inline-block mt-1 text-green-600"
-                              size={16}
-                            />
-                          </span>
-                          <p> {item}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  )
-                }
-              </motion.div>
+              <FeatureCard index={index} cardData={feature} />
             ))}
           </div>
-
-          {/* Statistics */}
-          <ScrollInFromBottom delay={0.2}>
-            <div className="bg-[#2901b3] rounded-2xl p-8 shadow-lg mb-16">
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-white">
-                Excellence in Independent Education
-              </h2>
-              <div className="grid grid-cols-3 md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
-                    25,000+
-                  </div>
-                  <div className="text-gray-200 text-xs md:text-base">
-                    Independent Students
-                  </div>
-                </div>
-                <div>
-                  <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
-                    200+
-                  </div>
-                  <div className="text-gray-200 text-xs md:text-base">
-                    Independent Schools
-                  </div>
-                </div>
-                <div>
-                  <div className="text-base/5 md:text-4xl font-bold text-white mb-2">
-                    99%
-                  </div>
-                  <div className="text-gray-200 text-xs md:text-base">
-                    Parent Satisfaction
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ScrollInFromBottom>
 
           {/* CTA Section */}
           <ScrollInFromBottom delay={0.3}>

@@ -30,14 +30,6 @@ const AppHeader = ({ teacherProfile, onProfileClick }: AppHeaderProps) => {
             <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center shadow-lg">
               <Sparkles className="h-6 w-6 text-white animate-pulse" />
             </div>
-            <div>
-              <h1 className="text-lg font-semibold text-gray-800">
-                Welcome back, adrien
-              </h1>
-              <p className="text-sm text-gray-600">
-                Ready to create something amazing today?
-              </p>
-            </div>
           </div>
 
           <div className="flex items-center space-x-4">

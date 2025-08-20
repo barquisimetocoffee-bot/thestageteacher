@@ -35,7 +35,7 @@ import Footer from "@/components/home/Footer";
 import LoginModal from "@/components/auth/LoginModal";
 import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
 
-const EasyTeachPage = () => {
+const PencilPage = () => {
   const [showLogin, setShowLogin] = useState(false);
   const { t } = useTranslation();
 
@@ -49,7 +49,7 @@ const EasyTeachPage = () => {
             <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
             <div className="w-3 h-3 bg-green-500 rounded-full"></div>
             <div className="flex-1 bg-gray-700 rounded px-3 py-1 text-xs text-gray-300">
-              easyteach.ai/lesson-planner
+              pencil.ai/lesson-planner
             </div>
           </div>
 
@@ -135,7 +135,7 @@ const EasyTeachPage = () => {
             <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
             <div className="w-3 h-3 bg-green-500 rounded-full"></div>
             <div className="flex-1 bg-gray-700 rounded px-3 py-1 text-xs text-gray-300">
-              easyteach.ai/communication
+              pencil.ai/communication
             </div>
           </div>
 
@@ -212,7 +212,7 @@ const EasyTeachPage = () => {
             <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
             <div className="w-3 h-3 bg-green-500 rounded-full"></div>
             <div className="flex-1 bg-gray-700 rounded px-3 py-1 text-xs text-gray-300">
-              easyteach.ai/analytics
+              Pencil.ai/analytics
             </div>
           </div>
 
@@ -307,71 +307,83 @@ const EasyTeachPage = () => {
     </div>
   );
 
-  // EasyTeach specific showcase features
-  const easyteachFeatures = [
+  // Pencil specific showcase features
+  const PencilFeatures = [
     {
       title: "AI-Powered Lesson Planning",
       description:
-        "Generate comprehensive lesson plans in minutes with our advanced AI that understands curriculum standards and learning objectives.",
+        "Create curriculum-aligned lesson plans in minutes with structured prompts and ready-to-use content.",
       component: LessonPlanDashboard,
       features: [
-        "Curriculum-aligned content",
-        "Differentiated instruction",
-        "Assessment integration",
-        "Real-time collaboration",
+        "Standards-aware prompts",
+        "Differentiation options",
+        "Assessment suggestions",
+        "Export ready",
       ],
     },
     {
-      title: "Smart Communication Hub",
+      title: "AI Writing Help for Parent Updates",
       description:
-        "Streamline parent communication with AI-generated emails, progress reports, and behavioral updates that maintain professional tone.",
+        "Draft clear, professional updates without the stress. Let AI polish tone, grammar, and flow so you can hit 'send' with confidence.",
       component: CommunicationDashboard,
       features: [
-        "Automated parent emails",
-        "Progress tracking",
-        "Behavioral reports",
-        "Multi-language support",
+        "Professional tone",
+        "Grammar & clarity",
+        "Multi-draft suggestions",
+        "Copy-paste ready",
       ],
     },
     {
-      title: "Intelligent Analytics Dashboard",
+      title: "Fast Quizzes & Questions",
       description:
-        "Get deep insights into student performance, engagement patterns, and learning outcomes with our comprehensive analytics suite.",
+        "Save time on assessments with instant quiz and question generators that adapt to different levels of learning.",
       component: AnalyticsDashboard,
       features: [
-        "Performance analytics",
-        "Engagement tracking",
-        "Predictive insights",
-        "Custom reporting",
+        "Depth of Knowledge (DOK) levels",
+        "Text-based questions",
+        "Multiple-choice & short-answer",
+        "Auto-generated answer keys.",
+      ],
+    },
+    {
+      title: "24/7 Classroom Coach AI",
+      description:
+        "Need quick answers, fresh activity ideas, or behavior strategies? The Classroom Coach AI is your always-available teaching assistant.",
+      component: AnalyticsDashboard,
+      features: [
+        "Instant teaching advice",
+        "Activity & resource suggestions",
+        "Guidance on differentiation",
+        "Always available when you need it",
       ],
     },
   ];
 
   const platformStats = [
-    { number: "50+", label: "AI-Powered Tools", icon: Brain },
+    { number: "20+", label: "AI Teaching Tools", icon: Brain },
     { number: "15", label: "Hours Saved Weekly", icon: Clock },
-    { number: "100K+", label: "Educators Worldwide", icon: Users },
     { number: "99.9%", label: "Uptime Guarantee", icon: Shield },
-    { number: "24/7", label: "AI Assistant Available", icon: Zap },
-    { number: "30+", label: "Languages Supported", icon: Target },
+    { number: "24/7", label: "AI Assistant", icon: Zap },
+    { number: "30+", label: "Works with many languages", icon: Target },
   ];
 
-  const whyChooseEasyTeach = [
+  const whyChoosePencil = [
     {
       icon: Target,
-      title: "Purpose-Built for Education",
+      title: "Purpose-built for education",
       description:
-        "Unlike generic AI tools, EasyTeach is specifically designed for educators, understanding the unique challenges and requirements of the education sector.",
+        "Unlike generic AI tools, Pencil is specifically designed for educators, understanding the unique challenges and requirements of the education sector.",
     },
     {
       icon: Award,
-      title: "Proven Results",
+      title: "Save up to 15 hours every week",
       description:
         "Over 100,000 educators have saved 15+ hours weekly while improving student outcomes and engagement through our platform.",
     },
     {
       icon: Shield,
-      title: "Privacy & Security First",
+      title:
+        "Privacy-first (aligned with FERPA best practices), Evolving with you.",
       description:
         "FERPA compliant with enterprise-grade security. Your data and your students' information are protected with the highest standards.",
     },
@@ -404,19 +416,18 @@ const EasyTeachPage = () => {
             </Badge>
             <div className="w-full text-center flex items-center justify-center">
               <h1 className="lg:w-[80%] text-center text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-                EasyTeach: AI-Powered Teaching
+                Pencil by Vicerta: Your AI Co-teacher for
                 <span className="bg-gradient-to-r from-[#3101e3] to-blue-600 bg-clip-text text-transparent">
                   {" "}
-                  Revolution
+                  Planning & Assessment
                 </span>
               </h1>
             </div>
           </ScrollInFromBottom>
           <ScrollInFromBottom delay={0.3}>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Transform your teaching experience with smart lesson planning,
-              instant communication tools, behavior support, and personalized
-              learning resources that save you 15+ hours every week.
+              Generate lesson plans, quizzes, and classroom materials in
+              minutes—so you can spend more time teaching, not stuck on prep.
             </p>
           </ScrollInFromBottom>
           <ScrollInFromBottom delay={0.35}>
@@ -442,7 +453,7 @@ const EasyTeachPage = () => {
       <section className="pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <Marquee className="mb-8" speed={50} gradient={false} autoFill>
-            <div className="grid grid-cols-6 lg:grid-cols-6">
+            <div className="grid grid-cols-5 lg:grid-cols-5">
               {platformStats.map((stat, index) => (
                 <div
                   key={index}
@@ -478,14 +489,14 @@ const EasyTeachPage = () => {
                 </span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                From lesson planning to student analytics, EasyTeach provides
+                From lesson planning to student analytics, Pencil provides
                 everything educators need in one powerful, AI-driven platform
               </p>
             </div>
           </ScrollInFromBottom>
 
           <div className="space-y-20">
-            {easyteachFeatures.map((feature, index) => (
+            {PencilFeatures.map((feature, index) => (
               <ScrollInFromBottom delay={0.3}>
                 <div
                   key={index}
@@ -531,27 +542,27 @@ const EasyTeachPage = () => {
         </div>
       </section>
 
-      {/* Why Choose EasyTeach Section */}
+      {/* Why Choose Pencil Section */}
       <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <ScrollInFromBottom delay={0.3}>
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why EasyTeach is the
+                Why educators choose Pencil powered by
                 <span className="bg-gradient-to-r from-[#2901e3] to-blue-600 bg-clip-text text-transparent">
                   {" "}
-                  Educator's Choice
+                  Vicerta
                 </span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Built by educators, for educators. We understand your challenges
-                and provide solutions that actually work.
+                We’ve built Pencil with input from real teachers to ensure it
+                solves real classroom challenges.
               </p>
             </div>
           </ScrollInFromBottom>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {whyChooseEasyTeach.map((item, index) => (
+            {whyChoosePencil.map((item, index) => (
               <ScrollInFromBottom delay={index * 0.15}>
                 <Card
                   key={index}
@@ -584,13 +595,14 @@ const EasyTeachPage = () => {
         <div className="max-w-6xl mx-auto text-center">
           <ScrollInFromBottom delay={0.2}>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-              Ready to Transform Your <span className="">Teaching</span>?
+              Ready to Transform Your
+              <span className="">Teaching</span>?
             </h2>
           </ScrollInFromBottom>
           <ScrollInFromBottom delay={0.2}>
             <p className="text-xl mb-8 opacity-90 text-white">
-              Join 100,000+ educators who are already saving 15+ hours weekly
-              with EasyTeach
+              Join educators already transforming their work with the help of
+              AI. Try it free and see how much time you’ll save.
             </p>
           </ScrollInFromBottom>
 
@@ -637,7 +649,7 @@ const EasyTeachPage = () => {
             </Button>
 
             <p className="text-sm opacity-80 mt-6 text-white">
-              No credit card required • 14-day free trial • Cancel anytime
+              Save up to 15 hours every week • Free version • Cancel anytime
             </p>
           </ScrollInFromBottom>
         </div>
@@ -653,4 +665,4 @@ const EasyTeachPage = () => {
   );
 };
 
-export default EasyTeachPage;
+export default PencilPage;
