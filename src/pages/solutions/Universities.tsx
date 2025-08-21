@@ -1,22 +1,10 @@
 import { Button } from "@/components/ui/button";
-import {
-  Award,
-  Users,
-  TrendingUp,
-  Brain,
-  Laptop,
-  CheckCircle,
-  GraduationCap,
-  BrainCircuit,
-  Lightbulb,
-  ArrowRight,
-} from "lucide-react";
+import { Award, Users, TrendingUp, Brain, Laptop } from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
 import Footer from "@/components/home/Footer";
 import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
-import { motion } from "framer-motion";
 import FeatureCard from "@/components/FeatureCard";
 
 const Universities = () => {
@@ -25,6 +13,7 @@ const Universities = () => {
   const features = [
     {
       icon: Brain,
+      image: "/university/advanced-research-tools.jpg",
       title: "Advanced Research Tools",
       description:
         "Empower faculty and students to push the boundaries of knowledge.",
@@ -37,6 +26,7 @@ const Universities = () => {
     },
     {
       icon: Users,
+      image: "/university/large-scale-management.jpg",
       title: "Large-Scale Management",
       description: "Handle every aspect of university operations with ease.",
       feature: [
@@ -48,6 +38,7 @@ const Universities = () => {
     },
     {
       icon: Laptop,
+      image: "/university/digital-campus.jpg",
       title: "Digital Campus (LMS)",
       description:
         "Bring the full university experience online without losing the human touch.",
@@ -60,6 +51,7 @@ const Universities = () => {
     },
     {
       icon: TrendingUp,
+      image: "/university/analytics-insights.jpg",
       title: "Analytics & Insights",
       description: "Make smarter decisions backed by real data.",
       feature: [

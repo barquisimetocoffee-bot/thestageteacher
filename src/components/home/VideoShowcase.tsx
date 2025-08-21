@@ -1,13 +1,22 @@
 import { useTranslation } from "react-i18next";
-import { Play, Volume2 } from "lucide-react";
+import { Pause, Play, Volume2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const VideoShowcase = () => {
   const { t } = useTranslation();
+  const [videoPlayed, setVideoPlayed] = useState(false);
 
   const handleVideoClick = () => {
     const video = document.getElementById("video") as HTMLVideoElement;
-    video?.play();
+
+    if (video?.paused) {
+      video?.play();
+      setVideoPlayed(true);
+    } else {
+      video?.pause();
+      setVideoPlayed(false);
+    }
   };
 
   return (
@@ -82,7 +91,11 @@ const VideoShowcase = () => {
                 onClick={() => handleVideoClick()}
               >
                 <div className="bg-white/90 backdrop-blur-sm rounded-full p-6 shadow-lg">
-                  <Play className="h-12 w-12 text-blue-600" />
+                  {videoPlayed ? (
+                    <Pause className="h-10 w-10 text-blue-600" />
+                  ) : (
+                    <Play className="h-12 w-12 text-blue-600" />
+                  )}
                 </div>
               </div>
             </div>

@@ -1,22 +1,11 @@
 import { Button } from "@/components/ui/button";
-import {
-  TrendingUp,
-  Users,
-  Brain,
-  Target,
-  Lightbulb,
-  CheckCircle,
-  FolderKanban,
-  Workflow,
-  ArrowRight,
-} from "lucide-react";
+import { TrendingUp, Users, Brain, Target, Lightbulb } from "lucide-react";
 
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
 import Footer from "@/components/home/Footer";
 import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
-import { motion } from "framer-motion";
 import FeatureCard from "@/components/FeatureCard";
 
 const SecondarySchools = () => {
@@ -25,6 +14,7 @@ const SecondarySchools = () => {
   const features = [
     {
       icon: Brain,
+      image: "/secondary/advanced-learning.jpg",
       title: "Advanced Learning Tools",
       description: null,
       feature: [
@@ -35,6 +25,7 @@ const SecondarySchools = () => {
     },
     {
       icon: Target,
+      image: "/secondary/career-university.jpg",
       title: "Career & University Prep",
       description: null,
       feature: [
@@ -45,6 +36,7 @@ const SecondarySchools = () => {
     },
     {
       icon: Users,
+      image: "/secondary/parent-teacher.jpg",
       title: "Parent-Teacher Collaboration",
       description: null,
       feature: [
@@ -55,6 +47,7 @@ const SecondarySchools = () => {
     },
     {
       icon: Lightbulb,
+      image: "/secondary/student-engagement.jpg",
       title: "Student Engagement",
       description: null,
       feature: [

@@ -1,17 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
-  ArrowLeft,
   Building2,
   Users,
   DollarSign,
@@ -25,6 +16,7 @@ import {
 import Navigation from "@/components/home/Navigation";
 import Footer from "@/components/home/Footer";
 import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
+import { motion } from "framer-motion";
 
 const SchoolAdministration = () => {
   const [onShowLogin, setOnShowLogin] = useState(false);
@@ -129,25 +121,30 @@ const SchoolAdministration = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-4 place-content-center gap-4 md:gap-8">
               {features.map((feature, index) => (
-                <ScrollInFromBottom delay={index * 0.12}>
-                  <div
-                    key={index}
-                    className="group bg-gradient-to-br from-white to-blue-50 border border-gray-100 rounded-tr rounded-bl-sm p-8 hover:shadow-lg transition-shadow duration-300"
-                  >
-                    <div>
-                      <div className="flex flex-col items-start justify-center gap-2">
-                        <div className="p-3 icon-bg rounded-lg  group-hover:scale-105 transition-transform duration-300">
-                          <feature.icon className="h-6 w-6 text-white" />
-                        </div>
-                        <h2 className="text-lg/6 font-bold">{feature.title}</h2>
+                <motion.div
+                  initial={{ y: 80, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: index * 0.2,
+                    ease: "easeOut",
+                  }}
+                  viewport={{ once: true, amount: 0.2 }} // Trigger when 20% is visible
+                  className="group bg-gradient-to-br from-white to-blue-50 border border-gray-100 rounded-tr rounded-bl-sm p-8 hover:shadow-lg transition-shadow duration-300"
+                >
+                  <div>
+                    <div className="flex flex-col items-start justify-center gap-2">
+                      <div className="p-3 icon-bg rounded-lg  group-hover:scale-105 transition-transform duration-300">
+                        <feature.icon className="h-6 w-6 text-white" />
                       </div>
+                      <h2 className="text-lg/6 font-bold">{feature.title}</h2>
                     </div>
-
-                    <p className="text-gray-600 text-base/6 pt-2">
-                      {feature.description}
-                    </p>
                   </div>
-                </ScrollInFromBottom>
+
+                  <p className="text-gray-600 text-base/6 pt-2">
+                    {feature.description}
+                  </p>
+                </motion.div>
               ))}
             </div>
           </div>

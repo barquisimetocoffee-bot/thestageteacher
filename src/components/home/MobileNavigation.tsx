@@ -86,7 +86,7 @@ const MobileNavigation = ({
 
     {
       title: "General Report",
-      path: "/solutions/reporting",
+      path: "/solutions/general-reports",
     },
     { title: "HR & Payroll", path: "/solutions/hr-payroll" },
     { title: "Finance", path: "/solutions/finance" },

@@ -6,11 +6,6 @@ import {
   FileBarChart,
   Banknote,
   PieChart,
-  CheckCircle,
-  ChartCandlestick,
-  CircleFadingArrowUp,
-  DatabaseZap,
-  ArrowRight,
 } from "lucide-react";
 
 import UniversalHeader from "@/components/layout/UniversalHeader";
@@ -18,7 +13,6 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
 import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
-import { motion } from "framer-motion";
 import Footer from "@/components/home/Footer";
 import FeatureCard from "@/components/FeatureCard";
 
@@ -34,7 +28,7 @@ const Finance = () => {
   const features = [
     {
       icon: CreditCard,
-
+      image: "/finance/fee-management.jpg",
       title: "Fee Management & Automated Billing",
       description:
         "Make tuition and fee collection effortless for staff, parents, and students.",
@@ -47,6 +41,7 @@ const Finance = () => {
     },
     {
       icon: FileBarChart,
+      image: "/finance/custom-financial-reports.jpg",
       title: "Custom Financial Reports",
       description: "Get the numbers you need — in the format you need them.",
       feature: [
@@ -58,6 +53,7 @@ const Finance = () => {
     },
     {
       icon: PieChart,
+      image: "/finance/budget-planning-tracking.jpg",
       title: "Budget Planning & Tracking",
       description: "Plan ahead with data-driven financial forecasting.",
       feature: [
@@ -69,6 +65,7 @@ const Finance = () => {
     },
     {
       icon: Banknote,
+      image: "/finance/banking-payment-integration.jpg",
       title: "Banking & Payment Integration",
       description:
         "Connect your school’s finances to the systems you already use.",

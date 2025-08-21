@@ -3,12 +3,9 @@ import {
   UserCheck,
   FileText,
   CheckCircle,
-  Clock,
-  BarChart,
   Bot,
   MessageSquare,
   Monitor,
-  ArrowRight,
 } from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState, useEffect } from "react";
@@ -16,7 +13,6 @@ import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
 import Footer from "@/components/home/Footer";
 import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
-import { motion } from "framer-motion";
 import FeatureCard from "@/components/FeatureCard";
 
 const Admissions = () => {
@@ -31,6 +27,7 @@ const Admissions = () => {
   const features = [
     {
       icon: FileText,
+      image: "/admission/online-application.jpg",
       title: "Online Application Forms",
       description:
         "Ditch the paperwork and make it easy for students and parents to apply from anywhere, on any device.",
@@ -43,6 +40,7 @@ const Admissions = () => {
     },
     {
       icon: CheckCircle,
+      image: "/admission/automatic-document-verification.jpg",
       title: "Automatic Document Verification",
       description:
         "Say goodbye to tedious manual checks. Our platform automates document validation to save time and reduce errors.",
@@ -54,6 +52,7 @@ const Admissions = () => {
     },
     {
       icon: Bot,
+      image: "/admission/ai-based-student-profiling.jpg",
       title: "AI-Based Student Profiling",
       description:
         "Make smarter admission decisions with deeper insights into each applicant.",
@@ -66,6 +65,7 @@ const Admissions = () => {
     },
     {
       icon: MessageSquare,
+      image: "/admission/seamless-communication.jpg",
       title: "Seamless Communication",
       description:
         "Stay connected with applicants, parents, and staff throughout the admissions process.",
@@ -78,6 +78,7 @@ const Admissions = () => {
     },
     {
       icon: Monitor,
+      image: "/admission/centralized-dashboard.jpg",
       title: "Centralized Dashboard",
       description:
         "Manage your entire admissions cycle from a single, intuitive interface.",

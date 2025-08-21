@@ -5,12 +5,6 @@ import {
   UserPlus,
   ClipboardCheck,
   Shield,
-  CheckCircle,
-  ArrowBigDownDash,
-  Workflow,
-  Earth,
-  University,
-  ArrowRight,
 } from "lucide-react";
 
 import UniversalHeader from "@/components/layout/UniversalHeader";
@@ -18,7 +12,6 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
 import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
-import { motion } from "framer-motion";
 import Footer from "@/components/home/Footer";
 import FeatureCard from "@/components/FeatureCard";
 
@@ -34,6 +27,7 @@ const HRPayroll = () => {
   const features = [
     {
       icon: UserPlus,
+      image: "/hr/digital-staff-onboarding.jpg",
       title: "Digital Staff Onboarding",
       description:
         "Say goodbye to endless forms and in-person processing. Our platform makes hiring and onboarding a fully digital, paperless experience.",
@@ -45,6 +39,7 @@ const HRPayroll = () => {
     },
     {
       icon: CreditCard,
+      image: "/hr/payroll-automation.jpg",
       title: "Payroll Automation",
       description:
         "No more manual calculations, compliance headaches, or last-minute payroll rush.",
@@ -56,6 +51,7 @@ const HRPayroll = () => {
     },
     {
       icon: ClipboardCheck,
+      image: "/hr/attendance-leave-management.jpg",
       title: "Attendance & Leave Management",
       description:
         "Track attendance and leave requests with precision — no more chasing signatures or juggling calendars.",
@@ -67,6 +63,7 @@ const HRPayroll = () => {
     },
     {
       icon: Users,
+      image: "/hr/performance-evaluation.jpg",
       title: "Performance Evaluation",
       description:
         "Support professional growth with structured, fair, and data-backed evaluations.",
@@ -78,6 +75,7 @@ const HRPayroll = () => {
     },
     {
       icon: Shield,
+      image: "/hr/compliance-records.jpg",
       title: "Compliance & Records",
       description: "Stay audit-ready without digging through filing cabinets.",
       feature: [

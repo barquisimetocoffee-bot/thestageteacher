@@ -314,6 +314,7 @@ const PencilPage = () => {
       description:
         "Create curriculum-aligned lesson plans in minutes with structured prompts and ready-to-use content.",
       component: LessonPlanDashboard,
+      image: "/pencil/1.svg",
       features: [
         "Standards-aware prompts",
         "Differentiation options",
@@ -497,7 +498,7 @@ const PencilPage = () => {
 
           <div className="space-y-20">
             {PencilFeatures.map((feature, index) => (
-              <ScrollInFromBottom delay={0.3}>
+              <ScrollInFromBottom delay={0.3} key={index}>
                 <div
                   key={index}
                   className={`flex flex-col lg:flex-row items-center gap-12 ${
@@ -533,7 +534,17 @@ const PencilPage = () => {
 
                   {/* Custom Dashboard Mockup */}
                   <div className="flex-1 relative">
-                    <feature.component />
+                    {feature.image ? (
+                      <div className="p-8">
+                        <img
+                          src={feature.image}
+                          alt={feature.title}
+                          className="w-full h-auto"
+                        />
+                      </div>
+                    ) : (
+                      <feature.component />
+                    )}
                   </div>
                 </div>
               </ScrollInFromBottom>

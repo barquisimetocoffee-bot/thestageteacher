@@ -13,6 +13,7 @@ const PrimarySchools = () => {
   const features = [
     {
       icon: Heart,
+      image: "/primary/age-appropriate.jpg",
       title: "Age-Appropriate Learning",
       description: "Content and tools built for young learners.",
       feature: [
@@ -24,6 +25,7 @@ const PrimarySchools = () => {
     },
     {
       icon: Users2,
+      image: "/primary/parent-engagement.jpg",
       title: "Parent Engagement",
       description: "Bring parents into the learning journey.",
       feature: [
@@ -35,6 +37,7 @@ const PrimarySchools = () => {
     },
     {
       icon: BookOpen,
+      image: "/primary/interactive-content.jpg",
       title: "Interactive Content",
       description: "GTurn lessons into experiences students love.",
       feature: [
@@ -46,6 +49,7 @@ const PrimarySchools = () => {
     },
     {
       icon: Shield,
+      image: "/primary/child-safety.jpg",
       title: "Child Safety",
       description: "Peace of mind for parents and staff.",
       feature: [
@@ -57,6 +61,7 @@ const PrimarySchools = () => {
     },
     {
       icon: Gamepad2,
+      image: "/primary/educational-gaming.jpg",
       title: "Educational Gaming",
       description: "Learning through play — the smart way.",
       feature: [
@@ -68,6 +73,7 @@ const PrimarySchools = () => {
     },
     {
       icon: Star,
+      image: "/primary/creative-expression.jpg",
       title: "Creative Expression",
       description: "Give every child the tools to explore their imagination.",
       feature: [

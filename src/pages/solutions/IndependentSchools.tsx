@@ -1,22 +1,10 @@
 import { Button } from "@/components/ui/button";
-import {
-  Target,
-  Award,
-  Users,
-  Crown,
-  CheckCircle,
-  Dices,
-  Cable,
-  IdCard,
-  ChartGantt,
-  ArrowRight,
-} from "lucide-react";
+import { Target, Award, Users, Crown } from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
 import Footer from "@/components/home/Footer";
 import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
-import { motion } from "framer-motion";
 import FeatureCard from "@/components/FeatureCard";
 
 const IndependentSchools = () => {
@@ -25,6 +13,7 @@ const IndependentSchools = () => {
   const features = [
     {
       icon: Users,
+      image: "/independance/small-class.jpg",
       title: "Small Class Management",
       description: "Maximize the benefits of personalized learning.",
       feature: [
@@ -36,6 +25,7 @@ const IndependentSchools = () => {
     },
     {
       icon: Crown,
+      image: "/independance/custom-branding.jpg",
       title: "Custom Branding",
       description: "Showcase your school’s identity at every touchpoint.",
       feature: [
@@ -47,6 +37,7 @@ const IndependentSchools = () => {
     },
     {
       icon: Award,
+      image: "/independance/scalable-administration.jpg",
       title: "Scalable Administration",
       description: "Grow without losing your personal touch.",
       feature: [

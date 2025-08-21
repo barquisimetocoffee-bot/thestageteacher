@@ -1,22 +1,11 @@
 import { Button } from "@/components/ui/button";
-import {
-  MessageSquare,
-  Megaphone,
-  Bell,
-  Globe,
-  Users,
-  CheckCircle,
-  TimerOff,
-  Cable,
-  ArrowRight,
-} from "lucide-react";
+import { MessageSquare, Megaphone, Bell, Globe } from "lucide-react";
 
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
 import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
-import { motion } from "framer-motion";
 import Footer from "@/components/home/Footer";
 import FeatureCard from "@/components/FeatureCard";
 
@@ -32,7 +21,7 @@ const Communication = () => {
   const features = [
     {
       icon: Megaphone,
-
+      image: "/communication/mass-announcements.jpg",
       title: "Mass Announcements",
       description:
         "Deliver important updates instantly across your school community.",
@@ -45,6 +34,7 @@ const Communication = () => {
     },
     {
       icon: Bell,
+      image: "/communication/automated-alerts.jpg",
       title: "Automated Alerts",
       description:
         "Let the system handle routine notifications so you don’t have to.",
@@ -57,6 +47,7 @@ const Communication = () => {
     },
     {
       icon: MessageSquare,
+      image: "/communication/two-way-communication.jpg",
       title: "Two-Way Communication",
       description:
         "Move beyond one-sided announcements — create real conversations.",
@@ -69,6 +60,7 @@ const Communication = () => {
     },
     {
       icon: Globe,
+      image: "/communication/language-accessibility.jpg",
       title: "Language & Accessibility",
       description:
         "Make sure every message is understood and accessible to all.",

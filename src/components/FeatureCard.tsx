@@ -9,24 +9,24 @@ const cardDataCard = ({ index, cardData }) => {
       initial={{ y: 80, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{
-        duration: 0.8,
+        duration: 0.6,
         delay: index * 0.2,
         ease: "easeOut",
       }}
       viewport={{ once: true, amount: 0.2 }} // Trigger when 20% is visible
-      className={`group rounded-2xl p-6 flex justify-between items-center gap-3 ${
-        index % 2 !== 0 ? "flex-row-reverse" : "flex-row"
+      className={`group rounded-2xl p-6 flex flex-col-reverse md:flex-row justify-between items-center gap-4 md:gap-12 ${
+        index % 2 !== 0 ? "md:flex-row-reverse" : "md:flex-row"
       }`}
     >
       <div className="w-full md:w-1/2">
-        <div className="flex flex-col items-start justify-center gap-2">
-          <div className="p-3 icon-bg rounded-tr rounded-bl-sm  group-hover:scale-105 transition-transform duration-300 mb-4">
-            <cardData.icon className="h-6 w-6 text-white" />
+        <div className="flex items-center space-x-3">
+          <div className="p-3 icon-bg rounded-tr rounded-bl-sm  group-hover:scale-105 transition-transform duration-300">
+            <cardData.icon className="h-8 w-8 text-white" />
           </div>
-          <h2 className="text-lg/6 font-bold">{cardData.title}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">{cardData.title}</h2>
         </div>
 
-        <p className="text-gray-800 text-base/6 pt-1">{cardData.description}</p>
+        <p className="text-gray-800 text-base pt-2">{cardData.description}</p>
 
         {
           // cardData List
@@ -50,7 +50,13 @@ const cardDataCard = ({ index, cardData }) => {
           )
         }
       </div>
-      <div>img</div>
+      <div className="w-full md:w-1/2">
+        <img
+          src={cardData.image}
+          alt={cardData.title}
+          className="rounded-2xl"
+        />
+      </div>
     </motion.div>
   );
 };

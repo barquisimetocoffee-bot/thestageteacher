@@ -1,22 +1,10 @@
 import { Button } from "@/components/ui/button";
-import {
-  BarChart3,
-  FileSpreadsheet,
-  Download,
-  Brain,
-  TrendingUp,
-  CheckCircle,
-  CircleGauge,
-  Goal,
-  ClockArrowUp,
-  ArrowRight,
-} from "lucide-react";
+import { BarChart3, FileSpreadsheet, Download, Brain } from "lucide-react";
 import UniversalHeader from "@/components/layout/UniversalHeader";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LoginModal from "@/components/auth/LoginModal";
 import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
-import { motion } from "framer-motion";
 
 import Footer from "@/components/home/Footer";
 import FeatureCard from "@/components/FeatureCard";
@@ -33,7 +21,7 @@ const GeneralReports = () => {
   const features = [
     {
       icon: BarChart3,
-
+      image: "/report/dynamic-dashboards.jpg",
       title: "Dynamic Dashboards",
       description: "Visualize your school’s performance at a glance.",
       feature: [
@@ -45,6 +33,7 @@ const GeneralReports = () => {
     },
     {
       icon: FileSpreadsheet,
+      image: "/report/custom-report-builder.jpg",
       title: "Custom Report Builder",
       description: "Create reports your way — no coding required.",
       feature: [
@@ -56,6 +45,7 @@ const GeneralReports = () => {
     },
     {
       icon: Download,
+      image: "/report/export-flexibility.jpg",
       title: "Export Flexibility",
       description: "Share insights without compatibility headaches.",
       feature: [
@@ -67,6 +57,7 @@ const GeneralReports = () => {
     },
     {
       icon: Brain,
+      image: "/report/ai-assisted-insights.jpg",
       title: "AI-Assisted Insights",
       description: "Let AI uncover trends you might miss.",
       feature: [

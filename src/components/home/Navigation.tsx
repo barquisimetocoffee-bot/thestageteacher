@@ -354,7 +354,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                 <span className="text-foreground hover-link hover:text-primary px-3 py-2 rounded-md cursor-pointer">
                   {t("navigation.resources")}
                 </span>
-                <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-4 w-64 animate-fade-in rounded-2xl z-50">
+                <div className="absolute left-0 top-8 hidden group-hover:block bg-background shadow-xl border border-border p-4 w-64 animate-fade-in rounded-2xl z-50">
                   <div className="space-y-1">
                     {resourcesMenu.map((item, index) => (
                       <div
@@ -378,7 +378,7 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                 <span className="text-foreground hover-link hover:text-primary px-3 py-2 rounded-md cursor-pointer">
                   {t("navigation.aboutUs")}
                 </span>
-                <div className="absolute left-0 top-6 hidden group-hover:block bg-background shadow-xl border border-border p-4 w-64 animate-fade-in rounded-2xl z-50">
+                <div className="absolute left-0 top-8 hidden group-hover:block bg-background shadow-xl border border-border p-4 w-64 animate-fade-in rounded-2xl z-50">
                   <div className="space-y-1">
                     {aboutMenu.map((item, index) => (
                       <div
