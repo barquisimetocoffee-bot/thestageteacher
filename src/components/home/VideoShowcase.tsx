@@ -111,7 +111,7 @@ const VideoShowcase = () => {
                     </span>
                   </div>
                   <div className="flex items-center space-x-2 text-gray-600">
-                    <span className="text-sm">18s Product Demo</span>
+                    <span className="text-sm">16s Product Demo</span>
                   </div>
                 </div>
                 <Button

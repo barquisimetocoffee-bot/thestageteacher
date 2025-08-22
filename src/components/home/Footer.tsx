@@ -66,11 +66,11 @@ const Footer = () => {
             <h3 className="font-semibold text-white mb-4">Platform</h3>
             <ul className="space-y-2 text-sm">
               {[
-                { name: "EasyTeach", link: "/" },
-                { name: "Advanced AI LMS", link: "/solutions/primary-schools" },
+                { name: "Pencil", link: "/pencil" },
+                { name: "Advanced AI LMS", link: "//advanced-lms" },
                 {
                   name: "School Administration",
-                  link: "/solutions/secondary-schools",
+                  link: "/school-administration",
                 },
               ].map((item) => (
                 <li key={item.name}>
@@ -101,7 +101,7 @@ const Footer = () => {
                 },
                 { name: "Universities", link: "/solutions/universities" },
                 { name: "Admissions", link: "/solutions/admissions" },
-                { name: "General Report", link: "/solutions/general-report" },
+                { name: "General Report", link: "/solutions/general-reports" },
                 { name: "HR & Payroll", link: "/solutions/hr-payroll" },
                 { name: "Finance", link: "/solutions/finance" },
                 { name: "Communication", link: "/solutions/communication" },
@@ -123,7 +123,10 @@ const Footer = () => {
             <h3 className="font-semibold text-white mb-4">About Us</h3>
             <ul className="space-y-2 text-sm">
               {[
-                { name: "Partner & Integrations", link: "/#partners" },
+                {
+                  name: "Partner & Integrations",
+                  link: "/partners-integrations",
+                },
                 { name: "Data Protection & GDPR", link: "/" },
                 { name: "Contact", link: "/contact-us" },
               ].map((tool) => (

@@ -45,7 +45,7 @@ const ToolsSuggestions = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center space-x-4">
-            <Link to="/easyteach-app">
+            <Link to="/pencil-app">
               <Button
                 variant="outline"
                 size="sm"

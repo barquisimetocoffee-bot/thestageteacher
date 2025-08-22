@@ -109,7 +109,7 @@ const OutputHistory = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center space-x-4">
-            <Link to="/easyteach-app">
+            <Link to="/pencil-app">
               <Button
                 variant="outline"
                 size="sm"
@@ -215,7 +215,7 @@ const OutputHistory = () => {
             <p className="text-gray-500 mb-4">
               Start using our AI tools to see your generated content here.
             </p>
-            <Link to="/easyteach-app">
+            <Link to="/pencil-app">
               <Button className="my-btn">Create Your First Content</Button>
             </Link>
           </div>

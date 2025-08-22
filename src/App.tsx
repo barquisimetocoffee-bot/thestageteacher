@@ -9,8 +9,6 @@ import { SubscriptionProvider } from "@/hooks/useSubscription";
 
 import ErrorBoundary from "@/components/ui/error-boundary";
 import Index from "./pages/Index";
-import EasyTeachApp from "./pages/EasyTeachApp";
-import EasyTeachPage from "./pages/EasyTeachPage";
 import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
 import AIChatbot from "./pages/AIChatbot";
@@ -43,8 +41,9 @@ import Communication from "./pages/solutions/Communication";
 import ResetPassword from "./pages/ResetPassword";
 import CookieConsent from "./components/compliance/CookieConsent";
 import ConsentManager from "./components/compliance/ConsentManager";
-import Navigation from "./components/home/Navigation";
 import ScrollToTop from "./hooks/scrollToTop";
+import PencilApp from "./pages/PencilApp";
+import PencilPage from "./pages/PencilPage";
 
 const queryClient = new QueryClient();
 
@@ -61,8 +60,8 @@ const App = () => (
               <ErrorBoundary>
                 <Routes>
                   <Route path="/" element={<Index />} />
-                  <Route path="/pencil-app" element={<EasyTeachApp />} />
-                  <Route path="/pencil" element={<EasyTeachPage />} />
+                  <Route path="/pencil-app" element={<PencilApp />} />
+                  <Route path="/pencil" element={<PencilPage />} />
                   <Route path="/landing" element={<LandingPage />} />
                   <Route path="/ai-chatbot" element={<AIChatbot />} />
                   <Route path="/wizard-tools" element={<WizardTools />} />
@@ -80,7 +79,7 @@ const App = () => (
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/knowledge-base" element={<KnowledgeBase />} />
                   <Route
-                    path="/partners-integrations"
+                    path="/partners-integrations/partners-integrations"
                     element={<PartnersIntegrations />}
                   />
                   <Route path="/data-protection" element={<DataProtection />} />
