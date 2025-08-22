@@ -183,8 +183,8 @@ const LoginModal = ({
       <DialogContent className="h-screen no-scrollbar sm:max-w-md bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 border-0 shadow-2xl">
         <DialogHeader className="text-center space-y-4">
           <div className="flex justify-center">
-            <div className="w-16 h-16 icon-bg rounded-2xl flex items-center justify-center shadow-lg">
-              <Sparkles className="h-8 w-8 text-white" />
+            <div className="w-16 h-16 flex items-center justify-center">
+              <img src="/favicon.png" alt="logo" className="size-12" />
             </div>
           </div>
           <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-[#2901b3] to-blue-600 bg-clip-text text-transparent text-center">
