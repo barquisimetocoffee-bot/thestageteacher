@@ -1,23 +1,7 @@
 import { useTranslation } from "react-i18next";
-import { Pause, Play, Volume2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
 
 const VideoShowcase = () => {
   const { t } = useTranslation();
-  const [videoPlayed, setVideoPlayed] = useState(false);
-
-  const handleVideoClick = () => {
-    const video = document.getElementById("video") as HTMLVideoElement;
-
-    if (video?.paused) {
-      video?.play();
-      setVideoPlayed(true);
-    } else {
-      video?.pause();
-      setVideoPlayed(false);
-    }
-  };
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -48,7 +32,15 @@ const VideoShowcase = () => {
                 <div className="relative w-full h-full">
                   {/* Main App Interface Mockup */}
                   <div className="absolute inset-4 bg-white rounded-xl shadow-lg overflow-hidden animate-fade-in">
-                    <video src="./pencil.mov" controls id="video"></video>
+                    <video
+                      src="./pencil.mov"
+                      id="video"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
                     {/* App Header */}
                     <div className="h-12 bg-gradient-to-r from-blue-600 to-purple-600 flex items-center px-4">
                       <div className="w-6 h-6 bg-white/20 rounded mr-3"></div>
@@ -86,7 +78,7 @@ const VideoShowcase = () => {
               </div>
 
               {/* Play button overlay for interaction */}
-              <div
+              {/* <div
                 className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer"
                 onClick={() => handleVideoClick()}
               >
@@ -97,31 +89,7 @@ const VideoShowcase = () => {
                     <Play className="h-12 w-12 text-blue-600" />
                   )}
                 </div>
-              </div>
-            </div>
-
-            {/* Video Info Bar */}
-            <div className="p-6 bg-gradient-to-r from-blue-50 to-purple-50 border-t">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                  <div className="flex items-center space-x-2 text-blue-600">
-                    <Volume2 className="h-5 w-5" />
-                    <span className="text-sm font-medium">
-                      {t("videoShowcase.fullDemo")}
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-gray-600">
-                    <span className="text-sm">16s Product Demo</span>
-                  </div>
-                </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="hover:bg-blue-50 hover:border-blue-300 hover:text-black transition-all duration-200"
-                >
-                  {t("videoShowcase.watchFull")}
-                </Button>
-              </div>
+              </div> */}
             </div>
           </div>
 

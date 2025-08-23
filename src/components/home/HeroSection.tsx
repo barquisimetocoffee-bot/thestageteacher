@@ -135,7 +135,7 @@ const HeroSection = ({ onShowLogin }: HeroSectionProps) => {
                 </div>
               </div>
               <div className="text-3xl font-bold text-[#2901B3] mb-2">
-                <AnimatedCounter end={500} suffix="+" />
+                <AnimatedCounter end={20} suffix="k+" />
               </div>
               <div className="text-gray-700 font-medium mb-2">
                 {t("hero.activeEducators")}
