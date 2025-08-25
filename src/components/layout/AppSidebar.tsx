@@ -85,7 +85,7 @@ const AppSidebar = () => {
           </div>
           <div>
             <h2 className="text-lg font-bold bg-gradient-to-r from-[#2901b3] to-blue-500 bg-clip-text text-transparent">
-              EasyTeach
+              Pencil
             </h2>
             <p className="text-xs text-muted-foreground font-medium tracking-wide">
               by Vicerta • AI Assistant
