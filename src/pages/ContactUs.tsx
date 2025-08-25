@@ -43,27 +43,27 @@ const ContactUs = () => {
       icon: Mail,
 
       title: "Email Us",
-      details: "support@ecerta.com",
+      details: "info@vicerta.com",
       description: "Get in touch for general inquiries",
     },
-    {
-      icon: Phone,
-      title: "Call Us",
-      details: "+1 (555) 123-4567",
-      description: "Speak with our support team",
-    },
+    // {
+    //   icon: Phone,
+    //   title: "Call Us",
+    //   details: "+1 (555) 123-4567",
+    //   description: "Speak with our support team",
+    // },
     {
       icon: MapPin,
       title: "Visit Us",
-      details: "123 Education Street, Tech City, TC 12345",
+      details: "124-128 CITY ROAD LONDON, EC1V 2NX",
       description: "Our headquarters location",
     },
-    {
-      icon: Clock,
-      title: "Support Hours",
-      details: "Mon-Fri: 9AM-6PM EST",
-      description: "When we're available to help",
-    },
+    // {
+    //   icon: Clock,
+    //   title: "Support Hours",
+    //   details: "Mon-Fri: 9AM-6PM EST",
+    //   description: "When we're available to help",
+    // },
   ];
 
   return (
@@ -104,7 +104,7 @@ const ContactUs = () => {
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
               Get in Touch
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-16">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={index}
