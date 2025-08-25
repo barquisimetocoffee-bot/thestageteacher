@@ -17,8 +17,7 @@ import AIAssistant from "@/components/AIAssistant";
 
 import GradeSystemSelector from "@/components/GradeSystemSelector";
 import LanguageSelector from "@/components/LanguageSelector";
-// Remove the SubscriptionStatus import since we're hiding it
-// import { SubscriptionStatus } from "@/components/SubscriptionStatus";
+import { SubscriptionStatus } from "@/components/SubscriptionStatus";
 import {
   useTranslatedTools,
   useTranslatedCategories,
@@ -169,12 +168,18 @@ const PencilApp = () => {
           </div>
 
           <div className="container-responsive section-responsive">
-            {/* Remove the grid layout that included SubscriptionStatus */}
-            <div className="mb-6">
-              <WelcomeSection
-                teacherProfile={teacherProfile}
-                onQuickAction={handleQuickAction}
-              />
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-6">
+              <div className="lg:col-span-3">
+                <WelcomeSection
+                  teacherProfile={teacherProfile}
+                  onQuickAction={handleQuickAction}
+                />
+              </div>
+
+              {/* Compact Subscription Status */}
+              <div className="lg:col-span-1">
+                <SubscriptionStatus className="" />
+              </div>
             </div>
 
             {/* Main Content Tabs */}
