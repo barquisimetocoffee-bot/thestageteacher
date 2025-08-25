@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
@@ -17,196 +18,262 @@ import { Clock, Lightbulb, Target, Users } from "lucide-react";
 
 interface ToolModalFormProps {
   tool: any;
-  teacherProfile: any;
-  onSubmit: (data: any) => void;
+  formData: Record<string, string>;
+  onInputChange: (field: string, value: string) => void;
+  onGenerate: () => void;
+  isGenerating: boolean;
 }
 
-export function ToolModalForm({
+const ToolModalForm = ({
   tool,
-  teacherProfile,
-  onSubmit,
-}: ToolModalFormProps) {
+  formData,
+  onInputChange,
+  onGenerate,
+  isGenerating,
+}: ToolModalFormProps) => {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState({
-    topic: "",
-    gradeLevel: "",
-    learningObjective: "",
-    classSize: "",
-    timeRequired: "",
-    materials: "",
-    instructions: "",
-    differentiation: "",
-    assessment: "",
-  });
-
-  useEffect(() => {
-    if (tool) {
-      setFormData({
-        topic: tool.topic || "",
-        gradeLevel: tool.gradeLevel || "",
-        learningObjective: tool.learningObjective || "",
-        classSize: tool.classSize || "",
-        timeRequired: tool.timeRequired || "",
-        materials: tool.materials || "",
-        instructions: tool.instructions || "",
-        differentiation: tool.differentiation || "",
-        assessment: tool.assessment || "",
-      });
-    }
-  }, [tool]);
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    onInputChange(name, value);
   };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    onSubmit(formData);
+    onGenerate();
+  };
+
+  // Render different forms based on tool type
+  const renderToolSpecificForm = () => {
+    switch (tool.id) {
+      case 1: // lesson-plan
+        return (
+          <>
+            <div>
+              <Label htmlFor="subject">{t("toolModal.subject")}</Label>
+              <Input
+                type="text"
+                id="subject"
+                name="subject"
+                value={formData.subject || ""}
+                onChange={handleChange}
+                placeholder={t("toolModal.subjectPlaceholder")}
+              />
+            </div>
+            <div>
+              <Label htmlFor="topic">{t("toolModal.topic")}</Label>
+              <Input
+                type="text"
+                id="topic"
+                name="topic"
+                value={formData.topic || ""}
+                onChange={handleChange}
+                placeholder={t("toolModal.topicPlaceholder")}
+              />
+            </div>
+            <div>
+              <Label htmlFor="grade">{t("toolModal.gradeLevel")}</Label>
+              <Select onValueChange={(value) => onInputChange('grade', value)}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder={t("toolModal.gradeLevelPlaceholder")} />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="K">{t("toolModal.gradeK")}</SelectItem>
+                  <SelectItem value="1">{t("toolModal.grade1")}</SelectItem>
+                  <SelectItem value="2">{t("toolModal.grade2")}</SelectItem>
+                  <SelectItem value="3">{t("toolModal.grade3")}</SelectItem>
+                  <SelectItem value="4">{t("toolModal.grade4")}</SelectItem>
+                  <SelectItem value="5">{t("toolModal.grade5")}</SelectItem>
+                  <SelectItem value="6">{t("toolModal.grade6")}</SelectItem>
+                  <SelectItem value="7">{t("toolModal.grade7")}</SelectItem>
+                  <SelectItem value="8">{t("toolModal.grade8")}</SelectItem>
+                  <SelectItem value="9">{t("toolModal.grade9")}</SelectItem>
+                  <SelectItem value="10">{t("toolModal.grade10")}</SelectItem>
+                  <SelectItem value="11">{t("toolModal.grade11")}</SelectItem>
+                  <SelectItem value="12">{t("toolModal.grade12")}</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </>
+        );
+      case 17: // ai-text-detector
+        return (
+          <>
+            <div>
+              <Label htmlFor="studentText">{t("toolModal.studentText")}</Label>
+              <Textarea
+                id="studentText"
+                name="studentText"
+                value={formData.studentText || ""}
+                onChange={handleChange}
+                placeholder={t("toolModal.studentTextPlaceholder")}
+                className="resize-none h-32"
+              />
+            </div>
+            <div>
+              <Label htmlFor="assignmentType">{t("toolModal.assignmentType")}</Label>
+              <Input
+                type="text"
+                id="assignmentType"
+                name="assignmentType"
+                value={formData.assignmentType || ""}
+                onChange={handleChange}
+                placeholder={t("toolModal.assignmentTypePlaceholder")}
+              />
+            </div>
+            <div>
+              <Label htmlFor="studentGrade">{t("toolModal.studentGrade")}</Label>
+              <Input
+                type="text"
+                id="studentGrade"
+                name="studentGrade"
+                value={formData.studentGrade || ""}
+                onChange={handleChange}
+                placeholder={t("toolModal.studentGradePlaceholder")}
+              />
+            </div>
+          </>
+        );
+      case 18: // parent-email
+        return (
+          <>
+            <div>
+              <Label htmlFor="studentName">{t("toolModal.studentName")}</Label>
+              <Input
+                type="text"
+                id="studentName"
+                name="studentName"
+                value={formData.studentName || ""}
+                onChange={handleChange}
+                placeholder={t("toolModal.studentNamePlaceholder")}
+              />
+            </div>
+            <div>
+              <Label htmlFor="situation">{t("toolModal.situation")}</Label>
+              <Textarea
+                id="situation"
+                name="situation"
+                value={formData.situation || ""}
+                onChange={handleChange}
+                placeholder={t("toolModal.situationPlaceholder")}
+                className="resize-none h-24"
+              />
+            </div>
+            <div>
+              <Label htmlFor="emailType">{t("toolModal.emailType")}</Label>
+              <Select onValueChange={(value) => onInputChange('emailType', value)}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder={t("toolModal.emailTypePlaceholder")} />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="positive">{t("toolModal.positiveEmail")}</SelectItem>
+                  <SelectItem value="concern">{t("toolModal.concernEmail")}</SelectItem>
+                  <SelectItem value="meeting">{t("toolModal.meetingEmail")}</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </>
+        );
+      case 21: // behavior-plan
+        return (
+          <>
+            <div>
+              <Label htmlFor="behaviorConcern">{t("toolModal.behaviorConcern")}</Label>
+              <Textarea
+                id="behaviorConcern"
+                name="behaviorConcern"
+                value={formData.behaviorConcern || ""}
+                onChange={handleChange}
+                placeholder={t("toolModal.behaviorConcernPlaceholder")}
+                className="resize-none h-24"
+              />
+            </div>
+            <div>
+              <Label htmlFor="studentAge">{t("toolModal.studentAge")}</Label>
+              <Input
+                type="number"
+                id="studentAge"
+                name="studentAge"
+                value={formData.studentAge || ""}
+                onChange={handleChange}
+                placeholder={t("toolModal.studentAgePlaceholder")}
+              />
+            </div>
+            <div>
+              <Label htmlFor="strengths">{t("toolModal.strengths")}</Label>
+              <Textarea
+                id="strengths"
+                name="strengths"
+                value={formData.strengths || ""}
+                onChange={handleChange}
+                placeholder={t("toolModal.strengthsPlaceholder")}
+                className="resize-none h-24"
+              />
+            </div>
+          </>
+        );
+      default:
+        return (
+          <>
+            <div>
+              <Label htmlFor="topic">{t("toolModal.topic")}</Label>
+              <Input
+                type="text"
+                id="topic"
+                name="topic"
+                value={formData.topic || ""}
+                onChange={handleChange}
+                placeholder={t("toolModal.topicPlaceholder")}
+              />
+            </div>
+            <div>
+              <Label htmlFor="subject">{t("toolModal.subject")}</Label>
+              <Input
+                type="text"
+                id="subject"
+                name="subject"
+                value={formData.subject || ""}
+                onChange={handleChange}
+                placeholder={t("toolModal.subjectPlaceholder")}
+              />
+            </div>
+            <div>
+              <Label htmlFor="grade">{t("toolModal.gradeLevel")}</Label>
+              <Select onValueChange={(value) => onInputChange('grade', value)}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder={t("toolModal.gradeLevelPlaceholder")} />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="K">{t("toolModal.gradeK")}</SelectItem>
+                  <SelectItem value="1">{t("toolModal.grade1")}</SelectItem>
+                  <SelectItem value="2">{t("toolModal.grade2")}</SelectItem>
+                  <SelectItem value="3">{t("toolModal.grade3")}</SelectItem>
+                  <SelectItem value="4">{t("toolModal.grade4")}</SelectItem>
+                  <SelectItem value="5">{t("toolModal.grade5")}</SelectItem>
+                  <SelectItem value="6">{t("toolModal.grade6")}</SelectItem>
+                  <SelectItem value="7">{t("toolModal.grade7")}</SelectItem>
+                  <SelectItem value="8">{t("toolModal.grade8")}</SelectItem>
+                  <SelectItem value="9">{t("toolModal.grade9")}</SelectItem>
+                  <SelectItem value="10">{t("toolModal.grade10")}</SelectItem>
+                  <SelectItem value="11">{t("toolModal.grade11")}</SelectItem>
+                  <SelectItem value="12">{t("toolModal.grade12")}</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </>
+        );
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      {/* Topic and Grade Level */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <Label htmlFor="topic">{t("toolModal.topic")}</Label>
-          <Input
-            type="text"
-            id="topic"
-            name="topic"
-            value={formData.topic}
-            onChange={handleChange}
-            placeholder={t("toolModal.topicPlaceholder")}
-          />
-        </div>
-        <div>
-          <Label htmlFor="gradeLevel">{t("toolModal.gradeLevel")}</Label>
-          <Select onValueChange={(value) => handleChange({ target: { name: 'gradeLevel', value } })}>
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder={t("toolModal.gradeLevelPlaceholder")} value={formData.gradeLevel} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="K">{t("toolModal.gradeK")}</SelectItem>
-              <SelectItem value="1">{t("toolModal.grade1")}</SelectItem>
-              <SelectItem value="2">{t("toolModal.grade2")}</SelectItem>
-              <SelectItem value="3">{t("toolModal.grade3")}</SelectItem>
-              <SelectItem value="4">{t("toolModal.grade4")}</SelectItem>
-              <SelectItem value="5">{t("toolModal.grade5")}</SelectItem>
-              <SelectItem value="6">{t("toolModal.grade6")}</SelectItem>
-              <SelectItem value="7">{t("toolModal.grade7")}</SelectItem>
-              <SelectItem value="8">{t("toolModal.grade8")}</SelectItem>
-              <SelectItem value="9">{t("toolModal.grade9")}</SelectItem>
-              <SelectItem value="10">{t("toolModal.grade10")}</SelectItem>
-              <SelectItem value="11">{t("toolModal.grade11")}</SelectItem>
-              <SelectItem value="12">{t("toolModal.grade12")}</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-      </div>
+      {renderToolSpecificForm()}
 
-      {/* Learning Objective */}
-      <div>
-        <Label htmlFor="learningObjective">
-          {t("toolModal.learningObjective")}
-        </Label>
-        <Textarea
-          id="learningObjective"
-          name="learningObjective"
-          value={formData.learningObjective}
-          onChange={handleChange}
-          placeholder={t("toolModal.learningObjectivePlaceholder")}
-          className="resize-none h-24"
-        />
-      </div>
-
-      {/* Class Size and Time Required */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <Label htmlFor="classSize">{t("toolModal.classSize")}</Label>
-          <Input
-            type="number"
-            id="classSize"
-            name="classSize"
-            value={formData.classSize}
-            onChange={handleChange}
-            placeholder={t("toolModal.classSizePlaceholder")}
-          />
-        </div>
-        <div>
-          <Label htmlFor="timeRequired">{t("toolModal.timeRequired")}</Label>
-          <Input
-            type="text"
-            id="timeRequired"
-            name="timeRequired"
-            value={formData.timeRequired}
-            onChange={handleChange}
-            placeholder={t("toolModal.timeRequiredPlaceholder")}
-          />
-        </div>
-      </div>
-
-      {/* Materials */}
-      <div>
-        <Label htmlFor="materials">{t("toolModal.materials")}</Label>
-        <Textarea
-          id="materials"
-          name="materials"
-          value={formData.materials}
-          onChange={handleChange}
-          placeholder={t("toolModal.materialsPlaceholder")}
-          className="resize-none h-24"
-        />
-      </div>
-
-      {/* Instructions */}
-      <div>
-        <Label htmlFor="instructions">{t("toolModal.instructions")}</Label>
-        <Textarea
-          id="instructions"
-          name="instructions"
-          value={formData.instructions}
-          onChange={handleChange}
-          placeholder={t("toolModal.instructionsPlaceholder")}
-          className="resize-none h-32"
-        />
-      </div>
-
-      {/* Differentiation */}
-      <div>
-        <Label htmlFor="differentiation">
-          {t("toolModal.differentiation")}
-        </Label>
-        <Textarea
-          id="differentiation"
-          name="differentiation"
-          value={formData.differentiation}
-          onChange={handleChange}
-          placeholder={t("toolModal.differentiationPlaceholder")}
-          className="resize-none h-24"
-        />
-      </div>
-
-      {/* Assessment */}
-      <div>
-        <Label htmlFor="assessment">{t("toolModal.assessment")}</Label>
-        <Textarea
-          id="assessment"
-          name="assessment"
-          value={formData.assessment}
-          onChange={handleChange}
-          placeholder={t("toolModal.assessmentPlaceholder")}
-          className="resize-none h-24"
-        />
-      </div>
-
-      {/* Submit Button */}
-      <Button type="submit" className="w-full my-btn">
-        {t("toolModal.generateLessonPlan")}
+      <Button type="submit" className="w-full my-btn" disabled={isGenerating}>
+        {isGenerating ? t("toolModal.generating") : t("toolModal.generateContent")}
       </Button>
     </form>
   );
-}
+};
+
+export default ToolModalForm;
