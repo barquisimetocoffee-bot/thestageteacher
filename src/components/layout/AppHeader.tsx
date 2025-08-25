@@ -34,7 +34,9 @@ const AppHeader = ({ teacherProfile, onProfileClick }: AppHeaderProps) => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-3">
             <SidebarTrigger className="hover:bg-primary/10 hover:text-primary rounded-lg p-2 transition-all duration-200 hover:shadow-sm border border-transparent hover:border-primary/20" />
-
+            <div className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center shadow-lg">
+              <img src="/avatar.png" className="h-6 w-6 text-white" />
+            </div>
             <div className="text-center">
               <h1 className="text-xl/relaxed font-semibold text-gray-800 mb- capitalize">
                 {t("easyteach.welcome.welcomeBack", { name: getUserName() })}
