@@ -21,14 +21,24 @@ const AppHeader = ({ teacherProfile, onProfileClick }: AppHeaderProps) => {
     navigate("/");
   };
 
+  const getUserName = () => {
+    if (teacherProfile?.name) return teacherProfile.name;
+    if (user?.user_metadata?.name) return user.user_metadata.name;
+    if (user?.email) return user.email.split("@")[0];
+    return "Teacher";
+  };
+
   return (
     <header className="bg-white/98 backdrop-blur-sm border-b-2 border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-3">
             <SidebarTrigger className="hover:bg-primary/10 hover:text-primary rounded-lg p-2 transition-all duration-200 hover:shadow-sm border border-transparent hover:border-primary/20" />
-            <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center shadow-lg">
-              <Sparkles className="h-6 w-6 text-white animate-pulse" />
+
+            <div className="text-center">
+              <h1 className="text-xl/relaxed font-semibold text-gray-800 mb- capitalize">
+                {t("easyteach.welcome.welcomeBack", { name: getUserName() })}
+              </h1>
             </div>
           </div>
 

@@ -59,7 +59,7 @@ const ProductsSection = ({
   };
   const products = [
     {
-      id: "easyteach-free",
+      id: "pencil-free",
 
       name: t("products.easyTeachFree"),
       description:
@@ -88,15 +88,15 @@ const ProductsSection = ({
       popular: false,
     },
     {
-      id: "easyteach-pro",
+      id: "pencil-pro",
       name: t("products.easyTeachPro"),
       description: t("products.everythingInFree"),
       longDescription: t("products.exclusiveEarlyAccess"),
       icon: Crown,
       status: "available",
       color: "from-purple-500 to-purple-600",
-      price: "$89",
-      priceSubtext: t("products.perYear"),
+      price: "$9,99",
+      priceSubtext: t("products.perMonth"),
       features: [
         { text: t("products.everythingInFree"), reactIcon: FaCheck },
         { text: t("products.unlimitedAIGenerations"), reactIcon: IoMdInfinite },

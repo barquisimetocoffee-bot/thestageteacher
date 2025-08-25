@@ -67,25 +67,8 @@ const WelcomeSection = ({
     setCurrentQuote(randomQuote);
   }, []);
 
-  const getUserName = () => {
-    if (teacherProfile?.name) return teacherProfile.name;
-    if (user?.user_metadata?.name) return user.user_metadata.name;
-    if (user?.email) return user.email.split("@")[0];
-    return "Teacher";
-  };
-
   return (
     <div className="mb-6">
-      {/* Compact Welcome Message */}
-      <div className="text-center mb-4">
-        <h1 className="text-xl/relaxed font-semibold text-gray-800 mb- capitalize">
-          {t("easyteach.welcome.welcomeBack", { name: getUserName() })}
-        </h1>
-        <p className="text-xs text-gray-700">
-          {t("easyteach.welcome.readyToCreate")}
-        </p>
-      </div>
-
       {/* Cogitatio - Enhanced with animations and gradients */}
       <div className="bg-gradient-to-br from-blue-50  to-blue-100 backdrop-blur-sm rounded-xl p-6 border border-blue-200 mb-4 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in">
         <div className="flex items-center space-x-3 mb-4">

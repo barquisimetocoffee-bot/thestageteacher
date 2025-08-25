@@ -178,7 +178,7 @@ const PencilApp = () => {
 
               {/* Compact Subscription Status */}
               <div className="lg:col-span-1">
-                <SubscriptionStatus className="h-full" />
+                <SubscriptionStatus className="" />
               </div>
             </div>
 
