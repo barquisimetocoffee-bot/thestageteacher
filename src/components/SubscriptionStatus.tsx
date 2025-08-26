@@ -107,7 +107,7 @@ export function SubscriptionStatus({
               ) : (
                 <>
                   <div className="flex justify-between text-sm">
-                    <span>AI Generations This Month</span>
+                    <span>AI Generations Today</span>
                     <span className="font-medium">
                       {usage.used} / {usage.limit}
                     </span>
@@ -118,10 +118,20 @@ export function SubscriptionStatus({
                     <span>{usagePercentage.toFixed(0)}% used</span>
                   </div>
 
-                  {usage.remaining <= 5 && (
+                  {usage.remaining <= 1 && (
+                    <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+                      <p className="text-sm text-red-800 font-medium">
+                        🚨 Almost out of daily generations!
+                      </p>
+                      <p className="text-xs text-red-600 mt-1">
+                        Upgrade to Pro for unlimited access or wait until tomorrow for reset
+                      </p>
+                    </div>
+                  )}
+                  {usage.remaining <= 2 && usage.remaining > 1 && (
                     <div className="p-3 bg-orange-50 border border-orange-200 rounded-lg">
                       <p className="text-sm text-orange-800 font-medium">
-                        ⚠️ Running low on generations
+                        ⚠️ Running low on daily generations
                       </p>
                       <p className="text-xs text-orange-600 mt-1">
                         Consider upgrading to Pro for unlimited access

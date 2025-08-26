@@ -35,10 +35,10 @@ serve(async (req) => {
     if (!user?.email) throw new Error("User not authenticated or email not available");
     logStep("User authenticated", { userId: user.id, email: user.email });
 
-    // Get current month-year
+    // Get current date for daily tracking
     const now = new Date();
-    const monthYear = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
-    logStep("Current month-year", { monthYear });
+    const today = now.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+    logStep("Current date", { today });
 
     // Check subscription status
     const { data: subscription } = await supabaseClient
@@ -68,31 +68,32 @@ serve(async (req) => {
       .from("usage_tracking")
       .select("*")
       .eq("user_id", user.id)
-      .eq("month_year", monthYear)
+      .eq("month_year", today) // Using date field for daily tracking
       .single();
 
     if (!usage) {
-      // Create new usage record for this month
+      // Create new usage record for today
       const { error: insertError } = await supabaseClient
         .from("usage_tracking")
         .insert({
           user_id: user.id,
           email: user.email,
-          month_year: monthYear,
+          month_year: today, // Using date field for daily tracking
           generations_used: 1,
-          generations_limit: 50,
+          generations_limit: 5, // Daily limit of 5
           last_generation_at: new Date().toISOString(),
         });
 
       if (insertError) throw insertError;
 
-      logStep("New usage record created", { monthYear, used: 1, limit: 50 });
+      logStep("New usage record created", { today, used: 1, limit: 5 });
       return new Response(JSON.stringify({ 
         success: true, 
         used: 1, 
-        limit: 50, 
-        remaining: 49,
-        tier: 'free'
+        limit: 5, 
+        remaining: 4,
+        tier: 'free',
+        isDaily: true
       }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 200,
@@ -132,7 +133,8 @@ serve(async (req) => {
       used: newUsageCount, 
       limit: usage.generations_limit,
       remaining: usage.generations_limit - newUsageCount,
-      tier: 'free'
+      tier: 'free',
+      isDaily: true
     }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
