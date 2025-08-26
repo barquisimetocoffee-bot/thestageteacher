@@ -47,7 +47,7 @@ export function SubscriptionStatus({
 
   return (
     <>
-      <Card className={className}>
+      <Card className={`bg-white/80 backdrop-blur-md border border-primary/20 shadow-lg ${className}`}>
         <CardHeader className="pb-3">
           <CardTitle className="flex items-center justify-between text-lg">
             <div className="flex items-center gap-2">
