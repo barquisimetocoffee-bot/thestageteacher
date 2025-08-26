@@ -96,8 +96,8 @@ const ProductsSection = ({
       icon: Crown,
       status: "available",
       color: "from-purple-500 to-purple-600",
-      price: "$89",
-      priceYear: "$9,99",
+      price: "$9,99",
+      priceYear: "$89",
       priceSubtext: t("products.perMonth"),
       features: [
         { text: t("products.everythingInFree"), reactIcon: FaCheck },
