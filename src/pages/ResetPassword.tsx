@@ -20,29 +20,44 @@ const ResetPassword = () => {
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
-    // Handle the auth callback
+    // Handle the auth callback for Supabase recovery links
     const handleAuthCallback = async () => {
-      const accessToken = searchParams.get('access_token');
-      const refreshToken = searchParams.get('refresh_token');
-      
-      if (accessToken && refreshToken) {
-        const { error } = await supabase.auth.setSession({
-          access_token: accessToken,
-          refresh_token: refreshToken,
-        });
-        
-        if (error) {
-          toast({
-            title: "Invalid Reset Link",
-            description: "This password reset link is invalid or has expired",
-            variant: "destructive",
-          });
-          navigate('/');
+      try {
+        const url = window.location.href;
+        const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+
+        // Prefer the modern code-exchange flow
+        const code = searchParams.get('code') || hashParams.get('code');
+        if (code) {
+          const { error } = await supabase.auth.exchangeCodeForSession(url);
+          if (error) throw error;
+          return;
         }
-      } else {
+
+        // Backward compatibility: token-based flow (query or hash)
+        const accessToken = searchParams.get('access_token') || hashParams.get('access_token');
+        const refreshToken = searchParams.get('refresh_token') || hashParams.get('refresh_token');
+        
+        if (accessToken && refreshToken) {
+          const { error } = await supabase.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken,
+          });
+          if (error) throw error;
+          return;
+        }
+
+        // No recognizable auth params
         toast({
           title: "Invalid Reset Link",
           description: "This password reset link is invalid or has expired",
+          variant: "destructive",
+        });
+        navigate('/');
+      } catch (error: any) {
+        toast({
+          title: "Invalid Reset Link",
+          description: error?.message || "This password reset link is invalid or has expired",
           variant: "destructive",
         });
         navigate('/');
@@ -102,7 +117,7 @@ const ResetPassword = () => {
         
         // Redirect to app after success
         setTimeout(() => {
-          navigate('/easyteach-app');
+          navigate('/pencil-app');
         }, 2000);
       }
     } catch (error) {
