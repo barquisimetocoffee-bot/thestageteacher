@@ -469,6 +469,26 @@
     "studentGrouping": {
       "name": "Student Grouping Tool",
       "description": "Generate strategic student groupings for collaborative work, differentiated instruction, and classroom management."
+    },
+    "studentReportWriter": {
+      "name": "Student Report/Feedback Writer",
+      "description": "Create personalized and constructive progress reports and detailed feedback for individual students."
+    },
+    "classNewsletterCreator": {
+      "name": "Class Newsletter Creator", 
+      "description": "Design engaging newsletters to keep parents and guardians informed about classroom happenings and learning activities."
+    },
+    "calmDownStrategies": {
+      "name": "Calm Down Strategies",
+      "description": "Generate personalized de-escalation techniques and calm-down strategies for different behavioral situations."
+    },
+    "learningAccommodations": {
+      "name": "Learning Accommodations",
+      "description": "Generate specific accommodations and modifications to support diverse learners and students with special needs."
+    },
+    "multilevelActivities": {
+      "name": "Multilevel Activities",
+      "description": "Create single activities with different difficulty levels for mixed-ability classes working on the same concept."
     }
   },
   "categories": {
@@ -478,6 +498,8 @@
     "assessment": "Assessment",
     "communication": "Communication",
     "classroomManagement": "Classroom Management",
+    "behaviourSupport": "Behaviour Support",
+    "differentiation": "Differentiation",
     "languageArts": "Language Arts",
     "math": "Mathematics",
     "science": "Science",
@@ -658,6 +680,42 @@
     },
     "groupSize": {
       "label": "Group Size"
+    },
+    "studentPerformance": {
+      "label": "Student Performance",
+      "placeholder": "Describe the student's strengths, areas for growth, and recent achievements..."
+    },
+    "reportingPeriod": {
+      "label": "Reporting Period"
+    },
+    "newsletterTopic": {
+      "label": "Newsletter Topic",
+      "placeholder": "What's the main focus of this newsletter?"
+    },
+    "newsletterType": {
+      "label": "Newsletter Type"
+    },
+    "behaviorSituation": {
+      "label": "Behavior Situation",
+      "placeholder": "Describe the specific behavioral challenge or trigger..."
+    },
+    "studentStrengths": {
+      "label": "Student Strengths",
+      "placeholder": "What are the student's interests, strengths, and preferred learning methods?"
+    },
+    "accommodationType": {
+      "label": "Accommodation Type"
+    },
+    "studentNeeds": {
+      "label": "Student Needs",
+      "placeholder": "Describe specific learning challenges, disabilities, or support needs..."
+    },
+    "activityTopic": {
+      "label": "Activity Topic",
+      "placeholder": "What concept or skill will students be working on?"
+    },
+    "levelRange": {
+      "label": "Difficulty Level Range"
     }
   },
   "fieldOptions": {
@@ -694,7 +752,11 @@
     "interventionLevels": ["Tier 1 - Universal", "Tier 2 - Targeted", "Tier 3 - Intensive"],
     "classSizes": ["15-20 students", "20-25 students", "25-30 students", "30+ students"],
     "groupingPurposes": ["Academic Level", "Learning Style", "Interest", "Social Skills", "Random"],
-    "groupSizes": ["2 students", "3-4 students", "5-6 students", "Larger groups"]
+    "groupSizes": ["2 students", "3-4 students", "5-6 students", "Larger groups"],
+    "reportingPeriods": ["Weekly Progress", "Monthly Report", "Quarter Report", "Semester Report", "Annual Report"],
+    "newsletterTypes": ["Weekly Newsletter", "Monthly Update", "Special Event", "Curriculum Focus", "Seasonal Newsletter"],
+    "accommodationTypes": ["Learning Support", "Assessment Modifications", "Behavioral Support", "Physical Accommodations", "Technology Assistance"],
+    "levelRanges": ["Beginner to Advanced", "Grade Level to Above", "Below to Grade Level", "Custom Range"]
   },
   "schoolAdmin": {
     "sections": {
