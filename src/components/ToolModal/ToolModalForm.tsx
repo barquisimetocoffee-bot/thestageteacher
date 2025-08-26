@@ -48,29 +48,49 @@ const ToolModalForm = ({
 
     return tool.fields.map((field: any, index: number) => (
       <div key={index} className="space-y-2">
-        <Label htmlFor={field.name}>{field.label}</Label>
+        <Label htmlFor={field.name}>
+          {field.labelKey ? t(field.labelKey) : field.label}
+        </Label>
 
         {field.type === "select" ? (
           <Select onValueChange={(value) => onInputChange(field.name, value)}>
             <SelectTrigger>
               <SelectValue
                 placeholder={
-                  field.placeholder || `Select ${field.label.toLowerCase()}`
+                  field.placeholderKey ? t(field.placeholderKey) : (
+                    field.placeholder || `Select ${(field.labelKey ? t(field.labelKey) : field.label).toLowerCase()}`
+                  )
                 }
               />
             </SelectTrigger>
-            <SelectContent>
-              {field.options?.map((option: string) => (
-                <SelectItem key={option} value={option}>
-                  {option}
-                </SelectItem>
-              ))}
+            <SelectContent className="bg-white z-50">
+              {(() => {
+                // Get options from translation key
+                let options = [];
+                if (field.optionsKey) {
+                  const translatedOptions = t(field.optionsKey, { returnObjects: true });
+                  if (Array.isArray(translatedOptions)) {
+                    options = translatedOptions;
+                  } else if (typeof translatedOptions === 'object' && translatedOptions !== null) {
+                    // Handle object format like { "1hour": "1 hour", "2hours": "2 hours" }
+                    options = Object.values(translatedOptions);
+                  }
+                } else if (field.options) {
+                  options = field.options;
+                }
+                
+                return options.map((option: string) => (
+                  <SelectItem key={option} value={option}>
+                    {option}
+                  </SelectItem>
+                ));
+              })()}
             </SelectContent>
           </Select>
         ) : field.type === "textarea" ? (
           <Textarea
             id={field.name}
-            placeholder={field.placeholder}
+            placeholder={field.placeholderKey ? t(field.placeholderKey) : field.placeholder}
             value={formData[field.name] || ""}
             onChange={(e) => onInputChange(field.name, e.target.value)}
             className="focus:outline-none"
@@ -79,7 +99,7 @@ const ToolModalForm = ({
           <Input
             id={field.name}
             type={field.type || "text"}
-            placeholder={field.placeholder}
+            placeholder={field.placeholderKey ? t(field.placeholderKey) : field.placeholder}
             value={formData[field.name] || ""}
             onChange={(e) => onInputChange(field.name, e.target.value)}
             className="py-6 focus:outline-none"
