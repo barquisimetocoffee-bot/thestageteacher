@@ -29,6 +29,8 @@ const ToolModalForm = ({
   onGenerate,
   isGenerating,
 }: ToolModalFormProps) => {
+  const { t } = useTranslation();
+  
   const renderInputFields = () => {
     if (!tool.fields || !Array.isArray(tool.fields)) {
       return (

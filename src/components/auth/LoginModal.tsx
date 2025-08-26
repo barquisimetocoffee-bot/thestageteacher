@@ -294,12 +294,13 @@ const LoginModal = ({
                     Remember me ?
                   </Label>
                 </div>
-                <a
-                  href="/forgot-password"
+                <button
+                  type="button"
+                  onClick={() => setShowForgotPassword(true)}
                   className="text-sm text-gray-600 hover:text-primary font-medium"
                 >
                   Forgot Password ?
-                </a>
+                </button>
               </div>
 
               <Button
