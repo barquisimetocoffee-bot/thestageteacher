@@ -1,15 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { User, Settings, Edit3 } from "lucide-react";
 import { SubscriptionStatus } from "@/components/SubscriptionStatus";
 import TeacherProfile from "@/components/TeacherProfile";
+import { useAuth } from "@/hooks/useAuth";
 
 const Profile = () => {
   const { t } = useTranslation();
+  const { user } = useAuth();
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [teacherProfile, setTeacherProfile] = useState(null);
+
+  // Load profile data on mount
+  useEffect(() => {
+    const loadProfile = () => {
+      if (user) {
+        const savedProfile = localStorage.getItem(`teacher_profile_${user.id}`);
+        if (savedProfile) {
+          setTeacherProfile(JSON.parse(savedProfile));
+        }
+      }
+    };
+    loadProfile();
+  }, [user]);
+
+  // Save profile data when it changes
+  const handleSaveProfile = (profileData: any) => {
+    if (user) {
+      localStorage.setItem(`teacher_profile_${user.id}`, JSON.stringify(profileData));
+      setTeacherProfile(profileData);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/10">
@@ -124,7 +147,7 @@ const Profile = () => {
         <TeacherProfile
           isOpen={showEditProfile}
           onClose={() => setShowEditProfile(false)}
-          onSave={setTeacherProfile}
+          onSave={handleSaveProfile}
           currentProfile={teacherProfile}
         />
       )}

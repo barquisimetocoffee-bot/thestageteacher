@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,6 +15,7 @@ import ToolsGrid from "@/components/sections/ToolsGrid";
 import TeacherProfile from "@/components/TeacherProfile";
 import ToolModal from "@/components/ToolModal";
 import AIAssistant from "@/components/AIAssistant";
+import { useAuth } from "@/hooks/useAuth";
 
 import GradeSystemSelector from "@/components/GradeSystemSelector";
 import LanguageSelector from "@/components/LanguageSelector";
@@ -28,6 +29,7 @@ import { tools } from "@/lib/toolsData";
 
 const PencilApp = () => {
   const { t } = useTranslation();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(t("categories.all"));
@@ -35,6 +37,27 @@ const PencilApp = () => {
   const [selectedTool, setSelectedTool] = useState(null);
   const [teacherProfile, setTeacherProfile] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Load profile data on mount
+  useEffect(() => {
+    const loadProfile = () => {
+      if (user) {
+        const savedProfile = localStorage.getItem(`teacher_profile_${user.id}`);
+        if (savedProfile) {
+          setTeacherProfile(JSON.parse(savedProfile));
+        }
+      }
+    };
+    loadProfile();
+  }, [user]);
+
+  // Save profile data when it changes
+  const handleSaveProfile = (profileData: any) => {
+    if (user) {
+      localStorage.setItem(`teacher_profile_${user.id}`, JSON.stringify(profileData));
+      setTeacherProfile(profileData);
+    }
+  };
 
   const translatedTools = useTranslatedTools();
   const translatedCategories = useTranslatedCategories();
@@ -165,7 +188,6 @@ const PencilApp = () => {
           <div className="hidden lg:block">
             <AppHeader
               teacherProfile={teacherProfile}
-              onProfileClick={() => navigate('/profile')}
             />
           </div>
 
@@ -267,7 +289,7 @@ const PencilApp = () => {
             <TeacherProfile
               isOpen={showProfile}
               onClose={() => setShowProfile(false)}
-              onSave={setTeacherProfile}
+              onSave={handleSaveProfile}
               currentProfile={teacherProfile}
             />
           )}
