@@ -32,12 +32,11 @@ const ForgotPasswordModal = ({ isOpen, onClose, onBackToLogin }: ForgotPasswordM
   const { toast } = useToast();
 
   const handleResetPassword = async () => {
-    if (!email) {
+    const normalizedEmail = email.trim().toLowerCase();
+    if (!normalizedEmail) {
       toast({
-
         title: "Email Required",
         description: "Please enter your email address",
-
         variant: "destructive",
       });
       return;
@@ -46,29 +45,30 @@ const ForgotPasswordModal = ({ isOpen, onClose, onBackToLogin }: ForgotPasswordM
     setIsLoading(true);
 
     try {
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      const { error } = await supabase.auth.resetPasswordForEmail(normalizedEmail, {
         redirectTo: `${window.location.origin}/reset-password`,
       });
 
       if (error) {
+        const anyErr = error as any;
+        const isTimeout = anyErr?.status === 504 || /timeout|timed out/i.test(anyErr?.message ?? "");
         toast({
-
-          title: "Reset Failed",
-          description: error.message,
+          title: isTimeout ? "Email Service Timeout" : "Reset Failed",
+          description:
+            isTimeout
+              ? "Temporary delay from auth provider. Please retry shortly and ensure your Site URL is set in Supabase Auth > URL Configuration."
+              : anyErr.message,
           variant: "destructive",
         });
       } else {
         setIsEmailSent(true);
         toast({
-
           title: "Reset Email Sent",
-          description: "Check your email for password reset instructions",
-
+          description: "Check your inbox (and spam) for the reset link",
         });
       }
     } catch (error) {
       toast({
-
         title: "Error",
         description: "An unexpected error occurred",
         variant: "destructive",
@@ -77,7 +77,6 @@ const ForgotPasswordModal = ({ isOpen, onClose, onBackToLogin }: ForgotPasswordM
       setIsLoading(false);
     }
   };
-
   const handleClose = () => {
     setEmail("");
     setIsEmailSent(false);
