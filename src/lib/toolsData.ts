@@ -17,8 +17,8 @@ export const tools = [
       { name: "subject", labelKey: "fields.subject.label", type: "text", placeholderKey: "fields.subject.placeholder" },
       { name: "grade", labelKey: "fields.grade.label", type: "grade_selector" },
       { name: "topic", labelKey: "fields.topic.label", type: "text", placeholderKey: "fields.topic.placeholder" },
-      { name: "duration", labelKey: "fields.duration.label", type: "select", optionsKey: "options.duration" },
-      { name: "learningStyle", labelKey: "fields.learningStyle.label", type: "select", optionsKey: "options.learningStyle" },
+      { name: "duration", labelKey: "fields.duration.label", type: "select", optionsKey: "fieldOptions.durations" },
+      { name: "learningStyle", labelKey: "fields.learningStyle.label", type: "select", optionsKey: "fieldOptions.learningStyles" },
       { name: "additionalContext", labelKey: "fields.additionalContext.label", type: "textarea", placeholderKey: "fields.additionalContext.placeholder" },
       { name: "standardAlignment", labelKey: "fields.standardAlignment.label", type: "text", placeholderKey: "fields.standardAlignment.placeholder" }
     ]
