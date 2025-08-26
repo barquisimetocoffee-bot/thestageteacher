@@ -70,6 +70,7 @@ const ProductsSection = ({
       status: "available",
       color: "from-blue-500 to-blue-600",
       price: t("products.freeForever"),
+      priceYear: "",
       priceSubtext: "",
       features: [
         { text: t("products.basicLessonPlanning"), reactIcon: FaCheck },
@@ -95,7 +96,8 @@ const ProductsSection = ({
       icon: Crown,
       status: "available",
       color: "from-purple-500 to-purple-600",
-      price: "$9,99",
+      price: "$89",
+      priceYear: "$9,99",
       priceSubtext: t("products.perMonth"),
       features: [
         { text: t("products.everythingInFree"), reactIcon: FaCheck },
@@ -125,6 +127,7 @@ const ProductsSection = ({
       status: "coming-soon",
       color: "from-orange-500 to-orange-600",
       price: t("products.comingSoon"),
+      priceYear: "",
       priceSubtext: "",
       features: [
         {
@@ -158,6 +161,7 @@ const ProductsSection = ({
       status: "coming-soon",
       color: "from-green-500 to-green-600",
       price: t("products.comingSoon"),
+      priceYear: "",
       priceSubtext: "",
       features: [
         {
@@ -263,6 +267,11 @@ const ProductsSection = ({
                     <span className="text-sm font-semibold">
                       {product.priceSubtext}
                     </span>
+                    {product?.priceYear && (
+                      <p className="text-sm text-gray-500 font-normal pb-1 capitalize">
+                        {product.priceYear} billed anually
+                      </p>
+                    )}
                   </h1>
                   <p className="text-sm">{product.description}</p>
 
