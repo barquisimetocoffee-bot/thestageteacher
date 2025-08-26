@@ -65,22 +65,51 @@ const ToolModalForm = ({
             </SelectTrigger>
             <SelectContent className="bg-white z-50">
               {(() => {
-                // Get options from translation key
+                // Get options from translation key or direct options
                 let options = [];
+                
                 if (field.optionsKey) {
-                  const translatedOptions = t(field.optionsKey, { returnObjects: true });
-                  if (Array.isArray(translatedOptions)) {
-                    options = translatedOptions;
-                  } else if (typeof translatedOptions === 'object' && translatedOptions !== null) {
-                    // Handle object format like { "1hour": "1 hour", "2hours": "2 hours" }
-                    options = Object.values(translatedOptions);
+                  try {
+                    const translatedOptions = t(field.optionsKey, { returnObjects: true });
+                    console.log('Translation key:', field.optionsKey, 'Result:', translatedOptions);
+                    
+                    if (Array.isArray(translatedOptions)) {
+                      options = translatedOptions;
+                    } else if (typeof translatedOptions === 'object' && translatedOptions !== null) {
+                      // Handle object format like { "1hour": "1 hour", "2hours": "2 hours" }
+                      options = Object.values(translatedOptions);
+                    } else if (typeof translatedOptions === 'string') {
+                      // If translation returns the key itself, try fallback
+                      options = [];
+                    }
+                  } catch (error) {
+                    console.error('Translation error:', error);
+                    options = [];
                   }
-                } else if (field.options) {
+                }
+                
+                // Fallback to direct options if translation fails
+                if (options.length === 0 && field.options) {
                   options = field.options;
                 }
                 
-                return options.map((option: string) => (
-                  <SelectItem key={option} value={option}>
+                // Additional fallbacks for common field names
+                if (options.length === 0) {
+                  if (field.name === 'duration' || field.optionsKey?.includes('duration')) {
+                    options = ["30 minutes", "1 hour", "1.5 hours", "2 hours", "2.5 hours", "3 hours"];
+                  } else if (field.name === 'learningStyle' || field.optionsKey?.includes('learningStyle')) {
+                    options = ["Visual", "Auditory", "Kinesthetic", "Mixed"];
+                  } else if (field.name === 'questionCount' || field.optionsKey?.includes('questionCount')) {
+                    options = ["5", "10", "15", "20", "25"];
+                  } else if (field.name === 'difficulty' || field.optionsKey?.includes('difficult')) {
+                    options = ["Easy", "Medium", "Hard"];
+                  }
+                }
+                
+                console.log('Final options for', field.name, ':', options);
+                
+                return options.map((option: string, index: number) => (
+                  <SelectItem key={`${option}-${index}`} value={option}>
                     {option}
                   </SelectItem>
                 ));
