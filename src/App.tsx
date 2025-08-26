@@ -7,6 +7,7 @@ import { AuthProvider } from "@/hooks/useAuth";
 
 import { SubscriptionProvider } from "@/hooks/useSubscription";
 
+import Profile from "./pages/Profile";
 import ErrorBoundary from "@/components/ui/error-boundary";
 import Index from "./pages/Index";
 import LandingPage from "./pages/LandingPage";
@@ -60,6 +61,7 @@ const App = () => (
               <ErrorBoundary>
                 <Routes>
                   <Route path="/" element={<Index />} />
+                  <Route path="/profile" element={<Profile />} />
                   <Route path="/pencil-app" element={<PencilApp />} />
                   <Route path="/pencil" element={<PencilPage />} />
                   <Route path="/landing" element={<LandingPage />} />

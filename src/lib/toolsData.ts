@@ -17,8 +17,8 @@ export const tools = [
       { name: "subject", labelKey: "fields.subject.label", type: "text", placeholderKey: "fields.subject.placeholder" },
       { name: "grade", labelKey: "fields.grade.label", type: "grade_selector" },
       { name: "topic", labelKey: "fields.topic.label", type: "text", placeholderKey: "fields.topic.placeholder" },
-      { name: "duration", labelKey: "fields.duration.label", type: "select", optionsKey: "options.duration" },
-      { name: "learningStyle", labelKey: "fields.learningStyle.label", type: "select", optionsKey: "options.learningStyle" },
+      { name: "duration", labelKey: "fields.duration.label", type: "select", optionsKey: "fieldOptions.durations" },
+      { name: "learningStyle", labelKey: "fields.learningStyle.label", type: "select", optionsKey: "fieldOptions.learningStyles" },
       { name: "additionalContext", labelKey: "fields.additionalContext.label", type: "textarea", placeholderKey: "fields.additionalContext.placeholder" },
       { name: "standardAlignment", labelKey: "fields.standardAlignment.label", type: "text", placeholderKey: "fields.standardAlignment.placeholder" }
     ]
@@ -348,6 +348,93 @@ export const tools = [
       { name: "classSize", labelKey: "fields.classSize.label", type: "select", optionsKey: "fieldOptions.classSizes" },
       { name: "groupingPurpose", labelKey: "fields.groupingPurpose.label", type: "select", optionsKey: "fieldOptions.groupingPurposes" },
       { name: "groupSize", labelKey: "fields.groupSize.label", type: "select", optionsKey: "fieldOptions.groupSizes" }
+    ]
+  },
+
+  // Communication
+  {
+    id: 21,
+    nameKey: "tools.studentReportWriter.name",
+    descriptionKey: "tools.studentReportWriter.description",
+    categoryKey: "categories.communication",
+    icon: MessageCircle,
+    color: "bg-orange-100 text-orange-600",
+    timesSaved: "90m",
+    estimatedTime: "5 min",
+    fields: [
+      { name: "studentName", labelKey: "fields.studentName.label", type: "text", placeholderKey: "fields.studentName.placeholder" },
+      { name: "subject", labelKey: "fields.subject.label", type: "text", placeholderKey: "fields.subject.placeholder" },
+      { name: "grade", labelKey: "fields.grade.label", type: "grade_selector" },
+      { name: "reportingPeriod", labelKey: "fields.reportingPeriod.label", type: "select", optionsKey: "fieldOptions.reportingPeriods" },
+      { name: "studentPerformance", labelKey: "fields.studentPerformance.label", type: "textarea", placeholderKey: "fields.studentPerformance.placeholder" }
+    ]
+  },
+  {
+    id: 22,
+    nameKey: "tools.classNewsletterCreator.name",
+    descriptionKey: "tools.classNewsletterCreator.description",
+    categoryKey: "categories.communication",
+    icon: MessageCircle,
+    color: "bg-orange-100 text-orange-600",
+    timesSaved: "60m",
+    estimatedTime: "4 min",
+    fields: [
+      { name: "grade", labelKey: "fields.grade.label", type: "grade_selector" },
+      { name: "newsletterType", labelKey: "fields.newsletterType.label", type: "select", optionsKey: "fieldOptions.newsletterTypes" },
+      { name: "newsletterTopic", labelKey: "fields.newsletterTopic.label", type: "text", placeholderKey: "fields.newsletterTopic.placeholder" },
+      { name: "additionalContext", labelKey: "fields.additionalContext.label", type: "textarea", placeholderKey: "fields.additionalContext.placeholder" }
+    ]
+  },
+
+  // Behaviour Support
+  {
+    id: 23,
+    nameKey: "tools.calmDownStrategies.name",
+    descriptionKey: "tools.calmDownStrategies.description",
+    categoryKey: "categories.behaviourSupport",
+    icon: Users,
+    color: "bg-indigo-100 text-indigo-600",
+    timesSaved: "45m",
+    estimatedTime: "3 min",
+    fields: [
+      { name: "studentAge", labelKey: "fields.studentAge.label", type: "select", optionsKey: "fieldOptions.ageGroups" },
+      { name: "behaviorSituation", labelKey: "fields.behaviorSituation.label", type: "textarea", placeholderKey: "fields.behaviorSituation.placeholder" },
+      { name: "studentStrengths", labelKey: "fields.studentStrengths.label", type: "textarea", placeholderKey: "fields.studentStrengths.placeholder" }
+    ]
+  },
+
+  // Differentiation
+  {
+    id: 24,
+    nameKey: "tools.learningAccommodations.name",
+    descriptionKey: "tools.learningAccommodations.description",
+    categoryKey: "categories.differentiation",
+    icon: Users,
+    color: "bg-pink-100 text-pink-600",
+    timesSaved: "75m",
+    estimatedTime: "4 min",
+    fields: [
+      { name: "studentAge", labelKey: "fields.studentAge.label", type: "select", optionsKey: "fieldOptions.ageGroups" },
+      { name: "subject", labelKey: "fields.subject.label", type: "text", placeholderKey: "fields.subject.placeholder" },
+      { name: "accommodationType", labelKey: "fields.accommodationType.label", type: "select", optionsKey: "fieldOptions.accommodationTypes" },
+      { name: "studentNeeds", labelKey: "fields.studentNeeds.label", type: "textarea", placeholderKey: "fields.studentNeeds.placeholder" }
+    ]
+  },
+  {
+    id: 25,
+    nameKey: "tools.multilevelActivities.name",
+    descriptionKey: "tools.multilevelActivities.description",
+    categoryKey: "categories.differentiation",
+    icon: Users,
+    color: "bg-pink-100 text-pink-600",
+    timesSaved: "90m",
+    estimatedTime: "5 min",
+    fields: [
+      { name: "subject", labelKey: "fields.subject.label", type: "text", placeholderKey: "fields.subject.placeholder" },
+      { name: "grade", labelKey: "fields.grade.label", type: "grade_selector" },
+      { name: "activityTopic", labelKey: "fields.activityTopic.label", type: "text", placeholderKey: "fields.activityTopic.placeholder" },
+      { name: "levelRange", labelKey: "fields.levelRange.label", type: "select", optionsKey: "fieldOptions.levelRanges" },
+      { name: "additionalContext", labelKey: "fields.additionalContext.label", type: "textarea", placeholderKey: "fields.additionalContext.placeholder" }
     ]
   }
 ];

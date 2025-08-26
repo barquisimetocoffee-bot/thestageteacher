@@ -27,6 +27,16 @@ export const withUsageTracking = async <T extends unknown[], R>(
     if (!usageData.success && usageData.error === "Usage limit exceeded") {
       const error = new Error("USAGE_LIMIT_EXCEEDED");
       (error as any).usageData = usageData;
+      // Show toast notification for daily limit reached
+      if (typeof window !== 'undefined') {
+        import("@/hooks/use-toast").then(({ toast }) => {
+          toast({
+            title: "Daily limit reached! 🚫",
+            description: "You've used all 5 daily AI generations. Upgrade to Pro for unlimited access or try again tomorrow!",
+            variant: "destructive",
+          });
+        });
+      }
       throw error;
     }
 

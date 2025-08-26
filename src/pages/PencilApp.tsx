@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, User, Bot, Menu } from "lucide-react";
@@ -17,7 +18,7 @@ import AIAssistant from "@/components/AIAssistant";
 
 import GradeSystemSelector from "@/components/GradeSystemSelector";
 import LanguageSelector from "@/components/LanguageSelector";
-import { SubscriptionStatus } from "@/components/SubscriptionStatus";
+
 import {
   useTranslatedTools,
   useTranslatedCategories,
@@ -27,6 +28,7 @@ import { tools } from "@/lib/toolsData";
 
 const PencilApp = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(t("categories.all"));
   const [showProfile, setShowProfile] = useState(false);
@@ -152,7 +154,7 @@ const PencilApp = () => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setShowProfile(true)}
+              onClick={() => navigate('/profile')}
               className="p-2 hover:bg-primary/10 text-primary"
             >
               <User className="h-5 w-5" />
@@ -163,23 +165,16 @@ const PencilApp = () => {
           <div className="hidden lg:block">
             <AppHeader
               teacherProfile={teacherProfile}
-              onProfileClick={() => setShowProfile(true)}
+              onProfileClick={() => navigate('/profile')}
             />
           </div>
 
           <div className="container-responsive section-responsive">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-6">
-              <div className="lg:col-span-3">
-                <WelcomeSection
-                  teacherProfile={teacherProfile}
-                  onQuickAction={handleQuickAction}
-                />
-              </div>
-
-              {/* Compact Subscription Status */}
-              <div className="lg:col-span-1">
-                <SubscriptionStatus className="" />
-              </div>
+            <div className="mb-6">
+              <WelcomeSection
+                teacherProfile={teacherProfile}
+                onQuickAction={handleQuickAction}
+              />
             </div>
 
             {/* Main Content Tabs */}

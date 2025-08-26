@@ -57,12 +57,15 @@ export function SubscriptionProvider({ children }: { children: React.ReactNode }
     if (!session) return;
 
     try {
+      // Get today's date for daily tracking
+      const today = new Date().toISOString().split('T')[0];
+      
       // Get current usage without incrementing
       const { data: currentUsage } = await supabase
         .from('usage_tracking')
         .select('*')
         .eq('user_id', user?.id)
-        .eq('month_year', `${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, '0')}`)
+        .eq('month_year', today) // Using month_year field to store date for daily tracking
         .single();
 
       const { data: subscriptionData } = await supabase
@@ -89,10 +92,11 @@ export function SubscriptionProvider({ children }: { children: React.ReactNode }
           tier: 'free'
         });
       } else {
+        // No usage record for today, set initial state with daily limit
         setUsage({
           used: 0,
-          limit: 50,
-          remaining: 50,
+          limit: 5, // Daily limit of 5
+          remaining: 5,
           tier: 'free'
         });
       }
