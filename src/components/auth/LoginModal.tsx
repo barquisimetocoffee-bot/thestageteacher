@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Eye, EyeOff, Loader2, Sparkles, Mail, Lock } from "lucide-react";
+import { Eye, EyeOff, Loader2, Sparkles, Mail, Lock, CheckCircle } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
@@ -39,6 +39,7 @@ const LoginModal = ({
     name: "",
     confirmPassword: "",
   });
+  const [signUpSuccessEmail, setSignUpSuccessEmail] = useState<string | null>(null);
 
   const { signIn, signUp, signInWithGoogle, signInWithFacebook, signInWithApple, user } = useAuth();
   const { toast } = useToast();
@@ -158,8 +159,9 @@ const LoginModal = ({
           title: "Welcome to Pencil!",
           description: "Please check your email to confirm your account.",
         });
+        const emailForNotice = formData.email;
         resetForm();
-        onClose();
+        setSignUpSuccessEmail(emailForNotice);
       }
     } catch (error) {
       toast({
@@ -208,6 +210,7 @@ const LoginModal = ({
   const handleModalChange = (open: boolean) => {
     if (!open) {
       resetForm();
+      setSignUpSuccessEmail(null);
       onClose();
     }
   };
@@ -408,6 +411,16 @@ const LoginModal = ({
            </TabsContent>
 
           <TabsContent value="signup" className="space-y-5 mt-6">
+            {signUpSuccessEmail && (
+              <div className="rounded-lg border border-green-200 bg-green-50 p-4 text-sm text-green-800">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4" />
+                  <span>
+                    Verification email sent to <strong>{signUpSuccessEmail}</strong>. Please check your inbox to verify your account.
+                  </span>
+                </div>
+              </div>
+            )}
             <div className="space-y-2">
               <Label
                 htmlFor="signup-name"

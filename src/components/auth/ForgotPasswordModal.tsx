@@ -86,7 +86,7 @@ const ForgotPasswordModal = ({ isOpen, onClose, onBackToLogin }: ForgotPasswordM
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
+    <Dialog open={isOpen} onOpenChange={(open) => { if (!open) handleClose(); }}>
       <DialogContent className="sm:max-w-md bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 border-0 shadow-2xl">
         <DialogHeader className="text-center space-y-4">
           <div className="flex justify-center">
