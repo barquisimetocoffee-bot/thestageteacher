@@ -130,10 +130,24 @@ const LoginModal = ({
       return;
     }
 
+    // Enhanced password validation to match Supabase policy
     if (formData.password.length < 6) {
       toast({
         title: "Password Too Short",
         description: "Password must be at least 6 characters long",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const hasLowercase = /[a-z]/.test(formData.password);
+    const hasUppercase = /[A-Z]/.test(formData.password);
+    const hasDigit = /\d/.test(formData.password);
+    
+    if (!hasLowercase || !hasUppercase || !hasDigit) {
+      toast({
+        title: "Password Too Weak",
+        description: "Password must contain at least one lowercase letter, one uppercase letter, and one digit",
         variant: "destructive",
       });
       return;

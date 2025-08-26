@@ -29,6 +29,7 @@ const ForgotPasswordModal = ({ isOpen, onClose, onBackToLogin }: ForgotPasswordM
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isEmailSent, setIsEmailSent] = useState(false);
+  const [resendCooldown, setResendCooldown] = useState(0);
   const { toast } = useToast();
 
   const handleResetPassword = async () => {
@@ -52,14 +53,22 @@ const ForgotPasswordModal = ({ isOpen, onClose, onBackToLogin }: ForgotPasswordM
       if (error) {
         const anyErr = error as any;
         const isTimeout = anyErr?.status === 504 || /timeout|timed out/i.test(anyErr?.message ?? "");
-        toast({
-          title: isTimeout ? "Email Service Timeout" : "Reset Failed",
-          description:
-            isTimeout
-              ? "Temporary delay from auth provider. Please retry shortly and ensure your Site URL is set in Supabase Auth > URL Configuration."
-              : anyErr.message,
-          variant: "destructive",
-        });
+        
+        if (isTimeout) {
+          // Treat timeout as soft success since email might still be sent
+          setIsEmailSent(true);
+          toast({
+            title: "Email Service Slow",
+            description: "Request is processing. Check your inbox in a few moments.",
+            variant: "default",
+          });
+        } else {
+          toast({
+            title: "Reset Failed",
+            description: anyErr.message,
+            variant: "destructive",
+          });
+        }
       } else {
         setIsEmailSent(true);
         toast({
@@ -77,10 +86,28 @@ const ForgotPasswordModal = ({ isOpen, onClose, onBackToLogin }: ForgotPasswordM
       setIsLoading(false);
     }
   };
+  const handleResend = async () => {
+    if (resendCooldown > 0) return;
+    
+    setResendCooldown(60);
+    const interval = setInterval(() => {
+      setResendCooldown((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    
+    await handleResetPassword();
+  };
+
   const handleClose = () => {
     setEmail("");
     setIsEmailSent(false);
     setIsLoading(false);
+    setResendCooldown(0);
     onClose();
   };
 
@@ -171,10 +198,18 @@ const ForgotPasswordModal = ({ isOpen, onClose, onBackToLogin }: ForgotPasswordM
 
             <div className="space-y-3">
               <Button
+                onClick={handleResend}
+                disabled={resendCooldown > 0}
+                variant="outline"
+                className="w-full border-2 border-gray-200 hover:border-gray-300"
+              >
+                {resendCooldown > 0 ? `Resend in ${resendCooldown}s` : "Resend Reset Link"}
+              </Button>
+              
+              <Button
                 onClick={onBackToLogin}
                 className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-
                 Back to Login
               </Button>
             </div>
