@@ -132,22 +132,22 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md bg-white/80 backdrop-blur-sm border-0 shadow-2xl">
+    <div className="min-h-screen bg-gradient-to-br from-background via-blue-50/30 to-purple-50/30 flex items-center justify-center p-4">
+      <Card className="w-full max-w-md bg-card/80 backdrop-blur-sm border-0 shadow-2xl">
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+            <div className="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg">
               {isSuccess ? (
-                <CheckCircle className="h-8 w-8 text-white" />
+                <CheckCircle className="h-8 w-8 text-primary-foreground" />
               ) : (
-                <Lock className="h-8 w-8 text-white" />
+                <Lock className="h-8 w-8 text-primary-foreground" />
               )}
             </div>
           </div>
-          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             {isSuccess ? "Password Updated!" : "Set New Password"}
           </CardTitle>
-          <CardDescription className="text-gray-600">
+          <CardDescription className="text-muted-foreground">
             {isSuccess 
               ? "Your password has been successfully updated. Redirecting to your dashboard..."
               : "Choose a strong password for your account"
@@ -158,22 +158,22 @@ const ResetPassword = () => {
         {!isSuccess && (
           <CardContent className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="new-password" className="text-gray-700 font-medium">
+              <Label htmlFor="new-password" className="text-foreground font-medium">
                 New Password
               </Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="new-password"
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your new password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 pr-10 bg-white/80 backdrop-blur-sm border-gray-200 focus:border-purple-300 focus:ring-purple-200 transition-all duration-200"
+                  className="pl-10 pr-10 bg-background/80 backdrop-blur-sm border-border focus:border-primary focus:ring-primary/20 transition-all duration-200"
                 />
                 <button
                   type="button"
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
@@ -186,7 +186,7 @@ const ResetPassword = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="confirm-password" className="text-gray-700 font-medium">
+              <Label htmlFor="confirm-password" className="text-foreground font-medium">
                 Confirm Password
               </Label>
               <Input
@@ -195,14 +195,14 @@ const ResetPassword = () => {
                 placeholder="Confirm your new password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="bg-white/80 backdrop-blur-sm border-gray-200 focus:border-purple-300 focus:ring-purple-200 transition-all duration-200"
+                className="bg-background/80 backdrop-blur-sm border-border focus:border-primary focus:ring-primary/20 transition-all duration-200"
               />
             </div>
 
             <Button
               onClick={handleUpdatePassword}
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
               {isLoading ? (
                 <>

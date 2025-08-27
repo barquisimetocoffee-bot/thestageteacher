@@ -5,13 +5,13 @@ import { useAuth } from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "../LanguageSelector";
+import ProfileDropdown from "./ProfileDropdown";
 
 interface AppHeaderProps {
   teacherProfile: any;
-  onProfileClick: () => void;
 }
 
-const AppHeader = ({ teacherProfile, onProfileClick }: AppHeaderProps) => {
+const AppHeader = ({ teacherProfile }: AppHeaderProps) => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -54,29 +54,7 @@ const AppHeader = ({ teacherProfile, onProfileClick }: AppHeaderProps) => {
             </div>
             <div className="flex items-center space-x-2">
               <LanguageSelector />
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={onProfileClick}
-                className="flex items-center bg-blue-50 hover:bg-blue-100 hover:text-black capitalize transition-all duration-200 text-xs text-gray-800 font-medium"
-              >
-                <User className="h-4 w-4" />
-                <span className="max-w-20 truncate">
-                  {teacherProfile?.name ||
-                    user?.user_metadata?.name ||
-                    user?.email ||
-                    t("easyteach.header.profile")}
-                </span>
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleSignOut}
-                className="flex items-center space-x-2 text-white bg-red-600  hover:bg-red-700 hover:text-white  transition-all duration-200 text-xs font-medium"
-              >
-                <LogOut className="h-4 w-4" />
-                <span>{t("easyteach.header.signOut")}</span>
-              </Button>
+              <ProfileDropdown teacherProfile={teacherProfile} />
             </div>
           </div>
         </div>

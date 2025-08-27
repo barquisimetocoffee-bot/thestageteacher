@@ -9,6 +9,9 @@ interface AuthContextType {
   loading: boolean;
   signUp: (email: string, password: string, name: string) => Promise<{ error: any }>;
   signIn: (email: string, password: string, rememberMe?: boolean) => Promise<{ error: any }>;
+  signInWithGoogle: () => Promise<{ error: any }>;
+  signInWithFacebook: () => Promise<{ error: any }>;
+  signInWithApple: () => Promise<{ error: any }>;
   signOut: () => Promise<void>;
 }
 
@@ -41,10 +44,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const signUp = async (email: string, password: string, name: string) => {
-    const redirectUrl = `${window.location.origin}/easyteach-app`;
+    const normalizedEmail = email.trim().toLowerCase();
+    const redirectUrl = `${window.location.origin}/pencil-app`;
+    
+    console.log('SignUp redirectTo:', redirectUrl);
     
     const { error } = await supabase.auth.signUp({
-      email,
+      email: normalizedEmail,
       password,
       options: {
         emailRedirectTo: redirectUrl,
@@ -58,8 +64,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const signIn = async (email: string, password: string, rememberMe: boolean = false) => {
+    const normalizedEmail = email.trim().toLowerCase();
+    
     const { error } = await supabase.auth.signInWithPassword({
-      email,
+      email: normalizedEmail,
       password
     });
 
@@ -67,6 +75,39 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // The rememberMe parameter is kept for UI consistency but 
     // Supabase already persists sessions across browser restarts by default
 
+    return { error };
+  };
+
+  const signInWithGoogle = async () => {
+    const redirectUrl = `${window.location.origin}/pencil-app`;
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: redirectUrl
+      }
+    });
+    return { error };
+  };
+
+  const signInWithFacebook = async () => {
+    const redirectUrl = `${window.location.origin}/pencil-app`;
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'facebook',
+      options: {
+        redirectTo: redirectUrl
+      }
+    });
+    return { error };
+  };
+
+  const signInWithApple = async () => {
+    const redirectUrl = `${window.location.origin}/pencil-app`;
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'apple',
+      options: {
+        redirectTo: redirectUrl
+      }
+    });
     return { error };
   };
 
@@ -81,6 +122,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       loading,
       signUp,
       signIn,
+      signInWithGoogle,
+      signInWithFacebook,
+      signInWithApple,
       signOut
     }}>
       {children}

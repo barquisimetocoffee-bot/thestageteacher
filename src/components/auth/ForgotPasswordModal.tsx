@@ -29,15 +29,15 @@ const ForgotPasswordModal = ({ isOpen, onClose, onBackToLogin }: ForgotPasswordM
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isEmailSent, setIsEmailSent] = useState(false);
+  const [resendCooldown, setResendCooldown] = useState(0);
   const { toast } = useToast();
 
   const handleResetPassword = async () => {
-    if (!email) {
+    const normalizedEmail = email.trim().toLowerCase();
+    if (!normalizedEmail) {
       toast({
-
         title: "Email Required",
         description: "Please enter your email address",
-
         variant: "destructive",
       });
       return;
@@ -46,29 +46,38 @@ const ForgotPasswordModal = ({ isOpen, onClose, onBackToLogin }: ForgotPasswordM
     setIsLoading(true);
 
     try {
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      const { error } = await supabase.auth.resetPasswordForEmail(normalizedEmail, {
         redirectTo: `${window.location.origin}/reset-password`,
       });
 
       if (error) {
-        toast({
-
-          title: "Reset Failed",
-          description: error.message,
-          variant: "destructive",
-        });
+        const anyErr = error as any;
+        const isTimeout = anyErr?.status === 504 || /timeout|timed out/i.test(anyErr?.message ?? "");
+        
+        if (isTimeout) {
+          // Treat timeout as soft success since email might still be sent
+          setIsEmailSent(true);
+          toast({
+            title: "Email Service Slow",
+            description: "Request is processing. Check your inbox in a few moments.",
+            variant: "default",
+          });
+        } else {
+          toast({
+            title: "Reset Failed",
+            description: anyErr.message,
+            variant: "destructive",
+          });
+        }
       } else {
         setIsEmailSent(true);
         toast({
-
           title: "Reset Email Sent",
-          description: "Check your email for password reset instructions",
-
+          description: "Check your inbox (and spam) for the reset link",
         });
       }
     } catch (error) {
       toast({
-
         title: "Error",
         description: "An unexpected error occurred",
         variant: "destructive",
@@ -77,16 +86,33 @@ const ForgotPasswordModal = ({ isOpen, onClose, onBackToLogin }: ForgotPasswordM
       setIsLoading(false);
     }
   };
+  const handleResend = async () => {
+    if (resendCooldown > 0) return;
+    
+    setResendCooldown(60);
+    const interval = setInterval(() => {
+      setResendCooldown((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    
+    await handleResetPassword();
+  };
 
   const handleClose = () => {
     setEmail("");
     setIsEmailSent(false);
     setIsLoading(false);
+    setResendCooldown(0);
     onClose();
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
+    <Dialog open={isOpen} onOpenChange={(open) => { if (!open) handleClose(); }}>
       <DialogContent className="sm:max-w-md bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 border-0 shadow-2xl">
         <DialogHeader className="text-center space-y-4">
           <div className="flex justify-center">
@@ -172,10 +198,18 @@ const ForgotPasswordModal = ({ isOpen, onClose, onBackToLogin }: ForgotPasswordM
 
             <div className="space-y-3">
               <Button
+                onClick={handleResend}
+                disabled={resendCooldown > 0}
+                variant="outline"
+                className="w-full border-2 border-gray-200 hover:border-gray-300"
+              >
+                {resendCooldown > 0 ? `Resend in ${resendCooldown}s` : "Resend Reset Link"}
+              </Button>
+              
+              <Button
                 onClick={onBackToLogin}
                 className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-
                 Back to Login
               </Button>
             </div>
