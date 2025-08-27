@@ -334,8 +334,7 @@ const PencilPage = () => {
         <div className="max-w-6xl mx-auto text-center">
           <ScrollInFromBottom delay={0.2}>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-              Ready to Transform Your
-              <span className="">Teaching</span>?
+              Ready to Transform Your <span className="">Teaching</span>?
             </h2>
           </ScrollInFromBottom>
           <ScrollInFromBottom delay={0.2}>
@@ -359,7 +358,7 @@ const PencilPage = () => {
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 w-[300px] h-[200px] flex flex-col items-center justify-center">
                 <Users className="h-8 w-8 mx-auto mb-3 text-white" />
                 <h3 className="font-bold mb-2 text-white">
-                  Join 100K+ Educators
+                  Join 20K+ Educators
                 </h3>
                 <p className="text-sm text-gray-100">
                   Be part of the teaching revolution

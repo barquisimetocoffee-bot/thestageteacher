@@ -24,6 +24,7 @@ const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    institute: "",
     subject: "",
     message: "",
   });
@@ -91,7 +92,7 @@ const ContactUs = () => {
                 </h1>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                   We'd love to hear from you. Get in touch with our team for
-                  support, partnerships, or any questions about Ecerta.
+                  support, partnerships, or any questions about Vicerta.
                 </p>
               </ScrollInFromBottom>
             </div>
@@ -184,6 +185,24 @@ const ContactUs = () => {
                             required
                           />
                         </div>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Institution/School
+                        </label>
+                        <Input
+                          type="text"
+                          value={formData.institute}
+                          placeholder="Example Institution..."
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              institute: e.target.value,
+                            })
+                          }
+                          className="border border-gray-200 focus:outline-none py-6"
+                          required
+                        />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">

@@ -80,9 +80,8 @@ const AppSidebar = () => {
     <Sidebar className="border-0 shadow-2xl bg-white/98 backdrop-blur-xl w-64">
       <SidebarHeader className="p-4 bg-gradient-to-br from-blue-500/10 via-green-500/10 to-purple-500/10 border-b border-blue-500/20">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-[#2901b3] to-blue-500 rounded-xl flex items-center justify-center shadow-lg ring-2 ring-blue-500/20">
-            <Sparkles className="h-5 w-5 text-white animate-pulse" />
-          </div>
+          <img src="/pencil/logo.jpg" alt="" className="size-14 rounded-xl" />
+
           <div>
             <h2 className="text-lg font-bold bg-gradient-to-r from-[#2901b3] to-blue-500 bg-clip-text text-transparent">
               Pencil

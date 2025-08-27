@@ -34,24 +34,28 @@ const Footer = () => {
               </h1>
               <div className="flex space-x-3">
                 <a
+                  target="_blank"
                   href="https://www.facebook.com/share/196DREtSkM/?mibextid=wwXIfr"
                   className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
                 >
                   <Facebook className="h-5 w-5" />
                 </a>
                 <a
+                  target="_blank"
                   href="https://www.linkedin.com/company/vicerta/"
                   className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
                 <a
+                  target="_blank"
                   href="https://www.instagram.com/getvicerta?igsh=MTAydTBlMzU4cjFxcw=="
                   className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
                 >
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a
+                  target="_blank"
                   href="https://youtube.com/@vicerta?si=2ZgigIb4rlfOd_IN"
                   className="text-gray-200 hover:scale-105 hover:text-white transition-all duration-200"
                 >
