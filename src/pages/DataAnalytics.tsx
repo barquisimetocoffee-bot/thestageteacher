@@ -22,6 +22,12 @@ const DataAnalytics = () => {
   const { user, loading: authLoading } = useAuth();
   const { data, loading, error, refetch } = useAnalytics();
 
+  // Debug logging
+  console.log('DataAnalytics - authLoading:', authLoading);
+  console.log('DataAnalytics - user:', user);
+  console.log('DataAnalytics - user.email:', user?.email);
+  console.log('DataAnalytics - ends with vicerta:', user?.email?.endsWith('@vicerta.com'));
+
   // Redirect if not authenticated or not vicerta email
   if (authLoading) {
     return (
@@ -32,6 +38,7 @@ const DataAnalytics = () => {
   }
 
   if (!user || !user.email?.endsWith('@vicerta.com')) {
+    console.log('DataAnalytics - Redirecting due to:', { user: !!user, email: user?.email });
     return <Navigate to="/" replace />;
   }
 
