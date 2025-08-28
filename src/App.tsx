@@ -66,7 +66,7 @@ const App = () => (
                   <Route path="/pencil" element={<PencilPage />} />
                   <Route path="/landing" element={<LandingPage />} />
                   <Route path="/ai-chatbot" element={<AIChatbot />} />
-                  <Route path="/wizard-tools" element={<WizardTools />} />
+                  <Route path="/pencil-tools" element={<WizardTools />} />
                   <Route
                     path="/tools-suggestions"
                     element={<ToolsSuggestions />}

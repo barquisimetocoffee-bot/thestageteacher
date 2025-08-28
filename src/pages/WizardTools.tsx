@@ -39,7 +39,7 @@ const WizardTools = () => {
               </Button>
             </Link>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Wizard Tools</h1>
+              <h1 className="text-3xl font-bold text-gray-900">Pencil Tools</h1>
               <p className="text-gray-600">All AI-powered tools in one place</p>
             </div>
           </div>

@@ -231,8 +231,8 @@
     },
     "sidebar": {
       "quickAccess": "Acceso Rápido",
-      "wizardTools": "Herramientas Wizard",
-      "wizardToolsDesc": "Herramientas educativas impulsadas por IA",
+      "pencilTools": "Herramientas Pencil",
+      "pencilToolsDesc": "Herramientas educativas impulsadas por IA",
       "kribiChatbot": "Chatbot Kribi",
       "kribiChatbotDesc": "Bot asistente de enseñanza",
       "outputHistory": "Historial de Creaciones",

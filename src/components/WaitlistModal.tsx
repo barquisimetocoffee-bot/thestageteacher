@@ -82,9 +82,23 @@ const WaitlistModal = ({ isOpen, onClose, productName }: WaitlistModalProps) => 
               Thank you for joining the waitlist for <strong>{productName}</strong>. 
               We'll notify you as soon as it's available.
             </p>
-            <Button onClick={handleClose} className="w-full">
-              Close
-            </Button>
+            <p className="text-sm text-blue-600 mb-4">
+              While you wait, try our free Pencil tools to start creating amazing content!
+            </p>
+            <div className="flex gap-3">
+              <Button onClick={handleClose} variant="outline" className="flex-1">
+                Close
+              </Button>
+              <Button 
+                onClick={() => {
+                  handleClose();
+                  window.location.href = '/pencil-tools';
+                }} 
+                className="flex-1 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+              >
+                Try Pencil Tools
+              </Button>
+            </div>
           </div>
         </DialogContent>
       </Dialog>

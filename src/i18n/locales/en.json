@@ -240,8 +240,8 @@
     },
     "sidebar": {
       "quickAccess": "Quick Access",
-      "wizardTools": "Wizard Tools",
-      "wizardToolsDesc": "AI-powered teaching tools",
+      "pencilTools": "Pencil Tools",
+      "pencilToolsDesc": "AI-powered teaching tools",
       "kribiChatbot": "Kribi Chatbot",
       "kribiChatbotDesc": "Teaching assistant bot",
       "outputHistory": "Output History",

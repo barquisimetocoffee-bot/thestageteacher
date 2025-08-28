@@ -34,10 +34,10 @@ const AppSidebar = () => {
 
   const sidebarItems = [
     {
-      name: t("easyteach.sidebar.wizardTools"),
+      name: t("easyteach.sidebar.pencilTools"),
       icon: Wand2,
-      href: "/wizard-tools",
-      description: t("easyteach.sidebar.wizardToolsDesc"),
+      href: "/pencil-tools",
+      description: t("easyteach.sidebar.pencilToolsDesc"),
       gradient: "from-primary to-secondary",
     },
     {
