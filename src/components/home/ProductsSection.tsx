@@ -190,7 +190,7 @@ const ProductsSection = ({
         },
       ],
       users: t("products.comingSoon"),
-      action: () => (window.location.href = "/lms"),
+      action: () => onJoinWaitlist(t("products.advancedLMS")),
       actionText: t("products.enterLMSBeta"),
       btnIcon: FaRocket,
       popular: false,

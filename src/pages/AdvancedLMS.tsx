@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import WaitlistModal from "@/components/WaitlistModal";
 import {
   ArrowLeft,
   GraduationCap,
@@ -42,6 +43,7 @@ import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
 
 const AdvancedLMS = () => {
   const [onShowLogin, setOnShowLogin] = useState(false);
+  const [waitlistModalOpen, setWaitlistModalOpen] = useState(false);
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const { t } = useTranslation();
@@ -49,6 +51,14 @@ const AdvancedLMS = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const handleJoinWaitlist = () => {
+    setWaitlistModalOpen(true);
+  };
+
+  const closeWaitlistModal = () => {
+    setWaitlistModalOpen(false);
+  };
 
   const featureCategories = [
     {
@@ -230,7 +240,10 @@ const AdvancedLMS = () => {
                   {t("products.advancedLMSDesc")}
                 </p>
 
-                <Button className="w-full md:w-72 my-btn group text-white p-6 rounded-xl">
+                <Button 
+                  onClick={handleJoinWaitlist}
+                  className="w-full md:w-72 my-btn group text-white p-6 rounded-xl"
+                >
                   Join the Waitlist
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-all duration-300" />
                 </Button>
@@ -356,13 +369,22 @@ const AdvancedLMS = () => {
                 </ScrollInFromBottom>
               ))}
             </div>
-            <Button className="w-full md:w-72 my-btn text-white px-8 py-6 rounded-xl">
+            <Button 
+              onClick={handleJoinWaitlist}
+              className="w-full md:w-72 my-btn text-white px-8 py-6 rounded-xl"
+            >
               Get Early Access
             </Button>
           </div>
         </section>
       </div>
       <Footer />
+      
+      <WaitlistModal
+        isOpen={waitlistModalOpen}
+        onClose={closeWaitlistModal}
+        productName="Advanced AI LMS"
+      />
     </>
   );
 };

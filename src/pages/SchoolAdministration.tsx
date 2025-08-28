@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
+import WaitlistModal from "@/components/WaitlistModal";
 import {
   Building2,
   Users,
@@ -20,6 +21,7 @@ import { motion } from "framer-motion";
 
 const SchoolAdministration = () => {
   const [onShowLogin, setOnShowLogin] = useState(false);
+  const [waitlistModalOpen, setWaitlistModalOpen] = useState(false);
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const { t } = useTranslation();
@@ -27,6 +29,14 @@ const SchoolAdministration = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const handleJoinWaitlist = () => {
+    setWaitlistModalOpen(true);
+  };
+
+  const closeWaitlistModal = () => {
+    setWaitlistModalOpen(false);
+  };
 
   const features = [
     {
@@ -101,7 +111,10 @@ const SchoolAdministration = () => {
                 </p>
               </ScrollInFromBottom>
               <ScrollInFromBottom delay={0.4}>
-                <Button className="w-full md:w-72 my-btn group text-white p-6 rounded-xl">
+                <Button 
+                  onClick={handleJoinWaitlist}
+                  className="w-full md:w-72 my-btn group text-white p-6 rounded-xl"
+                >
                   Join the Waitlist
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -171,13 +184,22 @@ const SchoolAdministration = () => {
               ))}
             </div>
 
-            <Button className="w-full md:w-72 my-btn text-white p-6 rounded-xl">
+            <Button 
+              onClick={handleJoinWaitlist}
+              className="w-full md:w-72 my-btn text-white p-6 rounded-xl"
+            >
               Request Demo
             </Button>
           </div>
         </section>
       </div>
       <Footer />
+      
+      <WaitlistModal
+        isOpen={waitlistModalOpen}
+        onClose={closeWaitlistModal}
+        productName="School Administration"
+      />
     </>
   );
 };
