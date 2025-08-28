@@ -28,39 +28,39 @@ const KnowledgeBase = () => {
 
   const categories = [
     {
-      title: "Getting Started",
-      description: "Basic setup and first steps with Ecerta",
+      title: "AI Integration",
+      description: "Learn how to effectively integrate AI tools in your classroom",
       icon: BookOpen,
       color: "from-blue-500 to-blue-600",
-      articles: 12,
+      articles: 15,
     },
     {
       title: "Video Tutorials",
-      description: "Step-by-step video guides and walkthroughs",
+      description: "Step-by-step video guides for all platform features",
       icon: Video,
       color: "from-purple-500 to-purple-600",
-      articles: 8,
+      articles: 12,
     },
     {
-      title: "Feature Guides",
-      description: "Detailed explanations of all features",
+      title: "Best Practices",
+      description: "Proven strategies for digital teaching excellence",
       icon: FileText,
       color: "from-green-500 to-green-600",
-      articles: 24,
+      articles: 28,
     },
     {
       title: "FAQ",
-      description: "Frequently asked questions and answers",
+      description: "Frequently asked questions about AI in education",
       icon: HelpCircle,
       color: "from-orange-500 to-orange-600",
-      articles: 18,
+      articles: 22,
     },
     {
       title: "Troubleshooting",
-      description: "Solutions to common issues and problems",
+      description: "Solutions to common technical and pedagogical challenges",
       icon: MessageCircle,
       color: "from-red-500 to-red-600",
-      articles: 15,
+      articles: 18,
     },
   ];
 
@@ -175,11 +175,16 @@ const KnowledgeBase = () => {
   ];
 
   const popularArticles = [
-    "How to create your first lesson plan with EasyTeach",
-    "Setting up parent communication preferences",
-    "Understanding behavior tracking features",
-    "Customizing your classroom dashboard",
-    "Integrating with existing school systems",
+    "How to Get Started with AI Teaching Tools: A Beginner's Guide",
+    "Setting Up Your AI-Powered Classroom: Essential First Steps",
+    "Understanding AI Ethics in Education: Privacy and Data Protection",
+    "Integrating AI Tools with Existing Curriculum Standards",
+    "Troubleshooting Common AI Tool Issues in the Classroom",
+    "Creating Effective Prompts for AI Content Generation",
+    "Building Student AI Literacy: Critical Thinking in the Digital Age",
+    "Measuring the Impact of AI Tools on Student Learning Outcomes",
+    "Collaborating with Parents on AI Use in Education",
+    "Professional Development Resources for AI in Teaching",
   ];
 
   return (
@@ -208,8 +213,8 @@ const KnowledgeBase = () => {
                   </span>
                 </h1>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                  Find answers, tutorials, and guides to help you get the most
-                  out of Ecerta's educational platform.
+                  Find answers, tutorials, and guides to help you master AI-powered teaching tools 
+                  and transform your educational practice.
                 </p>
               </ScrollInFromBottom>
 

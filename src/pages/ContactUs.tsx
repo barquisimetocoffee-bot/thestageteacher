@@ -123,6 +123,36 @@ const ContactUs = () => {
           </div>
         </section>
 
+        {/* Mission Statement Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-blue-100">
+          <div className="max-w-4xl mx-auto text-center">
+            <ScrollInFromBottom delay={0.2}>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Our Mission: Tools for Teachers, by Teachers
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                Our goal is to create innovative educational tools designed by teachers, for teachers, 
+                with an ethical use of AI that puts everyone back in their genius zone. We believe 
+                that technology should enhance human creativity and expertise, not replace it. By 
+                empowering educators with intelligent tools, we help unlock the full potential of 
+                both teachers and students.
+              </p>
+              <p className="text-base text-gray-600 mb-8">
+                Whether you're looking to streamline lesson planning, enhance student engagement, 
+                or explore new ways to integrate AI ethically in your classroom, we're here to 
+                support your educational journey. Feel free to contact us with any questions, 
+                suggestions, or partnership opportunities.
+              </p>
+              <Button 
+                className="my-btn text-white px-8 py-3"
+                onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Get in Touch
+              </Button>
+            </ScrollInFromBottom>
+          </div>
+        </section>
+
         {/* Contact Information */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
@@ -162,7 +192,7 @@ const ContactUs = () => {
 
             {/* Contact Form */}
             <ScrollInFromBottom delay={0.3}>
-              <div className="max-w-2xl mx-auto">
+              <div className="max-w-2xl mx-auto" id="contact-form">
                 <Card className="border-0 shadow bg-gray-50">
                   <CardHeader className="text-center">
                     <CardTitle className="text-2xl font-bold text-gray-900">

@@ -169,7 +169,10 @@ const DataProtection = () => {
             </div>
 
             <div className="text-center mt-12">
-              <Button className="my-btn text-white p-6 rounded-xl">
+              <Button 
+                className="my-btn text-white p-6 rounded-xl"
+                onClick={() => navigate('/contact-us')}
+              >
                 Contact Data Protection Officer
               </Button>
             </div>

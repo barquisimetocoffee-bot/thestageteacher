@@ -35,49 +35,70 @@ const Blog = () => {
 
   const blogPosts = [
     {
-      title: "The Future of AI in Education: What Teachers Need to Know",
+      title: "AI in Education: Benefits, Challenges, and Best Practices for 2024",
       excerpt:
-        "Exploring how artificial intelligence is reshaping the classroom and what educators should prepare for in the coming years.",
-      author: "Dr. Sarah Johnson",
-      date: "March 15, 2024",
-      readTime: "5 min read",
+        "Explore how AI is transforming classrooms with personalized learning experiences, while addressing key challenges like data privacy and the importance of maintaining human connection in education.",
+      author: "Dr. Sarah Martinez",
+      date: "December 15, 2024",
+      readTime: "8 min read",
       category: "AI & Education",
       image:
         "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=400&q=80",
     },
     {
-      title: "10 Ways to Reduce Teacher Burnout with Technology",
+      title: "7 AI Tools Every Teacher Should Know About in 2024",
       excerpt:
-        "Practical strategies and tools that can help educators save time, reduce stress, and focus on what matters most - teaching.",
+        "From automated grading systems to intelligent tutoring platforms, discover the essential AI tools that are helping educators save time and enhance student learning outcomes.",
       author: "Michael Chen",
-      date: "March 10, 2024",
-      readTime: "7 min read",
-      category: "Teacher Wellness",
+      date: "November 28, 2024",
+      readTime: "6 min read",
+      category: "EdTech Tools",
       image:
         "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80",
     },
     {
-      title:
-        "Building Stronger Parent-Teacher Relationships in the Digital Age",
+      title: "Building AI Literacy: A Comprehensive Guide for Educators",
       excerpt:
-        "How modern communication tools are helping create more meaningful connections between home and school.",
-      author: "Emma Rodriguez",
-      date: "March 5, 2024",
-      readTime: "4 min read",
-      category: "Communication",
+        "Learn essential strategies for integrating AI education into your curriculum, helping students develop critical thinking skills about artificial intelligence and its societal impact.",
+      author: "Dr. Emma Rodriguez",
+      date: "November 20, 2024",
+      readTime: "10 min read",
+      category: "Digital Literacy",
       image:
         "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=400&q=80",
     },
     {
-      title: "Personalized Learning: Making Every Student Count",
+      title: "Ethical AI in the Classroom: Navigating Privacy and Bias Concerns",
       excerpt:
-        "Discover how adaptive technology is helping teachers meet the individual needs of every learner in their classroom.",
+        "Understanding the ethical implications of AI in education, including student data protection, algorithmic bias, and creating inclusive learning environments with responsible AI use.",
       author: "Prof. David Kim",
-      date: "February 28, 2024",
-      readTime: "6 min read",
-      category: "Personalized Learning",
+      date: "November 10, 2024",
+      readTime: "7 min read",
+      category: "AI Ethics",
       image:
         "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=400&q=80",
+    },
+    {
+      title: "Personalized Learning at Scale: How AI is Revolutionizing Education",
+      excerpt:
+        "Discover how artificial intelligence enables truly personalized education experiences, adapting to individual learning styles, pace, and preferences to maximize student success.",
+      author: "Jessica Thompson",
+      date: "October 25, 2024",
+      readTime: "9 min read",
+      category: "Personalized Learning",
+      image:
+        "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=80",
+    },
+    {
+      title: "The Future of Assessment: AI-Powered Evaluation Methods",
+      excerpt:
+        "Exploring innovative assessment techniques powered by AI, including real-time feedback systems, automated essay scoring, and competency-based evaluation methods.",
+      author: "Dr. Rachel Park",
+      date: "October 15, 2024",
+      readTime: "6 min read",
+      category: "Assessment",
+      image:
+        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=400&q=80",
     },
   ];
 

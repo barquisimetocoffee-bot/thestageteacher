@@ -35,37 +35,59 @@ const CaseStudies = () => {
 
   const caseStudies = [
     {
-      title: "Riverside Elementary: 40% Improvement in Student Engagement",
-      school: "Riverside Elementary School",
-      type: "Primary Education",
-      results: "40% increase in engagement",
-      timeframe: "6 months",
+      title: "Lincoln Elementary: 45% Increase in Reading Comprehension",
+      school: "Lincoln Elementary School",
+      type: "Primary Education - K-5",
+      results: "45% improvement in reading scores",
+      timeframe: "8 months",
       description:
-        "How EasyTeach transformed daily classroom activities and parent communication, leading to significant improvements in student participation and academic outcomes.",
+        "Lincoln Elementary integrated AI-powered reading assessment tools and personalized learning paths. Teachers used predictive analytics to identify at-risk students early and provide targeted interventions, resulting in significant improvements in literacy rates across all grade levels.",
       image:
         "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=400&q=80",
     },
     {
-      title: "Metro High School: Reducing Teacher Workload by 15 Hours/Week",
-      school: "Metro High School",
-      type: "Secondary Education",
-      results: "15 hours saved per week",
-      timeframe: "3 months",
+      title: "Roosevelt High: Reduced Teacher Burnout by 60% with AI Assistance",
+      school: "Roosevelt High School",
+      type: "Secondary Education - 9-12",
+      results: "60% reduction in teacher overtime",
+      timeframe: "5 months",
       description:
-        "A comprehensive case study showing how our AI tools streamlined lesson planning, grading, and administrative tasks for a busy high school.",
+        "Roosevelt High implemented AI-powered grading systems, automated lesson planning tools, and smart scheduling. Teachers reported significant reduction in administrative workload, allowing more time for student interaction and creative curriculum development.",
       image:
         "https://images.unsplash.com/photo-1523050854058-8df90110c9d1?auto=format&fit=crop&w=400&q=80",
     },
     {
-      title: "Westfield Academy: Complete Digital Transformation",
-      school: "Westfield Academy",
-      type: "Independent School",
-      results: "100% digital adoption",
-      timeframe: "12 months",
+      title: "Brookfield University: 30% Improvement in Student Retention",
+      school: "Brookfield University",
+      type: "Higher Education",
+      results: "30% increase in graduation rates",
+      timeframe: "18 months",
       description:
-        "From traditional methods to a fully integrated digital ecosystem, see how Westfield Academy revolutionized their approach to education.",
+        "Brookfield University deployed AI-driven early warning systems to predict student dropout risk. Combined with personalized learning pathways and automated tutoring systems, they achieved remarkable improvements in student success and retention rates.",
       image:
         "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=400&q=80",
+    },
+    {
+      title: "Greenwood Charter: Closing the Achievement Gap with Adaptive Learning",
+      school: "Greenwood Charter School",
+      type: "K-8 Charter School",
+      results: "25% reduction in achievement gap",
+      timeframe: "12 months",
+      description:
+        "Greenwood Charter used AI-powered adaptive learning platforms to provide personalized instruction for students from diverse backgrounds. The system adjusted difficulty levels in real-time and provided teachers with actionable insights to support struggling learners.",
+      image:
+        "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=400&q=80",
+    },
+    {
+      title: "Valley Community College: Streamlined Administrative Operations",
+      school: "Valley Community College",
+      type: "Community College",
+      results: "40% reduction in processing time",
+      timeframe: "6 months",
+      description:
+        "Valley Community College implemented AI-powered enrollment management, automated transcript processing, and intelligent scheduling systems. This resulted in faster student services and allowed staff to focus on student support and engagement activities.",
+      image:
+        "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=400&q=80",
     },
   ];
 
