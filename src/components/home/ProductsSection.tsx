@@ -326,6 +326,7 @@ const ProductsSection = ({
               {/* button */}
               <div className={`p-4`}>
                 <Button
+                  onClick={product.action}
                   className={`mt-4 py-6 w-full flex items-center justify-center my-btn`}
                 >
                   {product.id === "easyteach-pro" && upgrading

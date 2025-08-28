@@ -15,6 +15,7 @@ import Navigation from "@/components/home/Navigation";
 import Footer from "@/components/home/Footer";
 import ScrollInFromBottom from "@/components/animation/ScrollInFromBottom";
 import { motion } from "framer-motion";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactUs = () => {
   const navigate = useNavigate();
@@ -33,10 +34,33 @@ const ContactUs = () => {
     setIsVisible(true);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    
+    try {
+      const { data, error } = await supabase.functions.invoke('submit-contact', {
+        body: formData
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      // Show success message
+      alert('Thank you for your message! We will get back to you soon.');
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        institute: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Sorry, there was an error sending your message. Please try again.');
+    }
   };
 
   const contactInfo = [
