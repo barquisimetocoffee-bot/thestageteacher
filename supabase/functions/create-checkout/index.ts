@@ -55,7 +55,7 @@ serve(async (req) => {
       customer_email: customerId ? undefined : user.email,
         line_items: [
         {
-          price: priceId || "price_1RpkpuHHP05TviTOpktrT5Cb", // Default to Pro plan price ID
+          price: priceId, // Use the price ID from your Stripe product
           quantity: 1,
         },
       ],
