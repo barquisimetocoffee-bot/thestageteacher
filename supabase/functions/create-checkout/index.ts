@@ -60,8 +60,8 @@ serve(async (req) => {
         },
       ],
       mode: "subscription",
-      success_url: `${req.headers.get("origin")}/easyteach-app?subscription=success`,
-      cancel_url: `${req.headers.get("origin")}/?subscription=cancelled`,
+      success_url: `${req.headers.get("origin")}/pencil-app?subscription=success`,
+      cancel_url: `${req.headers.get("origin")}/pencil-app?subscription=cancelled`,
     });
 
     logStep("Checkout session created", { sessionId: session.id, url: session.url });

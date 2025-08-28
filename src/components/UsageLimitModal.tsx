@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Crown, Zap, ArrowRight } from "lucide-react";
 import { useSubscription } from "@/hooks/useSubscription";
+import { useAuth } from "@/hooks/useAuth";
+import LoginModal from "@/components/auth/LoginModal";
 
 interface UsageLimitModalProps {
   isOpen: boolean;
@@ -23,13 +25,45 @@ export function UsageLimitModal({
   onUpgrade,
 }: UsageLimitModalProps) {
   const { usage, createCheckout } = useSubscription();
+  const { user, session } = useAuth();
   const [upgrading, setUpgrading] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [shouldUpgradeAfterLogin, setShouldUpgradeAfterLogin] = useState(false);
+
+  // Watch for authentication success and proceed with upgrade
+  useEffect(() => {
+    if (user && session && shouldUpgradeAfterLogin && !showLogin) {
+      setShouldUpgradeAfterLogin(false);
+      handleUpgradeAfterAuth();
+    }
+  }, [user, session, shouldUpgradeAfterLogin, showLogin]);
+
+  const handleUpgradeAfterAuth = async () => {
+    try {
+      setUpgrading(true);
+      await createCheckout();
+      onUpgrade?.();
+      onClose();
+    } catch (error) {
+      console.error("Error upgrading after login:", error);
+    } finally {
+      setUpgrading(false);
+    }
+  };
 
   const handleUpgrade = async () => {
+    // Check if user is authenticated first
+    if (!user || !session) {
+      setShouldUpgradeAfterLogin(true);
+      setShowLogin(true);
+      return;
+    }
+
     try {
       setUpgrading(true);
       await createCheckout(); // Use default Pro plan price
       onUpgrade?.();
+      onClose(); // Close the modal after successful checkout initiation
     } catch (error) {
       console.error("Error upgrading:", error);
     } finally {
@@ -116,7 +150,7 @@ export function UsageLimitModal({
                 "Opening Checkout..."
               ) : (
                 <>
-                  Upgrade Now
+                  {user ? "Upgrade Now" : "Sign Up & Upgrade"}
                   <ArrowRight className="h-4 w-4 ml-1" />
                 </>
               )}
@@ -124,6 +158,15 @@ export function UsageLimitModal({
           </div>
         </div>
       </DialogContent>
+      
+      {/* Login Modal */}
+      <LoginModal 
+        isOpen={showLogin} 
+        onClose={() => {
+          setShowLogin(false);
+          setShouldUpgradeAfterLogin(false);
+        }}
+      />
     </Dialog>
   );
 }

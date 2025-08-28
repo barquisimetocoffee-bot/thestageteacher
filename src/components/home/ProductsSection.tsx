@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { useSubscription } from "@/hooks/useSubscription";
+import { useAuth } from "@/hooks/useAuth";
 import { useState } from "react";
 import {
   BookOpen,
@@ -45,9 +46,16 @@ const ProductsSection = ({
 }: ProductsSectionProps) => {
   const { t } = useTranslation();
   const { createCheckout } = useSubscription();
+  const { user, session } = useAuth();
   const [upgrading, setUpgrading] = useState(false);
 
   const handleUpgrade = async () => {
+    // Check if user is authenticated first
+    if (!user || !session) {
+      onShowLogin();
+      return;
+    }
+
     try {
       setUpgrading(true);
       await createCheckout(); // Use default Pro plan price
