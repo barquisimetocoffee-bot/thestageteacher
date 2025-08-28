@@ -118,15 +118,10 @@ const SatisfactionSurvey = ({ isOpen, onClose, toolName, onSubmit }: Satisfactio
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <div className="flex items-center justify-between">
-            <DialogTitle className="text-xl font-bold flex items-center space-x-2">
-              <MessageSquare className="h-5 w-5 text-blue-600" />
-              <span>{t("feedback.title", { toolName })}</span>
-            </DialogTitle>
-            <Button variant="ghost" size="sm" onClick={onClose} disabled={isSubmitting}>
-              <X className="h-4 w-4" />
-            </Button>
-          </div>
+          <DialogTitle className="text-xl font-bold flex items-center space-x-2">
+            <MessageSquare className="h-5 w-5 text-blue-600" />
+            <span>{t("feedback.title", { toolName })}</span>
+          </DialogTitle>
         </DialogHeader>
 
         <div className="space-y-6 py-4">

@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { User, Settings, Edit3 } from "lucide-react";
+import { User, Settings, Edit3, ArrowLeft } from "lucide-react";
 import { SubscriptionStatus } from "@/components/SubscriptionStatus";
 import TeacherProfile from "@/components/TeacherProfile";
 import { useAuth } from "@/hooks/useAuth";
 
 const Profile = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const { user } = useAuth();
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [teacherProfile, setTeacherProfile] = useState(null);
@@ -39,18 +41,28 @@ const Profile = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center">
-              <User className="h-6 w-6 text-white" />
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center">
+                <User className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Profile Settings
+                </h1>
+                <p className="text-muted-foreground">
+                  Manage your account and personalization settings
+                </p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Profile Settings
-              </h1>
-              <p className="text-muted-foreground">
-                Manage your account and personalization settings
-              </p>
-            </div>
+            <Button
+              variant="outline"
+              onClick={() => navigate("/pencil-app")}
+              className="flex items-center space-x-2"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              <span>Back to Pencil</span>
+            </Button>
           </div>
         </div>
 
