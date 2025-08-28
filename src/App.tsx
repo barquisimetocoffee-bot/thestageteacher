@@ -45,6 +45,7 @@ import ConsentManager from "./components/compliance/ConsentManager";
 import ScrollToTop from "./hooks/scrollToTop";
 import PencilApp from "./pages/PencilApp";
 import PencilPage from "./pages/PencilPage";
+import DataAnalytics from "./pages/DataAnalytics";
 
 const queryClient = new QueryClient();
 
@@ -72,6 +73,7 @@ const App = () => (
                     element={<ToolsSuggestions />}
                   />
                   <Route path="/output-history" element={<OutputHistory />} />
+                  <Route path="/data-analytics" element={<DataAnalytics />} />
                   <Route path="/advanced-lms" element={<AdvancedLMS />} />
                   <Route
                     path="/school-administration"
