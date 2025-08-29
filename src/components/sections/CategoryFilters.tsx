@@ -32,7 +32,7 @@ const CategoryFilters = ({
 }: CategoryFiltersProps) => {
   const activeCategory = categories.find((c) => c.name === selectedCategory);
   return (
-    <div className="flex flex-wrap gap-2 sm:gap-3">
+    <div className="flex flex-wrap gap-2 sm:gap-3" data-onboarding="categories">
       {categories.map((category) => {
         const IconComponent = iconMap[category.icon];
         const isSelected = selectedCategory === category.name;

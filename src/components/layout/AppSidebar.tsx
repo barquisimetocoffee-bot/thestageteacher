@@ -77,7 +77,7 @@ const AppSidebar = () => {
   ];
 
   return (
-    <Sidebar className="border-0 shadow-2xl bg-white/98 backdrop-blur-xl w-64">
+    <Sidebar className="border-0 shadow-2xl bg-white/98 backdrop-blur-xl w-64" data-onboarding="sidebar">
       <SidebarHeader className="p-4 bg-gradient-to-br from-blue-500/10 via-green-500/10 to-purple-500/10 border-b border-blue-500/20">
         <div className="flex items-center space-x-3">
           <img src="/lovable-uploads/6e7b32fc-14eb-4162-ae2e-679b6d8b51c8.png" alt="Pencil Logo" className="size-14 rounded-xl" />

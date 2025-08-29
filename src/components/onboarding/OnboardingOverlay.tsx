@@ -63,7 +63,7 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
           left = rect.left + (rect.width - cardWidth) / 2;
           // Special adjustments for specific steps
           if (currentStepData.id === 'tools-grid') {
-            top = rect.top - cardHeight - offset - 50; // Make popup higher
+            top = rect.top - cardHeight - offset - 80; // Make popup higher
           }
           break;
         case 'bottom':
@@ -71,7 +71,7 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
           left = rect.left + (rect.width - cardWidth) / 2;
           // Special adjustments for specific steps
           if (currentStepData.id === 'categories') {
-            top = rect.bottom + offset + 10; // Adjust for proper alignment
+            top = rect.bottom + offset - 30; // Make overlay higher
           }
           break;
         case 'left':
@@ -83,7 +83,7 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
           left = rect.right + offset;
           // Special adjustments for specific steps
           if (currentStepData.id === 'sidebar') {
-            top = rect.top + (rect.height - cardHeight) / 2 - 50; // Make it higher
+            top = rect.top + (rect.height - cardHeight) / 2 - 100; // Make it higher
           }
           break;
         case 'center':
@@ -98,9 +98,11 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
 
       setCardPosition({ top, left });
 
-      // Scroll element into view with special handling for tools-grid
+      // Scroll element into view with special handling for different steps
       if (currentStepData.id === 'tools-grid') {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll down less
+        element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' }); // Scroll down less
+      } else if (currentStepData.id === 'categories') {
+        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' }); // Align categories at bottom
       } else {
         element.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
@@ -131,9 +133,11 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
           style={{
             background: highlightElement && currentStepData?.showOverlay !== false
               ? currentStepData.id === 'sidebar'
-                ? `linear-gradient(to right, transparent 0%, transparent 280px, rgba(0, 0, 0, 0.3) 280px, rgba(0, 0, 0, 0.3) 100%)`
-                : `radial-gradient(circle at ${highlightElement.getBoundingClientRect().left + highlightElement.getBoundingClientRect().width / 2}px ${highlightElement.getBoundingClientRect().top + highlightElement.getBoundingClientRect().height / 2}px, transparent ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 20}px, rgba(0, 0, 0, 0.3) ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 25}px)`
-              : 'rgba(0, 0, 0, 0.3)'
+                ? `linear-gradient(to right, transparent 0%, transparent 280px, rgba(0, 0, 0, 0.4) 280px, rgba(0, 0, 0, 0.4) 100%)`
+                : currentStepData.id === 'tools-grid'
+                ? `radial-gradient(circle at ${highlightElement.getBoundingClientRect().left + highlightElement.getBoundingClientRect().width / 2}px ${highlightElement.getBoundingClientRect().top + highlightElement.getBoundingClientRect().height / 2}px, transparent ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 20}px, rgba(0, 0, 0, 0.2) ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 25}px)`
+                : `radial-gradient(circle at ${highlightElement.getBoundingClientRect().left + highlightElement.getBoundingClientRect().width / 2}px ${highlightElement.getBoundingClientRect().top + highlightElement.getBoundingClientRect().height / 2}px, transparent ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 20}px, rgba(0, 0, 0, 0.4) ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 25}px)`
+              : 'rgba(0, 0, 0, 0.4)'
           }}
         />
 

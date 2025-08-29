@@ -42,6 +42,7 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     description: 'Tools are organized into categories. Click on different categories to filter tools by type - Lesson Planning, Assessment, Content Creation, and more.',
     targetElement: '[data-onboarding="categories"]',
     position: 'bottom',
+    showOverlay: true,
   },
   {
     id: 'tools-grid',
@@ -49,6 +50,7 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     description: 'Here are all your AI-powered tools. Each tool shows its purpose, estimated time to complete, and category. Let\'s try creating content with one!',
     targetElement: '[data-onboarding="tools-grid"]',
     position: 'top',
+    showOverlay: true,
   },
   {
     id: 'select-tool',
@@ -64,7 +66,7 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     description: 'Each tool has a simple form. Fill in the details about what you want to create. The more specific you are, the better the AI-generated content will be.',
     targetElement: '[data-onboarding="tool-form"]',
     position: 'right',
-    showOverlay: false,
+    showOverlay: true,
   },
   {
     id: 'generate-button',
@@ -72,8 +74,7 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     description: 'Once you\'ve filled in the form, click "Generate" to create your content. The AI will process your requirements and create educational material in seconds.',
     targetElement: '[data-onboarding="generate-button"]',
     position: 'top',
-    action: 'click',
-    showOverlay: false,
+    showOverlay: true,
   },
   {
     id: 'content-actions',
@@ -81,7 +82,7 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     description: 'After generation, you can copy, download, save, or export your content. Use the Copy, Download, and Save buttons to manage your generated content.',
     targetElement: '[data-onboarding="content-actions"]',
     position: 'left',
-    showOverlay: false,
+    showOverlay: true,
   },
 ];
 
