@@ -267,7 +267,7 @@ const ProductsSection = ({
                     <img 
                       src="/lovable-uploads/b949b427-4b1d-4c8b-ae92-bce50072ee20.png" 
                       alt="Pencil Logo" 
-                      className="h-12 w-12" 
+                      className="h-14 w-14" 
                     />
                   ) : (
                     <product.icon className={`h-6 w-6 text-blue-600`} />
