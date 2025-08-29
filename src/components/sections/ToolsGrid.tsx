@@ -78,7 +78,7 @@ const ToolsGrid = ({
                 </div>
                 <div className="flex items-center space-x-1 text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">
                   <Clock className="h-4 w-4" />
-                  <span className="font-medium">{tool.timesSaved}</span>
+                  <span className="font-medium">save {tool.timesSaved}</span>
                 </div>
 
                 {/* {tool.timesSaved && (
@@ -112,9 +112,6 @@ const ToolsGrid = ({
               </CardDescription>
 
               <div className="flex items-center justify-between">
-                <span className="text-sm text-green-600 font-semibold bg-green-50 px-3 py-1 rounded-full">
-                  ✓ {t("easyteach.tools.readyIn", { time: tool.estimatedTime })}
-                </span>
                 <button
                   className="rounded-full bg-blue-100 hover:bg-blue-200 text-sm text-[#2901b3] py-1 px-3"
                   onClick={(e) => handleToolClick(tool, e)}

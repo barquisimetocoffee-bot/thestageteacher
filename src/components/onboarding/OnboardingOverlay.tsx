@@ -42,13 +42,37 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
   const currentStepData = steps[currentStep];
 
   useEffect(() => {
-    if (!isOpen || !currentStepData?.targetElement) return;
+    if (!isOpen) return;
 
-    const element = document.querySelector(currentStepData.targetElement) as HTMLElement;
-    if (element) {
-      setHighlightElement(element);
-      
-      // Calculate card position based on target element and desired position
+    let cancelled = false;
+    let retryTimer: number | null = null;
+
+    const getBestElement = (selector: string): HTMLElement | null => {
+      const nodeList = Array.from(document.querySelectorAll(selector)) as HTMLElement[];
+      if (nodeList.length === 0) return null;
+      // Prefer the last match (often the inner/actual control if wrappers duplicate attributes)
+      const visible = nodeList.filter((el) => {
+        const r = el.getBoundingClientRect();
+        return r.width > 0 && r.height > 0;
+      });
+      return (visible[visible.length - 1] || nodeList[nodeList.length - 1]) ?? null;
+    };
+
+    const waitForElement = (selector: string, timeout = 2500): Promise<HTMLElement | null> => {
+      return new Promise((resolve) => {
+        const start = performance.now();
+        const tryFind = () => {
+          if (cancelled) return resolve(null);
+          const el = getBestElement(selector);
+          if (el) return resolve(el);
+          if (performance.now() - start > timeout) return resolve(null);
+          retryTimer = window.setTimeout(tryFind, 100);
+        };
+        tryFind();
+      });
+    };
+
+    const computeAndSetCardPosition = (element: HTMLElement) => {
       const rect = element.getBoundingClientRect();
       const cardWidth = 350;
       const cardHeight = 200;
@@ -57,21 +81,19 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
       let top = 0;
       let left = 0;
 
-      switch (currentStepData.position) {
+      switch (currentStepData?.position) {
         case 'top':
           top = rect.top - cardHeight - offset;
           left = rect.left + (rect.width - cardWidth) / 2;
-          // Special adjustments for specific steps
-          if (currentStepData.id === 'tools-grid') {
-            top = rect.top - cardHeight - offset - 80; // Make popup higher
+          if (currentStepData?.id === 'tools-grid') {
+            top = rect.top - cardHeight - offset - 120; // higher popup
           }
           break;
         case 'bottom':
           top = rect.bottom + offset;
           left = rect.left + (rect.width - cardWidth) / 2;
-          // Special adjustments for specific steps
-          if (currentStepData.id === 'categories') {
-            top = rect.bottom + offset - 30; // Make overlay higher
+          if (currentStepData?.id === 'categories') {
+            top = rect.bottom + offset - 10; // slightly lower than before (was -30)
           }
           break;
         case 'left':
@@ -81,40 +103,88 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
         case 'right':
           top = rect.top + (rect.height - cardHeight) / 2;
           left = rect.right + offset;
-          // Special adjustments for specific steps
-          if (currentStepData.id === 'sidebar') {
-            top = rect.top + (rect.height - cardHeight) / 2 - 100; // Make it higher
+          if (currentStepData?.id === 'sidebar') {
+            top = rect.top + (rect.height - cardHeight) / 2 - 100;
           }
           break;
         case 'center':
+        default:
           top = window.innerHeight / 2 - cardHeight / 2;
           left = window.innerWidth / 2 - cardWidth / 2;
           break;
       }
 
-      // Ensure card stays within viewport
+      // clamp to viewport
       top = Math.max(20, Math.min(top, window.innerHeight - cardHeight - 20));
       left = Math.max(20, Math.min(left, window.innerWidth - cardWidth - 20));
-
       setCardPosition({ top, left });
+    };
 
-      // Scroll element into view with special handling for different steps
-      if (currentStepData.id === 'tools-grid') {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' }); // Scroll down less
-      } else if (currentStepData.id === 'categories') {
-        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' }); // Align categories at bottom
-      } else {
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const resolveStep = async () => {
+      // Reset while resolving
+      setHighlightElement(null);
+
+      const selector = currentStepData?.targetElement;
+      if (!selector) {
+        // Centered intro step
+        setCardPosition({
+          top: window.innerHeight / 2 - 100,
+          left: window.innerWidth / 2 - 175,
+        });
+        return;
       }
-    }
+
+      const el = getBestElement(selector) || (await waitForElement(selector));
+      if (cancelled) return;
+      if (el) {
+        setHighlightElement(el);
+        // Scroll into view with special handling
+        if (currentStepData?.id === 'tools-grid') {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (currentStepData?.id === 'categories') {
+          el.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        } else {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        computeAndSetCardPosition(el);
+      }
+    };
+
+    resolveStep();
+
+    return () => {
+      cancelled = true;
+      if (retryTimer) window.clearTimeout(retryTimer);
+    };
   }, [isOpen, currentStep, currentStepData]);
 
-  const handleStepAction = () => {
+  const handleStepAction = async () => {
     if (currentStepData?.action === 'click' && highlightElement) {
       highlightElement.click();
     }
-    if (onStepAction) {
-      onStepAction(currentStepData.id);
+
+    // Wait for next step's target (e.g., modal content) before advancing
+    const nextStep = steps[currentStep + 1];
+    const nextSelector = nextStep?.waitForElement || nextStep?.targetElement;
+
+    if (nextSelector) {
+      // Reuse lightweight waiter defined in effect scope by querying until available
+      const start = performance.now();
+      const tryAdvance = () => {
+        const el = document.querySelector(nextSelector) as HTMLElement | null;
+        if (el) {
+          onNext();
+          return;
+        }
+        if (performance.now() - start > 2500) {
+          onNext(); // fallback
+          return;
+        }
+        requestAnimationFrame(tryAdvance);
+      };
+      tryAdvance();
+    } else {
+      onNext();
     }
   };
 
@@ -135,8 +205,20 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
               ? currentStepData.id === 'sidebar'
                 ? `linear-gradient(to right, transparent 0%, transparent 280px, rgba(0, 0, 0, 0.4) 280px, rgba(0, 0, 0, 0.4) 100%)`
                 : currentStepData.id === 'tools-grid'
-                ? `radial-gradient(circle at ${highlightElement.getBoundingClientRect().left + highlightElement.getBoundingClientRect().width / 2}px ${highlightElement.getBoundingClientRect().top + highlightElement.getBoundingClientRect().height / 2}px, transparent ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 20}px, rgba(0, 0, 0, 0.2) ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 25}px)`
-                : `radial-gradient(circle at ${highlightElement.getBoundingClientRect().left + highlightElement.getBoundingClientRect().width / 2}px ${highlightElement.getBoundingClientRect().top + highlightElement.getBoundingClientRect().height / 2}px, transparent ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 20}px, rgba(0, 0, 0, 0.4) ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 25}px)`
+                ? (() => {
+                    const r = highlightElement.getBoundingClientRect();
+                    const cx = r.left + r.width / 2;
+                    const cy = r.top + r.height / 2;
+                    const radius = Math.max(r.width, r.height) / 2 + 60; // bigger transparent area
+                    return `radial-gradient(circle at ${cx}px ${cy}px, transparent ${radius}px, rgba(0, 0, 0, 0.15) ${radius + 5}px)`;
+                  })()
+                : (() => {
+                    const r = highlightElement.getBoundingClientRect();
+                    const cx = r.left + r.width / 2;
+                    const cy = r.top + r.height / 2;
+                    const radius = Math.max(r.width, r.height) / 2 + 20;
+                    return `radial-gradient(circle at ${cx}px ${cy}px, transparent ${radius}px, rgba(0, 0, 0, 0.4) ${radius + 5}px)`;
+                  })()
               : 'rgba(0, 0, 0, 0.4)'
           }}
         />

@@ -25,7 +25,7 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     title: 'Quick Navigation',
     description: 'Your sidebar provides quick access to different sections. You can always return to the main tools from here.',
     targetElement: '[data-onboarding="sidebar"]',
-    position: 'right',
+    position: 'center',
     showOverlay: true,
   },
   {
