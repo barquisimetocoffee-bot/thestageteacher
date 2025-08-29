@@ -53,7 +53,7 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     id: 'select-tool',
     title: 'Choose a Tool to Get Started',
     description: 'Click on the "Lesson Plan Generator" to open it. This will show you how the content creation process works.',
-    targetElement: '[data-tool-id="lesson-plan-generator"]',
+    targetElement: '[data-tool-id="1"]',
     position: 'top',
     action: 'click',
   },
