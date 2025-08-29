@@ -58,6 +58,31 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     position: 'top',
     action: 'click',
   },
+  {
+    id: 'tool-form',
+    title: 'Fill in Your Requirements',
+    description: 'Each tool has a simple form. Fill in the details about what you want to create. The more specific you are, the better the AI-generated content will be.',
+    targetElement: '[data-onboarding="tool-form"]',
+    position: 'right',
+    showOverlay: false,
+  },
+  {
+    id: 'generate-button',
+    title: 'Generate Your Content',
+    description: 'Once you\'ve filled in the form, click "Generate" to create your content. The AI will process your requirements and create educational material in seconds.',
+    targetElement: '[data-onboarding="generate-button"]',
+    position: 'top',
+    action: 'click',
+    showOverlay: false,
+  },
+  {
+    id: 'content-actions',
+    title: 'Use Your Generated Content',
+    description: 'After generation, you can copy, download, save, or export your content. Use the Copy, Download, and Save buttons to manage your generated content.',
+    targetElement: '[data-onboarding="content-actions"]',
+    position: 'left',
+    showOverlay: false,
+  },
 ];
 
 export const useOnboarding = () => {
