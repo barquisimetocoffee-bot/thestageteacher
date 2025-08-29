@@ -61,20 +61,21 @@ const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
           let left = rect.left + (rect.width - 400) / 2;
 
           if (currentStepData.position === 'top') {
-            top = rect.top - 180;
+            top = rect.top - 200;
           } else if (currentStepData.position === 'bottom') {
-            top = rect.bottom + 20;
+            top = rect.bottom + 30;
           } else {
             top = window.innerHeight / 2 - 150;
             left = window.innerWidth / 2 - 200;
           }
 
-          // Keep card within viewport
-          top = Math.max(20, Math.min(top, window.innerHeight - 300));
-          left = Math.max(20, Math.min(left, window.innerWidth - 420));
+          // Keep card within viewport with better margins
+          const margin = 30;
+          top = Math.max(margin, Math.min(top, window.innerHeight - 350));
+          left = Math.max(margin, Math.min(left, window.innerWidth - 430));
 
           setCardPosition({ top, left });
-        }, 100);
+        }, 300);
       }
     };
 
@@ -89,13 +90,13 @@ const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[99999]">
+      <div className="fixed inset-0 z-[999999]">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm"
+          className="fixed inset-0 bg-black/40"
           onClick={onSkip}
         />
 
@@ -106,7 +107,7 @@ const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="fixed pointer-events-none z-[99997]"
+              className="fixed pointer-events-none z-[999997]"
               style={{
                 top: 0,
                 left: 0,
@@ -124,7 +125,7 @@ const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="fixed pointer-events-none z-[99998]"
+              className="fixed pointer-events-none z-[999998]"
               style={{
                 top: targetElement.getBoundingClientRect().top - 4,
                 left: targetElement.getBoundingClientRect().left - 4,
@@ -143,7 +144,7 @@ const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
-          className="fixed z-[100000]"
+          className="fixed z-[1000000]"
           style={{
             top: cardPosition.top,
             left: cardPosition.left,
