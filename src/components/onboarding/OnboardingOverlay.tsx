@@ -86,7 +86,7 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
           top = rect.top - cardHeight - offset;
           left = rect.left + (rect.width - cardWidth) / 2;
           if (currentStepData?.id === 'tools-grid') {
-            top = rect.top - cardHeight - offset - 120; // higher popup
+            top = rect.top - cardHeight - offset - 200; // much higher popup
           }
           break;
         case 'bottom':
@@ -140,9 +140,11 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
         setHighlightElement(el);
         // Scroll into view with special handling
         if (currentStepData?.id === 'tools-grid') {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+          el.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         } else if (currentStepData?.id === 'categories') {
           el.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        } else if (currentStepData?.id === 'select-tool') {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
         } else {
           el.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
@@ -192,7 +194,7 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[9999]">
+      <div className="fixed inset-0 z-[99999]">
         {/* Overlay with blur and darkening - with cutout for highlighted element */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -228,7 +230,7 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="fixed pointer-events-none z-[9998]"
+            className="fixed pointer-events-none z-[99998]"
             style={{
               top: highlightElement.getBoundingClientRect().top - 4,
               left: highlightElement.getBoundingClientRect().left - 4,
@@ -246,7 +248,7 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="fixed z-[10000]"
+          className="fixed z-[100000]"
           style={{
             top: cardPosition.top,
             left: cardPosition.left,
