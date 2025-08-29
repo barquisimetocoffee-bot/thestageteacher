@@ -16,9 +16,8 @@ import TeacherProfile from "@/components/TeacherProfile";
 import ToolModal from "@/components/ToolModal";
 import AIAssistant from "@/components/AIAssistant";
 import { useAuth } from "@/hooks/useAuth";
-import { useOnboarding } from "@/hooks/useOnboarding";
-import OnboardingOverlay from "@/components/onboarding/OnboardingOverlay";
-import OnboardingConclusion from "@/components/onboarding/OnboardingConclusion";
+import { useSimpleWalkthrough } from "@/hooks/useSimpleWalkthrough";
+import SimpleWalkthrough from "@/components/walkthrough/SimpleWalkthrough";
 import HelpButton from "@/components/common/HelpButton";
 
 import GradeSystemSelector from "@/components/GradeSystemSelector";
@@ -44,17 +43,14 @@ const PencilApp = () => {
 
   // Onboarding state
   const {
-    isOnboardingActive,
+    isActive: isWalkthroughActive,
     currentStep,
     steps,
-    showConclusion,
     nextStep,
     previousStep,
-    skipOnboarding,
-    closeConclusion,
-    startCreating,
-    resetOnboarding,
-  } = useOnboarding();
+    skip: skipWalkthrough,
+    reset: resetWalkthrough,
+  } = useSimpleWalkthrough();
 
   // Load profile data on mount
   useEffect(() => {
@@ -153,31 +149,8 @@ const PencilApp = () => {
     }
   };
 
-  const handleOnboardingStepAction = (stepId: string) => {
-    switch (stepId) {
-      case 'select-tool':
-        // Find lesson plan generator tool by name
-        const lessonPlanTool = translatedTools.find(tool => 
-          tool.name.toLowerCase().includes('lesson plan') ||
-          tool.name.toLowerCase().includes('lesson') ||
-          tool.category === 'Lesson Planning'
-        );
-        if (lessonPlanTool) {
-          setSelectedTool(lessonPlanTool);
-        }
-        break;
-      default:
-        break;
-    }
-  };
-
-  const handleStartCreating = () => {
-    closeConclusion();
-    // Focus on tools grid and optionally open a popular tool
-    const firstTool = translatedTools[0];
-    if (firstTool) {
-      setSelectedTool(firstTool);
-    }
+  const handleResetWalkthrough = () => {
+    resetWalkthrough();
   };
 
   return (
@@ -218,7 +191,7 @@ const PencilApp = () => {
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <HelpButton onStartWalkthrough={resetOnboarding} />
+              <HelpButton onStartWalkthrough={handleResetWalkthrough} />
               <Button
                 variant="ghost"
                 size="sm"
@@ -234,7 +207,7 @@ const PencilApp = () => {
           <div className="hidden lg:block">
             <AppHeader
               teacherProfile={teacherProfile}
-              onStartWalkthrough={resetOnboarding}
+              onStartWalkthrough={handleResetWalkthrough}
             />
           </div>
 
@@ -354,23 +327,14 @@ const PencilApp = () => {
             />
           )}
 
-          {/* Onboarding Overlay */}
-          <OnboardingOverlay
-            isOpen={isOnboardingActive}
+          {/* Simple Walkthrough */}
+          <SimpleWalkthrough
+            isOpen={isWalkthroughActive}
             steps={steps}
             currentStep={currentStep}
             onNext={nextStep}
             onPrevious={previousStep}
-            onSkip={skipOnboarding}
-            onClose={skipOnboarding}
-            onStepAction={handleOnboardingStepAction}
-          />
-
-          {/* Onboarding Conclusion */}
-          <OnboardingConclusion
-            isOpen={showConclusion}
-            onClose={closeConclusion}
-            onStartCreating={handleStartCreating}
+            onSkip={skipWalkthrough}
           />
         </div>
       </div>
