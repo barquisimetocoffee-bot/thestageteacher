@@ -14,6 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
+      admin_audit_log: {
+        Row: {
+          accessed_at: string | null
+          action: string
+          admin_user_id: string
+          details: Json | null
+          id: string
+          record_id: string | null
+          table_name: string
+        }
+        Insert: {
+          accessed_at?: string | null
+          action: string
+          admin_user_id: string
+          details?: Json | null
+          id?: string
+          record_id?: string | null
+          table_name: string
+        }
+        Update: {
+          accessed_at?: string | null
+          action?: string
+          admin_user_id?: string
+          details?: Json | null
+          id?: string
+          record_id?: string | null
+          table_name?: string
+        }
+        Relationships: []
+      }
       announcements: {
         Row: {
           author_id: string
@@ -697,6 +727,15 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      log_admin_access: {
+        Args: {
+          p_action: string
+          p_details?: Json
+          p_record_id?: string
+          p_table_name: string
+        }
+        Returns: undefined
       }
     }
     Enums: {
