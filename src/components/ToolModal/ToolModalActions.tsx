@@ -33,7 +33,7 @@ const ToolModalActions = ({
   if (!generatedContent) return null;
 
   return (
-    <div className="flex space-x-2">
+    <div className="flex space-x-2" data-onboarding="content-actions">
       <Button
         variant="outline"
         size="sm"

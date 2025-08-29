@@ -47,6 +47,7 @@ import PencilApp from "./pages/PencilApp";
 import PencilPage from "./pages/PencilPage";
 import DataAnalytics from "./pages/DataAnalytics";
 import Documentation from "./pages/Documentation";
+import { AuthGuard } from "./components/auth/AuthGuard";
 
 const queryClient = new QueryClient();
 
@@ -63,18 +64,18 @@ const App = () => (
               <ErrorBoundary>
                 <Routes>
                   <Route path="/" element={<Index />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/pencil-app" element={<PencilApp />} />
+                  <Route path="/profile" element={<AuthGuard><Profile /></AuthGuard>} />
+                  <Route path="/pencil-app" element={<AuthGuard><PencilApp /></AuthGuard>} />
                   <Route path="/pencil" element={<PencilPage />} />
                   <Route path="/landing" element={<LandingPage />} />
-                  <Route path="/ai-chatbot" element={<AIChatbot />} />
-                  <Route path="/pencil-tools" element={<WizardTools />} />
+                  <Route path="/ai-chatbot" element={<AuthGuard><AIChatbot /></AuthGuard>} />
+                  <Route path="/pencil-tools" element={<AuthGuard><WizardTools /></AuthGuard>} />
                   <Route
                     path="/tools-suggestions"
-                    element={<ToolsSuggestions />}
+                    element={<AuthGuard><ToolsSuggestions /></AuthGuard>}
                   />
-                  <Route path="/output-history" element={<OutputHistory />} />
-                  <Route path="/data-analytics" element={<DataAnalytics />} />
+                  <Route path="/output-history" element={<AuthGuard><OutputHistory /></AuthGuard>} />
+                  <Route path="/data-analytics" element={<AuthGuard><DataAnalytics /></AuthGuard>} />
                   <Route path="/advanced-lms" element={<AdvancedLMS />} />
                   <Route
                     path="/school-administration"

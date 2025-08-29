@@ -34,20 +34,18 @@ const ToolModalContent = ({
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-semibold">Generated Content</h3>
-        <div data-onboarding="content-actions">
-          <ToolModalActions
-            generatedContent={generatedContent}
-            tool={tool}
-            formData={formData}
-            isSaving={isSaving}
-            isSaved={isSaved}
-            isExportingSlides={isExportingSlides}
-            onCopy={onCopy}
-            onDownload={onDownload}
-            onSave={onSave}
-            onExportSlides={onExportSlides}
-          />
-        </div>
+        <ToolModalActions
+          generatedContent={generatedContent}
+          tool={tool}
+          formData={formData}
+          isSaving={isSaving}
+          isSaved={isSaved}
+          isExportingSlides={isExportingSlides}
+          onCopy={onCopy}
+          onDownload={onDownload}
+          onSave={onSave}
+          onExportSlides={onExportSlides}
+        />
       </div>
       
       <div className="min-h-[300px] border rounded-lg p-4 bg-gray-50 max-h-[600px] overflow-y-auto">

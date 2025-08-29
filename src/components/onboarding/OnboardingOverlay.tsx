@@ -72,6 +72,7 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
           // Special adjustments for specific steps
           if (currentStepData.id === 'categories') {
             top = rect.bottom + offset + 10; // Adjust for proper alignment
+            left = rect.left; // Align with the left of the categories
           }
           break;
         case 'left':
@@ -131,9 +132,11 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
           style={{
             background: highlightElement && currentStepData?.showOverlay !== false
               ? currentStepData.id === 'sidebar'
-                ? `linear-gradient(to right, transparent 0%, transparent 280px, rgba(0, 0, 0, 0.3) 280px, rgba(0, 0, 0, 0.3) 100%)`
-                : `radial-gradient(circle at ${highlightElement.getBoundingClientRect().left + highlightElement.getBoundingClientRect().width / 2}px ${highlightElement.getBoundingClientRect().top + highlightElement.getBoundingClientRect().height / 2}px, transparent ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 20}px, rgba(0, 0, 0, 0.3) ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 25}px)`
-              : 'rgba(0, 0, 0, 0.3)'
+                ? `linear-gradient(to right, transparent 0%, transparent 280px, rgba(0, 0, 0, 0.6) 280px, rgba(0, 0, 0, 0.6) 100%)`
+                : currentStepData.id === 'categories'
+                ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) ${highlightElement.getBoundingClientRect().top - 20}px, transparent ${highlightElement.getBoundingClientRect().top - 20}px, transparent ${highlightElement.getBoundingClientRect().bottom + 20}px, rgba(0, 0, 0, 0.6) ${highlightElement.getBoundingClientRect().bottom + 20}px, rgba(0, 0, 0, 0.6) 100%)`
+                : `radial-gradient(circle at ${highlightElement.getBoundingClientRect().left + highlightElement.getBoundingClientRect().width / 2}px ${highlightElement.getBoundingClientRect().top + highlightElement.getBoundingClientRect().height / 2}px, transparent ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 20}px, rgba(0, 0, 0, 0.6) ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 25}px)`
+              : 'rgba(0, 0, 0, 0.6)'
           }}
         />
 
