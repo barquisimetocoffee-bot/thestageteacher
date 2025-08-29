@@ -61,10 +61,18 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
         case 'top':
           top = rect.top - cardHeight - offset;
           left = rect.left + (rect.width - cardWidth) / 2;
+          // Special adjustments for specific steps
+          if (currentStepData.id === 'tools-grid') {
+            top = rect.top - cardHeight - offset - 50; // Make popup higher
+          }
           break;
         case 'bottom':
           top = rect.bottom + offset;
           left = rect.left + (rect.width - cardWidth) / 2;
+          // Special adjustments for specific steps
+          if (currentStepData.id === 'categories') {
+            top = rect.bottom + offset + 10; // Adjust for proper alignment
+          }
           break;
         case 'left':
           top = rect.top + (rect.height - cardHeight) / 2;
@@ -73,6 +81,10 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
         case 'right':
           top = rect.top + (rect.height - cardHeight) / 2;
           left = rect.right + offset;
+          // Special adjustments for specific steps
+          if (currentStepData.id === 'sidebar') {
+            top = rect.top + (rect.height - cardHeight) / 2 - 50; // Make it higher
+          }
           break;
         case 'center':
           top = window.innerHeight / 2 - cardHeight / 2;
@@ -86,8 +98,12 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
 
       setCardPosition({ top, left });
 
-      // Scroll element into view
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Scroll element into view with special handling for tools-grid
+      if (currentStepData.id === 'tools-grid') {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll down less
+      } else {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
   }, [isOpen, currentStep, currentStepData]);
 
@@ -114,7 +130,9 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
           onClick={onSkip}
           style={{
             background: highlightElement && currentStepData?.showOverlay !== false
-              ? `radial-gradient(circle at ${highlightElement.getBoundingClientRect().left + highlightElement.getBoundingClientRect().width / 2}px ${highlightElement.getBoundingClientRect().top + highlightElement.getBoundingClientRect().height / 2}px, transparent ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 20}px, rgba(0, 0, 0, 0.3) ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 25}px)`
+              ? currentStepData.id === 'sidebar'
+                ? `linear-gradient(to right, transparent 0%, transparent 280px, rgba(0, 0, 0, 0.3) 280px, rgba(0, 0, 0, 0.3) 100%)`
+                : `radial-gradient(circle at ${highlightElement.getBoundingClientRect().left + highlightElement.getBoundingClientRect().width / 2}px ${highlightElement.getBoundingClientRect().top + highlightElement.getBoundingClientRect().height / 2}px, transparent ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 20}px, rgba(0, 0, 0, 0.3) ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 25}px)`
               : 'rgba(0, 0, 0, 0.3)'
           }}
         />

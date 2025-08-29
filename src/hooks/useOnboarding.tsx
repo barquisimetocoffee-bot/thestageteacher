@@ -26,6 +26,7 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     description: 'Your sidebar provides quick access to different sections. You can always return to the main tools from here.',
     targetElement: '[data-onboarding="sidebar"]',
     position: 'right',
+    showOverlay: true,
   },
   {
     id: 'search',
@@ -63,6 +64,7 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     description: 'Each tool has a simple form. Fill in the details about what you want to create. The more specific you are, the better the AI-generated content will be.',
     targetElement: '[data-onboarding="tool-form"]',
     position: 'right',
+    showOverlay: false,
   },
   {
     id: 'generate-button',
@@ -71,13 +73,15 @@ const ONBOARDING_STEPS: OnboardingStep[] = [
     targetElement: '[data-onboarding="generate-button"]',
     position: 'top',
     action: 'click',
+    showOverlay: false,
   },
   {
     id: 'content-actions',
     title: 'Use Your Generated Content',
-    description: 'After generation, you can copy, download, save, or export your content. You can also chat with the AI to modify the content to better suit your needs.',
+    description: 'After generation, you can copy, download, save, or export your content. Use the Copy, Download, and Save buttons to manage your generated content.',
     targetElement: '[data-onboarding="content-actions"]',
     position: 'left',
+    showOverlay: false,
   },
 ];
 
