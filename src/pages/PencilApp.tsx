@@ -234,6 +234,7 @@ const PencilApp = () => {
           <div className="hidden lg:block">
             <AppHeader
               teacherProfile={teacherProfile}
+              onStartWalkthrough={resetOnboarding}
             />
           </div>
 

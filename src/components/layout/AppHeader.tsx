@@ -7,17 +7,16 @@ import { useTranslation } from "react-i18next";
 import LanguageSelector from "../LanguageSelector";
 import ProfileDropdown from "./ProfileDropdown";
 import HelpButton from "../common/HelpButton";
-import { useOnboarding } from "@/hooks/useOnboarding";
 
 interface AppHeaderProps {
   teacherProfile: any;
+  onStartWalkthrough: () => void;
 }
 
-const AppHeader = ({ teacherProfile }: AppHeaderProps) => {
+const AppHeader = ({ teacherProfile, onStartWalkthrough }: AppHeaderProps) => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { resetOnboarding } = useOnboarding();
 
   const handleSignOut = async () => {
     await signOut();
@@ -57,7 +56,7 @@ const AppHeader = ({ teacherProfile }: AppHeaderProps) => {
             </div>
             <div className="flex items-center space-x-2">
               <LanguageSelector />
-              <HelpButton onStartWalkthrough={resetOnboarding} />
+              <HelpButton onStartWalkthrough={onStartWalkthrough} />
               <ProfileDropdown teacherProfile={teacherProfile} />
             </div>
           </div>

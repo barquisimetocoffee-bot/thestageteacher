@@ -158,8 +158,9 @@ export const useOnboarding = () => {
       localStorage.removeItem(`onboarding_completed_${user.id}`);
       localStorage.removeItem(`first_visit_${user.id}`);
       setCurrentStep(0);
-      setIsOnboardingActive(true);
       setShowConclusion(false);
+      // Immediately start the onboarding
+      setIsOnboardingActive(true);
     }
   };
 
