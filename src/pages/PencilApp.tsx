@@ -207,9 +207,7 @@ const PencilApp = () => {
               <Menu className="h-5 w-5" />
             </Button>
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary via-secondary to-accent rounded-lg flex items-center justify-center">
-                <Bot className="h-5 w-5 text-white" />
-              </div>
+              <img src="/lovable-uploads/6e7b32fc-14eb-4162-ae2e-679b6d8b51c8.png" alt="Pencil Logo" className="w-8 h-8 rounded-lg" />
               <div>
                 <h1 className="text-lg font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                   Pencil

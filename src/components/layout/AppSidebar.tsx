@@ -80,7 +80,7 @@ const AppSidebar = () => {
     <Sidebar className="border-0 shadow-2xl bg-white/98 backdrop-blur-xl w-64">
       <SidebarHeader className="p-4 bg-gradient-to-br from-blue-500/10 via-green-500/10 to-purple-500/10 border-b border-blue-500/20">
         <div className="flex items-center space-x-3">
-          <img src="/pencil/logo.jpg" alt="" className="size-14 rounded-xl" />
+          <img src="/lovable-uploads/6e7b32fc-14eb-4162-ae2e-679b6d8b51c8.png" alt="Pencil Logo" className="size-14 rounded-xl" />
 
           <div>
             <h2 className="text-lg font-bold bg-gradient-to-r from-[#2901b3] to-blue-500 bg-clip-text text-transparent">
