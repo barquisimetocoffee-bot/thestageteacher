@@ -105,29 +105,35 @@ const OnboardingOverlay: React.FC<OnboardingOverlayProps> = ({
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-[9999]">
-        {/* Overlay with blur and darkening */}
+        {/* Overlay with blur and darkening - with cutout for highlighted element */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+          className="fixed inset-0 pointer-events-auto"
           onClick={onSkip}
+          style={{
+            background: highlightElement && currentStepData?.showOverlay !== false
+              ? `radial-gradient(circle at ${highlightElement.getBoundingClientRect().left + highlightElement.getBoundingClientRect().width / 2}px ${highlightElement.getBoundingClientRect().top + highlightElement.getBoundingClientRect().height / 2}px, transparent ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 20}px, rgba(0, 0, 0, 0.5) ${Math.max(highlightElement.getBoundingClientRect().width, highlightElement.getBoundingClientRect().height) / 2 + 25}px)`
+              : 'rgba(0, 0, 0, 0.5)',
+            backdropFilter: 'blur(2px)'
+          }}
         />
 
-        {/* Highlight spotlight for target element */}
+        {/* Highlight border for target element */}
         {highlightElement && currentStepData?.showOverlay !== false && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="fixed pointer-events-none"
+            className="fixed pointer-events-none z-[9998]"
             style={{
-              top: highlightElement.getBoundingClientRect().top - 8,
-              left: highlightElement.getBoundingClientRect().left - 8,
-              width: highlightElement.getBoundingClientRect().width + 16,
-              height: highlightElement.getBoundingClientRect().height + 16,
-              boxShadow: '0 0 0 9999px rgba(0, 0, 0, 0.5)',
+              top: highlightElement.getBoundingClientRect().top - 4,
+              left: highlightElement.getBoundingClientRect().left - 4,
+              width: highlightElement.getBoundingClientRect().width + 8,
+              height: highlightElement.getBoundingClientRect().height + 8,
               borderRadius: '12px',
               border: '3px solid #3b82f6',
+              boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)'
             }}
           />
         )}

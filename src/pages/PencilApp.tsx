@@ -19,6 +19,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useOnboarding } from "@/hooks/useOnboarding";
 import OnboardingOverlay from "@/components/onboarding/OnboardingOverlay";
 import OnboardingConclusion from "@/components/onboarding/OnboardingConclusion";
+import HelpButton from "@/components/common/HelpButton";
 
 import GradeSystemSelector from "@/components/GradeSystemSelector";
 import LanguageSelector from "@/components/LanguageSelector";
@@ -52,6 +53,7 @@ const PencilApp = () => {
     skipOnboarding,
     closeConclusion,
     startCreating,
+    resetOnboarding,
   } = useOnboarding();
 
   // Load profile data on mount
@@ -217,14 +219,17 @@ const PencilApp = () => {
                 </p>
               </div>
             </div>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => navigate('/profile')}
-              className="p-2 hover:bg-primary/10 text-primary"
-            >
-              <User className="h-5 w-5" />
-            </Button>
+            <div className="flex items-center space-x-2">
+              <HelpButton onStartWalkthrough={resetOnboarding} />
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => navigate('/profile')}
+                className="p-2 hover:bg-primary/10 text-primary"
+              >
+                <User className="h-5 w-5" />
+              </Button>
+            </div>
           </div>
 
           {/* Desktop Header */}
