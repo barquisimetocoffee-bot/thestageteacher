@@ -87,13 +87,25 @@ export const useOnboarding = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [showConclusion, setShowConclusion] = useState(false);
 
-  // Check if user should see onboarding
+  // Check if user should see onboarding or if walkthrough was triggered
   useEffect(() => {
     if (!user) return;
 
     const hasCompletedOnboarding = localStorage.getItem(`onboarding_completed_${user.id}`);
     const isFirstLogin = !localStorage.getItem(`first_visit_${user.id}`);
+    const shouldStartWalkthrough = sessionStorage.getItem('startWalkthrough');
 
+    // Check if walkthrough was triggered from another page
+    if (shouldStartWalkthrough === 'true') {
+      sessionStorage.removeItem('startWalkthrough');
+      setTimeout(() => {
+        setIsOnboardingActive(true);
+        setCurrentStep(0);
+      }, 1000);
+      return;
+    }
+
+    // Normal first-time onboarding logic
     if (isFirstLogin && !hasCompletedOnboarding) {
       // Mark as visited and start onboarding after a brief delay
       localStorage.setItem(`first_visit_${user.id}`, 'true');

@@ -20,6 +20,18 @@ const HelpButton: React.FC<HelpButtonProps> = ({ onStartWalkthrough }) => {
     navigate('/documentation');
   };
 
+  const handleWalkthroughClick = () => {
+    // Navigate to pencil app first, then start walkthrough
+    const currentPath = window.location.pathname;
+    if (currentPath !== '/pencil-app') {
+      // Set flag to start walkthrough after navigation
+      sessionStorage.setItem('startWalkthrough', 'true');
+      navigate('/pencil-app');
+    } else {
+      onStartWalkthrough();
+    }
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -36,7 +48,7 @@ const HelpButton: React.FC<HelpButtonProps> = ({ onStartWalkthrough }) => {
           <BookOpen className="h-4 w-4 mr-2" />
           Documentation
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={onStartWalkthrough} className="cursor-pointer">
+        <DropdownMenuItem onClick={handleWalkthroughClick} className="cursor-pointer">
           <Play className="h-4 w-4 mr-2" />
           Start Walkthrough
         </DropdownMenuItem>
