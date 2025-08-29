@@ -90,13 +90,13 @@ const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[999999]">
+      <div className="fixed inset-0 z-[99999999] pointer-events-none">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/40"
+          className="fixed inset-0 bg-black/40 pointer-events-auto"
           onClick={onSkip}
         />
 
@@ -144,7 +144,7 @@ const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
-          className="fixed z-[1000000]"
+          className="fixed z-[1000000000] pointer-events-auto"
           style={{
             top: cardPosition.top,
             left: cardPosition.left,

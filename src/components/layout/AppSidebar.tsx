@@ -159,7 +159,7 @@ const AppSidebar = () => {
                 </span>
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed italic">
-                "{t("easyteach.sidebar.testimonial")}"
+                Pencil transforms my lesson planning and saves hours every week!
               </p>
               <div className="flex items-center mt-4 justify-between">
                 <div className="flex items-center space-x-1">
@@ -171,7 +171,7 @@ const AppSidebar = () => {
                   ))}
                 </div>
                 <span className="text-xs text-muted-foreground font-medium">
-                  Sarah M.
+                  Coline G.
                 </span>
               </div>
             </div>

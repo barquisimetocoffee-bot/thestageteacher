@@ -38,18 +38,18 @@ const WALKTHROUGH_STEPS: WalkthroughStep[] = [
     position: 'top',
   },
   {
-    id: 'sidebar',
-    title: 'Navigation & Features',
-    description: 'The sidebar gives you access to different sections: Tools, History, Profile settings, and more.',
-    targetElement: '[data-onboarding="sidebar"]',
-    position: 'center',
-  },
-  {
     id: 'content-actions',
     title: 'Save Your Work',
     description: 'After generating content, use these buttons to copy, download, or save your educational materials.',
     targetElement: '[data-onboarding="content-actions"]',
     position: 'top',
+  },
+  {
+    id: 'sidebar',
+    title: 'Navigation & Features',
+    description: 'The sidebar gives you access to different sections: Tools, History, Profile settings, and more.',
+    targetElement: '[data-onboarding="sidebar"]',
+    position: 'center',
   },
 ];
 
