@@ -46,6 +46,7 @@ import ScrollToTop from "./hooks/scrollToTop";
 import PencilApp from "./pages/PencilApp";
 import PencilPage from "./pages/PencilPage";
 import DataAnalytics from "./pages/DataAnalytics";
+import Documentation from "./pages/Documentation";
 
 const queryClient = new QueryClient();
 
@@ -127,6 +128,7 @@ const App = () => (
                     path="/solutions/communication"
                     element={<Communication />}
                   />
+                  <Route path="/documentation" element={<Documentation />} />
                   <Route path="/reset-password" element={<ResetPassword />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>

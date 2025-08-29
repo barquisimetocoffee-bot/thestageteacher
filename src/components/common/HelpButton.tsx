@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { 
   DropdownMenu,
@@ -13,8 +14,10 @@ interface HelpButtonProps {
 }
 
 const HelpButton: React.FC<HelpButtonProps> = ({ onStartWalkthrough }) => {
+  const navigate = useNavigate();
+
   const handleDocumentationClick = () => {
-    window.open('https://docs.lovable.dev/', '_blank');
+    navigate('/documentation');
   };
 
   return (
