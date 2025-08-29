@@ -263,7 +263,15 @@ const ProductsSection = ({
                       : "top-[85px]"
                   }`}
                 >
-                  <product.icon className={`h-6 w-6 text-blue-600`} />
+                  {product.id === "pencil-free" ? (
+                    <img 
+                      src="/lovable-uploads/b949b427-4b1d-4c8b-ae92-bce50072ee20.png" 
+                      alt="Pencil Logo" 
+                      className="h-6 w-6" 
+                    />
+                  ) : (
+                    <product.icon className={`h-6 w-6 text-blue-600`} />
+                  )}
                 </span>
                 {/* content goes here */}
                 <div className="px-4 flex flex-col gap-2">
