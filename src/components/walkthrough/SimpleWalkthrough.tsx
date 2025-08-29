@@ -12,6 +12,7 @@ interface SimpleWalkthroughProps {
   onNext: () => void;
   onPrevious: () => void;
   onSkip: () => void;
+  onStepAction?: (stepId: string) => void;
 }
 
 const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
@@ -21,6 +22,7 @@ const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
   onNext,
   onPrevious,
   onSkip,
+  onStepAction,
 }) => {
   const [targetElement, setTargetElement] = useState<HTMLElement | null>(null);
   const [cardPosition, setCardPosition] = useState({ top: 0, left: 0 });
@@ -97,22 +99,43 @@ const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
           onClick={onSkip}
         />
 
-        {/* Highlight target element */}
+        {/* Highlight target element without blur */}
         {targetElement && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="fixed pointer-events-none z-[99998]"
-            style={{
-              top: targetElement.getBoundingClientRect().top - 4,
-              left: targetElement.getBoundingClientRect().left - 4,
-              width: targetElement.getBoundingClientRect().width + 8,
-              height: targetElement.getBoundingClientRect().height + 8,
-              borderRadius: '8px',
-              border: '3px solid hsl(var(--primary))',
-              boxShadow: '0 0 0 9999px rgba(0, 0, 0, 0.4)',
-            }}
-          />
+          <>
+            {/* Clear spotlight for highlighted element */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="fixed pointer-events-none z-[99997]"
+              style={{
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: `radial-gradient(circle at ${
+                  targetElement.getBoundingClientRect().left + targetElement.getBoundingClientRect().width / 2
+                }px ${
+                  targetElement.getBoundingClientRect().top + targetElement.getBoundingClientRect().height / 2
+                }px, transparent ${Math.max(targetElement.getBoundingClientRect().width, targetElement.getBoundingClientRect().height) / 2 + 20}px, rgba(0, 0, 0, 0.4) ${Math.max(targetElement.getBoundingClientRect().width, targetElement.getBoundingClientRect().height) / 2 + 25}px)`,
+              }}
+            />
+            
+            {/* Highlight border */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="fixed pointer-events-none z-[99998]"
+              style={{
+                top: targetElement.getBoundingClientRect().top - 4,
+                left: targetElement.getBoundingClientRect().left - 4,
+                width: targetElement.getBoundingClientRect().width + 8,
+                height: targetElement.getBoundingClientRect().height + 8,
+                borderRadius: '8px',
+                border: '3px solid hsl(var(--primary))',
+                boxShadow: '0 0 20px hsl(var(--primary) / 0.3)',
+              }}
+            />
+          </>
         )}
 
         {/* Walkthrough Card */}
@@ -186,7 +209,13 @@ const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
                   
                   <Button
                     size="sm"
-                    onClick={onNext}
+                    onClick={() => {
+                      if (currentStepData.id === 'try-tool' && onStepAction) {
+                        onStepAction(currentStepData.id);
+                      } else {
+                        onNext();
+                      }
+                    }}
                     className="flex items-center space-x-1"
                   >
                     <span>

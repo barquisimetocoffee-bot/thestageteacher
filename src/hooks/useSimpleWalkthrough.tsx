@@ -13,7 +13,7 @@ const WALKTHROUGH_STEPS: WalkthroughStep[] = [
   {
     id: 'welcome',
     title: 'Welcome to Pencil! ✏️',
-    description: 'Your AI-powered teaching assistant. Let me show you around in just 4 quick steps!',
+    description: 'Your AI-powered teaching assistant. Let me show you around in just 6 quick steps!',
     position: 'center',
   },
   {
@@ -35,6 +35,20 @@ const WALKTHROUGH_STEPS: WalkthroughStep[] = [
     title: 'Try a Tool',
     description: 'Click on any tool to start creating AI-powered educational content instantly!',
     targetElement: '[data-tool-id="1"]',
+    position: 'top',
+  },
+  {
+    id: 'sidebar',
+    title: 'Navigation & Features',
+    description: 'The sidebar gives you access to different sections: Tools, History, Profile settings, and more.',
+    targetElement: '[data-onboarding="sidebar"]',
+    position: 'center',
+  },
+  {
+    id: 'content-actions',
+    title: 'Save Your Work',
+    description: 'After generating content, use these buttons to copy, download, or save your educational materials.',
+    targetElement: '[data-onboarding="content-actions"]',
     position: 'top',
   },
 ];
@@ -76,6 +90,10 @@ export const useSimpleWalkthrough = () => {
     }
   };
 
+  const skipToStep = (stepIndex: number) => {
+    setCurrentStep(stepIndex);
+  };
+
   const previousStep = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
@@ -114,5 +132,6 @@ export const useSimpleWalkthrough = () => {
     skip,
     complete,
     reset,
+    skipToStep,
   };
 };

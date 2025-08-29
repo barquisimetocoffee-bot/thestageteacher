@@ -50,6 +50,7 @@ const PencilApp = () => {
     previousStep,
     skip: skipWalkthrough,
     reset: resetWalkthrough,
+    skipToStep,
   } = useSimpleWalkthrough();
 
   // Load profile data on mount
@@ -151,6 +152,19 @@ const PencilApp = () => {
 
   const handleResetWalkthrough = () => {
     resetWalkthrough();
+  };
+
+  // Handle walkthrough step actions
+  const handleWalkthroughStepAction = (stepId: string) => {
+    if (stepId === 'try-tool') {
+      // Open the first tool to demonstrate the process
+      const firstTool = translatedTools[0];
+      if (firstTool) {
+        setSelectedTool(firstTool);
+        // Skip to sidebar step after opening tool
+        setTimeout(() => skipToStep(4), 1000);
+      }
+    }
   };
 
   return (
@@ -335,6 +349,7 @@ const PencilApp = () => {
             onNext={nextStep}
             onPrevious={previousStep}
             onSkip={skipWalkthrough}
+            onStepAction={handleWalkthroughStepAction}
           />
         </div>
       </div>
