@@ -59,6 +59,8 @@ const ToolsGrid = ({
             key={tool.id}
             className="group relative overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-white/95 backdrop-blur-md border border-primary/20 hover:border-primary/40 rounded-2xl"
             onClick={(e) => handleToolClick(tool, e)}
+            data-tool-id={tool.id}
+            data-tool-name={tool.name?.toLowerCase().replace(/\s+/g, '-')}
           >
             <CardHeader className="pb-4 relative">
               <div className="flex items-start justify-between mb-2">

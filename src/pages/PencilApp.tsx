@@ -16,6 +16,9 @@ import TeacherProfile from "@/components/TeacherProfile";
 import ToolModal from "@/components/ToolModal";
 import AIAssistant from "@/components/AIAssistant";
 import { useAuth } from "@/hooks/useAuth";
+import { useOnboarding } from "@/hooks/useOnboarding";
+import OnboardingOverlay from "@/components/onboarding/OnboardingOverlay";
+import OnboardingConclusion from "@/components/onboarding/OnboardingConclusion";
 
 import GradeSystemSelector from "@/components/GradeSystemSelector";
 import LanguageSelector from "@/components/LanguageSelector";
@@ -37,6 +40,19 @@ const PencilApp = () => {
   const [selectedTool, setSelectedTool] = useState(null);
   const [teacherProfile, setTeacherProfile] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Onboarding state
+  const {
+    isOnboardingActive,
+    currentStep,
+    steps,
+    showConclusion,
+    nextStep,
+    previousStep,
+    skipOnboarding,
+    closeConclusion,
+    startCreating,
+  } = useOnboarding();
 
   // Load profile data on mount
   useEffect(() => {
@@ -135,11 +151,38 @@ const PencilApp = () => {
     }
   };
 
+  const handleOnboardingStepAction = (stepId: string) => {
+    switch (stepId) {
+      case 'select-tool':
+        // Find lesson plan generator tool by name
+        const lessonPlanTool = translatedTools.find(tool => 
+          tool.name.toLowerCase().includes('lesson plan') ||
+          tool.name.toLowerCase().includes('lesson') ||
+          tool.category === 'Lesson Planning'
+        );
+        if (lessonPlanTool) {
+          setSelectedTool(lessonPlanTool);
+        }
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleStartCreating = () => {
+    closeConclusion();
+    // Focus on tools grid and optionally open a popular tool
+    const firstTool = translatedTools[0];
+    if (firstTool) {
+      setSelectedTool(firstTool);
+    }
+  };
+
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full">
         {/* Desktop Sidebar */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block" data-onboarding="sidebar">
           <AppSidebar />
         </div>
 
@@ -233,7 +276,7 @@ const PencilApp = () => {
                   </div>
 
                   {/* Search Bar */}
-                  <div className="relative mb-4 sm:mb-6">
+                  <div className="relative mb-4 sm:mb-6" data-onboarding="search">
                     <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4 sm:h-5 sm:w-5" />
                     <Input
                       type="text"
@@ -245,19 +288,23 @@ const PencilApp = () => {
                   </div>
 
                   {/* Category Filters */}
-                  <CategoryFilters
-                    categories={categories}
-                    selectedCategory={selectedCategory}
-                    onCategorySelect={setSelectedCategory}
-                  />
+                  <div data-onboarding="categories">
+                    <CategoryFilters
+                      categories={categories}
+                      selectedCategory={selectedCategory}
+                      onCategorySelect={setSelectedCategory}
+                    />
+                  </div>
                 </div>
 
-                <ToolsGrid
-                  tools={filteredTools}
-                  categories={categories}
-                  onToolClick={handleToolClick}
-                  searchTerm={searchTerm}
-                />
+                <div data-onboarding="tools-grid">
+                  <ToolsGrid
+                    tools={filteredTools}
+                    categories={categories}
+                    onToolClick={handleToolClick}
+                    searchTerm={searchTerm}
+                  />
+                </div>
               </TabsContent>
 
               <TabsContent value="ai-assistant">
@@ -302,6 +349,25 @@ const PencilApp = () => {
               teacherProfile={teacherProfile}
             />
           )}
+
+          {/* Onboarding Overlay */}
+          <OnboardingOverlay
+            isOpen={isOnboardingActive}
+            steps={steps}
+            currentStep={currentStep}
+            onNext={nextStep}
+            onPrevious={previousStep}
+            onSkip={skipOnboarding}
+            onClose={skipOnboarding}
+            onStepAction={handleOnboardingStepAction}
+          />
+
+          {/* Onboarding Conclusion */}
+          <OnboardingConclusion
+            isOpen={showConclusion}
+            onClose={closeConclusion}
+            onStartCreating={handleStartCreating}
+          />
         </div>
       </div>
     </SidebarProvider>

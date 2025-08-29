@@ -141,7 +141,7 @@ const ToolModalForm = ({
   const isFormValid = Object.values(formData).some((v) => v?.trim());
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4" data-onboarding="tool-form">
       <h3 className="text-lg font-semibold">Input Details</h3>
       {renderInputFields()}
 
@@ -149,6 +149,7 @@ const ToolModalForm = ({
         onClick={onGenerate}
         disabled={isGenerating || !isFormValid}
         className="w-full my-btn p-3 cursor-pointer rounded-2xl"
+        data-onboarding="generate-button"
       >
         {isGenerating ? (
           <>
