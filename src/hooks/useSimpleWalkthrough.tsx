@@ -13,7 +13,7 @@ const WALKTHROUGH_STEPS: WalkthroughStep[] = [
   {
     id: 'welcome',
     title: 'Welcome to Pencil! ✏️',
-    description: 'Your AI-powered teaching assistant. Let me show you around in just 6 quick steps!',
+    description: 'Your AI-powered teaching assistant. Let me show you around in just 7 quick steps!',
     position: 'center',
   },
   {
@@ -49,6 +49,12 @@ const WALKTHROUGH_STEPS: WalkthroughStep[] = [
     title: 'Navigation & Features',
     description: 'The sidebar gives you access to different sections: Tools, History, Profile settings, and more.',
     targetElement: '[data-onboarding="sidebar"]',
+    position: 'center',
+  },
+  {
+    id: 'completion',
+    title: '🎉 You\'re All Set!',
+    description: 'Congratulations! You\'ve completed the tour. Now you\'re ready to create amazing educational content with Pencil. Pick any tool and start generating!',
     position: 'center',
   },
 ];

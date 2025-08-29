@@ -96,7 +96,7 @@ const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/40 pointer-events-auto"
+          className="fixed inset-0 bg-black/25 pointer-events-auto"
           onClick={onSkip}
         />
 
@@ -117,7 +117,7 @@ const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
                   targetElement.getBoundingClientRect().left + targetElement.getBoundingClientRect().width / 2
                 }px ${
                   targetElement.getBoundingClientRect().top + targetElement.getBoundingClientRect().height / 2
-                }px, transparent ${Math.max(targetElement.getBoundingClientRect().width, targetElement.getBoundingClientRect().height) / 2 + 20}px, rgba(0, 0, 0, 0.4) ${Math.max(targetElement.getBoundingClientRect().width, targetElement.getBoundingClientRect().height) / 2 + 25}px)`,
+                }px, transparent ${Math.max(targetElement.getBoundingClientRect().width, targetElement.getBoundingClientRect().height) / 2 + 20}px, rgba(0, 0, 0, 0.25) ${Math.max(targetElement.getBoundingClientRect().width, targetElement.getBoundingClientRect().height) / 2 + 25}px)`,
               }}
             />
             
@@ -220,7 +220,7 @@ const SimpleWalkthrough: React.FC<SimpleWalkthroughProps> = ({
                     className="flex items-center space-x-1"
                   >
                     <span>
-                      {currentStep === steps.length - 1 ? 'Get Started' : 'Next'}
+                      {currentStep === steps.length - 1 ? 'Start Creating!' : 'Next'}
                     </span>
                     <ChevronRight className="h-4 w-4" />
                   </Button>
