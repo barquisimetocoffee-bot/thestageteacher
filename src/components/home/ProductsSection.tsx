@@ -265,7 +265,7 @@ const ProductsSection = ({
                 >
                   {product.id === "pencil-free" ? (
                     <img 
-                      src="/lovable-uploads/5da70cbc-c5cf-40e4-afa7-4122bef54677.png" 
+                      src="/lovable-uploads/6c339d34-a996-4f74-b9fc-1bfc402f8ab6.png" 
                       alt="Pencil Logo" 
                       className="h-14 w-14" 
                     />
