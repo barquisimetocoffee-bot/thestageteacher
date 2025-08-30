@@ -135,8 +135,12 @@ const PencilPage = () => {
         <div className="max-w-7xl mx-auto text-center">
           <ScrollInFromBottom delay={0.2}>
             <div className="flex justify-center mb-6">
-              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg">
-                <BookOpen className="h-12 w-12 text-white" />
+              <div className="p-4 rounded-tr rounded-bl-sm bg-gradient-to-br from-blue-600 to-purple-700 shadow-lg">
+                <img 
+                  src="/lovable-uploads/98f9011e-18d3-4c3e-bd7b-bda27acc7845.png" 
+                  alt="Pencil by Vicerta Logo" 
+                  className="h-12 w-12"
+                />
               </div>
             </div>
           </ScrollInFromBottom>
@@ -216,13 +220,13 @@ const PencilPage = () => {
               The Pencil by Vicerta Vision
             </h2>
             
-            <div className="space-y-6 text-lg text-blue-50 leading-relaxed">
+            <div className="space-y-6 text-lg text-white font-semibold leading-relaxed">
               <p>
                 The education system is strained. Teachers face burnout from heavy workloads while students need more personalized attention. Vicerta was created to solve this. Our vision is to empower educators by reducing administrative tasks, so they can focus on what's truly important: their students.
               </p>
               
               <p>
-                <span className="text-white font-semibold">Pencil</span> is our first step in this revolution, designed to free up your time. Join us and experience the beginning of a new era in education.
+                <span className="text-white font-bold">Pencil</span> is our first step in this revolution, designed to free up your time. Join us and experience the beginning of a new era in education.
               </p>
             </div>
           </ScrollInFromBottom>
