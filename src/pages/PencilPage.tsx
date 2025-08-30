@@ -137,7 +137,7 @@ const PencilPage = () => {
             <div className="flex justify-center mb-6">
               <div className="p-4 rounded-tr rounded-bl-sm bg-gradient-to-br from-blue-600 to-purple-700 shadow-lg">
                 <img 
-                  src="/lovable-uploads/358be6b8-0039-4648-9ee5-146f8b809942.png" 
+                  src="/lovable-uploads/02cb8ec2-ae4a-4dda-a9f1-212d21f77d9b.png" 
                   alt="Pencil by Vicerta Logo" 
                   className="h-12 w-12"
                 />
@@ -217,7 +217,7 @@ const PencilPage = () => {
         <div className="max-w-4xl mx-auto">
           <ScrollInFromBottom>
             <div className="bg-gradient-to-br from-blue-600 to-purple-700 rounded-3xl p-8 md:p-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+              <h2 className="text-4xl md:text-5xl font-bold text-black mb-8">
                 The Pencil by Vicerta Vision
               </h2>
               
