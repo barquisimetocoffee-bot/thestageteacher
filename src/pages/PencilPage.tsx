@@ -208,6 +208,27 @@ const PencilPage = () => {
         </div>
       </section>
 
+      {/* Pencil by Vicerta Vision */}
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-purple-700">
+        <div className="max-w-4xl mx-auto text-center">
+          <ScrollInFromBottom>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+              The Pencil by Vicerta Vision
+            </h2>
+            
+            <div className="space-y-6 text-lg text-blue-50 leading-relaxed">
+              <p>
+                The education system is strained. Teachers face burnout from heavy workloads while students need more personalized attention. Vicerta was created to solve this. Our vision is to empower educators by reducing administrative tasks, so they can focus on what's truly important: their students.
+              </p>
+              
+              <p>
+                <span className="text-white font-semibold">Pencil</span> is our first step in this revolution, designed to free up your time. Join us and experience the beginning of a new era in education.
+              </p>
+            </div>
+          </ScrollInFromBottom>
+        </div>
+      </section>
+
       {/* Feature Showcase with Dashboard Mockups */}
       <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
