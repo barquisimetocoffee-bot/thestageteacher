@@ -269,6 +269,12 @@ const ProductsSection = ({
                       alt="Pencil Logo" 
                       className="h-10 w-6 object-contain" 
                     />
+                  ) : product.id === "pencil-pro" ? (
+                    <img 
+                      src="/lovable-uploads/4faeff6c-dc05-4655-96cf-f93cfcf7e4bb.png" 
+                      alt="Crown Pencil Logo" 
+                      className="h-8 w-8 object-contain" 
+                    />
                   ) : (
                     <product.icon className={`h-6 w-6 text-blue-600`} />
                   )}
