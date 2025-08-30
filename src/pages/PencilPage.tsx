@@ -137,7 +137,7 @@ const PencilPage = () => {
             <div className="flex justify-center mb-6">
               <div className="p-4 rounded-tr rounded-bl-sm bg-gradient-to-br from-blue-600 to-purple-700 shadow-lg">
                 <img 
-                  src="/lovable-uploads/98f9011e-18d3-4c3e-bd7b-bda27acc7845.png" 
+                  src="/lovable-uploads/358be6b8-0039-4648-9ee5-146f8b809942.png" 
                   alt="Pencil by Vicerta Logo" 
                   className="h-12 w-12"
                 />
@@ -213,21 +213,23 @@ const PencilPage = () => {
       </section>
 
       {/* Pencil by Vicerta Vision */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-purple-700">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
           <ScrollInFromBottom>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-              The Pencil by Vicerta Vision
-            </h2>
-            
-            <div className="space-y-6 text-lg text-white font-semibold leading-relaxed">
-              <p>
-                The education system is strained. Teachers face burnout from heavy workloads while students need more personalized attention. Vicerta was created to solve this. Our vision is to empower educators by reducing administrative tasks, so they can focus on what's truly important: their students.
-              </p>
+            <div className="bg-gradient-to-br from-blue-600 to-purple-700 rounded-3xl p-8 md:p-12 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+                The Pencil by Vicerta Vision
+              </h2>
               
-              <p>
-                <span className="text-white font-bold">Pencil</span> is our first step in this revolution, designed to free up your time. Join us and experience the beginning of a new era in education.
-              </p>
+              <div className="space-y-6 text-xl md:text-2xl text-white font-bold leading-relaxed">
+                <p>
+                  The education system is strained. Teachers face burnout from heavy workloads while students need more personalized attention. Vicerta was created to solve this. Our vision is to empower educators by reducing administrative tasks, so they can focus on what's truly important: their students.
+                </p>
+                
+                <p>
+                  <span className="text-white font-bold">Pencil</span> is our first step in this revolution, designed to free up your time. Join us and experience the beginning of a new era in education.
+                </p>
+              </div>
             </div>
           </ScrollInFromBottom>
         </div>
