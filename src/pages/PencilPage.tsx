@@ -135,12 +135,8 @@ const PencilPage = () => {
         <div className="max-w-7xl mx-auto text-center">
           <ScrollInFromBottom delay={0.2}>
             <div className="flex justify-center mb-6">
-              <div className="p-4 rounded-tr rounded-bl-sm bg-gradient-to-br from-blue-600 to-purple-700 shadow-lg">
-                <img 
-                  src="/lovable-uploads/02cb8ec2-ae4a-4dda-a9f1-212d21f77d9b.png" 
-                  alt="Pencil by Vicerta Logo" 
-                  className="h-12 w-12"
-                />
+              <div className="p-4 rounded-tr rounded-bl-sm icon-bg shadow-lg">
+                <BookOpen className="h-12 w-12 text-white" />
               </div>
             </div>
           </ScrollInFromBottom>
@@ -209,29 +205,6 @@ const PencilPage = () => {
               ))}
             </div>
           </Marquee>
-        </div>
-      </section>
-
-      {/* Pencil by Vicerta Vision */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <ScrollInFromBottom>
-            <div className="bg-gradient-to-br from-blue-600 to-purple-700 rounded-3xl p-8 md:p-12 text-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-black mb-8">
-                The Pencil by Vicerta Vision
-              </h2>
-              
-              <div className="space-y-6 text-xl md:text-2xl text-white font-bold leading-relaxed">
-                <p>
-                  The education system is strained. Teachers face burnout from heavy workloads while students need more personalized attention. Vicerta was created to solve this. Our vision is to empower educators by reducing administrative tasks, so they can focus on what's truly important: their students.
-                </p>
-                
-                <p>
-                  <span className="text-white font-bold">Pencil</span> is our first step in this revolution, designed to free up your time. Join us and experience the beginning of a new era in education.
-                </p>
-              </div>
-            </div>
-          </ScrollInFromBottom>
         </div>
       </section>
 
