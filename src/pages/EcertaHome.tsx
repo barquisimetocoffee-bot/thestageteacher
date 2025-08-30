@@ -36,9 +36,9 @@ const EcertaHome = () => {
         onJoinWaitlist={handleJoinWaitlist}
       />
 
-      <VicertaVision />
-
       <FAQ />
+
+      <VicertaVision />
 
       <CTASection
         onShowLogin={() => setShowLogin(true)}
