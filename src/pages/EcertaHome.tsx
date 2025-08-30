@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navigation from "@/components/home/Navigation";
 import HeroSection from "@/components/home/HeroSection";
+import VicertaVision from "@/components/home/VicertaVision";
 import VideoShowcase from "@/components/home/VideoShowcase";
 import EcertaShowcase from "@/components/home/EcertaShowcase";
 import ProductsSection from "@/components/home/ProductsSection";
@@ -25,6 +26,8 @@ const EcertaHome = () => {
       <Navigation onShowLogin={() => setShowLogin(true)} />
 
       <HeroSection onShowLogin={() => setShowLogin(true)} />
+
+      <VicertaVision />
 
       <VideoShowcase />
 
