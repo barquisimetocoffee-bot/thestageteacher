@@ -27,8 +27,6 @@ const EcertaHome = () => {
 
       <HeroSection onShowLogin={() => setShowLogin(true)} />
 
-      <VicertaVision />
-
       <VideoShowcase />
 
       <EcertaShowcase onShowLogin={() => setShowLogin(true)} />
@@ -39,6 +37,8 @@ const EcertaHome = () => {
       />
 
       <FAQ />
+
+      <VicertaVision />
 
       <CTASection
         onShowLogin={() => setShowLogin(true)}
