@@ -271,7 +271,7 @@ const ProductsSection = ({
                     />
                   ) : product.id === "pencil-pro" ? (
                     <img 
-                      src="/lovable-uploads/4faeff6c-dc05-4655-96cf-f93cfcf7e4bb.png" 
+                      src="/lovable-uploads/4fbfdcee-67d1-45f9-86b8-3dbe968bd9c1.png" 
                       alt="Crown Pencil Logo" 
                       className="h-10 w-10 object-contain" 
                     />
