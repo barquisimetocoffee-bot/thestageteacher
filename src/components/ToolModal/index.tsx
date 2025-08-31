@@ -252,7 +252,7 @@ const ToolModal = ({ tool, isOpen, onClose, teacherProfile }: ToolModalProps) =>
   return (
     <>
       <Dialog open={isOpen} onOpenChange={handleModalClose}>
-        <DialogContent className="max-w-6xl max-h-[95vh] overflow-hidden">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="flex items-center space-x-2">
               {IconComponent && <IconComponent className="h-6 w-6" />}
@@ -260,41 +260,29 @@ const ToolModal = ({ tool, isOpen, onClose, teacherProfile }: ToolModalProps) =>
             </DialogTitle>
           </DialogHeader>
 
-          <div className={`grid gap-6 h-full ${
-            generatedContent 
-              ? "grid-cols-1 lg:grid-cols-3" 
-              : "grid-cols-1 lg:grid-cols-2"
-          }`}>
-            <div className={`${generatedContent ? "lg:col-span-1" : "lg:col-span-1"} overflow-y-auto`}>
-              <ToolModalForm
-                tool={tool}
-                formData={formData}
-                onInputChange={handleInputChange}
-                onGenerate={handleGenerate}
-                isGenerating={isGenerating}
-              />
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <ToolModalForm
+              tool={tool}
+              formData={formData}
+              onInputChange={handleInputChange}
+              onGenerate={handleGenerate}
+              isGenerating={isGenerating}
+            />
 
-            <div className={`${
-              generatedContent 
-                ? "lg:col-span-2" 
-                : "lg:col-span-1"
-            } overflow-y-auto`}>
-              <ToolModalContent
-                tool={tool}
-                formData={formData}
-                generatedContent={generatedContent}
-                isSaving={isSaving}
-                isSaved={isSaved}
-                isExportingSlides={isExportingSlides}
-                isRegenerating={isRegenerating}
-                onCopy={handleCopy}
-                onDownload={handleDownload}
-                onSave={handleSave}
-                onExportSlides={handleExportSlides}
-                onChatRegenerate={handleChatRegenerate}
-              />
-            </div>
+            <ToolModalContent
+              tool={tool}
+              formData={formData}
+              generatedContent={generatedContent}
+              isSaving={isSaving}
+              isSaved={isSaved}
+              isExportingSlides={isExportingSlides}
+              isRegenerating={isRegenerating}
+              onCopy={handleCopy}
+              onDownload={handleDownload}
+              onSave={handleSave}
+              onExportSlides={handleExportSlides}
+              onChatRegenerate={handleChatRegenerate}
+            />
           </div>
         </DialogContent>
       </Dialog>
