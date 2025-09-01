@@ -10,7 +10,6 @@ import SatisfactionSurvey from "@/components/SatisfactionSurvey";
 import ToolModalForm from './ToolModalForm';
 import ToolModalContent from './ToolModalContent';
 import PhaseIndicator from './PhaseIndicator';
-import KribiNotification from '@/components/KribiNotification';
 
 interface ToolModalProps {
   tool: any;
@@ -318,8 +317,6 @@ const ToolModal = ({ tool, isOpen, onClose, teacherProfile }: ToolModalProps) =>
         onClose={() => setShowUsageLimit(false)}
         onUpgrade={() => setShowUsageLimit(false)}
       />
-      
-      <KribiNotification />
     </>
   );
 };

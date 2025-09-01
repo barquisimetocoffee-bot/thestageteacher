@@ -48,6 +48,7 @@ import PencilPage from "./pages/PencilPage";
 import DataAnalytics from "./pages/DataAnalytics";
 import Documentation from "./pages/Documentation";
 import AuthGuard from "./components/auth/AuthGuard";
+import KribiNotification from "./components/KribiNotification";
 
 const queryClient = new QueryClient();
 
@@ -136,6 +137,7 @@ const App = () => (
               </ErrorBoundary>
               <CookieConsent />
               <ConsentManager />
+              <KribiNotification />
             </BrowserRouter>
           </TooltipProvider>
         </SubscriptionProvider>
