@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { MessageSquare, Loader2 } from "lucide-react";
@@ -7,10 +7,17 @@ interface ToolModalChatProps {
   generatedContent: string;
   onChatRegenerate: (message: string) => Promise<void>;
   isRegenerating: boolean;
+  prefillText?: string;
 }
 
-const ToolModalChat = ({ generatedContent, onChatRegenerate, isRegenerating }: ToolModalChatProps) => {
+const ToolModalChat = ({ generatedContent, onChatRegenerate, isRegenerating, prefillText }: ToolModalChatProps) => {
   const [chatMessage, setChatMessage] = useState('');
+
+  useEffect(() => {
+    if (prefillText) {
+      setChatMessage(prefillText);
+    }
+  }, [prefillText]);
 
   const handleChatSubmit = async () => {
     if (!chatMessage.trim()) return;

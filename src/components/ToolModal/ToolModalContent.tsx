@@ -1,7 +1,9 @@
 import ToolModalActions from './ToolModalActions';
 import ToolModalChat from './ToolModalChat';
+import TextSelectionToolbar from './TextSelectionToolbar';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Sparkles } from "lucide-react";
+import { useState, useRef } from 'react';
 
 interface ToolModalContentProps {
   tool: any;
@@ -16,6 +18,8 @@ interface ToolModalContentProps {
   onSave: () => void;
   onExportSlides: () => void;
   onChatRegenerate: (message: string) => Promise<void>;
+  onPrefillChat?: (text: string) => void;
+  chatPrefillText?: string;
 }
 
 const ToolModalContent = ({ 
@@ -30,8 +34,55 @@ const ToolModalContent = ({
   onDownload, 
   onSave, 
   onExportSlides,
-  onChatRegenerate
+  onChatRegenerate,
+  onPrefillChat,
+  chatPrefillText
 }: ToolModalContentProps) => {
+  const [selectedText, setSelectedText] = useState('');
+  const [selectionPosition, setSelectionPosition] = useState({ x: 0, y: 0 });
+  const [showToolbar, setShowToolbar] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const handleTextSelection = () => {
+    const selection = window.getSelection();
+    if (selection && selection.toString().trim() && contentRef.current) {
+      const selectedText = selection.toString().trim();
+      const range = selection.getRangeAt(0);
+      const rect = range.getBoundingClientRect();
+      
+      setSelectedText(selectedText);
+      setSelectionPosition({
+        x: rect.left + rect.width / 2,
+        y: rect.top + window.scrollY
+      });
+      setShowToolbar(true);
+    } else {
+      setShowToolbar(false);
+      setSelectedText('');
+    }
+  };
+
+  const handleEdit = () => {
+    // For direct editing, we could implement inline editing here
+    // For now, just close the toolbar
+    setShowToolbar(false);
+    setSelectedText('');
+  };
+
+  const handleModifyWithAI = () => {
+    if (selectedText && onPrefillChat) {
+      const prefillText = `Please modify this text: [${selectedText}]\n\nI would like you to `;
+      onPrefillChat(prefillText);
+    }
+    setShowToolbar(false);
+    setSelectedText('');
+  };
+
+  const handleCloseToolbar = () => {
+    setShowToolbar(false);
+    setSelectedText('');
+    window.getSelection()?.removeAllRanges();
+  };
   return (
     <div className="space-y-6">
       <Card className="shadow-lg">
@@ -59,7 +110,11 @@ const ToolModalContent = ({
         </CardHeader>
         
         <CardContent>
-          <div className="min-h-[400px] border rounded-lg p-6 bg-gradient-to-br from-background to-muted/20 max-h-[70vh] overflow-y-auto">
+          <div 
+            ref={contentRef}
+            className="min-h-[400px] border rounded-lg p-6 bg-gradient-to-br from-background to-muted/20 max-h-[70vh] overflow-y-auto select-text"
+            onMouseUp={handleTextSelection}
+          >
             {generatedContent ? (
               <div className="prose prose-sm max-w-none">
                 {generatedContent.split('\n').map((line, index) => {
@@ -137,7 +192,18 @@ const ToolModalContent = ({
         generatedContent={generatedContent}
         onChatRegenerate={onChatRegenerate}
         isRegenerating={isRegenerating}
+        prefillText={chatPrefillText}
       />
+
+      {showToolbar && (
+        <TextSelectionToolbar
+          selectedText={selectedText}
+          position={selectionPosition}
+          onEdit={handleEdit}
+          onModifyWithAI={handleModifyWithAI}
+          onClose={handleCloseToolbar}
+        />
+      )}
     </div>
   );
 };

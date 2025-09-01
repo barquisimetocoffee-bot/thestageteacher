@@ -29,6 +29,7 @@ const ToolModal = ({ tool, isOpen, onClose, teacherProfile }: ToolModalProps) =>
   const [isRegenerating, setIsRegenerating] = useState(false);
   const [isExportingSlides, setIsExportingSlides] = useState(false);
   const [currentPhase, setCurrentPhase] = useState<'input' | 'content'>('input');
+  const [chatPrefillText, setChatPrefillText] = useState('');
   const { toast } = useToast();
   const { i18n } = useTranslation();
 
@@ -295,6 +296,8 @@ const ToolModal = ({ tool, isOpen, onClose, teacherProfile }: ToolModalProps) =>
                 onSave={handleSave}
                 onExportSlides={handleExportSlides}
                 onChatRegenerate={handleChatRegenerate}
+                onPrefillChat={setChatPrefillText}
+                chatPrefillText={chatPrefillText}
               />
             )}
           </div>
