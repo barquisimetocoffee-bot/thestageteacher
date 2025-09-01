@@ -29,23 +29,28 @@ const ToolModalChat = ({ generatedContent, onChatRegenerate, isRegenerating, pre
   if (!generatedContent) return null;
 
   return (
-    <div className="space-y-3 border-t pt-4">
-      <div className="flex items-center space-x-2">
-        <MessageSquare className="h-4 w-4 text-blue-600" />
-        <h4 className="font-medium text-sm">Need modifications?</h4>
+    <div className="bg-gradient-to-r from-primary/5 to-secondary/5 border-2 border-dashed border-primary/20 rounded-xl p-6 space-y-4">
+      <div className="flex items-center space-x-3">
+        <div className="p-2 bg-primary/10 rounded-full">
+          <MessageSquare className="h-5 w-5 text-primary" />
+        </div>
+        <div>
+          <h3 className="text-lg font-semibold text-foreground">Need modifications?</h3>
+          <p className="text-sm text-muted-foreground">Tell me how you'd like to improve this content</p>
+        </div>
       </div>
-      <div className="flex space-x-2">
+      <div className="flex space-x-3">
         <Textarea
-          placeholder="Tell me how you'd like to modify this content..."
+          placeholder="e.g., 'Make it more formal', 'Add examples', 'Simplify the language'..."
           value={chatMessage}
           onChange={(e) => setChatMessage(e.target.value)}
-          className="flex-1 min-h-[60px]"
+          className="flex-1 min-h-[80px] text-base"
         />
         <Button
           onClick={handleChatSubmit}
           disabled={!chatMessage.trim() || isRegenerating}
-          size="sm"
-          className="self-end"
+          size="lg"
+          className="self-end px-6"
         >
           {isRegenerating ? (
             <>
@@ -53,7 +58,7 @@ const ToolModalChat = ({ generatedContent, onChatRegenerate, isRegenerating, pre
               Updating...
             </>
           ) : (
-            'Update'
+            'Update Content'
           )}
         </Button>
       </div>

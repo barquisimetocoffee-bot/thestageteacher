@@ -33,6 +33,31 @@ const TextSelectionToolbar = ({
 
   if (!selectedText) return null;
 
+  // Calculate optimal position to avoid going off-screen
+  const getToolbarPosition = () => {
+    const toolbarWidth = 200; // Approximate toolbar width
+    const screenWidth = window.innerWidth;
+    const margin = 20;
+    
+    let left = position.x;
+    let transform = 'translateX(-50%)'; // Default: center on selection
+    
+    // If centering would go off the left edge
+    if (position.x - toolbarWidth/2 < margin) {
+      left = margin;
+      transform = 'translateX(0)';
+    }
+    // If centering would go off the right edge  
+    else if (position.x + toolbarWidth/2 > screenWidth - margin) {
+      left = screenWidth - margin;
+      transform = 'translateX(-100%)';
+    }
+    
+    return { left, transform, top: position.y - 60 };
+  };
+
+  const toolbarPosition = getToolbarPosition();
+
   return (
     <div
       ref={toolbarRef}
@@ -41,9 +66,9 @@ const TextSelectionToolbar = ({
         "animate-in fade-in-0 zoom-in-95 duration-200"
       )}
       style={{
-        left: position.x,
-        top: position.y - 60,
-        transform: 'translateX(-50%)'
+        left: toolbarPosition.left,
+        top: toolbarPosition.top,
+        transform: toolbarPosition.transform
       }}
     >
       <Button
