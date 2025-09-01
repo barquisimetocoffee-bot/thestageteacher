@@ -120,7 +120,7 @@ const FeedbackDashboard = () => {
           <Button
             variant="ghost"
             className="mb-4 bg-white hover:text-black hover:bg-gray-200"
-            onClick={() => navigate("/easyteach-app")}
+            onClick={() => navigate("/pencil-app")}
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Dashboard

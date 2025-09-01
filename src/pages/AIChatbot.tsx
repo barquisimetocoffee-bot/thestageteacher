@@ -1,86 +1,16 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Send, Bot, User, Loader2 } from "lucide-react";
+import { ArrowLeft, Bot, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { generateEducationalContent } from "@/utils/aiService";
-import { useToast } from "@/hooks/use-toast";
-
-interface Message {
-  id: number;
-  sender: "user" | "bot";
-  text: string;
-}
+import { useKribiAssistant } from "@/hooks/useKribiAssistant";
+import { MessageBubble } from "@/components/chat/MessageBubble";
+import { ChatComposer } from "@/components/chat/ChatComposer";
 
 const AIChatbot = () => {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: 1,
-      sender: "bot",
-      text: "Hello! I'm Kribi, your AI Teaching Assistant powered by OpenRouter. How can I help you today? I can assist with lesson planning, classroom management, student engagement strategies, and much more!",
-    },
-  ]);
-  const [inputMessage, setInputMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
-
-  const handleSendMessage = async () => {
-    if (!inputMessage.trim() || isLoading) return;
-
-    const newUserMessage = {
-      id: Date.now(),
-      sender: "user" as const,
-      text: inputMessage,
-    };
-
-    setMessages((prev) => [...prev, newUserMessage]);
-    const currentInput = inputMessage;
-    setInputMessage("");
-    setIsLoading(true);
-
-    try {
-      const aiResponse = await generateEducationalContent(
-        currentInput,
-        "AI Assistant Chat"
-      );
-
-      const botResponse = {
-        id: Date.now() + 1,
-        sender: "bot" as const,
-        text: aiResponse,
-      };
-
-      setMessages((prev) => [...prev, botResponse]);
-    } catch (error) {
-      toast({
-        title: "AI Assistant Error",
-        description:
-          "Unable to generate response. Please check your OpenRouter API key and try again.",
-        variant: "destructive",
-      });
-
-      const errorResponse = {
-        id: Date.now() + 1,
-        sender: "bot" as const,
-        text: "I apologize, but I'm having trouble connecting to the AI service. Please try again later.",
-      };
-
-      setMessages((prev) => [...prev, errorResponse]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      handleSendMessage();
-    }
-  };
+  const { messages, isLoading, sendMessage, clearConversation } = useKribiAssistant();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -89,105 +19,56 @@ const AIChatbot = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="bg-white hover:bg-gray-100 hover:text-black"
+                className="bg-card hover:bg-accent"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Home
+                Back to Pencil
               </Button>
             </Link>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">
-                Kribi Teaching Assistant
+              <h1 className="text-3xl font-bold text-foreground flex items-center space-x-2">
+                <Sparkles className="h-8 w-8 text-primary" />
+                <span>Kribi Teaching Assistant</span>
               </h1>
-              <p className="text-gray-600">
-                Get instant help with your teaching questions
+              <p className="text-muted-foreground">
+                Your AI companion for educational excellence
               </p>
             </div>
           </div>
         </div>
 
         {/* Chat Interface */}
-        <Card className="h-[600px] flex flex-col">
-          <CardHeader>
+        <Card className="h-[600px] flex flex-col shadow-lg border-border/50">
+          <CardHeader className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-t-lg">
             <CardTitle className="flex items-center space-x-2">
-              <Bot className="h-5 w-5 text-blue-600" />
+              <Bot className="h-5 w-5" />
               <span>Kribi Teaching Assistant</span>
+              <div className="ml-auto text-xs bg-primary-foreground/20 px-2 py-1 rounded-full">
+                Enhanced with Memory
+              </div>
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex-1 flex flex-col">
+          <CardContent className="flex-1 flex flex-col p-0 overflow-hidden">
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto space-y-4 mb-4">
+            <div className="flex-1 overflow-y-auto space-y-4 p-4 scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent">
               {messages.map((message) => (
-                <div
+                <MessageBubble
                   key={message.id}
-                  className={`flex ${
-                    message.sender === "user" ? "justify-end" : "justify-start"
-                  }`}
-                >
-                  <div
-                    className={`flex items-start space-x-2 max-w-[80%] ${
-                      message.sender === "user"
-                        ? "flex-row-reverse space-x-reverse"
-                        : ""
-                    }`}
-                  >
-                    <div
-                      className={`size-10 p-3 rounded-full flex items-center justify-center ${
-                        message.sender === "user"
-                          ? "bg-blue-600 text-white"
-                          : "bg-gray-200 text-gray-600"
-                      }`}
-                    >
-                      {message.sender === "user" ? (
-                        <User className="h-4 w-4" />
-                      ) : (
-                        <Bot className="h-4 w-4" />
-                      )}
-                    </div>
-                    <div
-                      className={`p-3 rounded-lg ${
-                        message.sender === "user"
-                          ? "bg-blue-600 text-white"
-                          : "bg-gray-100 text-gray-800"
-                      }`}
-                    >
-                      {message.text}
-                    </div>
-                  </div>
-                </div>
+                  role={message.role}
+                  content={message.content}
+                  timestamp={message.timestamp}
+                  isTyping={message.isTyping}
+                />
               ))}
-              {isLoading && (
-                <div className="flex justify-start">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
-                      <Bot className="h-4 w-4 text-gray-600" />
-                    </span>
-                    <div className="bg-gray-100 p-3 rounded-lg flex items-center space-x-2">
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                      <span className="text-sm text-gray-600">Thinking...</span>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
 
-            {/* Input */}
-            <div className="flex space-x-2">
-              <Input
-                value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Ask me anything about teaching..."
-                className="flex-1 py-6 focus:outline-none"
-              />
-              <Button
-                className="py-6 flex items-center justify-center my-btn group"
-                onClick={handleSendMessage}
-                disabled={!inputMessage.trim() || isLoading}
-              >
-                <Send className="h-4 w-4 group-hover:rotate-45 transition-all duration-300" />
-              </Button>
-            </div>
+            {/* Input Composer */}
+            <ChatComposer
+              onSendMessage={sendMessage}
+              onClearChat={clearConversation}
+              isLoading={isLoading}
+              placeholder="Ask Kribi anything about teaching, lesson planning, or classroom management..."
+            />
           </CardContent>
         </Card>
       </div>

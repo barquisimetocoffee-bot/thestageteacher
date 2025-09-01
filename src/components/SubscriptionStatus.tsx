@@ -54,7 +54,7 @@ export function SubscriptionStatus({
               {isPro ? (
                 <>
                   <Crown className="h-5 w-5 text-yellow-500" />
-                  <span>EasyTeach Pro</span>
+                  <span>Pencil Pro</span>
                   <Badge
                     variant="secondary"
                     className="bg-yellow-100 text-yellow-800"

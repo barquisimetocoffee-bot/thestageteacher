@@ -104,7 +104,7 @@ export function UsageLimitModal({
             <div className="text-center">
               <Crown className="h-12 w-12 text-yellow-500 mx-auto mb-2" />
               <h3 className="text-lg font-semibold">
-                Upgrade to EasyTeach Pro
+                Upgrade to Pencil Pro
               </h3>
               <p className="text-sm text-muted-foreground">
                 Get unlimited AI generations and exclusive features

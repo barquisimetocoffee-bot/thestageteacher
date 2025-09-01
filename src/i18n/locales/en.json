@@ -78,7 +78,7 @@
   "products": {
     "title": "Our Product Suite",
     "description": "Comprehensive tools designed to enhance every aspect of your teaching experience.",
-    "easyTeach": "EasyTeach",
+    "easyTeach": "Pencil",
     "easyTeachDesc": "AI-powered teaching assistant with lesson planning and content generation tools.",
     "advancedLMS": "Advanced LMS",
     "advancedLMSDesc": "Complete learning management system with analytics and student tracking.",
@@ -117,7 +117,7 @@
     "continueThreads": "Continue threads with Kribi Chatbot",
     "unlimitedAISlides": "Unlimited AI Slides generation",
     "exportToGoogleSlides": "Export to Google Slides",
-    "easyTeachForStudents": "EasyTeach for students",
+    "easyTeachForStudents": "Pencil for students",
     "lifetimeOutputHistory": "Lifetime output history",
     "exclusiveEarlyAccess": "Exclusive early access to new features",
     "schoolWideManagement": "School-wide Management Dashboard",
@@ -206,7 +206,7 @@
     "selectSystem": "Select Education System"
   },
   "easyteach": {
-    "title": "EasyTeach",
+    "title": "Pencil",
     "welcome": {
       "welcomeBack": "Welcome back, {{name}}",
       "readyToCreate": "Ready to create something amazing today?",
@@ -251,7 +251,7 @@
       "feedbackDashboard": "Feedback Dashboard",
       "feedbackDashboardDesc": "View user feedback",
       "trustedByEducators": "Trusted by Educators",
-      "testimonial": "EasyTeach transforms my lesson planning and saves hours every week!",
+      "testimonial": "Pencil transforms my lesson planning and saves hours every week!",
       "empoweringEducators": "Empowering educators"
     },
     "header": {
