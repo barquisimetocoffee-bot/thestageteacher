@@ -9,7 +9,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Loader2, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LanguageBasedGradeSelector from "@/components/LanguageBasedGradeSelector";
 
@@ -34,27 +35,30 @@ const ToolModalForm = ({
   const renderInputFields = () => {
     if (!tool.fields || !Array.isArray(tool.fields)) {
       return (
-        <div className="space-y-2">
-          <Label htmlFor="prompt">What would you like to create?</Label>
+        <div className="space-y-3">
+          <Label htmlFor="prompt" className="text-base font-semibold text-foreground">
+            What would you like to create?
+          </Label>
           <Textarea
             id="prompt"
-            placeholder={`Describe what you'd like to generate with ${tool.name}`}
+            placeholder={`Describe what you'd like to generate with ${tool.name}...`}
             value={formData.prompt || ""}
             onChange={(e) => onInputChange("prompt", e.target.value)}
+            className="min-h-[120px] text-base focus:outline-none resize-none"
           />
         </div>
       );
     }
 
     return tool.fields.map((field: any, index: number) => (
-      <div key={index} className="space-y-2">
-        <Label htmlFor={field.name}>
+      <div key={index} className="space-y-3">
+        <Label htmlFor={field.name} className="text-base font-semibold text-foreground">
           {field.labelKey ? t(field.labelKey) : field.label}
         </Label>
 
         {field.type === "select" ? (
           <Select onValueChange={(value) => onInputChange(field.name, value)}>
-            <SelectTrigger>
+            <SelectTrigger className="h-12 text-base">
               <SelectValue
                 placeholder={
                   field.placeholderKey ? t(field.placeholderKey) : (
@@ -71,7 +75,6 @@ const ToolModalForm = ({
                 if (field.optionsKey) {
                   try {
                     const translatedOptions = t(field.optionsKey, { returnObjects: true });
-                    console.log('Translation key:', field.optionsKey, 'Result:', translatedOptions);
                     
                     if (Array.isArray(translatedOptions)) {
                       options = translatedOptions;
@@ -106,8 +109,6 @@ const ToolModalForm = ({
                   }
                 }
                 
-                console.log('Final options for', field.name, ':', options);
-                
                 return options.map((option: string, index: number) => (
                   <SelectItem key={`${option}-${index}`} value={option}>
                     {option}
@@ -122,7 +123,7 @@ const ToolModalForm = ({
             placeholder={field.placeholderKey ? t(field.placeholderKey) : field.placeholder}
             value={formData[field.name] || ""}
             onChange={(e) => onInputChange(field.name, e.target.value)}
-            className="focus:outline-none"
+            className="min-h-[100px] text-base focus:outline-none resize-none"
           />
         ) : (
           <Input
@@ -131,7 +132,7 @@ const ToolModalForm = ({
             placeholder={field.placeholderKey ? t(field.placeholderKey) : field.placeholder}
             value={formData[field.name] || ""}
             onChange={(e) => onInputChange(field.name, e.target.value)}
-            className="py-6 focus:outline-none"
+            className="h-12 text-base focus:outline-none"
           />
         )}
       </div>
@@ -141,27 +142,44 @@ const ToolModalForm = ({
   const isFormValid = Object.values(formData).some((v) => v?.trim());
 
   return (
-    <div className="space-y-4" data-onboarding="tool-form">
-      <h3 className="text-lg font-semibold">Input Details</h3>
-      {renderInputFields()}
-
-      <button
-        onClick={onGenerate}
-        disabled={isGenerating || !isFormValid}
-        className="w-full my-btn p-3 cursor-pointer rounded-2xl"
-        data-onboarding="generate-button"
-      >
-        {isGenerating ? (
-          <>
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            {t('ui.buttons.generating')}
-          </>
-        ) : (
-
-          "Generate Content"
-        )}
-      </button>
-    </div>
+    <Card className="w-full shadow-lg">
+      <CardHeader className="text-center pb-6">
+        <CardTitle className="flex items-center justify-center space-x-2 text-2xl text-primary">
+          <Sparkles className="h-6 w-6" />
+          <span>Let's Create Something Amazing</span>
+        </CardTitle>
+        <CardDescription className="text-lg mt-2">
+          Fill in the details below to generate your personalized content
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        <div className="space-y-6" data-onboarding="tool-form">
+          {renderInputFields()}
+        </div>
+        
+        <div className="pt-6 border-t">
+          <Button
+            onClick={onGenerate}
+            disabled={isGenerating || !isFormValid}
+            className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg"
+            size="lg"
+            data-onboarding="generate-button"
+          >
+            {isGenerating ? (
+              <>
+                <Loader2 className="mr-3 h-5 w-5 animate-spin" />
+                {t('ui.buttons.generating') || 'Generating your content...'}
+              </>
+            ) : (
+              <>
+                <Sparkles className="mr-3 h-5 w-5" />
+                Generate Content
+              </>
+            )}
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 

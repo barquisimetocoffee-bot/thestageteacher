@@ -9,6 +9,7 @@ import { UsageLimitModal } from "@/components/UsageLimitModal";
 import SatisfactionSurvey from "@/components/SatisfactionSurvey";
 import ToolModalForm from './ToolModalForm';
 import ToolModalContent from './ToolModalContent';
+import PhaseIndicator from './PhaseIndicator';
 
 interface ToolModalProps {
   tool: any;
@@ -27,6 +28,7 @@ const ToolModal = ({ tool, isOpen, onClose, teacherProfile }: ToolModalProps) =>
   const [showUsageLimit, setShowUsageLimit] = useState(false);
   const [isRegenerating, setIsRegenerating] = useState(false);
   const [isExportingSlides, setIsExportingSlides] = useState(false);
+  const [currentPhase, setCurrentPhase] = useState<'input' | 'content'>('input');
   const { toast } = useToast();
   const { i18n } = useTranslation();
 
@@ -84,6 +86,7 @@ const ToolModal = ({ tool, isOpen, onClose, teacherProfile }: ToolModalProps) =>
       
       setGeneratedContent(content);
       setIsSaved(false);
+      setCurrentPhase('content'); // Transition to content phase
     } catch (error) {
       // Check if it's a usage limit error
       if (error instanceof Error && error.message === "USAGE_LIMIT_EXCEEDED") {
@@ -237,6 +240,7 @@ const ToolModal = ({ tool, isOpen, onClose, teacherProfile }: ToolModalProps) =>
     setGeneratedContent('');
     setShowSurvey(false);
     setIsSaved(false);
+    setCurrentPhase('input'); // Reset to input phase
   };
 
   const handleSurveySubmit = (feedback: any) => {
@@ -252,37 +256,47 @@ const ToolModal = ({ tool, isOpen, onClose, teacherProfile }: ToolModalProps) =>
   return (
     <>
       <Dialog open={isOpen} onOpenChange={handleModalClose}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-5xl max-h-[95vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="flex items-center space-x-2">
-              {IconComponent && <IconComponent className="h-6 w-6" />}
+            <DialogTitle className="flex items-center space-x-3 text-xl">
+              {IconComponent && <IconComponent className="h-7 w-7 text-primary" />}
               <span>{tool.name}</span>
             </DialogTitle>
           </DialogHeader>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <ToolModalForm
-              tool={tool}
-              formData={formData}
-              onInputChange={handleInputChange}
-              onGenerate={handleGenerate}
-              isGenerating={isGenerating}
+          <div className="space-y-6">
+            <PhaseIndicator
+              currentPhase={currentPhase}
+              onPhaseChange={setCurrentPhase}
+              hasGeneratedContent={!!generatedContent}
             />
-
-            <ToolModalContent
-              tool={tool}
-              formData={formData}
-              generatedContent={generatedContent}
-              isSaving={isSaving}
-              isSaved={isSaved}
-              isExportingSlides={isExportingSlides}
-              isRegenerating={isRegenerating}
-              onCopy={handleCopy}
-              onDownload={handleDownload}
-              onSave={handleSave}
-              onExportSlides={handleExportSlides}
-              onChatRegenerate={handleChatRegenerate}
-            />
+            
+            {currentPhase === 'input' ? (
+              <div className="max-w-2xl mx-auto">
+                <ToolModalForm
+                  tool={tool}
+                  formData={formData}
+                  onInputChange={handleInputChange}
+                  onGenerate={handleGenerate}
+                  isGenerating={isGenerating}
+                />
+              </div>
+            ) : (
+              <ToolModalContent
+                tool={tool}
+                formData={formData}
+                generatedContent={generatedContent}
+                isSaving={isSaving}
+                isSaved={isSaved}
+                isExportingSlides={isExportingSlides}
+                isRegenerating={isRegenerating}
+                onCopy={handleCopy}
+                onDownload={handleDownload}
+                onSave={handleSave}
+                onExportSlides={handleExportSlides}
+                onChatRegenerate={handleChatRegenerate}
+              />
+            )}
           </div>
         </DialogContent>
       </Dialog>
