@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { User, Settings, Edit3, ArrowLeft } from "lucide-react";
 import { SubscriptionStatus } from "@/components/SubscriptionStatus";
 import TeacherProfile from "@/components/TeacherProfile";
+import ProfilePictureUpload from "@/components/ProfilePictureUpload";
 import { useAuth } from "@/hooks/useAuth";
 
 const Profile = () => {
@@ -34,6 +35,15 @@ const Profile = () => {
       localStorage.setItem(`teacher_profile_${user.id}`, JSON.stringify(profileData));
       setTeacherProfile(profileData);
     }
+  };
+
+  // Helper function for ordinal suffixes
+  const getOrdinalSuffix = (num: string) => {
+    const n = parseInt(num);
+    if (n % 10 === 1 && n % 100 !== 11) return 'st';
+    if (n % 10 === 2 && n % 100 !== 12) return 'nd';
+    if (n % 10 === 3 && n % 100 !== 13) return 'rd';
+    return 'th';
   };
 
   return (
@@ -89,47 +99,80 @@ const Profile = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 {teacherProfile ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-medium text-muted-foreground">Name</label>
-                      <p className="text-base font-medium">{teacherProfile.name}</p>
+                  <div className="space-y-6">
+                    {/* Profile Picture Section */}
+                    <div className="flex justify-center">
+                      <ProfilePictureUpload
+                        currentAvatarUrl={teacherProfile?.avatarUrl}
+                        onAvatarUpdate={(url) => {
+                          const updatedProfile = { ...teacherProfile, avatarUrl: url };
+                          handleSaveProfile(updatedProfile);
+                        }}
+                        size="lg"
+                      />
                     </div>
-                    <div>
-                      <label className="text-sm font-medium text-muted-foreground">School</label>
-                      <p className="text-base">{teacherProfile.school || "Not specified"}</p>
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-muted-foreground">Grade Level</label>
-                      <p className="text-base">{teacherProfile.grade}</p>
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-muted-foreground">Subjects</label>
-                      <p className="text-base">{teacherProfile.subjects || "Not specified"}</p>
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-muted-foreground">Experience</label>
-                      <p className="text-base">{teacherProfile.experience || "Not specified"}</p>
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-muted-foreground">Communication Style</label>
-                      <p className="text-base capitalize">{teacherProfile.tone}</p>
-                    </div>
-                    {teacherProfile.specialNeeds && (
-                      <div className="md:col-span-2">
-                        <label className="text-sm font-medium text-muted-foreground">Special Populations</label>
-                        <p className="text-base">{teacherProfile.specialNeeds}</p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-sm font-medium text-muted-foreground">Name</label>
+                        <p className="text-base font-medium">{teacherProfile.name}</p>
                       </div>
-                    )}
-                    {teacherProfile.goals && (
-                      <div className="md:col-span-2">
-                        <label className="text-sm font-medium text-muted-foreground">Teaching Goals</label>
-                        <p className="text-base">{teacherProfile.goals}</p>
+                      <div>
+                        <label className="text-sm font-medium text-muted-foreground">School</label>
+                        <p className="text-base">{teacherProfile.school || "Not specified"}</p>
                       </div>
-                    )}
+                      <div>
+                        <label className="text-sm font-medium text-muted-foreground">Grade Levels</label>
+                        <div className="flex flex-wrap gap-2 mt-1">
+                          {teacherProfile.gradeLevels && teacherProfile.gradeLevels.length > 0 ? (
+                            teacherProfile.gradeLevels.map((grade: string) => (
+                              <span key={grade} className="px-2 py-1 bg-primary/10 text-primary rounded-full text-sm">
+                                {grade === 'K' ? 'Kindergarten' : grade === 'mixed' ? 'Mixed/Multi-Grade' : `${grade}${grade.match(/^\d+$/) ? getOrdinalSuffix(grade) : ''} Grade`}
+                              </span>
+                            ))
+                          ) : (
+                            <p className="text-base">{teacherProfile.grade || "Not specified"}</p>
+                          )}
+                        </div>
+                      </div>
+                      <div>
+                        <label className="text-sm font-medium text-muted-foreground">Subjects</label>
+                        <p className="text-base">{teacherProfile.subjects || "Not specified"}</p>
+                      </div>
+                      <div>
+                        <label className="text-sm font-medium text-muted-foreground">Experience</label>
+                        <p className="text-base">{teacherProfile.experience || "Not specified"}</p>
+                      </div>
+                      <div>
+                        <label className="text-sm font-medium text-muted-foreground">Communication Style</label>
+                        <p className="text-base capitalize">{teacherProfile.tone}</p>
+                      </div>
+                      {teacherProfile.specialNeeds && (
+                        <div className="md:col-span-2">
+                          <label className="text-sm font-medium text-muted-foreground">Special Populations</label>
+                          <p className="text-base">{teacherProfile.specialNeeds}</p>
+                        </div>
+                      )}
+                      {teacherProfile.goals && (
+                        <div className="md:col-span-2">
+                          <label className="text-sm font-medium text-muted-foreground">Teaching Goals</label>
+                          <p className="text-base">{teacherProfile.goals}</p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 ) : (
                   <div className="text-center py-8">
-                    <User className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                    <div className="flex justify-center mb-4">
+                      <ProfilePictureUpload
+                        currentAvatarUrl={teacherProfile?.avatarUrl}
+                        onAvatarUpdate={(url) => {
+                          const updatedProfile = { ...teacherProfile, avatarUrl: url };
+                          handleSaveProfile(updatedProfile);
+                        }}
+                        size="lg"
+                      />
+                    </div>
                     <h3 className="text-lg font-medium mb-2">Complete Your Profile</h3>
                     <p className="text-muted-foreground mb-4">
                       Help us personalize your experience by completing your teacher profile.

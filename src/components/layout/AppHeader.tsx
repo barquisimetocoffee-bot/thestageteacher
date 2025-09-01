@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Clock, User, Sparkles, Zap, LogOut } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useAuth } from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import LanguageSelector from "../LanguageSelector";
 import ProfileDropdown from "./ProfileDropdown";
 import HelpButton from "../common/HelpButton";
@@ -17,6 +20,26 @@ const AppHeader = ({ teacherProfile, onStartWalkthrough }: AppHeaderProps) => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const [profileAvatarUrl, setProfileAvatarUrl] = useState<string>('');
+
+  // Load profile picture from database
+  useEffect(() => {
+    const loadProfilePicture = async () => {
+      if (user) {
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('avatar_url')
+          .eq('id', user.id)
+          .single();
+
+        if (data && !error && data.avatar_url) {
+          setProfileAvatarUrl(data.avatar_url);
+        }
+      }
+    };
+
+    loadProfilePicture();
+  }, [user]);
 
   const handleSignOut = async () => {
     await signOut();
@@ -36,9 +59,14 @@ const AppHeader = ({ teacherProfile, onStartWalkthrough }: AppHeaderProps) => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-3">
             <SidebarTrigger className="hover:bg-primary/10 hover:text-primary rounded-lg p-2 transition-all duration-200 hover:shadow-sm border border-transparent hover:border-primary/20" />
-            <div className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center shadow-lg">
-              <img src="/avatar.png" className="h-6 w-6 text-white" />
-            </div>
+            
+            <Avatar className="w-10 h-10 ring-2 ring-primary/20">
+              <AvatarImage src={profileAvatarUrl || teacherProfile?.avatarUrl} alt="Profile picture" />
+              <AvatarFallback className="bg-gradient-to-r from-primary/20 to-secondary/20">
+                {getUserName().charAt(0).toUpperCase()}
+              </AvatarFallback>
+            </Avatar>
+            
             <div className="text-center">
               <h1 className="text-xl/relaxed font-semibold text-gray-800 mb- capitalize">
                 {t("easyteach.welcome.welcomeBack", { name: getUserName() })}
@@ -57,7 +85,7 @@ const AppHeader = ({ teacherProfile, onStartWalkthrough }: AppHeaderProps) => {
             <div className="flex items-center space-x-2">
               <LanguageSelector />
               <HelpButton onStartWalkthrough={onStartWalkthrough} />
-              <ProfileDropdown teacherProfile={teacherProfile} />
+              <ProfileDropdown teacherProfile={teacherProfile} profileAvatarUrl={profileAvatarUrl} />
             </div>
           </div>
         </div>

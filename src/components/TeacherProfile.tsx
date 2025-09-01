@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -17,36 +17,103 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import ProfilePictureUpload from "./ProfilePictureUpload";
+import MultiSelectGradeLevels from "./MultiSelectGradeLevels";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/hooks/useAuth";
 
 const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
   const { toast } = useToast();
+  const { user } = useAuth();
   const [profile, setProfile] = useState({
     name: currentProfile?.name || "",
     school: currentProfile?.school || "",
     grade: currentProfile?.grade || "",
+    gradeLevels: currentProfile?.gradeLevels || [],
     subjects: currentProfile?.subjects || "",
     experience: currentProfile?.experience || "",
     tone: currentProfile?.tone || "friendly",
     specialNeeds: currentProfile?.specialNeeds || "",
     goals: currentProfile?.goals || "",
+    avatarUrl: currentProfile?.avatarUrl || "",
   });
 
-  const handleSave = () => {
-    if (!profile.name || !profile.grade) {
+  // Load profile from database on mount
+  useEffect(() => {
+    const loadDatabaseProfile = async () => {
+      if (user) {
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', user.id)
+          .single();
+
+        if (data && !error) {
+          setProfile(prev => ({
+            ...prev,
+            name: data.name || prev.name,
+            avatarUrl: data.avatar_url || prev.avatarUrl,
+            gradeLevels: data.grade_levels || prev.gradeLevels,
+          }));
+        }
+      }
+    };
+    
+    if (isOpen) {
+      loadDatabaseProfile();
+    }
+  }, [user, isOpen]);
+
+  const handleSave = async () => {
+    if (!profile.name || profile.gradeLevels.length === 0) {
       toast({
         title: "Please fill in required fields",
-        description: "Name and grade level are required.",
+        description: "Name and at least one grade level are required.",
         variant: "destructive",
       });
       return;
     }
 
-    onSave(profile);
-    toast({
-      title: "Profile saved! 🎉",
-      description: "Your tools will now be personalized for your classroom.",
-    });
-    onClose();
+    try {
+      // Save to Supabase database
+      if (user) {
+        const { error } = await supabase
+          .from('profiles')
+          .upsert({
+            id: user.id,
+            name: profile.name,
+            email: user.email,
+            avatar_url: profile.avatarUrl,
+            grade_levels: profile.gradeLevels,
+            updated_at: new Date().toISOString()
+          });
+
+        if (error) {
+          console.error('Database save error:', error);
+          toast({
+            title: "Save failed",
+            description: "Failed to save profile to database. Changes saved locally.",
+            variant: "destructive",
+          });
+        }
+      }
+
+      // Save to localStorage (for backward compatibility)
+      onSave(profile);
+      
+      toast({
+        title: "Profile saved! 🎉",
+        description: "Your tools will now be personalized for your classroom.",
+      });
+      onClose();
+    } catch (error) {
+      console.error('Unexpected error saving profile:', error);
+      toast({
+        title: "Save failed",
+        description: "An unexpected error occurred. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -63,6 +130,15 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
         </DialogHeader>
 
         <div className="space-y-6 py-4">
+          {/* Profile Picture Section */}
+          <div className="flex justify-center pb-4 border-b">
+            <ProfilePictureUpload
+              currentAvatarUrl={profile.avatarUrl}
+              onAvatarUpdate={(url) => setProfile({ ...profile, avatarUrl: url })}
+              size="lg"
+            />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <Label htmlFor="name" className="text-sm font-medium">
@@ -95,39 +171,23 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             <div>
-              <Label htmlFor="grade" className="text-sm font-medium">
-                Grade Level *
+              <Label htmlFor="gradeLevels" className="text-sm font-medium">
+                Grade Levels *
               </Label>
-              <Select
-                value={profile.grade}
-                onValueChange={(value) =>
-                  setProfile({ ...profile, grade: value })
-                }
-              >
-                <SelectTrigger className="mt-1 focus:outline-none py-5">
-                  <SelectValue placeholder="Select grade level" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="K">Kindergarten</SelectItem>
-                  <SelectItem value="1">1st Grade</SelectItem>
-                  <SelectItem value="2">2nd Grade</SelectItem>
-                  <SelectItem value="3">3rd Grade</SelectItem>
-                  <SelectItem value="4">4th Grade</SelectItem>
-                  <SelectItem value="5">5th Grade</SelectItem>
-                  <SelectItem value="6">6th Grade</SelectItem>
-                  <SelectItem value="7">7th Grade</SelectItem>
-                  <SelectItem value="8">8th Grade</SelectItem>
-                  <SelectItem value="9">9th Grade</SelectItem>
-                  <SelectItem value="10">10th Grade</SelectItem>
-                  <SelectItem value="11">11th Grade</SelectItem>
-                  <SelectItem value="12">12th Grade</SelectItem>
-                  <SelectItem value="mixed">Mixed/Multi-Grade</SelectItem>
-                </SelectContent>
-              </Select>
+              <MultiSelectGradeLevels
+                selectedGrades={profile.gradeLevels}
+                onGradesChange={(grades) => setProfile({ ...profile, gradeLevels: grades })}
+                required={true}
+              />
+              <p className="text-xs text-gray-500 mt-1">
+                Select all grade levels you teach or work with.
+              </p>
             </div>
+          </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <Label htmlFor="subjects" className="text-sm font-medium">
                 Main Subjects
@@ -142,9 +202,7 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
                 className="mt-1 focus:outline-none py-5"
               />
             </div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <Label htmlFor="experience" className="text-sm font-medium">
                 Years Teaching
@@ -167,7 +225,9 @@ const TeacherProfile = ({ isOpen, onClose, onSave, currentProfile }) => {
                 </SelectContent>
               </Select>
             </div>
+          </div>
 
+          <div className="grid grid-cols-1 gap-4">
             <div>
               <Label htmlFor="tone" className="text-sm font-medium">
                 Preferred Communication Style

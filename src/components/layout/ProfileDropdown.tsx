@@ -1,5 +1,6 @@
 import { User, LogOut, Settings, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Popover,
   PopoverContent,
@@ -10,16 +11,41 @@ import { useAuth } from "@/hooks/useAuth";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 interface ProfileDropdownProps {
   teacherProfile: any;
+  profileAvatarUrl?: string;
 }
 
-const ProfileDropdown = ({ teacherProfile }: ProfileDropdownProps) => {
+const ProfileDropdown = ({ teacherProfile, profileAvatarUrl }: ProfileDropdownProps) => {
   const { user, signOut } = useAuth();
   const { subscription, usage } = useSubscription();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const [currentAvatarUrl, setCurrentAvatarUrl] = useState<string>('');
+
+  // Load profile picture from database if not passed as prop
+  useEffect(() => {
+    const loadProfilePicture = async () => {
+      if (user && !profileAvatarUrl) {
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('avatar_url')
+          .eq('id', user.id)
+          .single();
+
+        if (data && !error && data.avatar_url) {
+          setCurrentAvatarUrl(data.avatar_url);
+        }
+      } else if (profileAvatarUrl) {
+        setCurrentAvatarUrl(profileAvatarUrl);
+      }
+    };
+
+    loadProfilePicture();
+  }, [user, profileAvatarUrl]);
 
   const handleSignOut = async () => {
     await signOut();
@@ -49,7 +75,12 @@ const ProfileDropdown = ({ teacherProfile }: ProfileDropdownProps) => {
           size="sm"
           className="flex items-center bg-blue-50 hover:bg-blue-100 hover:text-black capitalize transition-all duration-200 text-xs text-gray-800 font-medium"
         >
-          <User className="h-4 w-4" />
+          <Avatar className="w-4 h-4 mr-2">
+            <AvatarImage src={currentAvatarUrl || teacherProfile?.avatarUrl} alt="Profile picture" />
+            <AvatarFallback className="bg-gradient-to-r from-primary/20 to-secondary/20 text-xs">
+              {getUserName().charAt(0).toUpperCase()}
+            </AvatarFallback>
+          </Avatar>
           <span className="max-w-20 truncate">
             {getUserName()}
           </span>
@@ -59,9 +90,12 @@ const ProfileDropdown = ({ teacherProfile }: ProfileDropdownProps) => {
         <div className="p-4">
           {/* User Info */}
           <div className="flex items-center space-x-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-              <User className="h-5 w-5 text-white" />
-            </div>
+            <Avatar className="w-10 h-10 ring-2 ring-primary/20">
+              <AvatarImage src={currentAvatarUrl || teacherProfile?.avatarUrl} alt="Profile picture" />
+              <AvatarFallback className="bg-gradient-to-r from-primary/20 to-secondary/20">
+                {getUserName().charAt(0).toUpperCase()}
+              </AvatarFallback>
+            </Avatar>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-foreground truncate">
                 {getUserName()}
