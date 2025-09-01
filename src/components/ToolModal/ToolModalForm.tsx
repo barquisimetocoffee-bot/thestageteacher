@@ -51,14 +51,14 @@ const ToolModalForm = ({
     }
 
     return tool.fields.map((field: any, index: number) => (
-      <div key={index} className="space-y-3">
-        <Label htmlFor={field.name} className="text-base font-semibold text-foreground">
+      <div key={index} className="space-y-2">
+        <Label htmlFor={field.name} className="text-sm font-medium text-foreground">
           {field.labelKey ? t(field.labelKey) : field.label}
         </Label>
 
         {field.type === "select" ? (
           <Select onValueChange={(value) => onInputChange(field.name, value)}>
-            <SelectTrigger className="h-12 text-base">
+            <SelectTrigger className="h-10 text-sm">
               <SelectValue
                 placeholder={
                   field.placeholderKey ? t(field.placeholderKey) : (
@@ -123,7 +123,7 @@ const ToolModalForm = ({
             placeholder={field.placeholderKey ? t(field.placeholderKey) : field.placeholder}
             value={formData[field.name] || ""}
             onChange={(e) => onInputChange(field.name, e.target.value)}
-            className="min-h-[100px] text-base focus:outline-none resize-none"
+            className="min-h-[80px] text-sm focus:outline-none resize-none"
           />
         ) : (
           <Input
@@ -132,7 +132,7 @@ const ToolModalForm = ({
             placeholder={field.placeholderKey ? t(field.placeholderKey) : field.placeholder}
             value={formData[field.name] || ""}
             onChange={(e) => onInputChange(field.name, e.target.value)}
-            className="h-12 text-base focus:outline-none"
+            className="h-10 text-sm focus:outline-none"
           />
         )}
       </div>
@@ -152,8 +152,8 @@ const ToolModalForm = ({
           Fill in the details below to generate your personalized content
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-6">
-        <div className="space-y-6" data-onboarding="tool-form">
+      <CardContent className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4" data-onboarding="tool-form">
           {renderInputFields()}
         </div>
         
