@@ -40,6 +40,9 @@ const PencilApp = () => {
   const [selectedTool, setSelectedTool] = useState(null);
   const [teacherProfile, setTeacherProfile] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [hasUsedVirtualAssistant, setHasUsedVirtualAssistant] = useState(
+    localStorage.getItem("virtual-assistant-used") === "true"
+  );
 
   // Onboarding state
   const {
@@ -139,6 +142,13 @@ const PencilApp = () => {
 
   const handleToolClick = (tool) => {
     setSelectedTool(tool);
+  };
+
+  const handleVirtualAssistantClick = () => {
+    if (!hasUsedVirtualAssistant) {
+      setHasUsedVirtualAssistant(true);
+      localStorage.setItem("virtual-assistant-used", "true");
+    }
   };
 
   const handleQuickAction = (category, toolId) => {
@@ -245,12 +255,25 @@ const PencilApp = () => {
                 <TabsTrigger
                   value="ai-assistant"
                   className="data-[state=active]:bg-[#2901b3] data-[state=active]:text-white text-sm sm:text-base"
+                  onClick={handleVirtualAssistantClick}
                 >
                   <Bot className="h-4 w-4 mr-1 sm:mr-2" />
                   <span className="hidden sm:inline">
                     {t("easyteach.tabs.kribiAssistant")}
+                    {!hasUsedVirtualAssistant && (
+                      <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        new
+                      </span>
+                    )}
                   </span>
-                  <span className="sm:hidden">{t("easyteach.tabs.ai")}</span>
+                  <span className="sm:hidden">
+                    {t("easyteach.tabs.ai")}
+                    {!hasUsedVirtualAssistant && (
+                      <span className="ml-1 inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        new
+                      </span>
+                    )}
+                  </span>
                 </TabsTrigger>
               </TabsList>
 

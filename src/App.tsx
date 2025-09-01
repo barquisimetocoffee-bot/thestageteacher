@@ -3,7 +3,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "@/hooks/useAuth";
+import { AuthProvider, useAuth } from "@/hooks/useAuth";
+import { useState } from "react";
 
 import { SubscriptionProvider } from "@/hooks/useSubscription";
 
@@ -49,97 +50,114 @@ import DataAnalytics from "./pages/DataAnalytics";
 import Documentation from "./pages/Documentation";
 import AuthGuard from "./components/auth/AuthGuard";
 import KribiNotification from "./components/KribiNotification";
+import LoginModal from "./components/auth/LoginModal";
 
 const queryClient = new QueryClient();
+
+const AppContent = () => {
+  const { user } = useAuth();
+  const [showLogin, setShowLogin] = useState(false);
+
+  return (
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <ScrollToTop />
+        <ErrorBoundary>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/profile" element={<AuthGuard><Profile /></AuthGuard>} />
+            <Route path="/pencil-app" element={<AuthGuard><PencilApp /></AuthGuard>} />
+            <Route path="/pencil" element={<PencilPage />} />
+            <Route path="/landing" element={<LandingPage />} />
+            <Route path="/ai-chatbot" element={<AuthGuard><AIChatbot /></AuthGuard>} />
+            <Route path="/pencil-tools" element={<AuthGuard><WizardTools /></AuthGuard>} />
+            <Route
+              path="/tools-suggestions"
+              element={<AuthGuard><ToolsSuggestions /></AuthGuard>}
+            />
+            <Route path="/output-history" element={<AuthGuard><OutputHistory /></AuthGuard>} />
+            <Route path="/data-analytics" element={<AuthGuard><DataAnalytics /></AuthGuard>} />
+            <Route path="/advanced-lms" element={<AdvancedLMS />} />
+            <Route
+              path="/school-administration"
+              element={<SchoolAdministration />}
+            />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/knowledge-base" element={<KnowledgeBase />} />
+            <Route path="/partners-integrations" element={<PartnersIntegrations />} />
+            <Route path="/data-protection" element={<DataProtection />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route
+              path="/feedback-dashboard"
+              element={<FeedbackDashboard />}
+            />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route
+              path="/terms-of-service"
+              element={<TermsOfService />}
+            />
+            <Route path="/lms" element={<LMSApp />} />
+            <Route path="/student" element={<StudentPortal />} />
+            <Route path="/teacher" element={<TeacherPortal />} />
+            <Route
+              path="/solutions/primary-schools"
+              element={<PrimarySchools />}
+            />
+            <Route
+              path="/solutions/secondary-schools"
+              element={<SecondarySchools />}
+            />
+            <Route
+              path="/solutions/universities"
+              element={<Universities />}
+            />
+            <Route
+              path="/solutions/independent-schools"
+              element={<IndependentSchools />}
+            />
+            <Route
+              path="/solutions/admissions"
+              element={<Admissions />}
+            />
+            <Route
+              path="/solutions/general-reports"
+              element={<GeneralReports />}
+            />
+            <Route path="/solutions/hr-payroll" element={<HRPayroll />} />
+            <Route path="/solutions/finance" element={<Finance />} />
+            <Route
+              path="/solutions/communication"
+              element={<Communication />}
+            />
+            <Route path="/documentation" element={<Documentation />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </ErrorBoundary>
+        <CookieConsent />
+        <ConsentManager />
+        
+        {/* Show notification only if user is not logged in */}
+        {!user && <KribiNotification onShowLogin={() => setShowLogin(true)} />}
+
+        {/* Login Modal */}
+        {showLogin && (
+          <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
+        )}
+      </BrowserRouter>
+    </TooltipProvider>
+  );
+};
 
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <SubscriptionProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
-              <ScrollToTop />
-              <ErrorBoundary>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/profile" element={<AuthGuard><Profile /></AuthGuard>} />
-                  <Route path="/pencil-app" element={<AuthGuard><PencilApp /></AuthGuard>} />
-                  <Route path="/pencil" element={<PencilPage />} />
-                  <Route path="/landing" element={<LandingPage />} />
-                  <Route path="/ai-chatbot" element={<AuthGuard><AIChatbot /></AuthGuard>} />
-                  <Route path="/pencil-tools" element={<AuthGuard><WizardTools /></AuthGuard>} />
-                  <Route
-                    path="/tools-suggestions"
-                    element={<AuthGuard><ToolsSuggestions /></AuthGuard>}
-                  />
-                  <Route path="/output-history" element={<AuthGuard><OutputHistory /></AuthGuard>} />
-                  <Route path="/data-analytics" element={<AuthGuard><DataAnalytics /></AuthGuard>} />
-                  <Route path="/advanced-lms" element={<AdvancedLMS />} />
-                  <Route
-                    path="/school-administration"
-                    element={<SchoolAdministration />}
-                  />
-                  <Route path="/case-studies" element={<CaseStudies />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/knowledge-base" element={<KnowledgeBase />} />
-                  <Route path="/partners-integrations" element={<PartnersIntegrations />} />
-                  <Route path="/data-protection" element={<DataProtection />} />
-                  <Route path="/contact-us" element={<ContactUs />} />
-                  <Route
-                    path="/feedback-dashboard"
-                    element={<FeedbackDashboard />}
-                  />
-                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                  <Route
-                    path="/terms-of-service"
-                    element={<TermsOfService />}
-                  />
-                  <Route path="/lms" element={<LMSApp />} />
-                  <Route path="/student" element={<StudentPortal />} />
-                  <Route path="/teacher" element={<TeacherPortal />} />
-                  <Route
-                    path="/solutions/primary-schools"
-                    element={<PrimarySchools />}
-                  />
-                  <Route
-                    path="/solutions/secondary-schools"
-                    element={<SecondarySchools />}
-                  />
-                  <Route
-                    path="/solutions/universities"
-                    element={<Universities />}
-                  />
-                  <Route
-                    path="/solutions/independent-schools"
-                    element={<IndependentSchools />}
-                  />
-                  <Route
-                    path="/solutions/admissions"
-                    element={<Admissions />}
-                  />
-                  <Route
-                    path="/solutions/general-reports"
-                    element={<GeneralReports />}
-                  />
-                  <Route path="/solutions/hr-payroll" element={<HRPayroll />} />
-                  <Route path="/solutions/finance" element={<Finance />} />
-                  <Route
-                    path="/solutions/communication"
-                    element={<Communication />}
-                  />
-                  <Route path="/documentation" element={<Documentation />} />
-                  <Route path="/reset-password" element={<ResetPassword />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </ErrorBoundary>
-              <CookieConsent />
-              <ConsentManager />
-              <KribiNotification />
-            </BrowserRouter>
-          </TooltipProvider>
+          <AppContent />
         </SubscriptionProvider>
       </AuthProvider>
     </QueryClientProvider>

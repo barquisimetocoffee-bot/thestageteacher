@@ -4,7 +4,11 @@ import { X, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
-const KribiNotification = () => {
+interface KribiNotificationProps {
+  onShowLogin?: () => void;
+}
+
+const KribiNotification = ({ onShowLogin }: KribiNotificationProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
   const location = useLocation();
@@ -71,7 +75,12 @@ const KribiNotification = () => {
                   </h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Available for free plans and unlimited use! Normally exclusive to Pencil Pro subscribers. 
-                    <span className="text-primary font-medium"> Try it right now!</span>
+                    <span 
+                      className="text-primary font-medium cursor-pointer hover:underline transition-all duration-200"
+                      onClick={onShowLogin}
+                    >
+                      Try it right now!
+                    </span>
                   </p>
                 </div>
                 <Button
