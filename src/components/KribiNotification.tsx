@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { X, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,6 +7,25 @@ import { Card, CardContent } from '@/components/ui/card';
 const KribiNotification = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
+  const location = useLocation();
+
+  // Define which pages should show the notification
+  const allowedPages = [
+    '/', // Homepage
+    '/pencil', // Pencil page
+    '/lms', // LMS page
+    '/solutions/primary-schools',
+    '/solutions/secondary-schools',
+    '/solutions/universities',
+    '/solutions/independent-schools',
+    '/solutions/admissions',
+    '/solutions/general-reports',
+    '/solutions/hr-payroll',
+    '/solutions/finance',
+    '/solutions/communication'
+  ];
+
+  const shouldShowOnCurrentPage = allowedPages.includes(location.pathname);
 
   useEffect(() => {
     // Check if user has already dismissed this notification
@@ -29,7 +49,7 @@ const KribiNotification = () => {
     localStorage.setItem('kribi-notification-dismissed', 'true');
   };
 
-  if (isDismissed || !isVisible) {
+  if (isDismissed || !isVisible || !shouldShowOnCurrentPage) {
     return null;
   }
 
