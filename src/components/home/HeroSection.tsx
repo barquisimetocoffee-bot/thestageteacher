@@ -1,29 +1,15 @@
-import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Badge } from "@/components/ui/badge";
-import AnimatedCounter from "@/components/ui/animated-counter";
-import { GiEmptyHourglass } from "react-icons/gi";
-import { LiaUsersSolid } from "react-icons/lia";
-import { GrIntegration } from "react-icons/gr";
-import {
-  Shield,
-  Globe,
-  Star,
-  Sparkles,
-  ArrowRight,
-  Contact,
-} from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import AnimateFromBottom from "../animation/AnimateFromBottom";
-import TypingEffect from "../animation/TypingText";
+import { ChevronRight, Play, ArrowRight, Sparkles, Users } from "lucide-react";
+import { FaCheck, FaCertificate } from "react-icons/fa";
+import { FaCrown } from "react-icons/fa6";
+import { MdStars } from "react-icons/md";
 import ScrollInFromBottom from "../animation/ScrollInFromBottom";
 
-interface HeroSectionProps {
-  onShowLogin: () => void;
-}
-
-const HeroSection = ({ onShowLogin }: HeroSectionProps) => {
+const HeroSection = () => {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -95,11 +81,13 @@ const HeroSection = ({ onShowLogin }: HeroSectionProps) => {
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <Button
                   size="lg"
-                  onClick={onShowLogin}
+                  asChild
                   className="w-full md:w-72 my-btn text-white px-6 py-6 rounded-xl group"
                 >
-                  Get Started Free
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <Link to="/login">
+                    Get Started Free
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
                 </Button>
 
                 <Button

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { X, ChevronRight } from "lucide-react";
 import {
@@ -26,13 +26,11 @@ import {
 interface MobileNavigationProps {
   isOpen: boolean;
   onClose: () => void;
-  onShowLogin: () => void;
 }
 
 const MobileNavigation = ({
   isOpen,
   onClose,
-  onShowLogin,
 }: MobileNavigationProps) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -301,13 +299,12 @@ const MobileNavigation = ({
               {t("navigation.contact")}
             </Button>
             <Button
-              onClick={() => {
-                onShowLogin();
-                onClose();
-              }}
+              asChild
               className="w-full my-btn p-6"
             >
-              {t("navigation.login")}
+              <Link to="/login">
+                {t("navigation.login")}
+              </Link>
             </Button>
           </div>
         </div>

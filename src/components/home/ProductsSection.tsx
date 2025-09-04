@@ -1,7 +1,8 @@
+import { useAuth } from "@/hooks/useAuth";
 import { useTranslation } from "react-i18next";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useSubscription } from "@/hooks/useSubscription";
-import { useAuth } from "@/hooks/useAuth";
 import { useState } from "react";
 import {
   BookOpen,
@@ -36,23 +37,22 @@ import { PiUsersThreeFill } from "react-icons/pi";
 import { RiSecurePaymentFill } from "react-icons/ri";
 
 interface ProductsSectionProps {
-  onShowLogin: () => void;
   onJoinWaitlist: (productName: string) => void;
 }
 
 const ProductsSection = ({
-  onShowLogin,
   onJoinWaitlist,
 }: ProductsSectionProps) => {
+  const { user, session } = useAuth();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { createCheckout } = useSubscription();
-  const { user, session } = useAuth();
   const [upgrading, setUpgrading] = useState(false);
 
   const handleUpgrade = async () => {
     // Check if user is authenticated first
     if (!user || !session) {
-      onShowLogin();
+      navigate('/login');
       return;
     }
 
@@ -91,7 +91,7 @@ const ProductsSection = ({
         { text: t("products.communitySupportText"), reactIcon: FaCheck },
       ],
       users: t("products.teachersCount"),
-      action: () => onShowLogin(),
+      action: () => navigate('/login'),
       actionText: t("products.getStartedFree"),
       btnIcon: ArrowRight,
       popular: false,
