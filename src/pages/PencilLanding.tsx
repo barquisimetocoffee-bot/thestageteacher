@@ -86,7 +86,7 @@ const PencilLanding = () => {
                   variant="outline" 
                   className="px-8 py-4 text-lg font-semibold border-gray-300 text-gray-700 hover:bg-gray-50"
                 >
-                  Learn more about Pencil
+                  Watch Demo
                 </Button>
               </Link>
             </div>
@@ -94,7 +94,7 @@ const PencilLanding = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 max-w-md mx-auto">
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">20K+</div>
+                <div className="text-2xl font-bold text-gray-900">10K+</div>
                 <div className="text-sm text-gray-600">Active Teachers</div>
               </div>
               <div className="text-center">
@@ -230,25 +230,63 @@ const PencilLanding = () => {
         </div>
       </section>
 
-      {/* Vicerta Vision */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-            The Vicerta Vision
-          </h2>
-          
-          <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
-            <p>
-              Today's education system is at a breaking point. Teachers are stretched thin, juggling overwhelming workloads, large class sizes, and the risk of burnout. At the same time, every student needs a personalized approach to truly thrive—a demand that often exceeds a teacher's available time and resources.
+      {/* Testimonials */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Loved by Educators Worldwide
+            </h2>
+            <p className="text-xl text-gray-600">
+              See what teachers are saying about Pencil
             </p>
-            
-            <p>
-              Vicerta was founded to solve this challenge. We're not just a platform; we're the driving force behind a new era of educational innovation. Our mission is to empower educators by reducing time-consuming administrative tasks, allowing them to focus on what matters most: inspiring and engaging their students.
-            </p>
-            
-            <p>
-              With our first tool, Pencil, you can get a glimpse of this revolution. Join us as a teacher and experience the beginning of a future where technology supports human connection. Stay tuned for all the new products and tools we have planned.
-            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Testimonial 1 */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <CheckCircle key={i} className="w-5 h-5 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-600 mb-6">
+                "Pencil has revolutionized my teaching. I create better lessons in minutes instead of hours. 
+                My students are more engaged than ever!"
+              </p>
+              <div className="font-semibold text-gray-900">Sarah M.</div>
+              <div className="text-sm text-gray-500">5th Grade Teacher</div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <CheckCircle key={i} className="w-5 h-5 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-600 mb-6">
+                "The AI suggestions are incredible. It's like having a master teacher 
+                guiding every lesson. My work-life balance has never been better."
+              </p>
+              <div className="font-semibold text-gray-900">Michael R.</div>
+              <div className="text-sm text-gray-500">High School Science</div>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <CheckCircle key={i} className="w-5 h-5 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-600 mb-6">
+                "Finally, a tool that understands education. Pencil creates content that's 
+                perfectly aligned with standards and differentiated for all learners."
+              </p>
+              <div className="font-semibold text-gray-900">Lisa K.</div>
+              <div className="text-sm text-gray-500">Special Education</div>
+            </div>
           </div>
         </div>
       </section>
