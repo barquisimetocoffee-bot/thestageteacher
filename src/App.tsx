@@ -52,7 +52,6 @@ import AuthGuard from "./components/auth/AuthGuard";
 import KribiNotification from "./components/KribiNotification";
 import LoginModal from "./components/auth/LoginModal";
 import Login from "./pages/Login";
-import PencilLanding from "./pages/PencilLanding";
 
 const queryClient = new QueryClient();
 
@@ -68,13 +67,12 @@ const AppContent = () => {
         <ScrollToTop />
         <ErrorBoundary>
           <Routes>
-            <Route path="/" element={<PencilLanding />} />
+            <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<AuthGuard><Profile /></AuthGuard>} />
             <Route path="/pencil-app" element={<AuthGuard><PencilApp /></AuthGuard>} />
             <Route path="/pencil" element={<PencilPage />} />
             <Route path="/landing" element={<LandingPage />} />
-            <Route path="/ecerta" element={<Index />} />
             <Route path="/ai-chatbot" element={<AuthGuard><AIChatbot /></AuthGuard>} />
             <Route path="/pencil-tools" element={<AuthGuard><WizardTools /></AuthGuard>} />
             <Route

@@ -88,7 +88,7 @@ const PrimarySchools = () => {
   return (
     <>
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
-        <UniversalHeader onShowLogin={() => setShowLogin(true)} />
+        <UniversalHeader />
 
         <div className="container mx-auto px-4 py-6 md:py-16">
           {/* Hero Section */}

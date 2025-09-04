@@ -30,11 +30,9 @@ import {
   HamIcon,
 } from "lucide-react";
 
-interface NavigationProps {
-  onShowLogin: () => void;
-}
+interface NavigationProps {}
 
-const Navigation = ({ onShowLogin }: NavigationProps) => {
+const Navigation = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -409,10 +407,12 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
                 {t("navigation.contact")}
               </Button>
               <Button
-                onClick={onShowLogin}
+                asChild
                 className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white transition-all duration-200"
               >
-                {t("navigation.login")}
+                <Link to="/login">
+                  {t("navigation.login")}
+                </Link>
               </Button>
             </div>
           </div>
@@ -420,11 +420,13 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-2">
             <Button
-              onClick={onShowLogin}
+              asChild
               size="sm"
               className="my-btn text-white text-sm px-4"
             >
-              Login
+              <Link to="/login">
+                Login
+              </Link>
             </Button>
             <span className="size-9 rounded-md bg-blue-50 flex items-center justify-center">
               <LanguageSelector />
@@ -437,7 +439,6 @@ const Navigation = ({ onShowLogin }: NavigationProps) => {
       <MobileNavigation
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
-        onShowLogin={onShowLogin}
       />
     </nav>
   );
