@@ -128,7 +128,7 @@ const PencilPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
-      <Navigation />
+      <Navigation onShowLogin={() => setShowLogin(true)} />
 
       {/* Hero Section */}
       <section className="py-6 md:py-20 px-4 sm:px-6 lg:px-8">

@@ -36,7 +36,7 @@ const LMSApp = () => {
   if (!user) {
     return (
       <div className="min-h-screen bg-background">
-        <UniversalHeader />
+        <UniversalHeader onShowLogin={() => setShowLogin(true)} />
         <div className="flex items-center justify-center min-h-[80vh]">
           <Card className="w-full max-w-md">
             <CardHeader className="text-center">
@@ -65,7 +65,7 @@ const LMSApp = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <UniversalHeader />
+      <UniversalHeader onShowLogin={() => setShowLogin(true)} />
 
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">

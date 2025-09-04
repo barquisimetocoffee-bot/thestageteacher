@@ -104,7 +104,7 @@ const Blog = () => {
 
   return (
     <>
-      <Navigation />
+      <Navigation onShowLogin={() => setOnModelOpen(true)} />
 
       <div
         className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${
