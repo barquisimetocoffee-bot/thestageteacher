@@ -93,7 +93,7 @@ const ContactUs = () => {
 
   return (
     <>
-      <Navigation onShowLogin={() => setShowLogin(true)} />
+      <Navigation />
       <div
         className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"

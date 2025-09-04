@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { ArrowRight, Heart, Building, Sparkles, Trophy, Target } from "lucide-react";
-import { MdSchool, MdBusinessCenter, MdFamily } from "react-icons/md";
+import { ArrowRight, Heart, Building, Sparkles, Trophy, Target, Users, Award, Clock, Shield } from "lucide-react";
+import { MdSchool, MdBusinessCenter } from "react-icons/md";
 import { FaChalkboardTeacher, FaUsers } from "react-icons/fa";
 import ScrollInFromBottom from "../animation/ScrollInFromBottom";
 

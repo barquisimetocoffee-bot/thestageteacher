@@ -72,7 +72,7 @@ const PartnersIntegrations = () => {
 
   return (
     <>
-      <Navigation onShowLogin={() => setShowLogin(true)} />
+      <Navigation />
 
       <div
         className={`min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 transition-all duration-1000 ${

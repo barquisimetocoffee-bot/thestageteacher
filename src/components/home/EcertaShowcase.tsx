@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
@@ -15,8 +15,13 @@ import {
   Shield,
   Zap,
   Star,
+  CheckCircle,
 } from "lucide-react";
 import { FaGraduationCap } from "react-icons/fa6";
+import { GiArtificialIntelligence } from "react-icons/gi";
+import { GrConnectivity } from "react-icons/gr";
+import { HiOutlineSparkles } from "react-icons/hi";
+import { FaProjectDiagram, FaInfinity } from "react-icons/fa";
 import ScrollInFromBottom from "../animation/ScrollInFromBottom";
 
 const EcertaShowcase = () => {
