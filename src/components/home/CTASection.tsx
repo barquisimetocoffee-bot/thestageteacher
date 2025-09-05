@@ -1,17 +1,22 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { ArrowRight, Heart, Building, Sparkles, Trophy, Target, Users, Award, Clock, Shield } from "lucide-react";
-import { MdSchool, MdBusinessCenter } from "react-icons/md";
-import { FaChalkboardTeacher, FaUsers } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
+import {
+  Sparkles,
+  ArrowRight,
+  Users,
+  Award,
+  Heart,
+  Shield,
+  Clock,
+} from "lucide-react";
 import ScrollInFromBottom from "../animation/ScrollInFromBottom";
 
 interface CTASectionProps {
+  onShowLogin: () => void;
   onJoinWaitlist: (productName: string) => void;
 }
 
-const CTASection = ({ onJoinWaitlist }: CTASectionProps) => {
+const CTASection = ({ onShowLogin, onJoinWaitlist }: CTASectionProps) => {
   const { t } = useTranslation();
 
   return (
@@ -61,13 +66,11 @@ const CTASection = ({ onJoinWaitlist }: CTASectionProps) => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button
               size="lg"
-              asChild
+              onClick={onShowLogin}
               className="w-full md:w-72 my-btn text-white px-6 py-6 rounded-xl group"
             >
-              <Link to="/login">
-                Get Started for Free
-                <ArrowRight className="ml-2 size-6 md:size-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              Get Started for Free
+              <ArrowRight className="ml-2 size-6 md:size-5 group-hover:translate-x-1 transition-transform" />
             </Button>
 
             <Button
