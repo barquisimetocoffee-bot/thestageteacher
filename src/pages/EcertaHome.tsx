@@ -7,12 +7,10 @@ import EcertaShowcase from "@/components/home/EcertaShowcase";
 import ProductsSection from "@/components/home/ProductsSection";
 import CTASection from "@/components/home/CTASection";
 import Footer from "@/components/home/Footer";
-import LoginModal from "@/components/auth/LoginModal";
 import WaitlistModal from "@/components/WaitlistModal";
 import FAQ from "@/components/home/FAQ";
 
 const EcertaHome = () => {
-  const [showLogin, setShowLogin] = useState(false);
   const [showWaitlist, setShowWaitlist] = useState(false);
   const [waitlistProduct, setWaitlistProduct] = useState("");
 
@@ -23,16 +21,15 @@ const EcertaHome = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 via-purple-50 to-pink-50">
-      <Navigation onShowLogin={() => setShowLogin(true)} />
+      <Navigation />
 
-      <HeroSection onShowLogin={() => setShowLogin(true)} />
+      <HeroSection />
 
       <VideoShowcase />
 
-      <EcertaShowcase onShowLogin={() => setShowLogin(true)} />
+      <EcertaShowcase />
 
       <ProductsSection
-        onShowLogin={() => setShowLogin(true)}
         onJoinWaitlist={handleJoinWaitlist}
       />
 
@@ -41,17 +38,12 @@ const EcertaHome = () => {
       <VicertaVision />
 
       <CTASection
-        onShowLogin={() => setShowLogin(true)}
         onJoinWaitlist={handleJoinWaitlist}
       />
 
       <Footer />
 
       {/* Modals */}
-      {showLogin && (
-        <LoginModal isOpen={showLogin} onClose={() => setShowLogin(false)} />
-      )}
-
       {showWaitlist && (
         <WaitlistModal
           isOpen={showWaitlist}

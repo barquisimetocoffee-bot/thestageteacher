@@ -1,25 +1,30 @@
-import { useTranslation } from "react-i18next";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import {
+  BookOpen,
+  Users,
+  TrendingUp,
+  Target,
+  Award,
+  Lightbulb,
+  ArrowRight,
+  Sparkles,
+  Globe,
+  Shield,
+  Zap,
+  Star,
+  CheckCircle,
+} from "lucide-react";
+import { FaGraduationCap } from "react-icons/fa6";
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { GrConnectivity } from "react-icons/gr";
 import { HiOutlineSparkles } from "react-icons/hi";
-import { FaProjectDiagram } from "react-icons/fa";
-import { FaInfinity } from "react-icons/fa6";
-import { FaGraduationCap } from "react-icons/fa6";
+import { FaProjectDiagram, FaInfinity } from "react-icons/fa";
 import ScrollInFromBottom from "../animation/ScrollInFromBottom";
-interface EcertaShowcaseProps {
-  onShowLogin: () => void;
-}
 
-const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
+const EcertaShowcase = () => {
   const { t } = useTranslation();
 
   const ecosystemFeatures = [
@@ -203,11 +208,13 @@ const EcertaShowcase = ({ onShowLogin }: EcertaShowcaseProps) => {
 
           <div className="text-center mt-12">
             <Button
-              onClick={onShowLogin}
+              asChild
               className="w-full md:w-72 my-btn text-white px-6 py-6 rounded-xl group"
             >
-              {t("showcase.experienceFuture")}
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-all duration-200" />
+              <Link to="/login">
+                {t("showcase.experienceFuture")}
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-all duration-200" />
+              </Link>
             </Button>
           </div>
         </div>

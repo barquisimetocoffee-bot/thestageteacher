@@ -1,11 +1,9 @@
 import Navigation from "@/components/home/Navigation";
 
-interface UniversalHeaderProps {
-  onShowLogin: () => void;
-}
+interface UniversalHeaderProps {}
 
-const UniversalHeader = ({ onShowLogin }: UniversalHeaderProps) => {
-  return <Navigation onShowLogin={onShowLogin} />;
+const UniversalHeader = () => {
+  return <Navigation />;
 };
 
 export default UniversalHeader;

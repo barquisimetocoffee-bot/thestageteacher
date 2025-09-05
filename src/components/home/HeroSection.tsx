@@ -1,29 +1,21 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import AnimatedCounter from "@/components/ui/animated-counter";
-import { GiEmptyHourglass } from "react-icons/gi";
+import { Badge } from "@/components/ui/badge";
+import { ChevronRight, Play, ArrowRight, Sparkles, Users, Shield, Globe, Star, Mail } from "lucide-react";
+import { FaCheck, FaCertificate } from "react-icons/fa";
+import { FaCrown } from "react-icons/fa6";
+import { MdStars } from "react-icons/md";
 import { LiaUsersSolid } from "react-icons/lia";
 import { GrIntegration } from "react-icons/gr";
-import {
-  Shield,
-  Globe,
-  Star,
-  Sparkles,
-  ArrowRight,
-  Contact,
-} from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import AnimateFromBottom from "../animation/AnimateFromBottom";
-import TypingEffect from "../animation/TypingText";
+import { GiEmptyHourglass } from "react-icons/gi";
 import ScrollInFromBottom from "../animation/ScrollInFromBottom";
+import AnimateFromBottom from "../animation/AnimateFromBottom";
+import TypingText from "../animation/TypingText";
 
-interface HeroSectionProps {
-  onShowLogin: () => void;
-}
-
-const HeroSection = ({ onShowLogin }: HeroSectionProps) => {
+const HeroSection = () => {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -60,7 +52,7 @@ const HeroSection = ({ onShowLogin }: HeroSectionProps) => {
             <h1 className="text-center md:text-start text-3xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight animate-scale-in">
               {t("hero.title")}
               <span className="bg-gradient-to-r from-[#2901B3] to-blue-600 bg-clip-text text-transparent block transition-all duration-1000 animate-fade-in pb-2">
-                <TypingEffect text={messages[currentMessageIndex]} speed={50} />
+                <TypingText text={messages[currentMessageIndex]} speed={50} />
               </span>
             </h1>
 
@@ -95,11 +87,13 @@ const HeroSection = ({ onShowLogin }: HeroSectionProps) => {
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <Button
                   size="lg"
-                  onClick={onShowLogin}
+                  asChild
                   className="w-full md:w-72 my-btn text-white px-6 py-6 rounded-xl group"
                 >
-                  Get Started Free
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <Link to="/login">
+                    Get Started Free
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
                 </Button>
 
                 <Button
@@ -108,7 +102,7 @@ const HeroSection = ({ onShowLogin }: HeroSectionProps) => {
                   className="w-full md:w-72 text-black hover:bg-gray-50 hover:text-[#2901B3] px-6 py-6 rounded-xl group"
                   onClick={() => navigate("/contact-us")}
                 >
-                  <Contact className="mr-2 size-5 group-hover:scale-[1.04] transition-all duration-300" />
+                  <Mail className="mr-2 size-5 group-hover:scale-[1.04] transition-all duration-300" />
                   Contact Us
                 </Button>
               </div>

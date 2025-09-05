@@ -51,6 +51,7 @@ import Documentation from "./pages/Documentation";
 import AuthGuard from "./components/auth/AuthGuard";
 import KribiNotification from "./components/KribiNotification";
 import LoginModal from "./components/auth/LoginModal";
+import Login from "./pages/Login";
 
 const queryClient = new QueryClient();
 
@@ -67,6 +68,7 @@ const AppContent = () => {
         <ErrorBoundary>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<AuthGuard><Profile /></AuthGuard>} />
             <Route path="/pencil-app" element={<AuthGuard><PencilApp /></AuthGuard>} />
             <Route path="/pencil" element={<PencilPage />} />

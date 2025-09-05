@@ -212,7 +212,7 @@ const AdvancedLMS = () => {
 
   return (
     <>
-      <Navigation onShowLogin={() => setOnShowLogin(true)} />
+      <Navigation />
       <div
         className={`min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 via-purple-50 to-pink-50 transition-all duration-1000 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
